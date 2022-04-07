@@ -57,8 +57,8 @@ plugins:
 
 author:
   name   : "Yunho Kee"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "I am what I blog."
+  avatar : "https://avatars.githubusercontent.com/u/29868089"
+  bio    : "My posts make the tip of my iceberg."
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
