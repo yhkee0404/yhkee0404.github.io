@@ -13,21 +13,22 @@ title: "KEE, YUNHO｜기윤호"
 * iBATIS
 * Oracle, CUBRID
 * jQuery, TOAST UI Chart
-* Tomcat
+* httpd, Tomcat
+* Python, Anaconda
+* AWS IAM AssumeRole, Session Manager, ECS Fargate
+* C++, cuDNN
 * Git, Subversion
 * Docker, Azure ML, GitHub Codespaces
 * Ubuntu (Windows Subsystem for Linux)
-* Python, Anaconda
-* C++, cuDNN
 
 ### EXPERIENCE
 
-* 앱 개발 아르바이트 ('22.03.01 - '22.03.03)
+* 앱 개발 아르바이트 ('22.03 - '22.03)
     * App Store Review Downloader
         * Python, pandas, XlsxWriter, argparse, Colaboratory
         * Apple App Store 리뷰 크롤링, 엑셀 저장, 도움말 작성
             * 크롤링 500개 제한 돌파, 마감 2개월 단축
-* 해군 소프트웨어개발병 ('20.06.08 - '22.02.07)
+* 해군 소프트웨어개발병 ('20.06 - '22.02)
     * [해군장병고충신고상담체계][NDTS]
         * 파일 첨부, 계정 차단 해제, 다중 IP 인증, 형상 관리
     * 온라인 시험
