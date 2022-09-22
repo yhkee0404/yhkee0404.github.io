@@ -1,7 +1,7 @@
 ---
 title: "Hadamard product"
 categories:
-  - quiz
+  - Quiz
 tags:
   - vector
   - math

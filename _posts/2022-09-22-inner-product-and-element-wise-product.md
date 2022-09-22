@@ -1,7 +1,7 @@
 ---
 title: "Inner product and Element-wise product"
 categories:
-  - quiz
+  - Quiz
 tags:
   - vector
   - math
