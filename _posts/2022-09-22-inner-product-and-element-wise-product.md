@@ -10,4 +10,4 @@ tags:
   - hadamard
 ---
 
-inner product = sum of the element-wise product
+Inner product = Sum (Scalar) of the Element-wise product (Vector)
