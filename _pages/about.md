@@ -57,7 +57,7 @@ title: "KEE, YUNHO｜기윤호"
 
 ### ACTIVITIES
 
-* JWT 인증이 필요한 게시판의 [JSON API][angelswing] 개발 ('22.10)
+* JWT 인증 및 게시판 JSON API의 [Ruby on Rails 개발][angelswing] ('22.10)
 * [네이버 부스트캠프 AI Tech][boostcamp] ('22.09 - '23.02)
    * 연속 데이터의 불균형 문제 대처를 위해 [RankSim 적용][RankSim] ('22.10) 
 * [용감한 친구들 Dev Event][Dev Event] contributor ('22.04)
