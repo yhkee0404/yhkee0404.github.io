@@ -56,6 +56,10 @@ title: "KEE, YUNHO｜기윤호"
 * COS Pro(코딩전문가자격시험)(C) 1급 ('18.11.18)
 
 ### ACTIVITIES
+
+* JWT로 인증하는 Ruby on Rails [angelswing][JSON API 게시판] 개발 ('22.10)
+* 네이버 부스트캠프 AI Tech ('22.09 - '23.02)
+   * 연속 데이터의 불균형 문제 대처를 위해 [RankSim][RankSim] 적용 ('22.10) 
 * [용감한 친구들 Dev Event][Dev Event] contributor ('22.04)
 * [GitHub Pages course][Pages] contributor ('21.04)
 * 한국 대학생 프로그래밍 경시대회(ACM-ICPC 서울) 본선 ('19.11)
@@ -74,3 +78,5 @@ title: "KEE, YUNHO｜기윤호"
 [Dev Event]: https://github.com/brave-people/Dev-Event
 [Pages]: https://github.com/githubtraining/github-pages/issues/36
 [CRA]: https://cra16.github.io/
+[angelswing]: https://github.com/yhkee0404/angelswing
+[RankSim]: https://github.com/boostcampaitech4nlp1/level1_semantictextsimilarity_nlp-level1-nlp-11/tree/yhkee0404
