@@ -49,17 +49,17 @@ title: "KEE, YUNHO｜기윤호"
 
 ### CERTIFICATES
 
-* 삼성전자 상시 SW 역량테스트 Level B ('22.11.08)
-* 프로그래머스 상위 5% 탑프로그래머스 ('22.10.13)
+* [삼성전자 상시 SW 역량테스트][swexpertacademy] Level B ('22.11.08)
+* 프로그래머스 상위 5% [탑프로그래머스][programmers] ('22.10.13)
 * OPIc Intermediate High ('22.03.16)
 * 정보처리기사 ('21.08.20)
 * COS Pro(코딩전문가자격시험)(C) 1급 ('18.11.18)
 
 ### ACTIVITIES
 
-* JWT로 인증하는 Ruby on Rails [angelswing][JSON API 게시판] 개발 ('22.10)
-* 네이버 부스트캠프 AI Tech ('22.09 - '23.02)
-   * 연속 데이터의 불균형 문제 대처를 위해 [RankSim][RankSim] 적용 ('22.10) 
+* JWT 인증이 필요한 게시판의 [JSON API][angelswing] 개발 ('22.10)
+* [네이버 부스트캠프 AI Tech][boostcamp] ('22.09 - '23.02)
+   * 연속 데이터의 불균형 문제 대처를 위해 [RankSim 적용][RankSim] ('22.10) 
 * [용감한 친구들 Dev Event][Dev Event] contributor ('22.04)
 * [GitHub Pages course][Pages] contributor ('21.04)
 * 한국 대학생 프로그래밍 경시대회(ACM-ICPC 서울) 본선 ('19.11)
@@ -80,3 +80,6 @@ title: "KEE, YUNHO｜기윤호"
 [CRA]: https://cra16.github.io/
 [angelswing]: https://github.com/yhkee0404/angelswing
 [RankSim]: https://github.com/boostcampaitech4nlp1/level1_semantictextsimilarity_nlp-level1-nlp-11/tree/yhkee0404
+[boostcamp]: https://boostcamp.connect.or.kr/program_ai.html
+[swexpertacademy]: https://swexpertacademy.com/main/sst/intro.do
+[programmers]: https://career.programmers.co.kr/top_programmers/introduce
