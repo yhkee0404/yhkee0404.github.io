@@ -49,6 +49,8 @@ title: "KEE, YUNHO｜기윤호"
 
 ### CERTIFICATES
 
+* 삼성전자 상시 SW 역량테스트 Level B ('22.11.08)
+* 프로그래머스 상위 5% 탑프로그래머스 ('22.10.13)
 * OPIc Intermediate High ('22.03.16)
 * 정보처리기사 ('21.08.20)
 * COS Pro(코딩전문가자격시험)(C) 1급 ('18.11.18)
