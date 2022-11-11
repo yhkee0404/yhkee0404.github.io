@@ -5,17 +5,12 @@ title: "KEE, YUNHO｜기윤호"
 
 ### SKILLS
 
-* Java, Spring, Struts, JSON.simple
-* iBATIS
-* Oracle, CUBRID
-* jQuery, TOAST UI Chart
-* httpd, Tomcat
-* Python, Anaconda
-* AWS IAM AssumeRole, Session Manager, ECS Fargate
-* C++, cuDNN
-* Git, Subversion
-* Docker, Azure ML, GitHub Codespaces
-* Ubuntu (Windows Subsystem for Linux)
+| Java                   | Javascript     | Python            | C++   | Ruby          | AWS             | ETC                                  |
+|------------------------|----------------|-------------------|-------|---------------|-----------------|--------------------------------------|
+| Spring, Struts         | jQuery         | Anaconda          | cuDNN | Ruby on Rails | Java SDK        | Git, Subversion                      |
+| iBATIS, JSON.simple    | TOAST UI Chart | PyTorch, Lighting | CUDA  | Jb            | IAM AssumeRole  | Docker, Azure ML, GitHub Codespaces  |
+| Oracle, CUBRID         |                | Transformers      |       | API Guard     | Session Manager | Ubuntu (Windows Subsystem for Linux) |
+| Gradle Plugin for Node |                | WandB             |       |               | ECS Fargate     | Apache httpd, Tomcat                 |
 
 ### EXPERIENCE
 
