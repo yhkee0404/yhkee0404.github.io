@@ -3,10 +3,6 @@ permalink: /about/
 title: "KEE, YUNHO｜기윤호"
 ---
 
-### OBJECTIVE
-
-백엔드 정리수납 전문가
-
 ### SKILLS
 
 * Java, Spring, Struts, JSON.simple
@@ -23,29 +19,28 @@ title: "KEE, YUNHO｜기윤호"
 
 ### EXPERIENCE
 
-* 앱 개발 아르바이트 ('22.03 - '22.03)
-    * App Store Review Downloader
-        * Python, pandas, XlsxWriter, argparse, Colaboratory
-        * Apple App Store 리뷰 크롤링, 엑셀 저장, 도움말 작성
-            * 크롤링 500개 제한 돌파, 마감 2개월 단축
+* Apple App Store Review Downloader ('22.03 - '22.03)
+    * 리뷰 크롤링, 엑셀 저장, 도움말 작성
+        * 크롤링 500개 제한 돌파, 마감 2개월 단축
+    * Python, pandas, XlsxWriter, argparse, Colaboratory
+    * 1인 외주 개발
 * 해군 소프트웨어개발병 ('20.06 - '22.02)
     * [해군장병고충신고상담체계][NDTS]
         * 파일 첨부, 계정 차단 해제, 다중 IP 인증, 형상 관리
     * 온라인 시험
+        * 중장급(군단장급) 개인상장 수상 (최초)
+            * 자발적 SQL 최적화로 응답 시간 10배 단축
         * 실시간 접속 차단 해제, 호환성 보기 해제, 이메일 알림
-        * 자발적 SQL 최적화로 응답 시간 10배 단축
-            * 중장급(군단장급) 개인상장 수상 (최초)
     * 근태 관리
         * SSO 갱신, 게시판 복제, 변경 표시, 엑셀 다운로드, 일일 통계
     * 정신건강 진단
         * 기간별 통계, 구간 정렬, 세션 갱신, 서비스 통합, 접속 기록
     * 기타
         * 다중 쿼리, 취약점 대응, XML escape, 파일명 인코딩, 업로드 제한, 승인 자동화, IoT 장비 조사
-* 한동대학교 [WICWIU][WICWIU] ('17.07 - '18.05)
-    * 국내 대학 최초 오픈소스 딥러닝 프레임워크
-        * C++, cuDNN
-        * 그래프 설계, 주요 연산 수식 및 미분 구현·검증, GPGPU
-            * 2018 한국정보과학회 한국컴퓨터종합학술대회 우수논문상
+* WICWIU; 국내 대학 최초 오픈소스 딥러닝 프레임워크 ('17.07 - '18.05)
+    * 2018 한국정보과학회 한국컴퓨터종합학술대회 우수논문상
+    * C++, CUDA, cuDNN
+    * 그래프 설계, 주요 연산 수식 및 미분 구현·검증, GPGPU
 
 ### CERTIFICATES
 
@@ -59,7 +54,7 @@ title: "KEE, YUNHO｜기윤호"
 
 * JWT 인증 및 게시판 JSON API의 [Ruby on Rails 개발][angelswing] ('22.10)
 * [네이버 부스트캠프 AI Tech][boostcamp] ('22.09 - '23.02)
-   * 연속 데이터의 불균형 문제 대처를 위해 [RankSim 적용][RankSim] ('22.10) 
+   * [RankSim][RankSim]; 연속 데이터의 불균형 문제 대처 ('22.10) 
 * [용감한 친구들 Dev Event][Dev Event] contributor ('22.04)
 * [GitHub Pages course][Pages] contributor ('21.04)
 * 한국 대학생 프로그래밍 경시대회(ACM-ICPC 서울) 본선 ('19.11)
