@@ -64,7 +64,7 @@ title: "KEE, YUNHO｜기윤호"
     * Cum Laude, 공학인증
 
 [NDTS]: https://ndts.navy.mil.kr/NDTS/index
-[WICWIU]: https://github.com/WICWIU/WICWㅓIU
+[WICWIU]: https://github.com/WICWIU/WICWIU
 [Dev Event]: https://github.com/brave-people/Dev-Event
 [Pages]: https://github.com/githubtraining/github-pages/issues/36
 [CRA]: https://cra16.github.io/
