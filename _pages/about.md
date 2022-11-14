@@ -32,7 +32,7 @@ title: "KEE, YUNHO｜기윤호"
         * 기간별 통계, 구간 정렬, 세션 갱신, 서비스 통합, 접속 기록
     * 기타
         * 다중 쿼리, 취약점 대응, XML escape, 파일명 인코딩, 업로드 제한, 승인 자동화, IoT 장비 조사
-* WICWIU; 국내 대학 최초 오픈소스 딥러닝 프레임워크 ('17.07 - '18.05)
+* [WICWIU][WICWIU]; 국내 대학 최초 오픈소스 딥러닝 프레임워크 ('17.07 - '18.05)
     * 2018 한국정보과학회 한국컴퓨터종합학술대회 우수논문상
     * C++, CUDA, cuDNN
     * 그래프 설계, 주요 연산 수식 및 미분 구현·검증, GPGPU
@@ -47,7 +47,7 @@ title: "KEE, YUNHO｜기윤호"
 
 ### ACTIVITIES
 
-* JWT 인증 및 게시판 JSON API의 [Ruby on Rails 개발][angelswing] ('22.10)
+* JWT 인증 및 [JSON API][JSON API] 기반 [게시판][angelswing]의 Ruby on Rails 개발 ('22.10)
 * [네이버 부스트캠프 AI Tech][boostcamp] ('22.09 - '23.02)
    * [RankSim][RankSim]; 연속 데이터의 불균형 문제 대처 ('22.10) 
 * [용감한 친구들 Dev Event][Dev Event] contributor ('22.04)
@@ -64,7 +64,7 @@ title: "KEE, YUNHO｜기윤호"
     * Cum Laude, 공학인증
 
 [NDTS]: https://ndts.navy.mil.kr/NDTS/index
-[WICWIU]: https://github.com/WICWIU/WICWIU
+[WICWIU]: https://github.com/WICWIU/WICWㅓIU
 [Dev Event]: https://github.com/brave-people/Dev-Event
 [Pages]: https://github.com/githubtraining/github-pages/issues/36
 [CRA]: https://cra16.github.io/
@@ -73,3 +73,4 @@ title: "KEE, YUNHO｜기윤호"
 [boostcamp]: https://boostcamp.connect.or.kr/program_ai.html
 [swexpertacademy]: https://swexpertacademy.com/main/sst/intro.do
 [programmers]: https://career.programmers.co.kr/top_programmers/introduce
+[JSON API]: https://jsonapi.org/implementations/#server-libraries-ruby
