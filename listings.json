@@ -3,7 +3,15 @@
     "listing": "/index.html",
     "items": [
       "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/index.html",
+      "/posts/keep-the-lead-3/index.html",
+      "/posts/subsequence-above-t/index.html",
+      "/posts/change-to-capital/index.html",
+      "/posts/shortest-distance-9/index.html",
+      "/posts/determine-escapableness-with-2-ways/index.html",
+      "/posts/lis-on-the-integer-grid/index.html",
+      "/posts/three-five-moo/index.html",
+      "/posts/beautiful-sequence-2/index.html"
     ]
   }
 ]

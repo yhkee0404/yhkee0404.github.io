@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "posts/change-to-capital/index.html",
+    "href": "posts/change-to-capital/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다."
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
@@ -7,18 +14,53 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
+    "objectID": "posts/keep-the-lead-3/index.html",
+    "href": "posts/keep-the-lead-3/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자.."
+  },
+  {
+    "objectID": "posts/subsequence-above-t/index.html",
+    "href": "posts/subsequence-above-t/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다."
+  },
+  {
+    "objectID": "posts/lis-on-the-integer-grid/index.html",
+    "href": "posts/lis-on-the-integer-grid/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Yunho Kee",
     "section": "",
-    "text": "About this blog"
+    "text": "AI Image Generator\nI am happy when exploring hot repos on GitHub, examining them with debugging tools, and discussing better practices."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "yhkee0404.github.io",
+    "title": "Yunho Kee’s Cultivation",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 29, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 29, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 8주차 - 배열 기록\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 7주차 - 최장 연속 부분 수열\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 6주차 - 2차원 배열 입력\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 16, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 5주차 - Dijkstra\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 4주차 - DFS\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 2주차 - Parametric Search\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 11, 2023\n\n\nYunho Kee\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/beautiful-sequence-2/index.html",
+    "href": "posts/beautiful-sequence-2/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다."
+  },
+  {
+    "objectID": "posts/three-five-moo/index.html",
+    "href": "posts/three-five-moo/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다."
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -26,5 +68,19 @@
     "title": "Post With Code",
     "section": "",
     "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/determine-escapableness-with-2-ways/index.html",
+    "href": "posts/determine-escapableness-with-2-ways/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자."
+  },
+  {
+    "objectID": "posts/shortest-distance-9/index.html",
+    "href": "posts/shortest-distance-9/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자."
   }
 ]
