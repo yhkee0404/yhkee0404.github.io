@@ -1,19 +1,21 @@
 ---
-title: "About"
-image: profile.jpg
+title: "Yunho Kee"
+image: 8-xXebfJij9j8twVt.png
 about:
   template: jolla
   links:
-    - icon: twitter
+    - icon: twitter-x
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/yhkee0404
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/yunho-kee-2a4878256/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/yhkee0404/yhkee0404.github.io
 
 ---
 
-About this blog
+[AI Image Generator](https://hotpot.ai/art-generator)
+
+I am happy when exploring hot repos on GitHub, examining them with debugging tools, and discussing better practices.
