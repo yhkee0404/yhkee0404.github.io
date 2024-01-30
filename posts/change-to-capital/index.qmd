@@ -1,0 +1,18 @@
+---
+title: "[코드트리 챌린지] 6주차 - 2차원 배열 입력"
+author: "Yunho Kee"
+date: "2023-10-16"
+categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
+---
+
+::: {layout="[526, 474]" layout-valign="bottom"}
+![실력 진단 결과](report_2023-10-16.png)
+
+![2차원 배열 입력 / 대문자로 바꾸기](화면 캡처 2023-10-16 223542.jpg)
+:::
+
+<https://www.codetree.ai/missions/4/problems/change-to-capital/>
+
+숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.
+
+최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.
