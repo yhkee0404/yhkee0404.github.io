@@ -7,9 +7,11 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/yhkee0404/yhkee0404.github.io
+      - icon: linkedin
+        href: https://www.linkedin.com/in/yunho-kee-2a4878256/
+      - icon: twitter-x
+        href: https://twitter.com/yhkee0404
   comments:
     hypothesis:
       enableExperimentalNewNoteButton: true
