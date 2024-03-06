@@ -1,6 +1,6 @@
 ---
 title: "Yunho Kee"
-image: 8-xXebfJij9j8twVt.png
+image: lunapic.jpg
 about:
   template: jolla
   links:
@@ -15,7 +15,5 @@ about:
       href: https://github.com/yhkee0404/yhkee0404.github.io
 
 ---
-
-[AI Image Generator](https://hotpot.ai/art-generator)
 
 I am happy when exploring hot repos on GitHub, examining them with debugging tools, and discussing better practices.
