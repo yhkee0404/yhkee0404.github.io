@@ -14,39 +14,39 @@
     "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search"
   },
   {
-    "objectID": "posts/diary/shortest-distance-9/index.html",
-    "href": "posts/diary/shortest-distance-9/index.html",
-    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "objectID": "posts/diary/codetree-2023/subsequence-above-t/index.html",
+    "href": "posts/diary/codetree-2023/subsequence-above-t/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다."
   },
   {
-    "objectID": "posts/diary/keep-the-lead-3/index.html",
-    "href": "posts/diary/keep-the-lead-3/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "objectID": "posts/diary/codetree-2023/beautiful-sequence-2/index.html",
+    "href": "posts/diary/codetree-2023/beautiful-sequence-2/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자.."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다."
   },
   {
-    "objectID": "posts/diary/lis-on-the-integer-grid/index.html",
-    "href": "posts/diary/lis-on-the-integer-grid/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "objectID": "posts/diary/codetree-2023/three-five-moo/index.html",
+    "href": "posts/diary/codetree-2023/three-five-moo/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다."
   },
   {
-    "objectID": "posts/diary/determine-escapableness-with-2-ways/index.html",
-    "href": "posts/diary/determine-escapableness-with-2-ways/index.html",
-    "title": "[코드트리 챌린지] 4주차 - DFS",
+    "objectID": "posts/diary/codetree-2023/change-to-capital/index.html",
+    "href": "posts/diary/codetree-2023/change-to-capital/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Yunho Kee’s Cultivation",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Philemon\n\n\n\n\n\n\nbible\n\n\nPhilemon\n\n\nPaul\n\n\nTimothy\n\n\nApphia\n\n\nArchippus\n\n\nOnesimus\n\n\nEpaphras\n\n\nMark\n\n\nAristarchus\n\n\nDemas\n\n\nLuke\n\n\n\n\n\n\n\n\n\nFeb 14, 2024\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 8주차 - 배열 기록\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 7주차 - 최장 연속 부분 수열\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 6주차 - 2차원 배열 입력\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 16, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 5주차 - Dijkstra\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 4주차 - DFS\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 2주차 - Parametric Search\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 11, 2023\n\n\nYunho Kee\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -56,46 +56,39 @@
     "text": "I am happy when exploring hot repos on GitHub, examining them with debugging tools, and discussing better practices."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "All Posts",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
     "section": "",
-    "text": "Philemon\n\n\n\n\n\n\nbible\n\n\nPhilemon\n\n\nPaul\n\n\nTimothy\n\n\nApphia\n\n\nArchippus\n\n\nOnesimus\n\n\nEpaphras\n\n\nMark\n\n\nAristarchus\n\n\nDemas\n\n\nLuke\n\n\n\n\n\n\n\n\n\nFeb 14, 2024\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\nPhilemon\n\n\n\n\n\n\nbible\n\n\nPhilemon\n\n\nPaul\n\n\nTimothy\n\n\nApphia\n\n\nArchippus\n\n\nOnesimus\n\n\nEpaphras\n\n\nMark\n\n\nAristarchus\n\n\nDemas\n\n\nLuke\n\n\n\n\n\n\n\n\n\nFeb 14, 2024\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 8주차 - 배열 기록\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 7주차 - 최장 연속 부분 수열\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 23, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 6주차 - 2차원 배열 입력\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 16, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 5주차 - Dijkstra\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 4주차 - DFS\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nOct 2, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 2주차 - Parametric Search\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nYunho Kee\n\n\n\n\n\n\n\n\n\n\n\n\n[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색\n\n\n\n\n\n\n코드트리\n\n\n코딩테스트\n\n\n코딩테스트실력진단\n\n\n\n\n\n\n\n\n\nSep 11, 2023\n\n\nYunho Kee\n\n\n\n\n\n\nNo matching items"
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/diary/change-to-capital/index.html",
-    "href": "posts/diary/change-to-capital/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "objectID": "posts/diary/codetree-2023/determine-escapableness-with-2-ways/index.html",
+    "href": "posts/diary/codetree-2023/determine-escapableness-with-2-ways/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자."
   },
   {
-    "objectID": "posts/diary/three-five-moo/index.html",
-    "href": "posts/diary/three-five-moo/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "objectID": "posts/diary/codetree-2023/lis-on-the-integer-grid/index.html",
+    "href": "posts/diary/codetree-2023/lis-on-the-integer-grid/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다."
   },
   {
-    "objectID": "posts/diary/beautiful-sequence-2/index.html",
-    "href": "posts/diary/beautiful-sequence-2/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "objectID": "posts/diary/codetree-2023/keep-the-lead-3/index.html",
+    "href": "posts/diary/codetree-2023/keep-the-lead-3/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자.."
   },
   {
-    "objectID": "posts/diary/subsequence-above-t/index.html",
-    "href": "posts/diary/subsequence-above-t/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "objectID": "posts/diary/codetree-2023/shortest-distance-9/index.html",
+    "href": "posts/diary/codetree-2023/shortest-distance-9/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다."
-  },
-  {
-    "objectID": "posts/philemon/index.html",
-    "href": "posts/philemon/index.html",
-    "title": "Philemon",
-    "section": "",
-    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자."
   },
   {
     "objectID": "diary.html",
