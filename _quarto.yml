@@ -4,6 +4,9 @@ project:
 website:
   title: "yhkee0404.github.io"
   navbar:
+    left:
+      - diary.qmd
+      - bible.qmd
     right:
       - about.qmd
       - icon: github
