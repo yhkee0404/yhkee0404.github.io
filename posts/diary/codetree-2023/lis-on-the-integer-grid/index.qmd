@@ -3,6 +3,7 @@ title: "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하
 author: "Yunho Kee"
 date: "2023-09-25"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
+image: "화면 캡처 2023-09-25 225150.jpg"
 ---
 
 ::: {layout="[257, 743]" layout-valign="bottom"}
