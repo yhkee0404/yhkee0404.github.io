@@ -9,7 +9,7 @@
 <meta name="author" content="Yunho Kee">
 <meta name="dcterms.date" content="2023-09-25">
 
-<title>yhkee0404.github.io - [코드트리 챌린지] 2주차 - Parametric Search</title>
+<title>yhkee0404.github.io - [코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -100,9 +100,19 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../diary.html"> 
+<span class="menu-text">Diary</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../bible.html"> 
+<span class="menu-text">Bible</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -131,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[코드트리 챌린지] 2주차 - Parametric Search</h1>
+      <h1 class="title">[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">코드트리</div>
                 <div class="quarto-category">코딩테스트</div>
@@ -175,30 +185,32 @@ ul.task-list li input[type="checkbox"] {
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[212, 788]">
+<div class="quarto-layout-panel" data-layout="[257, 743]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img"></p>
+<p><img src="화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img"></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img"></p>
-<figcaption>Parametric Search / 삼 오 무</figcaption>
+<p><img src="화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img"></p>
+<figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><a href="https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/" class="uri">https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/</a></p>
-<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
-<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
-<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
+<p><a href="https://www.codetree.ai/missions/8/problems/three-five-moo/" class="uri">https://www.codetree.ai/missions/8/problems/three-five-moo/</a></p>
+<p>DP라는 취약점을 재발견했다.</p>
+<p>격자를 회전하는 등 변형하는 것도 미숙한 것 같다.</p>
+<p>DP 개념 설명과 해설이 역시 매우 좋았다.</p>
+<p>그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.</p>
+<p>문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.</p>
 
 
 

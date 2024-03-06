@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-10-09">
 
-<title>yhkee0404.github.io - [코드트리 챌린지] 5주차 - Dijkstra</title>
+<title>yhkee0404.github.io - Bible</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script type="application/json" class="js-hypothesis-config">
 {
   "enableExperimentalNewNoteButton": true
@@ -80,18 +109,47 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -100,9 +158,19 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./diary.html"> 
+<span class="menu-text">Diary</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./bible.html" aria-current="page"> 
+<span class="menu-text">Bible</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -130,87 +198,115 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">[코드트리 챌린지] 5주차 - Dijkstra</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">코드트리</div>
-                <div class="quarto-category">코딩테스트</div>
-                <div class="quarto-category">코딩테스트실력진단</div>
-              </div>
-                  </div>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Bible</h1>
+                      </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Yunho Kee </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">October 9, 2023</p>
-      </div>
-    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Apphia">Apphia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Archippus">Archippus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Aristarchus">Aristarchus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Demas">Demas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Epaphras">Epaphras <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Luke">Luke <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Mark">Mark <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Onesimus">Onesimus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Paul">Paul <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Philemon">Philemon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Timothy">Timothy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bible">bible <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<div>
 
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="bible,Philemon,Paul,Timothy,Apphia,Archippus,Onesimus,Epaphras,Mark,Aristarchus,Demas,Luke" data-listing-date-sort="1707868800000" data-listing-file-modified-sort="1709719505288" data-listing-date-modified-sort="1709683200000" data-listing-reading-time-sort="3" data-listing-word-count-sort="538">
+<div class="thumbnail">
+<p><a href="./posts/bible/philemon/index.html" class="no-external"></a></p><a href="./posts/bible/philemon/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/bible/philemon/index.html" class="no-external"></a></p>
 </div>
-<div class="quarto-layout-panel" data-layout="[526, 474]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="report_2023-10-09.png" class="img-fluid figure-img"></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/bible/philemon/index.html" class="no-external">Philemon</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/bible/philemon/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('bible'); return false;">
+bible
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Philemon'); return false;">
+Philemon
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Paul'); return false;">
+Paul
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Timothy'); return false;">
+Timothy
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Apphia'); return false;">
+Apphia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Archippus'); return false;">
+Archippus
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Onesimus'); return false;">
+Onesimus
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Epaphras'); return false;">
+Epaphras
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mark'); return false;">
+Mark
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Aristarchus'); return false;">
+Aristarchus
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Demas'); return false;">
+Demas
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Luke'); return false;">
+Luke
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img"></p>
-<figcaption>Dijkstra / 최단 거리 9</figcaption>
-</figure>
+<div class="listing-description">
+<a href="./posts/bible/philemon/index.html" class="no-external">Greetings from<br>
+This letter is from<br>
+I am writing to<br>
+Paul’s Final Greetings<br>
+send you his greetings<br>
+So do</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/bible/philemon/index.html" class="no-external">
+<div class="listing-date">
+Feb 14, 2024
+</div>
+<div class="listing-author">
+Yunho Kee
+</div>
+</a>
 </div>
 </div>
 </div>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
-<p><a href="https://www.codetree.ai/missions/8/problems/shortest-distance-9/" class="uri">https://www.codetree.ai/missions/8/problems/shortest-distance-9/</a></p>
-<p>마지막 문제만 못 풀면서 점수가 조금 올랐다.</p>
-<p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img"></p>
-<figcaption>진단 센터 / 문항별 통계</figcaption>
-</figure>
-</div>
-<p><a href="https://www.codetree.ai/missions/reports/" class="uri">https://www.codetree.ai/missions/reports/</a></p>
-<p>유형 자체의 평균 소요 시간이 <code>dfs, bfs</code>는 21분, <code>Parametric Search</code>는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.</p>
-<p>평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 <code>구간 단위로 완전탐색</code> 유형과 3주차에 취약했던 <code>격자 안에서 한 칸씩 전진하는 DP</code> 유형이었다. 계속 연습하자.</p>
-
-
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
