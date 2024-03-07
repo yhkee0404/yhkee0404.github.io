@@ -5,8 +5,10 @@ website:
   title: "yhkee0404.github.io"
   navbar:
     left:
-      - diary.qmd
-      - bible.qmd
+      - text: Algorithms
+        href: algorithms.qmd#category=feature
+      - text: Bible
+        href: bible.qmd#category=feature
     right:
       - about.qmd
       - icon: github
