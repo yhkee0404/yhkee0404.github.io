@@ -1,6 +1,6 @@
 ---
 title: "Yunho Kee"
-image: lunapic.jpg
+image: haezoom-everland-jyh-lunapic.jpg
 about:
   template: solana
   links:
