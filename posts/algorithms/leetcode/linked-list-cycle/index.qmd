@@ -12,8 +12,16 @@ categories:
 draft: true
 ---
 
+[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
 ```{=tex}
-\begin{align}
-\forall a, b, m \in \mathbb{Z}^+, \exists n \text{ such that } a \equiv b + n \pmod{m} \text{ and } 0 \leq y < m.
-\end{align}
+\begin{gather}
+\forall a, b, m \in \mathbb{Z}^+, \exists n \text{ such that } a \equiv b + n \pmod{m} \text{ and } 0 \leq y < m.\\
+\therefore a + n \equiv b + 2n \pmod{m}.
+\end{gather}
 ```
+
+[gg](https://leetcode.com/submissions/detail/1195224680/)
+[bbbj](https://leetcode.com/submissions/detail/1196229225/)
+[me](https://leetcode.com/submissions/detail/1196462233/)
+
