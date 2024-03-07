@@ -15,6 +15,8 @@ website:
         href: https://www.linkedin.com/in/yunho-kee-2a4878256/
       - icon: twitter-x
         href: https://twitter.com/yhkee0404
+      - icon: chat-left-quote-fill
+        href: https://hypothes.is/search?q=url%3Ahttps%3A%2F%2Fyhkee0404.github.io%2F%2A
   comments:
     hypothesis:
       enableExperimentalNewNoteButton: true
