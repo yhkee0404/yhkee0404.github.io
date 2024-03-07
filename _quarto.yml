@@ -6,9 +6,9 @@ website:
   navbar:
     left:
       - text: Algorithms
-        href: algorithms.qmd#category=feature
+        href: algorithms.qmd#category=featured
       - text: Bible
-        href: bible.qmd#category=feature
+        href: bible.qmd#category=featured
     right:
       - about.qmd
       - icon: github
