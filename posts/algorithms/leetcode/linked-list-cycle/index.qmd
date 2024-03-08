@@ -1,27 +1,38 @@
 ---
-title: "Double dereferencing"
+title: "Two Pointers for Linked Lists"
 author: "Yunho Kee"
 date: "2024-03-07"
 categories:
-  - feature
+  - featured
   - leetcode
+  - two pointers
   - linked list
   - cycle
   - double
-  - dereferencing
 draft: true
 ---
 
-[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+Linked List를 탐색하려면 각 원소의 Link를 참조하면 된다. Link를 다양하게 만들면 Tree, Trie 등의 Graph도 구현할 수 있다.
 
-```{=tex}
-\begin{gather}
-\forall a, b, m \in \mathbb{Z}^+, \exists n \text{ such that } a \equiv b + n \pmod{m} \text{ and } 0 \leq y < m.\\
-\therefore a + n \equiv b + 2n \pmod{m}.
-\end{gather}
-```
+자료 구조를 탐색할 때 같은 원소를 재방문하거나 Two Pointers는 어떤 Pointer의 
 
-[gg](https://leetcode.com/submissions/detail/1195224680/)
-[bbbj](https://leetcode.com/submissions/detail/1196229225/)
-[me](https://leetcode.com/submissions/detail/1196462233/)
+모든 link를 두번 연속 참조 즉 원소 하나를 탐색할 때마다 다른 원소 한개씩을 건너뛰는 방법이 유용할 때가 있다.
+
+그래프에 사이클이 있는지 확인하려면 그래프를 탐색하면서 이미 방문한 노드를 재방문하는지 검사하면 된다.
+
+LeetCode 문제 [Linked List Cycle]은 
+
+$$
+\begin{align}
+\forall a, b \in \mathbb{Z} \ \forall m \in \mathbb{Z}^+ : \exists r \text{ such that } a + r & \equiv b \pmod{m} \text{ and } 0 \leq r < m.\\
+\therefore a + 2r & \equiv b + r \pmod{m}.
+\end{align}
+$$
+
+[haha][Linked List Cycle]ㅎㅎ
+
+[Linked List Cycle]: https://leetcode.com/problems/linked-list-cycle/
+[gg]: https://leetcode.com/submissions/detail/1195224680/
+[bbbj]: https://leetcode.com/submissions/detail/1196229225/
+[me]: https://leetcode.com/submissions/detail/1196462233/
 
