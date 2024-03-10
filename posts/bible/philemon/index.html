@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-09-11">
+<meta name="dcterms.date" content="2024-02-14">
 
-<title>yhkee0404.github.io - [코드트리 챌린지] 1주차 - 구간 단위로 완전탐색</title>
+<title>yhkee0404.github.io - Philemon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -100,9 +100,19 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../diary.html"> 
+<span class="menu-text">Diary</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../bible.html"> 
+<span class="menu-text">Bible</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -131,11 +141,20 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색</h1>
+      <h1 class="title">Philemon</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">코드트리</div>
-                <div class="quarto-category">코딩테스트</div>
-                <div class="quarto-category">코딩테스트실력진단</div>
+                <div class="quarto-category">bible</div>
+                <div class="quarto-category">Philemon</div>
+                <div class="quarto-category">Paul</div>
+                <div class="quarto-category">Timothy</div>
+                <div class="quarto-category">Apphia</div>
+                <div class="quarto-category">Archippus</div>
+                <div class="quarto-category">Onesimus</div>
+                <div class="quarto-category">Epaphras</div>
+                <div class="quarto-category">Mark</div>
+                <div class="quarto-category">Aristarchus</div>
+                <div class="quarto-category">Demas</div>
+                <div class="quarto-category">Luke</div>
               </div>
                   </div>
   </div>
@@ -153,10 +172,16 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 11, 2023</p>
+        <p class="date">February 14, 2024</p>
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">March 6, 2024</p>
+      </div>
+    </div>
       
     </div>
     
@@ -172,34 +197,128 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div>
+<p>Greetings from<br>
+This letter is from<br>
+I am writing to<br>
+Paul’s Final Greetings<br>
+send you his greetings<br>
+So do</p>
+<p>May give you grace and peace<br>
+May the grace of be with your spirit</p>
+<p>One more thing—<br>
+please prepare a guest room for me<br>
+I am hoping<br>
+God will answer your prayers<br>
+let me return to you soon</p>
+<p>send back to<br>
+with him comes my own heart<br>
+for a little while<br>
+have back forever</p>
+<p>keep here with me<br>
+while here<br>
+while I am<br>
+help on your behalf</p>
+<p>That is why</p>
+<p>has been in the past<br>
+wanted and he would have helped<br>
+It seems you lost so that you could</p>
+<p>I<br>
+with my own hand<br>
+owe me your very soul<br>
+And I won’t mention</p>
+<p>I am confident as<br>
+and even more!</p>
+<p>a prisoner for preaching<br>
+a prisoner for the sake of<br>
+in prison<br>
+in these chains for</p>
+<p>an old man</p>
+<p>preaching the Good News</p>
+<p>the Good News about</p>
+<p>Christ Jesus<br>
+the Lord Jesus Christ<br>
+the Lord Jesus<br>
+Christ<br>
+for the Lord’s sake<br>
+encouragement in Christ</p>
+<p>God our Father<br>
+my God</p>
+<p>God’s people</p>
+<p>누가 하나님의 사람인가</p>
+<p>my brother<br>
+my child<br>
+both of us<br>
+to you<br>
+especially to me<br>
+consider me your partner<br>
+welcome as you would<br>
+Yes</p>
+<p>wrong in any way<br>
+owe anything</p>
+<p>charge to<br>
+repay</p>
+<p>our brother<br>
+our beloved co-worker<br>
+our sister<br>
+our fellow soldier<br>
+the church<br>
+my fellow prisoner<br>
+my co-workers</p>
+<p>집에서 모이는 교회도 있다.</p>
+<p>our love<br>
+become his father in the faith<br>
+a beloved brother<br>
+mean much more as<br>
+show kindness to<br>
+a brother in the Lord</p>
+<p>of much use<br>
+very useful<br>
+no longer like a slave<br>
+more than a slave<br>
+a man</p>
+<p>Paul’s Thanksgiving<br>
+always thank when I pray<br>
+love for all of</p>
+<p>사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.</p>
+<p>Pray<br>
+pray for<br>
+pray that you will<br>
+put into action the generosity</p>
+<p>understand and experience<br>
+all the good things we have in</p>
+<p>사람을 위해 기도한다.</p>
+<p>믿는 사람은 이해하고 경험하면서 너그러워진다.<br>
+행동까지 너그러워지게 기도한다.</p>
+<p>give me much joy and comfort<br>
+your kindness<br>
+often refresh the hearts of</p>
+<p>친절은 종종 사람들의 마음을 회복시킨다.<br>
+사람들이 마음을 회복할수록 기분이 좋다.</p>
+<p>Appeal for<br>
+a request from<br>
+I am boldly asking<br>
+I appeal to you to show<br>
+ask a favor of<br>
+do a favor for<br>
+please<br>
+Give me this encouragement in</p>
+<p>could demand<br>
+demand in the name<br>
+it is the right thing<br>
+prefer simply to ask<br>
+Consider this as a request<br>
+an old man</p>
+<p>anything without your consent<br>
+help because you were willing<br>
+not because you were forced</p>
+<section id="references" class="level1">
+<h1>References</h1>
+<ol type="1">
+<li>New Living Translation. (2015). Tyndale. <a href="https://www.tyndale.com/nlt/search" class="uri">https://www.tyndale.com/nlt/search</a></li>
+</ol>
 
-</div>
-<div class="quarto-layout-panel" data-layout="[493, 507]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 49.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img"></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.7%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img"></p>
-<figcaption>구간 단위로 완전탐색 / 아름다운 수열 2</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p><a href="https://www.codetree.ai/cote/14/problems/beautiful-sequence-2/" class="uri">https://www.codetree.ai/cote/14/problems/beautiful-sequence-2/</a></p>
-<p>36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.</p>
-<p>시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.</p>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
