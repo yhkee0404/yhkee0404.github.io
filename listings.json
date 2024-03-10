@@ -6,6 +6,19 @@
     ]
   },
   {
+    "listing": "/diary.html",
+    "items": [
+      "/posts/diary/codetree-2023/keep-the-lead-3/index.html",
+      "/posts/diary/codetree-2023/subsequence-above-t/index.html",
+      "/posts/diary/codetree-2023/change-to-capital/index.html",
+      "/posts/diary/codetree-2023/shortest-distance-9/index.html",
+      "/posts/diary/codetree-2023/determine-escapableness-with-2-ways/index.html",
+      "/posts/diary/codetree-2023/lis-on-the-integer-grid/index.html",
+      "/posts/diary/codetree-2023/three-five-moo/index.html",
+      "/posts/diary/codetree-2023/beautiful-sequence-2/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/bible/philemon/index.html",
@@ -15,21 +28,8 @@
       "/posts/diary/codetree-2023/change-to-capital/index.html",
       "/posts/diary/codetree-2023/shortest-distance-9/index.html",
       "/posts/diary/codetree-2023/determine-escapableness-with-2-ways/index.html",
-      "/posts/diary/codetree-2023/three-five-moo/index.html",
       "/posts/diary/codetree-2023/lis-on-the-integer-grid/index.html",
-      "/posts/diary/codetree-2023/beautiful-sequence-2/index.html"
-    ]
-  },
-  {
-    "listing": "/diary.html",
-    "items": [
-      "/posts/diary/codetree-2023/keep-the-lead-3/index.html",
-      "/posts/diary/codetree-2023/subsequence-above-t/index.html",
-      "/posts/diary/codetree-2023/change-to-capital/index.html",
-      "/posts/diary/codetree-2023/shortest-distance-9/index.html",
-      "/posts/diary/codetree-2023/determine-escapableness-with-2-ways/index.html",
       "/posts/diary/codetree-2023/three-five-moo/index.html",
-      "/posts/diary/codetree-2023/lis-on-the-integer-grid/index.html",
       "/posts/diary/codetree-2023/beautiful-sequence-2/index.html"
     ]
   }
