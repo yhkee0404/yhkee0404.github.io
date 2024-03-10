@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-10-02">
+<meta name="dcterms.date" content="2023-10-09">
 
-<title>yhkee0404.github.io - [코드트리 챌린지] 4주차 - DFS</title>
+<title>yhkee0404.github.io - [코드트리 챌린지] 5주차 - Dijkstra</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -100,19 +100,9 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../../diary.html"> 
-<span class="menu-text">Diary</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../bible.html"> 
-<span class="menu-text">Bible</span></a>
-  </li>  
-</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
+    <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -141,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">[코드트리 챌린지] 4주차 - DFS</h1>
+      <h1 class="title">[코드트리 챌린지] 5주차 - Dijkstra</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">코드트리</div>
                 <div class="quarto-category">코딩테스트</div>
@@ -163,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 2, 2023</p>
+        <p class="date">October 9, 2023</p>
       </div>
     </div>
     
@@ -185,34 +175,38 @@ ul.task-list li input[type="checkbox"] {
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[525, 475]">
+<div class="quarto-layout-panel" data-layout="[526, 474]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 52.5%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="report_2023-10-02.png" class="img-fluid figure-img"></p>
+<p><img src="report_2023-10-09.png" class="img-fluid figure-img"></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 47.5%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img"></p>
-<figcaption>DFS / 두 방향 탈출 가능 여부 판별하기</figcaption>
+<p><img src="화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img"></p>
+<figcaption>Dijkstra / 최단 거리 9</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><a href="https://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/" class="uri">https://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/</a></p>
-<p>놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.</p>
-<p>제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.</p>
-<p>이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.</p>
-<p>복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.</p>
-<p>하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.</p>
-<p>후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.</p>
-<p>약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.</p>
+<p><a href="https://www.codetree.ai/missions/8/problems/shortest-distance-9/" class="uri">https://www.codetree.ai/missions/8/problems/shortest-distance-9/</a></p>
+<p>마지막 문제만 못 풀면서 점수가 조금 올랐다.</p>
+<p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img"></p>
+<figcaption>진단 센터 / 문항별 통계</figcaption>
+</figure>
+</div>
+<p><a href="https://www.codetree.ai/missions/reports/" class="uri">https://www.codetree.ai/missions/reports/</a></p>
+<p>유형 자체의 평균 소요 시간이 <code>dfs, bfs</code>는 21분, <code>Parametric Search</code>는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.</p>
+<p>평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 <code>구간 단위로 완전탐색</code> 유형과 3주차에 취약했던 <code>격자 안에서 한 칸씩 전진하는 DP</code> 유형이었다. 계속 연습하자.</p>
 
 
 
