@@ -1,33 +1,53 @@
 ---
-title: "Two Pointers for Linked Lists"
+title: "Dependent Two Pointers"
 author: "Yunho Kee"
-date: "2024-03-07"
+date: "2024-03-11"
 categories:
   - featured
   - leetcode
   - two pointers
   - linked list
   - cycle
-  - double
 draft: true
 ---
 
-Linked List를 탐색하려면 각 원소의 Link를 참조하면 된다. Link를 다양하게 만들면 Tree, Trie 등의 Graph도 구현할 수 있다.
+![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash){fig-alt="A photo of poeple in a maze."}
 
-자료 구조를 탐색할 때 같은 원소를 재방문하거나 Two Pointers는 어떤 Pointer의 
+미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까? 2가지 방법이 있다. 첫째는 한번 지나갔다는 것을 알 수 있도록 흔적을 남기는 것이다. 둘째는 전화 통화 가능한 두 집단으로 나뉘어 같은 경로를 공유하되 서로 다른 속도로 전진하는 것이다: 앞 그룹이 뒷 그룹을 다시 만날 것이다.
+
+두 집단의 미로 탐험을 Two Pointers 알고리즘으로 수행할 수 있다. Two Pointers는 어떤 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 그 자료 구조를 여러 Pointer로 동시에 탐색하는 알고리즘이다. 각 Pointer는 $n$개의 원소를 최대 1번씩만 방문하기 때문에 선형($O(n)$) 시간 내로 탐색을 마친다. 따라서 총 수행 시간 $T$는 Pointers의 개수 $k$에 비례하고($T = O(kn)$), $T$가 $k$에 따라 지수적으로 증가하는 알고리즘($T = O(n^k)$)보다 빠르다. 즉 앞 집단이 
+
+Graph에 Cycle이 있을 때 a와 b
+
+LeetCode 문제 [Linked List Cycle]은 Linked List에 Cycle이 있는지 확인하는 문제이다. Cycle이 있으면 무한 루프가 발생
+
+
+
+
+Linked List를 탐색하려면 각 원소의 Link를 참조(dereference)하면 된다. Link를 다양하게 만들면 Tree, Trie 등의 Graph도 구현할 수 있다.
 
 모든 link를 두번 연속 참조 즉 원소 하나를 탐색할 때마다 다른 원소 한개씩을 건너뛰는 방법이 유용할 때가 있다.
 
 그래프에 사이클이 있는지 확인하려면 그래프를 탐색하면서 이미 방문한 노드를 재방문하는지 검사하면 된다.
 
-LeetCode 문제 [Linked List Cycle]은 
 
 $$
 \begin{align}
-\forall a, b \in \mathbb{Z} \ \forall m \in \mathbb{Z}^+ : \exists r \text{ such that } a + r & \equiv b \pmod{m} \text{ and } 0 \leq r < m.\\
-\therefore a + 2r & \equiv b + r \pmod{m}.
+\forall a, b \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists r \in \mathbb{Z} \text{ such } \text { that }  \\
+& & a + r & \equiv b & \pmod{m}\ \\
+\text{ and }\\
+& & 0 \leq r & < m.\\
+\therefore \forall k \in \mathbb{Z} :\\
+& & a + (k + 1)r & \equiv b + kr & \pmod{m}.
 \end{align}
 $$
+
+```c++
+#include <iostream>
+int main() {
+    cout << 1;
+}
+```
 
 [haha][Linked List Cycle]ㅎㅎ
 
@@ -35,4 +55,3 @@ $$
 [gg]: https://leetcode.com/submissions/detail/1195224680/
 [bbbj]: https://leetcode.com/submissions/detail/1196229225/
 [me]: https://leetcode.com/submissions/detail/1196462233/
-
