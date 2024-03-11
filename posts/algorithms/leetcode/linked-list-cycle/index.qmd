@@ -6,18 +6,32 @@ categories:
   - featured
   - leetcode
   - two pointers
-  - linked list
   - cycle
+  - linked list
 draft: true
 ---
 
-![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash){fig-alt="A photo of poeple in a maze."}
+![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash.jpg){fig-alt="A photo of poeple in a maze."}
 
-미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까? 2가지 방법이 있다. 첫째는 한번 지나갔다는 것을 알 수 있도록 흔적을 남기는 것이다. 둘째는 전화 통화 가능한 두 집단으로 나뉘어 같은 경로를 공유하되 서로 다른 속도로 전진하는 것이다: 앞 그룹이 뒷 그룹을 다시 만날 것이다.
+미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까? 2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 다시 만나면 두 집단을 연결하는 줄이 Cycle이 된다.
 
-두 집단의 미로 탐험을 Two Pointers 알고리즘으로 수행할 수 있다. Two Pointers는 어떤 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 그 자료 구조를 여러 Pointer로 동시에 탐색하는 알고리즘이다. 각 Pointer는 $n$개의 원소를 최대 1번씩만 방문하기 때문에 선형($O(n)$) 시간 내로 탐색을 마친다. 따라서 총 수행 시간 $T$는 Pointers의 개수 $k$에 비례하고($T = O(kn)$), $T$가 $k$에 따라 지수적으로 증가하는 알고리즘($T = O(n^k)$)보다 빠르다. 즉 앞 집단이 
+Graph의 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘으로 해결한다. Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 각 Pointer는 $n$개의 원소를 최대 1번씩 방문하기 때문에 탐색 시간이 선형($O(n)$) 시간 이내이다. 그래서 총 수행 시간 $T(n)$은 Pointers의 개수 $k$에 비례한다: $T(n) = O(kn)$. 반면에 $n$개 원소와의 Cartesian Product를 $k$번 반복하는 시간은 $k$에 따라 지수적으로 증가하기 때문에 더 느리다: $O(n^k)$. 가령, $k = 2$이면 $O(n^2) \ne O(2n)$이다.
 
-Graph에 Cycle이 있을 때 a와 b
+Two Pointers 알고리즘을 통한 선형 시간 내 완전 탐색은 중복 방문 방지를 전제한다. 하지만 방문 여부를 저장할 필요는 없다. Cycle이 없는 Graph에서는 후진만 안 하면 된다. Cycle이 있더라도 별도의 방문 여부 확인 없이 선형 시간 안에 검사를 마쳐 수행을 중단할 수 있다; 완전 탐색을 보장하지 못할 뿐이다. Cycle 검사 시간이 선형 시간 이내인 이유는 다음과 같다: 길이가 $m$인 Cycle을 탐색할 때 방문하는 원소를 순서대로 $0, 1, ..., m - 1$이라 부르면 $a$와 $b$를 각각 고르면,
+$$
+\begin{align}
+\forall a, b \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists r \in \mathbb{Z} \text{ such } \text { that }  \\
+& & a + r & \equiv b & \pmod{m}\ \\
+\text{ and }\\
+& & 0 \leq r & < m.\\
+\therefore \forall k \in \mathbb{Z} :\\
+& & a + (k + 1)r & \equiv b + kr & \pmod{m}.
+\end{align}
+$$
+
+가속도 차이 $(k + 1) - k = 1$을 유지하며 전진시키면 
+
+Two Pointers는  마지막 원소에 도달하면 탐색을 멈추기 때문에 방문 여부를 저장하지 않고  은 Graph에 Cycle이 있을 때 a와 b
 
 LeetCode 문제 [Linked List Cycle]은 Linked List에 Cycle이 있는지 확인하는 문제이다. Cycle이 있으면 무한 루프가 발생
 
@@ -30,17 +44,6 @@ Linked List를 탐색하려면 각 원소의 Link를 참조(dereference)하면 �
 
 그래프에 사이클이 있는지 확인하려면 그래프를 탐색하면서 이미 방문한 노드를 재방문하는지 검사하면 된다.
 
-
-$$
-\begin{align}
-\forall a, b \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists r \in \mathbb{Z} \text{ such } \text { that }  \\
-& & a + r & \equiv b & \pmod{m}\ \\
-\text{ and }\\
-& & 0 \leq r & < m.\\
-\therefore \forall k \in \mathbb{Z} :\\
-& & a + (k + 1)r & \equiv b + kr & \pmod{m}.
-\end{align}
-$$
 
 ```c++
 #include <iostream>
@@ -55,3 +58,40 @@ int main() {
 [gg]: https://leetcode.com/submissions/detail/1195224680/
 [bbbj]: https://leetcode.com/submissions/detail/1196229225/
 [me]: https://leetcode.com/submissions/detail/1196462233/
+
+```
+MOD = 12 * 60 * 60
+DH = 1
+DM = 12
+DS = 12 * 60
+DSH = DS - DH
+DSM = DS - DM
+
+def solution(h1, m1, s1, h2, m2, s2):
+    src = (h1 * 60 + m1) * 60 + s1
+    dest = (h2 * 60 + m2) * 60 + s2
+    hi = src % MOD
+    mi = (m1 * 60 + s1) * DM
+    si = s1 * DS
+    ans = 1 if any(xi == si for xi in [hi, mi]) else 0
+    for _ in range(src, dest):
+        hj = hi + DH
+        mj = mi + DM
+        sj = si + DS
+        sh = None
+        if hi > si and hj <= sj:
+            sh = (hi - si) * DSM
+        sm = None
+        if mi > si and mj <= sj:
+            sm = (mi - si) * DSH
+        bsh = sh is not None
+        bsm = sm is not None
+        if bsh or bsm:
+            ans += 2 if bsh and bsm and sh != sm else 1
+        hi = hj % MOD
+        mi = mj % MOD
+        si = sj % MOD
+    return ans
+```
+
+https://school.programmers.co.kr/learn/courses/30/lessons/250135
