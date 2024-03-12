@@ -1,5 +1,5 @@
 ---
-title: "Dependent Two Pointers"
+title: "Two Pointers를 통한 Graph의 Cycle 검사"
 author: "Yunho Kee"
 date: "2024-03-11"
 categories:
@@ -8,32 +8,96 @@ categories:
   - two pointers
   - cycle
   - linked list
+  - 쥐쥐
 draft: true
 ---
 
 ![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash.jpg){fig-alt="A photo of poeple in a maze."}
 
-미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까? 2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 다시 만나면 두 집단을 연결하는 줄이 Cycle이 된다.
+미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?
 
-Graph의 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘으로 해결한다. Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 각 Pointer는 $n$개의 원소를 최대 1번씩 방문하기 때문에 탐색 시간이 선형($O(n)$) 시간 이내이다. 그래서 총 수행 시간 $T(n)$은 Pointers의 개수 $k$에 비례한다: $T(n) = O(kn)$. 반면에 $n$개 원소와의 Cartesian Product를 $k$번 반복하는 시간은 $k$에 따라 지수적으로 증가하기 때문에 더 느리다: $O(n^k)$. 가령, $k = 2$이면 $O(n^2) \ne O(2n)$이다.
+2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.
 
-Two Pointers 알고리즘을 통한 선형 시간 내 완전 탐색은 중복 방문 방지를 전제한다. 하지만 방문 여부를 저장할 필요는 없다. Cycle이 없는 Graph에서는 후진만 안 하면 된다. Cycle이 있더라도 별도의 방문 여부 확인 없이 선형 시간 안에 검사를 마쳐 수행을 중단할 수 있다; 완전 탐색을 보장하지 못할 뿐이다. Cycle 검사 시간이 선형 시간 이내인 이유는 다음과 같다: 길이가 $m$인 Cycle을 탐색할 때 방문하는 원소를 순서대로 $0, 1, ..., m - 1$이라 부르면 $a$와 $b$를 각각 고르면,
+Graph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다.
+
+Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 $n$개일 때 각 Pointer는 $n$개의 원소를 최대 1번씩 방문하다가 선형($O(n)$) 시간 안에 탐색을 마친다. 따라서 총 수행 시간 $T(n)$은 Pointers의 개수 $k$에 비례한다: $T(n) = O(kn)$. 이에 비해 $n$개 원소와의 Cartesian Product를 $k$번 반복하는 시간은 $k$에 따라 지수적으로 증가하기 때문에 더 느리다: $O(n^k)$. 가령, $k = 2$이면 $O(n^2) \ne O(2n) = O(n)$이다. 이처럼 선형 시간 내에 탐색이 가능한 이유는 중복 방문 방지 덕분이다.
+
+Two Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단하고 중단해야 한다.
+
+Two Pointers를 통한 Cycle 검사 시간을 Graph에 Cycle이 있는 경우에도 선형으로 보장하려면 선발대와 후발대의 속도 차가 $1$이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 게다가 Cycle에 진입한 원소는 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 $0$부터 오름차순으로 $i_s$번째, 후발대는 $j_s$번째라고 하고, $i_s$와 $j_s$가 길이가 $m$인 Cycle 위에 있을 때 $t$ 시간을 더 탐색하면
+
 $$
 \begin{align}
-\forall a, b \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists r \in \mathbb{Z} \text{ such } \text { that }  \\
-& & a + r & \equiv b & \pmod{m}\ \\
+\forall i_s, j_s \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists t \in \mathbb{Z} \text{ such that }  \\
+& & i_s + t         & \equiv j_s        & \pmod{m}\;\\
 \text{ and }\\
-& & 0 \leq r & < m.\\
-\therefore \forall k \in \mathbb{Z} :\\
-& & a + (k + 1)r & \equiv b + kr & \pmod{m}.
+& & 0 \leq t        & < m.\\
+\therefore \forall a \in \mathbb{Z} :\\
+& & i_s + (a + 1)t  & \equiv j_s + at   & \pmod{m}.
 \end{align}
 $$
 
-가속도 차이 $(k + 1) - k = 1$을 유지하며 전진시키면 
+다시 말해 후발대가 $a$의 속도로 이동할 때 선발대가 $a + 1$의 속도로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 $x$ 시점에 도착하는 $j_x$번째와 $i_x$번째 원소가 $x = t$ 시점에서 일치($i_x \equiv j_x \pmod{m}$)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 $T_c(m) = O(m)$이다. 왜냐하면 $T_c(m) = t$이고 $0 \leq t < m$이기 때문이다. 일반적으로 원소의 개수가 $n$인 Graph를 탐색할 때 $i_0 = j_0 = 0$번째 원소가 Cycle 밖에 있더라도 Cycle 내 원소에 선형($T_u(n) = i_s - i_0 = O(n)$) 시간이면 반드시 도달한다. 또한 $m = O(n)$이다. 결론적으로 Two Pointers의 Cycle 검사 시간은
 
-Two Pointers는  마지막 원소에 도달하면 탐색을 멈추기 때문에 방문 여부를 저장하지 않고  은 Graph에 Cycle이 있을 때 a와 b
+$$
+\begin{align}
+T(n) & = T_u(n) + T_c(m)\\
+     & = O(n) + O(m)\\
+     & = O(n)
+\end{align}
+$$
 
-LeetCode 문제 [Linked List Cycle]은 Linked List에 Cycle이 있는지 확인하는 문제이다. Cycle이 있으면 무한 루프가 발생
+LeetCode 문제 [Linked List Cycle]은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기며 풀었다. 그러나 `Follow up`에서 상수 공간 복잡도를 요구하는 것을 보니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 [쥐쥐][쥐쥐]님의 풀이를 본 덕분에 이 글을 쓸 수 있었다.
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        a_i = head
+        a_j = head
+        while a_i is not None and a_j is not None:
+            for _ in range(2):
+                a_i = a_i.next
+                if a_i is None:
+                    return False
+            for _ in range(1):
+                a_j = a_j.next
+                if a_j is None:
+                    return False
+            if a_i == a_j:
+                return True
+        return False
+```
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        a_i = head
+        a_j = head
+        while a_i is not None and a_j is not None:
+            for _ in range(3):
+                a_i = a_i.next
+                if a_i is None:
+                    return False
+            for _ in range(2):
+                a_j = a_j.next
+                if a_j is None:
+                    return False
+            if a_i == a_j:
+                return True
+        return False
+```
 
 
 
@@ -55,7 +119,7 @@ int main() {
 [haha][Linked List Cycle]ㅎㅎ
 
 [Linked List Cycle]: https://leetcode.com/problems/linked-list-cycle/
-[gg]: https://leetcode.com/submissions/detail/1195224680/
+[쥐쥐]: https://leetcode.com/submissions/detail/1195224680/
 [bbbj]: https://leetcode.com/submissions/detail/1196229225/
 [me]: https://leetcode.com/submissions/detail/1196462233/
 
