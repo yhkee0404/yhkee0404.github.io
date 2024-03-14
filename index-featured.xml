@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Yunho Kee&#39;s Cultivation</title>
+<link>https://yhkee0404.github.io/#category=featured</link>
+<atom:link href="https://yhkee0404.github.io/index-featured.xml" rel="self" type="application/rss+xml"/>
+<description>a personal cloud diary of Yunho Kee, a software engineer</description>
+<language>ko</language>
+<image>
+<url>https://yhkee0404.github.io/haezoom-everland-jyh-lunapic.jpg</url>
+<title>Yunho Kee&#39;s Cultivation</title>
+<link>https://yhkee0404.github.io/#category=featured</link>
+</image>
+<generator>quarto-1.4.551</generator>
+<lastBuildDate>Thu, 14 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Two Pointers Speed Control</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
+<p>미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?</p>
+<p>2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.</p>
+<p>Graph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다.</p>
+</section>
+<section id="two-pointers" class="level2">
+<h2 class="anchored" data-anchor-id="two-pointers">Two Pointers</h2>
+<p>Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 <img src="https://latex.codecogs.com/png.latex?n">개일 때 각 Pointer는 <img src="https://latex.codecogs.com/png.latex?n">개의 원소를 최대 1번씩 방문하다가 선형 시간 <img src="https://latex.codecogs.com/png.latex?O(n)"> 안에 탐색을 마친다. 따라서 총 수행 시간 <img src="https://latex.codecogs.com/png.latex?T(n)">은 Pointer의 개수 <img src="https://latex.codecogs.com/png.latex?k">에 비례한다: <img src="https://latex.codecogs.com/png.latex?T(n)%20=%20O(kn)">. 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 <img src="https://latex.codecogs.com/png.latex?k">번 반복하므로 <img src="https://latex.codecogs.com/png.latex?k">에 따라 지수적으로 증가한다: <img src="https://latex.codecogs.com/png.latex?O(n%5Ek)">. 가령, <img src="https://latex.codecogs.com/png.latex?k%20=%202">이면 <img src="https://latex.codecogs.com/png.latex?O(n%5E2)%20%5Cne%20O(2n)%20=%20O(n)">이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진한다.</p>
+</section>
+<section id="two-pointers를-통한-graph-cycle-검사" class="level2">
+<h2 class="anchored" data-anchor-id="two-pointers를-통한-graph-cycle-검사">Two Pointers를 통한 Graph Cycle 검사</h2>
+<p>Two Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.</p>
+<p>Cycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 <img src="https://latex.codecogs.com/png.latex?1">이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 <img src="https://latex.codecogs.com/png.latex?0">부터 오름차순으로 <img src="https://latex.codecogs.com/png.latex?i_s">번째, 후발대는 <img src="https://latex.codecogs.com/png.latex?j_s">번째라고 하고, <img src="https://latex.codecogs.com/png.latex?i_s">와 <img src="https://latex.codecogs.com/png.latex?j_s">가 길이가 <img src="https://latex.codecogs.com/png.latex?m">인 Cycle 위에 있을 때 <img src="https://latex.codecogs.com/png.latex?t"> 시간을 더 탐색하면:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Cforall%20i_s,%20j_s%20%5Cin%20%5Cmathbb%7BZ%7D,%20%5Cforall%20m%20%5Cin%20%5Cmathbb%7BZ%7D%5E+%20:%20%5Cexists%20t%20%5Cin%20%5Cmathbb%7BZ%7D%20%5Ctext%7B%20such%20that%20%7D%20%20%5C%5C%0A&amp;%20&amp;%20i_s%20+%20t%20%20%20%20%20%20%20%20%20&amp;%20%5Cequiv%20j_s%20%20%20%20%20%20%20%20&amp;%20%5Cpmod%7Bm%7D%5C;%5C%5C%0A%5Ctext%7B%20and%20%7D%5C%5C%0A&amp;%20&amp;%200%20%5Cleq%20t%20%20%20%20%20%20%20%20&amp;%20%3C%20m.%5C%5C%0A%5Ctherefore%20%5Cforall%20a%20%5Cin%20%5Cmathbb%7BZ%7D%20:%5C%5C%0A&amp;%20&amp;%20i_s%20+%20(a%20+%201)t%20%20&amp;%20%5Cequiv%20j_s%20+%20at%20%20%20&amp;%20%5Cpmod%7Bm%7D.%0A%5Cend%7Balign%7D%0A"></p>
+<p>다시 말해 후발대가 <img src="https://latex.codecogs.com/png.latex?a">의 속력으로 이동할 때 선발대가 <img src="https://latex.codecogs.com/png.latex?a%20+%201">의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 <img src="https://latex.codecogs.com/png.latex?x"> 시점에 도착하는 <img src="https://latex.codecogs.com/png.latex?j_x%20=%20j_s%20+%20at">번째 원소와 <img src="https://latex.codecogs.com/png.latex?i_x%20=%20i_s%20+%20(a%20+%201)t">번째 원소가 <img src="https://latex.codecogs.com/png.latex?x%20=%20t"> 시점에서 일치(<img src="https://latex.codecogs.com/png.latex?i_x%20%5Cequiv%20j_x%20%5Cpmod%7Bm%7D">)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 <img src="https://latex.codecogs.com/png.latex?T_c(m)%20=%20O(m)">이다. 왜냐하면 <img src="https://latex.codecogs.com/png.latex?T_c(m)%20=%20t">이고 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20t%20%3C%20m">이기 때문이다.</p>
+<p>일반적으로 원소의 개수가 <img src="https://latex.codecogs.com/png.latex?n">인 Graph를 탐색할 때 <img src="https://latex.codecogs.com/png.latex?i_0%20=%20j_0%20=%200">번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 <img src="https://latex.codecogs.com/png.latex?a%20%3E%200">이면 Cycle 내 원소까지 선형 시간(<img src="https://latex.codecogs.com/png.latex?T_u(n)%20=%20i_s%20-%20i_0%20=%20O(n)">)에 반드시 도달한다. 또한 <img src="https://latex.codecogs.com/png.latex?m%20=%20O(n)">이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AT(n)%20&amp;%20=%20T_u(n)%20+%20T_c(m)%5C%5C%0A%20%20%20%20%20&amp;%20=%20O(n)%20+%20O(m)%5C%5C%0A%20%20%20%20%20&amp;%20=%20O(n)%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="linked-list-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
+<p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 <code>a &gt;= 1</code>인 모든 정수에 대해 동작한다:</p>
+<div id="cf26e70e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Definition for singly-linked list.</span></span>
+<span id="cb1-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> ListNode:</span>
+<span id="cb1-3">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, x):</span>
+<span id="cb1-4">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.val <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> x</span>
+<span id="cb1-5">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> Solution:</span>
+<span id="cb1-8">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> hasCycle(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, head: Optional[ListNode], a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb1-9">        node_i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> head</span>
+<span id="cb1-10">        node_j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> head</span>
+<span id="cb1-11">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> node_i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> node_j <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb1-12">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>):</span>
+<span id="cb1-13">                node_i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node_i.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span></span>
+<span id="cb1-14">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> node_i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb1-15">                    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb1-16">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(a):</span>
+<span id="cb1-17">                node_j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node_j.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span></span>
+<span id="cb1-18">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> node_j <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>:</span>
+<span id="cb1-19">                    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb1-20">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> node_i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> node_j:</span>
+<span id="cb1-21">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb1-22">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span></code></pre></div>
+</div>
+<div id="b2562143" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">nodes <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [ListNode(x) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> x <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>]]</span>
+<span id="cb2-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(nodes) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>):</span>
+<span id="cb2-3">    nodes[i].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nodes[i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb2-4">nodes[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nodes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb2-5">head <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nodes[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb2-6"></span>
+<span id="cb2-7">sol <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Solution()</span>
+<span id="cb2-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">all</span>(sol.hasCycle(head, a) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> a <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>))</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="two-pointers-speed-control" class="level2">
+<h2 class="anchored" data-anchor-id="two-pointers-speed-control">Two Pointers Speed Control</h2>
+<p>Two Pointers Cycle 검사는 속력 차가 1이어야 했다. 정렬된 List에서 Median 찾기는 속력 차가 2배이면 된다. 홀수 <img src="https://latex.codecogs.com/png.latex?n">개 원소가 정렬된 List의 Median은 <img src="https://latex.codecogs.com/png.latex?n%20/%202">번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 <img src="https://latex.codecogs.com/png.latex?O(1)">이 걸리니 선형 시간의 Two Pointers가 더 느리다: <img src="https://latex.codecogs.com/png.latex?O(1)%20%5Cne%20O(n)">. 반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 <img src="https://latex.codecogs.com/png.latex?n%20/%202">번째 원소를 찾을 때 <img src="https://latex.codecogs.com/png.latex?n">을 몰라도 된다는 장점이 있다. <img src="https://latex.codecogs.com/png.latex?%5Cforall%20q%20%5Cin%20%5Cmathbb%7BZ%7D%5E+">인 <img src="https://latex.codecogs.com/png.latex?n%20/%20q">번째 원소라면 속력 차가 <img src="https://latex.codecogs.com/png.latex?q">배면 되는 것이다.</p>
+</section>
+<section id="middle-of-the-linked-list" class="level2">
+<h2 class="anchored" data-anchor-id="middle-of-the-linked-list">Middle of the Linked List</h2>
+<p>LeetCode 문제 <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a>는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 <img src="https://latex.codecogs.com/png.latex?n%20/%202">번째 원소만 찾으면 된다. 원래는 <img src="https://latex.codecogs.com/png.latex?n">을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 <a href="https://leetcode.com/submissions/detail/1196229225/">백발백준</a>님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. <a href="https://leetcode.com/submissions/detail/1202349821/">다음</a>은 Kotlin 풀이이다:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/**</span></span>
+<span id="cb4-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * Example:</span></span>
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * var li = ListNode(5)</span></span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * var v = li.`val`</span></span>
+<span id="cb4-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * Definition for singly-linked list.</span></span>
+<span id="cb4-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * class ListNode(var `val`: Int) {</span></span>
+<span id="cb4-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> *     var next: ListNode? = null</span></span>
+<span id="cb4-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> * }</span></span>
+<span id="cb4-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> */</span></span>
+<span id="cb4-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> Solution <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-11">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">fun</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">middleNode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">head</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ListNode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">?):</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ListNode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">?</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-12">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">var</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">node</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> ListNode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">?</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> head</span>
+<span id="cb4-13">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">var</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ans</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> ListNode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">?</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> head</span>
+<span id="cb4-14">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">var</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">odd</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">Boolean</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span></span>
+<span id="cb4-15">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!==</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">null</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-16">            node <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> node<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>next</span>
+<span id="cb4-17">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>odd<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-18">                ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ans<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!!.</span>next</span>
+<span id="cb4-19">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-20">            odd <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> odd xor <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span></span>
+<span id="cb4-21">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-22">        <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans</span>
+<span id="cb4-23">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-24"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</section>
+<section id="아날로그-시계" class="level2">
+<h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
+<p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <img src="https://latex.codecogs.com/png.latex?12%20*%2060%20*%2060">개 상태를 탐색하므로 <img src="https://latex.codecogs.com/png.latex?12%20+%2060%20+%2060">개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
+<p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.</p>
+<div id="4e749b73" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">MOD <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span></span>
+<span id="cb5-2">DH <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-3">DM <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span></span>
+<span id="cb5-4">DS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span></span>
+<span id="cb5-5">DSH <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> DH</span>
+<span id="cb5-6">DSM <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> DM</span>
+<span id="cb5-7"></span>
+<span id="cb5-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> solution(h1, m1, s1, h2, m2, s2):</span>
+<span id="cb5-9">    src <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (h1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> m1) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> s1</span>
+<span id="cb5-10">    dest <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (h2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> m2) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> s2</span>
+<span id="cb5-11">    hi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> src <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span> MOD</span>
+<span id="cb5-12">    mi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (m1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> s1) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> DM</span>
+<span id="cb5-13">    si <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> DS</span>
+<span id="cb5-14">    ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">any</span>(xi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> si <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> xi <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> [hi, mi]) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-15">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(src, dest):</span>
+<span id="cb5-16">        hj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> hi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> DH</span>
+<span id="cb5-17">        mj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> DM</span>
+<span id="cb5-18">        sj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> si <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> DS</span>
+<span id="cb5-19">        sh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb5-20">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> hi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> si <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> hj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> sj:</span>
+<span id="cb5-21">            sh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (hi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> si) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> DSM</span>
+<span id="cb5-22">        sm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb5-23">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> mi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> si <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> mj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> sj:</span>
+<span id="cb5-24">            sm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (mi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> si) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> DSH</span>
+<span id="cb5-25">        bsh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb5-26">        bsm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sm <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb5-27">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> bsh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">or</span> bsm:</span>
+<span id="cb5-28">            ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> bsh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> bsm <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> sh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> sm <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-29">        hi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> hj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span> MOD</span>
+<span id="cb5-30">        mi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span> MOD</span>
+<span id="cb5-31">        si <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sj <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span> MOD</span>
+<span id="cb5-32">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans</span></code></pre></div>
+</div>
+<div id="07d930b5" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">s <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb6-2"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0   5   30  0   7   0   2</span></span>
+<span id="cb6-3"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">12  0   0   12  0   30  1</span></span>
+<span id="cb6-4"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0   6   1   0   6   6   0</span></span>
+<span id="cb6-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">11  59  30  12  0   0   1</span></span>
+<span id="cb6-6"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">11  58  59  11  59  0   1</span></span>
+<span id="cb6-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1   5   5   1   5   6   2</span></span>
+<span id="cb6-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">0   0   0   23  59  59  2852</span></span>
+<span id="cb6-9"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span></span>
+<span id="cb6-10">ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb6-11"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> line <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> s.strip().split(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span>):</span>
+<span id="cb6-12">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>args, result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">map</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">eval</span>, line.split(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\t</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span>))</span>
+<span id="cb6-13">    ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ans <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> solution(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>args) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> result</span>
+<span id="cb6-14">ans</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>True</code></pre>
+</div>
+</div>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>featured</category>
+  <category>leetcode</category>
+  <category>programmers</category>
+  <category>two pointers</category>
+  <category>linked list</category>
+  <category>cycle</category>
+  <category>median</category>
+  <category>clock</category>
+  <category>speed</category>
+  <category>쥐쥐</category>
+  <category>백발백준</category>
+  <guid>https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/</guid>
+  <pubDate>Thu, 14 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>
