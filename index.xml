@@ -46,7 +46,9 @@
 <h2 class="anchored" data-anchor-id="two-pointers를-통한-graph-cycle-검사">Two Pointers를 통한 Graph Cycle 검사</h2>
 <p>Two Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.</p>
 <p>Cycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 <img src="https://latex.codecogs.com/png.latex?1">이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 <img src="https://latex.codecogs.com/png.latex?0">부터 오름차순으로 <img src="https://latex.codecogs.com/png.latex?i_s">번째, 후발대는 <img src="https://latex.codecogs.com/png.latex?j_s">번째라고 하고, <img src="https://latex.codecogs.com/png.latex?i_s">와 <img src="https://latex.codecogs.com/png.latex?j_s">가 길이가 <img src="https://latex.codecogs.com/png.latex?m">인 Cycle 위에 있을 때 <img src="https://latex.codecogs.com/png.latex?t"> 시간을 더 탐색하면:</p>
+<div style="overflow-x: auto">
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Cforall%20i_s,%20j_s%20%5Cin%20%5Cmathbb%7BZ%7D,%20%5Cforall%20m%20%5Cin%20%5Cmathbb%7BZ%7D%5E+%20:%20%5Cexists%20t%20%5Cin%20%5Cmathbb%7BZ%7D%20%5Ctext%7B%20such%20that%20%7D%20%20%5C%5C%0A&amp;%20&amp;%20i_s%20+%20t%20%20%20%20%20%20%20%20%20&amp;%20%5Cequiv%20j_s%20%20%20%20%20%20%20%20&amp;%20%5Cpmod%7Bm%7D%5C;%5C%5C%0A%5Ctext%7B%20and%20%7D%5C%5C%0A&amp;%20&amp;%200%20%5Cleq%20t%20%20%20%20%20%20%20%20&amp;%20%3C%20m.%5C%5C%0A%5Ctherefore%20%5Cforall%20a%20%5Cin%20%5Cmathbb%7BZ%7D%20:%5C%5C%0A&amp;%20&amp;%20i_s%20+%20(a%20+%201)t%20%20&amp;%20%5Cequiv%20j_s%20+%20at%20%20%20&amp;%20%5Cpmod%7Bm%7D.%0A%5Cend%7Balign%7D%0A"></p>
+</div>
 <p>다시 말해 후발대가 <img src="https://latex.codecogs.com/png.latex?a">의 속력으로 이동할 때 선발대가 <img src="https://latex.codecogs.com/png.latex?a%20+%201">의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 <img src="https://latex.codecogs.com/png.latex?x"> 시점에 도착하는 <img src="https://latex.codecogs.com/png.latex?j_x%20=%20j_s%20+%20at">번째 원소와 <img src="https://latex.codecogs.com/png.latex?i_x%20=%20i_s%20+%20(a%20+%201)t">번째 원소가 <img src="https://latex.codecogs.com/png.latex?x%20=%20t"> 시점에서 처음으로 일치(<img src="https://latex.codecogs.com/png.latex?i_x%20%5Cequiv%20j_x%20%5Cpmod%7Bm%7D">)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 <img src="https://latex.codecogs.com/png.latex?T_c(m)%20=%20O(m)">이다. 왜냐하면 <img src="https://latex.codecogs.com/png.latex?T_c(m)%20=%20O(t)">이고 <img src="https://latex.codecogs.com/png.latex?t%20=%20O(m)">이기 때문이다.</p>
 <p>일반적으로 원소의 개수가 <img src="https://latex.codecogs.com/png.latex?n">인 Graph를 탐색할 때 <img src="https://latex.codecogs.com/png.latex?i_0%20=%20j_0%20=%200">번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 <img src="https://latex.codecogs.com/png.latex?a%20%3E%200">이면 Cycle 내 원소까지 선형 시간(<img src="https://latex.codecogs.com/png.latex?T_u(n)%20=%20i_s%20-%20i_0%20=%20O(n)">)에 가능한 한 반드시 도달한다. 또한 <img src="https://latex.codecogs.com/png.latex?m%20=%20O(n)">이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AT(n)%20&amp;%20=%20T_u(n)%20+%20T_c(m)%5C%5C%0A%20%20%20%20%20&amp;%20=%20O(n)%20+%20O(m)%5C%5C%0A%20%20%20%20%20&amp;%20=%20O(n)%0A%5Cend%7Balign%7D%0A"></p>
@@ -54,7 +56,7 @@
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
-<div id="d3b2696c" class="cell" data-execution_count="2">
+<div id="13f8e6aa" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Definition for singly-linked list.</span></span>
@@ -190,7 +192,7 @@ font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span></span></code></pre></div>
 </div>
-<div id="7a1733cb" class="cell" data-execution_count="3">
+<div id="fb8fc19d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [ListNode(x) <span class="cf" style="color: #003B4F;
@@ -263,7 +265,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>))</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -274,7 +276,7 @@ font-style: inherit;">100</span>))</span></code></pre></div>
 </section>
 <section id="middle-of-the-linked-list" class="level2">
 <h2 class="anchored" data-anchor-id="middle-of-the-linked-list">Middle of the Linked List</h2>
-<p>LeetCode 문제 <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a>는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 <img src="https://latex.codecogs.com/png.latex?%5Clfloor%20n%20/%202%20%5Crfloor">번째 원소만 찾으면 된다. 원래는 <img src="https://latex.codecogs.com/png.latex?n">을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 <a href="https://leetcode.com/submissions/detail/1196229225/">백발백준</a>님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. <a href="https://leetcode.com/submissions/detail/1202349821/">다음</a> Kotlin 풀이는 <img src="https://latex.codecogs.com/png.latex?n">도 모르고 Index 계산도 하지 않는다:</p>
+<p>LeetCode 문제 <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a>는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 <img src="https://latex.codecogs.com/png.latex?%5Clfloor%20n%20/%202%20%5Crfloor">번째 원소만 찾으면 된다. 원래는 <img src="https://latex.codecogs.com/png.latex?n">을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 <a href="https://leetcode.com/submissions/detail/1196229225/">백발백준</a> 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. <a href="https://leetcode.com/submissions/detail/1202349821/">다음</a> Kotlin 풀이는 <img src="https://latex.codecogs.com/png.latex?n">도 모르고 Index 계산도 하지 않는다:</p>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">/**</span></span>
@@ -420,7 +422,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
 <p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <img src="https://latex.codecogs.com/png.latex?12%20*%2060%20*%2060">개 상태를 탐색하므로 <img src="https://latex.codecogs.com/png.latex?12%20+%2060%20+%2060">개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
 <p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.</p>
-<div id="1a1dfc05" class="cell" data-execution_count="4">
+<div id="52a625dd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">MOD <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
@@ -660,7 +662,7 @@ font-style: inherit;">%</span> MOD</span>
 background-color: null;
 font-style: inherit;">return</span> ans</span></code></pre></div>
 </div>
-<div id="74f22de1" class="cell" data-execution_count="5">
+<div id="2121a12d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">s <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
@@ -733,7 +735,7 @@ font-style: inherit;">*</span>args) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> result</span>
 <span id="cb6-14">ans</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -924,7 +926,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -932,7 +934,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
+<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
 <figcaption>배열 기록 / 선두를 지켜라 3</figcaption>
 </figure>
 </div>
@@ -1070,7 +1072,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-09.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-09.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1078,7 +1080,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
+<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
 <figcaption>Dijkstra / 최단 거리 9</figcaption>
 </figure>
 </div>
@@ -1090,7 +1092,7 @@ not because you were forced</p>
 <p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
+<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
 <figcaption>진단 센터 / 문항별 통계</figcaption>
 </figure>
 </div>
@@ -1126,7 +1128,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 52.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-02.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1134,7 +1136,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 47.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
+<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
 <figcaption>DFS / 두 방향 탈출 가능 여부 판별하기</figcaption>
 </figure>
 </div>
@@ -1178,7 +1180,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1186,7 +1188,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
 <figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
@@ -1226,7 +1228,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1234,7 +1236,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
+<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
 <figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
 </figure>
 </div>
@@ -1276,7 +1278,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 49.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1284,7 +1286,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 50.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
+<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
 <figcaption>구간 단위로 완전탐색 / 아름다운 수열 2</figcaption>
 </figure>
 </div>

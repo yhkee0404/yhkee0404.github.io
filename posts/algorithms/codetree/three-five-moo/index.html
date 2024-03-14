@@ -82,6 +82,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "enableExperimentalNewNoteButton": true
@@ -103,7 +104,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <meta property="og:locale" content="ko_KR">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -171,7 +172,9 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -219,7 +222,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -227,7 +230,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Parametric Search / 삼 오 무"><img src="화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
 <figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
@@ -485,6 +488,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -813,7 +823,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -842,4 +852,5 @@ window.onload = () => {
 
 
 
+<script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
