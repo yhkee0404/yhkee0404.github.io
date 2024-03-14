@@ -230,7 +230,7 @@ window.Quarto = {
     <div class="quarto-category">linked list</div>
     <div class="quarto-category">cycle</div>
     <div class="quarto-category">median</div>
-    <div class="quarto-category">시계</div>
+    <div class="quarto-category">clock</div>
     <div class="quarto-category">speed</div>
     <div class="quarto-category">쥐쥐</div>
     <div class="quarto-category">백발백준</div>
@@ -267,7 +267,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -306,7 +306,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 <code>a &gt;= 1</code>인 모든 정수에 대해 동작한다:</p>
-<div id="719e8325" class="cell" data-execution_count="2">
+<div id="cd0f7d3d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition for singly-linked list.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ListNode:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x):</span>
@@ -330,7 +330,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9d396c11" class="cell" data-execution_count="3">
+<div id="af2799c1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> [ListNode(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>]]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nodes) <span class="op">-</span> <span class="dv">1</span>):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    nodes[i].<span class="bu">next</span> <span class="op">=</span> nodes[i <span class="op">+</span> <span class="dv">1</span>]</span>
@@ -339,7 +339,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> Solution()</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">all</span>(sol.hasCycle(head, a) <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -379,8 +379,8 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <section id="아날로그-시계" class="level2">
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
 <p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <span class="math inline">\(12 * 60 * 60\)</span>개 상태를 탐색하므로 <span class="math inline">\(12 + 60 + 60\)</span>개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
-<p>문제는 지역적인 중복이 아니라 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. <a href="#cb5-20">20</a>번째와 <a href="#cb5-23">23</a>번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: <a href="#cb5-14">14</a>번째, <a href="#cb5-28">27-28</a>번째 줄.k</p>
-<div id="bdd6fa90" class="cell" data-execution_count="4">
+<p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. <a href="#cb5-21">20-21</a>번째와 <a href="#cb5-24">23-24</a>번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: <a href="#cb5-14">14</a>번째, <a href="#cb5-28">27-28</a>번째 줄.</p>
+<div id="007edc7f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>MOD <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>DH <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>DM <span class="op">=</span> <span class="dv">12</span></span>
@@ -414,7 +414,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb5-31"><a href="#cb5-31"></a>        si <span class="op">=</span> sj <span class="op">%</span> MOD</span>
 <span id="cb5-32"><a href="#cb5-32"></a>    <span class="cf">return</span> ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4bf26d03" class="cell" data-execution_count="5">
+<div id="d3db36d7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'''</span><span class="ch">\</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">0   5   30  0   7   0   2</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">12  0   0   12  0   30  1</span></span>
@@ -429,7 +429,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>args, result <span class="op">=</span> <span class="bu">map</span>(<span class="bu">eval</span>, line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>))</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> ans <span class="kw">and</span> solution(<span class="op">*</span>args) <span class="op">==</span> result</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -995,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
