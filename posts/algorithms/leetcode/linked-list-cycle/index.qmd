@@ -38,6 +38,7 @@ Two Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 �
 
 Cycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 $1$이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 $0$부터 오름차순으로 $i_s$번째, 후발대는 $j_s$번째라고 하고, $i_s$와 $j_s$가 길이가 $m$인 Cycle 위에 있을 때 $t$ 시간을 더 탐색하면:
 
+::: {style="overflow-x: auto"}
 $$
 \begin{align}
 \forall i_s, j_s \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists t \in \mathbb{Z} \text{ such that }  \\
@@ -48,6 +49,7 @@ $$
 & & i_s + (a + 1)t  & \equiv j_s + at   & \pmod{m}.
 \end{align}
 $$
+:::
 
 다시 말해 후발대가 $a$의 속력으로 이동할 때 선발대가 $a + 1$의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 $x$ 시점에 도착하는 $j_x = j_s + at$번째 원소와 $i_x = i_s + (a + 1)t$번째 원소가 $x = t$ 시점에서 처음으로 일치($i_x \equiv j_x \pmod{m}$)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 $T_c(m) = O(m)$이다. 왜냐하면 $T_c(m) = O(t)$이고 $t = O(m)$이기 때문이다.
 
@@ -113,7 +115,7 @@ Two Pointers Cycle 검사는 속력 차가 1이어야 했다. 정렬된 List에�
 
 ## Middle of the Linked List
 
-LeetCode 문제 [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 $\lfloor n / 2 \rfloor$번째 원소만 찾으면 된다. 원래는 $n$을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 [백발백준](https://leetcode.com/submissions/detail/1196229225/)님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. [다음](https://leetcode.com/submissions/detail/1202349821/) Kotlin 풀이는 $n$도 모르고 Index 계산도 하지 않는다:
+LeetCode 문제 [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 $\lfloor n / 2 \rfloor$번째 원소만 찾으면 된다. 원래는 $n$을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 [백발백준](https://leetcode.com/submissions/detail/1196229225/) 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. [다음](https://leetcode.com/submissions/detail/1202349821/) Kotlin 풀이는 $n$도 모르고 Index 계산도 하지 않는다:
 
 ```kotlin
 /**
@@ -146,7 +148,7 @@ class Solution {
 
 프로그래머스 문제 [아날로그 시계](https://school.programmers.co.kr/learn/courses/30/lessons/250135)는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 $12 * 60 * 60$개 상태를 탐색하므로 $12 + 60 + 60$개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.
 
-문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. [20-21](#cb5-21)번째와 [23-24](#cb5-24)번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: [14](#cb5-14)번째, [27-28](#cb5-28)번째 줄.
+문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. [20-21](#cb5-20)번째와 [23-24](#cb5-23)번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: [14](#cb5-14)번째, [27-28](#cb5-27)번째 줄.
 
 ```{python}
 #| code-line-numbers: true
