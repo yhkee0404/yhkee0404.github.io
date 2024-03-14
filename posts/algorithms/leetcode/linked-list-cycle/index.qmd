@@ -2,7 +2,7 @@
 title: "Two Pointers Speed Control"
 subtitle: Cycle 검사, Median, 시계
 author: "Yunho Kee"
-date: "2024-03-11"
+date: "2024-03-14"
 categories:
   - featured
   - leetcode
@@ -10,9 +10,10 @@ categories:
   - linked list
   - cycle
   - median
-  - 시계
+  - clock
   - speed
   - 쥐쥐
+  - 백발백준
 ---
 
 ## Intro
@@ -27,7 +28,7 @@ Graph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 �
 
 ## Two Pointers
 
-Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 $n$개일 때 각 Pointer는 $n$개의 원소를 최대 1번씩 방문하다가 선형 시간 $O(n)$ 안에 탐색을 마친다. 따라서 총 수행 시간 $T(n)$은 Pointer의 개수 $k$에 비례한다: $T(n) = O(kn)$. 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 $k$번 반복하므로 $k$에 따라 지수적으로 증가한다: $O(n^k)$. 가령, $k = 2$이면 $O(n^2) \ne O(2n) = O(n)$이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 전역적인 재방문 방지 덕분이다.
+Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 $n$개일 때 각 Pointer는 $n$개의 원소를 최대 1번씩 방문하다가 선형 시간 $O(n)$ 안에 탐색을 마친다. 따라서 총 수행 시간 $T(n)$은 Pointer의 개수 $k$에 비례한다: $T(n) = O(kn)$. 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 $k$번 반복하므로 $k$에 따라 지수적으로 증가한다: $O(n^k)$. 가령, $k = 2$이면 $O(n^2) \ne O(2n) = O(n)$이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진한다.
 
 ## Two Pointers를 통한 Graph Cycle 검사
 
@@ -141,13 +142,12 @@ class Solution {
 
 ## 아날로그 시계
 
-프로그래머스 문제 [아날로그 시계](https://school.programmers.co.kr/learn/courses/30/lessons/250135)는 시침, 분침, 초침이 겹치는 횟수를 세는 문제이다. 이 문제가 요구하는 것은 Two Pointers 탐색이 아니라 앞서 얘기한 Cartesian Product를 시간순으로 탐색할 때의 지역적 재방문 횟수이다: $O(n^k) \ne O(kn)$. 왜냐하면 아날로그 시계는 가령 초 단위로 $12 * 60 * 60$개 상태를 탐색하지 Two Pointers처럼 $12 + 60 + 60$개를 탐색하지는 않기 때문이다.
+프로그래머스 문제 [아날로그 시계](https://school.programmers.co.kr/learn/courses/30/lessons/250135)는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 $12 * 60 * 60$개 상태를 탐색하므로 $12 + 60 + 60$개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.
 
-몇 시간, 몇 분, 몇 초가 지났는지라는 완전히 지역적인 중복 방문 횟수는 쉽게 셀 수 있지만 문제는 상대적으로 전역적인 중복 방문 횟수를 요구한다는 것이다: 아날로그 시계라는 자료 구조를 공유하는 Iterator들이 같은 원소를 중복 방문하는 횟수; 엄밀히 전역적인 중복 방문은 없다. 더 큰 문제는 중복이 정수가 아닌 실수 공간에서 발생한다는 사실이다. 마지막으로 [14](#cb5-14)번째 줄과 [27-28](#cb5-28)번째 줄에서 중복 횟수를  
+문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. [20-21](#cb5-21)번째와 [23-24](#cb5-24)번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: [14](#cb5-14)번째, [27-28](#cb5-28)번째 줄.
 
 ```{python}
 #| code-line-numbers: true
-#| label: analog-clock
 
 MOD = 12 * 60 * 60
 DH = 1
@@ -183,8 +183,19 @@ def solution(h1, m1, s1, h2, m2, s2):
     return ans
 ```
 
-
-with open(0) as f:
-    for line in f.readlines():
-        *args, result = map(eval, line.split('\t'))
-        print(solution(*args) == result)
+```{python}
+s = '''\
+0	5	30	0	7	0	2
+12	0	0	12	0	30	1
+0	6	1	0	6	6	0
+11	59	30	12	0	0	1
+11	58	59	11	59	0	1
+1	5	5	1	5	6	2
+0	0	0	23	59	59	2852
+'''
+ans = True
+for line in s.strip().split('\n'):
+    *args, result = map(eval, line.split('\t'))
+    ans = ans and solution(*args) == result
+ans
+```
