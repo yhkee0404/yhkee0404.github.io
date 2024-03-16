@@ -2,7 +2,7 @@
 title: "Yunho Kee"
 image: lunapic.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: twitter-x
       text: Twitter
