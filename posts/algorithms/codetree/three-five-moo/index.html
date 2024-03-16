@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-10-16">
+<meta name="dcterms.date" content="2023-09-25">
 
-<title>yhkee0404.github.io - [코드트리 챌린지] 6주차 - 2차원 배열 입력</title>
+<title>yhkee0404.github.io - [코드트리 챌린지] 2주차 - Parametric Search</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -102,11 +102,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../diary.html"> 
-<span class="menu-text">Diary</span></a>
+    <a class="nav-link" href="../../../../algorithms.html#category=feature"> 
+<span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../bible.html"> 
+    <a class="nav-link" href="../../../../bible.html#category=feature"> 
 <span class="menu-text">Bible</span></a>
   </li>  
 </ul>
@@ -130,6 +130,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://hypothes.is/search?q=url%3Ahttps%3A%2F%2Fyhkee0404.github.io%2F%2A"> <i class="bi bi-chat-left-quote-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -138,76 +143,76 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">[코드트리 챌린지] 6주차 - 2차원 배열 입력</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">코드트리</div>
-                <div class="quarto-category">코딩테스트</div>
-                <div class="quarto-category">코딩테스트실력진단</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Yunho Kee </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">October 16, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">[코드트리 챌린지] 2주차 - Parametric Search</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">코드트리</div>
+    <div class="quarto-category">코딩테스트</div>
+    <div class="quarto-category">코딩테스트실력진단</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yunho Kee </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 25, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[526, 474]">
+<div class="quarto-layout-panel" data-layout="[212, 788]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="report_2023-10-16.png" class="img-fluid figure-img"></p>
+<p><img src="화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img"></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img"></p>
-<figcaption>2차원 배열 입력 / 대문자로 바꾸기</figcaption>
+<p><img src="화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img"></p>
+<figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><a href="https://www.codetree.ai/missions/4/problems/change-to-capital/" class="uri">https://www.codetree.ai/missions/4/problems/change-to-capital/</a></p>
-<p>숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.</p>
-<p>최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.</p>
+<p><a href="https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/" class="uri">https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/</a></p>
+<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
+<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
+<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
 
 
 
