@@ -41,7 +41,7 @@
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode Click의 운영 중단</figcaption>
 </figure>
 </div>
@@ -56,7 +56,7 @@
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-2" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
 </figure>
 </div>
@@ -68,7 +68,7 @@
 <h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
 <figcaption>LeetCode Daily Question 확인 방법</figcaption>
 </figure>
 </div>
@@ -371,7 +371,7 @@ Note
 <p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
 <figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
 </figure>
 </div>
@@ -498,7 +498,7 @@ background-color: null;
 font-style: inherit;">))</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
 <figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
 </figure>
 </div>
@@ -1492,7 +1492,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1500,7 +1500,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
+<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
 <figcaption>최장 연속 부분 수열 / T를 초과하는 연속 부분 수열</figcaption>
 </figure>
 </div>
@@ -1746,7 +1746,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1754,7 +1754,7 @@ not because you were forced</p>
 <div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
+<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
 <figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
 </figure>
 </div>
