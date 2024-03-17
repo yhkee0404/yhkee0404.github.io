@@ -16,7 +16,525 @@
 <link>https://yhkee0404.github.io/#category=featured</link>
 </image>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Thu, 14 Mar 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 17 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>LeetCode Daily Crawling</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,<sup>1</sup> AWS EKS,<sup>2</sup> Heroku,<sup>3</sup> Google Firebase,<sup>4</sup> AWS Lambda,<sup>5</sup> Google Sheets.<sup>6</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;IaaS (Infrastructure as a Service)</p></div><div id="fn2"><p><sup>2</sup>&nbsp;CaaS (Container as a Service)</p></div><div id="fn3"><p><sup>3</sup>&nbsp;PaaS (Platform as a Service)</p></div><div id="fn4"><p><sup>4</sup>&nbsp;BaaS (Backend as a Service)</p></div><div id="fn5"><p><sup>5</sup>&nbsp;FaaS (Function as a Service)</p></div><div id="fn6"><p><sup>6</sup>&nbsp;SaaS (Software as a Service)</p></div><div id="fn7"><p><sup>7</sup>&nbsp;Spreadsheets are all you need </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yjD2n_e9E3w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p></div></div><p>Google Sheets는 무료이다. Excel로 GPT도 만든다던데,<sup>7</sup> Crawling Server도 무료 대체 가능할까?</p>
+</section>
+<section id="goodbye-leetcode-click" class="level2">
+<h2 class="anchored" data-anchor-id="goodbye-leetcode-click">Goodbye LeetCode Click</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1], [1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<figcaption>LeetCode Click의 운영 중단</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 <a href="https://leetcode.click">LeetCode Click</a>에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leetcode-daily-coding-challenge-question" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<figcaption>LeetCode Daily Question 확인 방법</figcaption>
+</figure>
+</div>
+<p>그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 <code>Status</code>에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 <code>daily-question</code> 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다.</p>
+</section>
+<section id="leetcode-graphql-api" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="leetcode-graphql-api">LeetCode GraphQL API</h2>
+<p>오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 <code>graphql/</code> 중 하나를 Click하니 <code>Preview</code> 또는 <code>Response</code> Tab에 다음처럼 쓸 만한 응답이 보인다.</p>
+<div id="lst-response" class="json listing quarto-float">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-response-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: GraphQL Response
+</figcaption>
+<div aria-describedby="lst-response-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode" id="lst-response" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="lst-response-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-2">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"data"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"activeDailyCodingChallengeQuestion"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-4">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"date"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2024-03-16"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-5">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"userStatus"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NotStart"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-6">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"link"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/problems/contiguous-array/"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-7">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"question"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-8">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"acRate"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">47.945016299587756</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-9">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"difficulty"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Medium"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-10">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"freqBar"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">null</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-11">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"frontendQuestionId"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"525"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-12">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"isFavor"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-13">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"paidOnly"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-14">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"status"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">null</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-15">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"title"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Contiguous Array"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-16">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"titleSlug"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"contiguous-array"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-17">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"hasVideoSolution"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-18">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"hasSolution"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-19">                <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"topicTags"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="lst-response-20">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-21">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"name"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Array"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-22">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"id"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"VG9waWNUYWdOb2RlOjU="</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-23">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"slug"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"array"</span></span>
+<span id="lst-response-24">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-25">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-26">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"name"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hash Table"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-27">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"id"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"VG9waWNUYWdOb2RlOjY="</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-28">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"slug"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hash-table"</span></span>
+<span id="lst-response-29">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-30">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="lst-response-31">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"name"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Prefix Sum"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-32">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"id"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"VG9waWNUYWdOb2RlOjYxMDY4"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="lst-response-33">                        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"slug"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prefix-sum"</span></span>
+<span id="lst-response-34">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="lst-response-35">                <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="lst-response-36">            <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="lst-response-37">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="lst-response-38">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="lst-response-39"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GraphQL 응답은 Chrome 개발자 도구의 <code>Network</code> Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!</p>
+</div>
+</div>
+<p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
+</figure>
+</div>
+<p>cURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과<sup>8</sup>, <code>operationName</code>, <code>variables</code> 등 불필요한 항목을 지울 수 있었다.</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;<a href="https://www.cs.utexas.edu/ftp/garbage/cs345/schintro-v13/schintro_114.html">REPL-driven development</a></p></div></div></section>
+<section id="graphql-query-string" class="level2">
+<h2 class="anchored" data-anchor-id="graphql-query-string">GraphQL Query String</h2>
+<p>어떤 Client는 <code>POST</code> Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 <code>GET</code> Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">URLSearchParams</span>({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"query"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"query questionOfToday {</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  activeDailyCodingChallengeQuestion {</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    date</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    link</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    question {</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">      acRate</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">      difficulty</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">      frontendQuestionId: questionFrontendId</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">      title</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">      titleSlug</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    }</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  }</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}"</span>})<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toString</span>()</span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'</span></span></code></pre></div>
+<p><code>GET</code> <a href="https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D">성공이다</a>. 연속된 <code>+</code>는 하나로 줄였다.</p>
+</section>
+<section id="google-sheets-as-a-crawling-app" class="level2">
+<h2 class="anchored" data-anchor-id="google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</h2>
+<p>Listing&nbsp;1 의 <code>/problems/contiguous-array/</code>가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. <code>https://leetcode.com</code>과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?</p>
+<p>다행히 스터디에서 사용하던 Google Sheets가 <code>GET</code> 요청, 문자열 연산, Hyperlink를 지원한다: <code>IMPORTDATA</code>, <code>CONCATENATE</code>, <code>MID</code>, <code>LEN</code>.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode scala code-with-copy"><code class="sourceCode scala"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">IMPORTDATA</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb2-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">CONCATENATE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://leetcode.com"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">MID</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>D1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">56</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">LEN</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>D1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">59</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">))</span></span></code></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
+</figure>
+</div>
+<p>한 칸으로 줄이지 못한 이유는 <code>MID</code>와 <code>LEN</code> 함수를 둘다 호출하는 데 <code>IMPORTDATA</code>의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!</p>
+</section>
+<section id="product" class="level2">
+<h2 class="anchored" data-anchor-id="product">Product</h2>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2m9qgm3GOsed10XSQzleV8QRioetbAUpdA3SkJ-hvjpJh-gz-_ckADAGieCeifnmPXFXsR3O5ayxI/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+</iframe>
+<p><a href="https://shorturl.at/cdmsZ" class="uri">https://shorturl.at/cdmsZ</a></p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 <code>GET</code> 이외의 Method 또는 Request Header를 요구하면 <code>IMPORTDATA</code>는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.</p>
+
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>featured</category>
+  <category>web</category>
+  <category>crawling</category>
+  <category>graphql</category>
+  <category>cloud</category>
+  <category>spreadsheet</category>
+  <category>request method</category>
+  <category>query string</category>
+  <category>chrome devtools</category>
+  <category>leetcode</category>
+  <category>discord</category>
+  <guid>https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/</guid>
+  <pubDate>Sun, 17 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Two Pointers Speed Control</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -56,7 +574,7 @@
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
-<div id="13f8e6aa" class="cell" data-execution_count="2">
+<div id="89e60ff9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Definition for singly-linked list.</span></span>
@@ -192,7 +710,7 @@ font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span></span></code></pre></div>
 </div>
-<div id="fb8fc19d" class="cell" data-execution_count="3">
+<div id="3ab8ae3f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [ListNode(x) <span class="cf" style="color: #003B4F;
@@ -265,7 +783,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>))</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -420,9 +938,9 @@ font-style: inherit;">}</span></span></code></pre></div>
 </section>
 <section id="아날로그-시계" class="level2">
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
-<p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <img src="https://latex.codecogs.com/png.latex?12%20*%2060%20*%2060">개 상태를 탐색하므로 <img src="https://latex.codecogs.com/png.latex?12%20+%2060%20+%2060">개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
+<p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <img src="https://latex.codecogs.com/png.latex?12%20%5Ctimes%2060%20%5Ctimes%2060">개 상태를 탐색하므로 <img src="https://latex.codecogs.com/png.latex?12%20+%2060%20+%2060">개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
 <p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.</p>
-<div id="52a625dd" class="cell" data-execution_count="4">
+<div id="b35abcfe" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">MOD <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
@@ -662,7 +1180,7 @@ font-style: inherit;">%</span> MOD</span>
 background-color: null;
 font-style: inherit;">return</span> ans</span></code></pre></div>
 </div>
-<div id="2121a12d" class="cell" data-execution_count="5">
+<div id="bdf0af75" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">s <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
@@ -735,7 +1253,7 @@ font-style: inherit;">*</span>args) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> result</span>
 <span id="cb6-14">ans</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>True</code></pre>
 </div>
 </div>

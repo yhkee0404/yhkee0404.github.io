@@ -2,13 +2,13 @@
   {
     "listing": "/web.html",
     "items": [
-      "/posts/bible/philemon/index.html"
+      "/posts/web/leetcode-daily-crawling/index.html"
     ]
   },
   {
-    "listing": "/drafts.html",
+    "listing": "/bible.html",
     "items": [
-      "/drafts/web/leetcode-daily-crawling/index.html"
+      "/posts/bible/philemon/index.html"
     ]
   },
   {
@@ -26,14 +26,15 @@
     ]
   },
   {
-    "listing": "/bible.html",
+    "listing": "/drafts.html",
     "items": [
-      "/posts/bible/philemon/index.html"
+      "/drafts/dummy.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/web/leetcode-daily-crawling/index.html",
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
       "/posts/bible/philemon/index.html",
       "/posts/algorithms/codetree/keep-the-lead-3/index.html",

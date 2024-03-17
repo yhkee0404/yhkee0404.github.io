@@ -7,53 +7,109 @@
     "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
   },
   {
-    "objectID": "posts/bible/philemon/index.html",
-    "href": "posts/bible/philemon/index.html",
-    "title": "Philemon",
+    "objectID": "posts/web/leetcode-daily-crawling/index.html",
+    "href": "posts/web/leetcode-daily-crawling/index.html",
+    "title": "LeetCode Daily Crawling",
     "section": "",
-    "text": "On this page\n   \n  \n  References\n  \n\nGreetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to top"
+    "text": "Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
   },
   {
-    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
-    "href": "posts/algorithms/codetree/change-to-capital/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "href": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "title": "LeetCode Daily Crawling",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n실력 진단 결과\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n Back to top"
+    "text": "Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
   },
   {
-    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n실력 진단 결과\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n Back to top"
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "href": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "title": "LeetCode Daily Crawling",
+    "section": "Goodbye LeetCode Click",
+    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\n\n\n\nLeetCode Click의 운영 중단\n\n\n\n\n\n\n연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 LeetCode Click에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.\n\n\n\n\n\n\n\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"
   },
   {
-    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n실력 진단 결과\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n Back to top"
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode Daily Coding Challenge Question",
+    "text": "LeetCode Daily Coding Challenge Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 Status에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 daily-question 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다."
   },
   {
-    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode GraphQL API",
+    "text": "LeetCode GraphQL API\n오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n\n\n\nListing 1: GraphQL Response\n\n\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!\n\n\n실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 dailyCodingChallengeV2라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\ncURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과8, operationName, variables 등 불필요한 항목을 지울 수 있었다.\n8 REPL-driven development"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "href": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "title": "LeetCode Daily Crawling",
+    "section": "GraphQL Query String",
+    "text": "GraphQL Query String\n어떤 Client는 POST Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 GET Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\nGET 성공이다. 연속된 +는 하나로 줄였다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "href": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "title": "LeetCode Daily Crawling",
+    "section": "Google Sheets As a Crawling App",
+    "text": "Google Sheets As a Crawling App\nListing 1 의 /problems/contiguous-array/가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. https://leetcode.com과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?\n다행히 스터디에서 사용하던 Google Sheets가 GET 요청, 문자열 연산, Hyperlink를 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID와 LEN 함수를 둘다 호출하는 데 IMPORTDATA의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#product",
+    "href": "posts/web/leetcode-daily-crawling/index.html#product",
+    "title": "LeetCode Daily Crawling",
+    "section": "Product",
+    "text": "Product\n\n\nhttps://shorturl.at/cdmsZ"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "title": "LeetCode Daily Crawling",
+    "section": "Limitations",
+    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.\n\n\n\nLeetCode Click의 운영 중단\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응\nLeetCode Daily Question 확인 방법\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+    "href": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n실력 진단 결과\n배열 기록 / 선두를 지켜라 3\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n실력 진단 결과\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n실력 진단 결과\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
+    "href": "posts/algorithms/codetree/three-five-moo/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n실력 진단 결과\nParametric Search / 삼 오 무\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n실력 진단 결과\nDijkstra / 최단 거리 9\n진단 센터 / 문항별 통계\n\n\n Back to top"
   },
   {
     "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
     "href": "posts/algorithms/leetcode/linked-list-cycle/index.html",
     "title": "Two Pointers Speed Control",
     "section": "",
-    "text": "Intro\n  Two Pointers\n  Two Pointers를 통한 Graph Cycle 검사\n  Linked List Cycle\n  Two Pointers Speed Control\n  Middle of the Linked List\n  아날로그 시계"
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
   },
   {
     "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
     "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
     "title": "Two Pointers Speed Control",
-    "section": "Intro",
-    "text": "Intro\n\n\n\nPhoto by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
+    "section": "",
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
   },
   {
     "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
@@ -95,90 +151,48 @@
     "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
     "title": "Two Pointers Speed Control",
     "section": "아날로그 시계",
-    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 * 60 * 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n        if hi &gt; si and hj &lt;= sj:\n            sh = (hi - si) * DSM\n        sm = None\n        if mi &gt; si and mj &lt;= sj:\n            sm = (mi - si) * DSH\n        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue\n\n\n\n\n\nPhoto by Susan Q Yin on Unsplash"
+    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n        if hi &gt; si and hj &lt;= sj:\n            sh = (hi - si) * DSM\n        sm = None\n        if mi &gt; si and mj &lt;= sj:\n            sm = (mi - si) * DSH\n        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue\n\n\n\n\n\nPhoto by Susan Q Yin on Unsplash"
   },
   {
-    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n실력 진단 결과\nDijkstra / 최단 거리 9\n진단 센터 / 문항별 통계\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n실력 진단 결과\n배열 기록 / 선두를 지켜라 3\n\n\n Back to top"
   },
   {
-    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
-    "href": "posts/algorithms/codetree/three-five-moo/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n실력 진단 결과\nParametric Search / 삼 오 무\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n실력 진단 결과\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n Back to top"
   },
   {
-    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n실력 진단 결과\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n실력 진단 결과\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n Back to top"
   },
   {
-    "objectID": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-    "href": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-    "title": "[코드트리 챌린지] 4주차 - DFS",
+    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
+    "href": "posts/algorithms/codetree/change-to-capital/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n실력 진단 결과\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n실력 진단 결과\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n Back to top"
   },
   {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html",
-    "href": "drafts/web/leetcode-daily-crawling/index.html",
-    "title": "LeetCode Daily Crawling",
+    "objectID": "posts/bible/philemon/index.html",
+    "href": "posts/bible/philemon/index.html",
+    "title": "Philemon",
     "section": "",
-    "text": "Intro\n  Goodbye LeetCode Click\n  LeetCode Daily Question\n  LeetCode GraphQL API\n  Try HTTP GET as well as POST\n  Google Sheets As a Crawling App\n  Limitations"
+    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#intro",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#intro",
-    "title": "LeetCode Daily Crawling",
-    "section": "Intro",
-    "text": "Intro\n\nCrawling App도 Excel로 대체할 수 있을까?"
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "title": "LeetCode Daily Crawling",
-    "section": "Goodbye LeetCode Click",
-    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\n\n\n\nLeetCode Click 서비스 중단\n\n\n\n\n\n\n\n\n\n매일 리트코드를 풀던 카카오톡 오픈채팅방 반응 캡처\n\n\n\n\n\n연말에 들어간 알고리즘 스터디에서 매일 리트코드 1문제를 풀었는데 LeetCode Click에 접속하면 그날의 새로운 문제로 Redirect되었다. 그런데 열흘 전부터 서비스가 중단돼 대안이 필요해졌다."
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#leetcode-daily-question",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#leetcode-daily-question",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode Daily Question",
-    "text": "LeetCode Daily Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n좌측 하단의 문제 목록 맨 위에 그날의 문제가 보인다. 그날의 문제만 Status에 달력 아이콘이 보인다. 그리고 연결된 주소에 daily-question 같은 Parameter가 붙는다. 한편 오른쪽 달력에도 마우스 커서를 Hover하면 날짜마다 다른 문제가 Popup 된다. 이것이 육안으로 확인하고 수동 접속하는 방법이다."
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode GraphQL API",
-    "text": "LeetCode GraphQL API\n오늘의 문제만 특정하는 원리를 이용해 보려고 개발자 도구를 열었는데 검색이 안 된다. 그래서 요청 목록 중 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색이 안 되는 게 기본이라 일일이 클릭해 확인해야 한다 — 혹시 검색 방법을 아시면 댓글 부탁 드려요!\n\n\n사실 이렇게 발견한 것은 아니다. 다른 GraphQL 요청에서 dailyCodingChallengeV2를 먼저 보고 GitHub에 검색해서 찾았다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — Discord에서는 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\n이대로 Terminal에서 cURL해도 잘 된다. 실험 결과 operationName과 variables은 불필요했고, 일부 불필요한 항목도 지울 수 있었다."
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#try-http-get-as-well-as-post",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#try-http-get-as-well-as-post",
-    "title": "LeetCode Daily Crawling",
-    "section": "Try HTTP GET as well as POST",
-    "text": "Try HTTP GET as well as POST\nRequest Method를 POST로 했는데 GET도 될까? Request Body의 Payload를 Query String으로 바꾸고 싶은데 띄어쓰기나 특수문자는 어떻게 바꾸나?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\n여기서 연속된 +만 하나로 줄였다."
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "title": "LeetCode Daily Crawling",
-    "section": "Google Sheets As a Crawling App",
-    "text": "Google Sheets As a Crawling App\n아쉽게도 응답받은 Link는 LeetCode 도메인이 없어서 브라우저의 주소 창에 도메인과 함께 붙여넣어야 한다. 카카오톡 오픈채팅봇은 이런 기능이 자유롭지 않은 것 같고, 기존 같은 One-click 서비스는 Redirect할 Server가 필요하다. 다행히 우리 스터디가 사용하는 Google Sheets가 GET 요청, 문자열 연산, Hyperlink 기능을 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID 함수와 LEN 함수를 둘다 호출하느라 IMPORTDATA의 중복 요청을 방지하기 위해서이다 — 혹시 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
-  },
-  {
-    "objectID": "drafts/web/leetcode-daily-crawling/index.html#limitations",
-    "href": "drafts/web/leetcode-daily-crawling/index.html#limitations",
-    "title": "LeetCode Daily Crawling",
-    "section": "Limitations",
-    "text": "Limitations\nGraphQL API에서 GET 이외의 Method나 Header, Payload (Request Body)을 요구하면 IMPORTDATA는 쓸 수 없을 것이다. IMPORTDATA는 Query String\n\n\n\nLeetCode Click 서비스 중단\n매일 리트코드를 풀던 카카오톡 오픈채팅방 반응 캡처\nLeetCode Daily Question 확인 방법\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답"
+    "objectID": "drafts/dummy.html",
+    "href": "drafts/dummy.html",
+    "title": "Dummy Title",
+    "section": "",
+    "text": "Back to top"
   }
 ]
