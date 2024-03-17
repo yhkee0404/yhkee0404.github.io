@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-09-25">
+<meta name="dcterms.date" content="2024-03-17">
 
-<title>Yunho Kee’s Cultivation - [코드트리 챌린지] 2주차 - Parametric Search</title>
+<title>Yunho Kee’s Cultivation - LeetCode Daily Crawling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,30 +22,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,10 +130,10 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - [코드트리 챌린지] 2주차 - Parametric Search">
-<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Yunho Kee’s Cultivation - LeetCode Daily Crawling">
+<meta property="og:description" content="Excel에서 GraphQL 요청하기">
+<meta property="og:image" content="https://yhkee0404.github.io/drafts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -111,7 +145,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -122,17 +156,17 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../bible.html#category=featured"> 
+    <a class="nav-link" href="../../../bible.html#category=featured"> 
 <span class="menu-text">Bible</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -156,7 +190,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -173,18 +207,33 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#goodbye-leetcode-click" id="toc-goodbye-leetcode-click" class="nav-link" data-scroll-target="#goodbye-leetcode-click">Goodbye LeetCode Click</a></li>
+  <li><a href="#leetcode-daily-question" id="toc-leetcode-daily-question" class="nav-link" data-scroll-target="#leetcode-daily-question">LeetCode Daily Question</a></li>
+  <li><a href="#leetcode-graphql-api" id="toc-leetcode-graphql-api" class="nav-link" data-scroll-target="#leetcode-graphql-api">LeetCode GraphQL API</a></li>
+  <li><a href="#try-http-get-as-well-as-post" id="toc-try-http-get-as-well-as-post" class="nav-link" data-scroll-target="#try-http-get-as-well-as-post">Try HTTP <code>GET</code> as well as <code>POST</code></a></li>
+  <li><a href="#google-sheets-as-a-crawling-app" id="toc-google-sheets-as-a-crawling-app" class="nav-link" data-scroll-target="#google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">[코드트리 챌린지] 2주차 - Parametric Search</h1>
+<h1 class="title">LeetCode Daily Crawling</h1>
+<p class="subtitle lead">Excel에서 GraphQL 요청하기</p>
   <div class="quarto-categories">
-    <div class="quarto-category">코드트리</div>
-    <div class="quarto-category">코딩테스트</div>
-    <div class="quarto-category">코딩테스트실력진단</div>
+    <div class="quarto-category">featured</div>
+    <div class="quarto-category">web</div>
+    <div class="quarto-category">crawling</div>
+    <div class="quarto-category">leetcode</div>
+    <div class="quarto-category">graphql</div>
   </div>
   </div>
 
@@ -202,7 +251,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2023</p>
+      <p class="date">March 17, 2024</p>
     </div>
   </div>
   
@@ -213,40 +262,160 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 </header>
 
-
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro">Intro</a></li>
+  <li><a href="#goodbye-leetcode-click" id="toc-goodbye-leetcode-click">Goodbye LeetCode Click</a></li>
+  <li><a href="#leetcode-daily-question" id="toc-leetcode-daily-question">LeetCode Daily Question</a></li>
+  <li><a href="#leetcode-graphql-api" id="toc-leetcode-graphql-api">LeetCode GraphQL API</a></li>
+  <li><a href="#try-http-get-as-well-as-post" id="toc-try-http-get-as-well-as-post">Try HTTP <code>GET</code> as well as <code>POST</code></a></li>
+  <li><a href="#google-sheets-as-a-crawling-app" id="toc-google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</a></li>
+  <li><a href="#limitations" id="toc-limitations">Limitations</a></li>
+  </ul>
+</nav>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yjD2n_e9E3w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Crawling App도 Excel로 대체할 수 있을까?</p>
+</section>
+<section id="goodbye-leetcode-click" class="level2">
+<h2 class="anchored" data-anchor-id="goodbye-leetcode-click">Goodbye LeetCode Click</h2>
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[212, 788]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
+<div class="quarto-layout-panel" data-layout="[[1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
-<figcaption>Parametric Search / 삼 오 무</figcaption>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click 서비스 중단"><img src="화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<figcaption>LeetCode Click 서비스 중단</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="" data-glightbox="description: .lightbox-desc-2" title="매일 리트코드를 풀던 카카오톡 오픈채팅방 반응 캡처"><img src="KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<figcaption>매일 리트코드를 풀던 카카오톡 오픈채팅방 반응 캡처</figcaption>
+</figure>
 </div>
-<p><a href="https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/" class="uri">https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/</a></p>
-<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
-<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
-<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
+</div>
+</div>
+</div>
+<p>연말에 들어간 알고리즘 스터디에서 매일 리트코드 1문제를 풀었는데 <a href="https://leetcode.click">LeetCode Click</a>에 접속하면 그날의 새로운 문제로 Redirect되었다. 그런데 열흘 전부터 서비스가 중단돼 대안이 필요해졌다.</p>
+</section>
+<section id="leetcode-daily-question" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-daily-question">LeetCode Daily Question</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<figcaption>LeetCode Daily Question 확인 방법</figcaption>
+</figure>
+</div>
+<p>좌측 하단의 문제 목록 맨 위에 그날의 문제가 보인다. 그날의 문제만 <code>Status</code>에 달력 아이콘이 보인다. 그리고 연결된 주소에 <code>daily-question</code> 같은 Parameter가 붙는다. 한편 오른쪽 달력에도 마우스 커서를 Hover하면 날짜마다 다른 문제가 Popup 된다. 이것이 육안으로 확인하고 수동 접속하는 방법이다.</p>
+</section>
+<section id="leetcode-graphql-api" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-graphql-api">LeetCode GraphQL API</h2>
+<p>오늘의 문제만 특정하는 원리를 이용해 보려고 개발자 도구를 열었는데 검색이 안 된다. 그래서 요청 목록 중 의심되는 <code>graphql/</code> 중 하나를 Click하니 <code>Preview</code> 또는 <code>Response</code> Tab에 다음처럼 쓸 만한 응답이 보인다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"activeDailyCodingChallengeQuestion"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2024-03-16"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"userStatus"</span><span class="fu">:</span> <span class="st">"NotStart"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"link"</span><span class="fu">:</span> <span class="st">"/problems/contiguous-array/"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"question"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"acRate"</span><span class="fu">:</span> <span class="fl">47.945016299587756</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"difficulty"</span><span class="fu">:</span> <span class="st">"Medium"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"freqBar"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"frontendQuestionId"</span><span class="fu">:</span> <span class="st">"525"</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"isFavor"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"paidOnly"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"status"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Contiguous Array"</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"titleSlug"</span><span class="fu">:</span> <span class="st">"contiguous-array"</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"hasVideoSolution"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"hasSolution"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"topicTags"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Array"</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjU="</span><span class="fu">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"array"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Hash Table"</span><span class="fu">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjY="</span><span class="fu">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"hash-table"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Prefix Sum"</span><span class="fu">,</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjYxMDY4"</span><span class="fu">,</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"prefix-sum"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                <span class="ot">]</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GraphQL 응답은 Chrome 개발자 도구의 <code>Network</code> Tab에서 검색이 안 되는 게 기본이라 일일이 클릭해 확인해야 한다 — 혹시 검색 방법을 아시면 댓글 부탁 드려요!</p>
+</div>
+</div>
+<p>사실 이렇게 발견한 것은 아니다. 다른 GraphQL 요청에서 <code>dailyCodingChallengeV2</code>를 먼저 보고 GitHub에 검색해서 찾았다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — Discord에서는 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
+</figure>
+</div>
+<p>이대로 Terminal에서 cURL해도 잘 된다. 실험 결과 <code>operationName</code>과 <code>variables</code>은 불필요했고, 일부 불필요한 항목도 지울 수 있었다.</p>
+</section>
+<section id="try-http-get-as-well-as-post" class="level2">
+<h2 class="anchored" data-anchor-id="try-http-get-as-well-as-post">Try HTTP <code>GET</code> as well as <code>POST</code></h2>
+<p>Request Method를 POST로 했는데 GET도 될까? Request Body의 Payload를 Query String으로 바꾸고 싶은데 띄어쓰기나 특수문자는 어떻게 바꾸나?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">URLSearchParams</span>({<span class="st">"query"</span><span class="op">:</span> <span class="st">"query questionOfToday {</span><span class="sc">\n</span><span class="st">  activeDailyCodingChallengeQuestion {</span><span class="sc">\n</span><span class="st">    date</span><span class="sc">\n</span><span class="st">    link</span><span class="sc">\n</span><span class="st">    question {</span><span class="sc">\n</span><span class="st">      acRate</span><span class="sc">\n</span><span class="st">      difficulty</span><span class="sc">\n</span><span class="st">      frontendQuestionId: questionFrontendId</span><span class="sc">\n</span><span class="st">      title</span><span class="sc">\n</span><span class="st">      titleSlug</span><span class="sc">\n</span><span class="st">    }</span><span class="sc">\n</span><span class="st">  }</span><span class="sc">\n</span><span class="st">}"</span>})<span class="op">.</span><span class="fu">toString</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>여기서 연속된 +만 하나로 줄였다.</p>
+</section>
+<section id="google-sheets-as-a-crawling-app" class="level2">
+<h2 class="anchored" data-anchor-id="google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</h2>
+<p>아쉽게도 응답받은 Link는 LeetCode 도메인이 없어서 브라우저의 주소 창에 도메인과 함께 붙여넣어야 한다. 카카오톡 오픈채팅봇은 이런 기능이 자유롭지 않은 것 같고, 기존 같은 One-click 서비스는 Redirect할 Server가 필요하다. 다행히 우리 스터디가 사용하는 Google Sheets가 GET 요청, 문자열 연산, Hyperlink 기능을 지원한다: <code>IMPORTDATA</code>, <code>CONCATENATE</code>, <code>MID</code>, <code>LEN</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scala code-with-copy"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="fu">IMPORTDATA</span><span class="op">(</span><span class="st">"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D"</span><span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="fu">CONCATENATE</span><span class="op">(</span><span class="st">"https://leetcode.com"</span><span class="op">,</span> <span class="fu">MID</span><span class="op">(</span>D1<span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="fu">LEN</span><span class="op">(</span>D1<span class="op">)</span> <span class="op">-</span> <span class="dv">59</span><span class="op">))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
+</figure>
+</div>
+<p>한 칸으로 줄이지 못한 이유는 <code>MID</code> 함수와 <code>LEN</code> 함수를 둘다 호출하느라 <code>IMPORTDATA</code>의 중복 요청을 방지하기 위해서이다 — 혹시 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>GraphQL API에서 GET 이외의 Method나 Header, Payload (Request Body)을 요구하면 <code>IMPORTDATA</code>는 쓸 수 없을 것이다. <code>IMPORTDATA</code>는 Query String</p>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">실력 진단 결과</span>
-<span class="glightbox-desc lightbox-desc-2">Parametric Search / 삼 오 무</span>
+<span class="glightbox-desc lightbox-desc-1">LeetCode Click 서비스 중단</span>
+<span class="glightbox-desc lightbox-desc-2">매일 리트코드를 풀던 카카오톡 오픈채팅방 반응 캡처</span>
+<span class="glightbox-desc lightbox-desc-3">LeetCode Daily Question 확인 방법</span>
+<span class="glightbox-desc lightbox-desc-4">Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</span>
+<span class="glightbox-desc lightbox-desc-5">Google Sheets에서 Parsing한 GraphQL JSON 응답</span>
 </div>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -823,7 +992,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -852,5 +1021,5 @@ window.onload = () => {
 
 
 
-<script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

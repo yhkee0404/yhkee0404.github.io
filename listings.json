@@ -1,9 +1,20 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/web.html",
+    "items": [
+      "/posts/bible/philemon/index.html"
+    ]
+  },
+  {
+    "listing": "/drafts.html",
+    "items": [
+      "/drafts/web/leetcode-daily-crawling/index.html"
+    ]
+  },
+  {
+    "listing": "/algorithms.html",
     "items": [
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/bible/philemon/index.html",
       "/posts/algorithms/codetree/keep-the-lead-3/index.html",
       "/posts/algorithms/codetree/subsequence-above-t/index.html",
       "/posts/algorithms/codetree/change-to-capital/index.html",
@@ -21,9 +32,10 @@
     ]
   },
   {
-    "listing": "/algorithms.html",
+    "listing": "/index.html",
     "items": [
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/bible/philemon/index.html",
       "/posts/algorithms/codetree/keep-the-lead-3/index.html",
       "/posts/algorithms/codetree/subsequence-above-t/index.html",
       "/posts/algorithms/codetree/change-to-capital/index.html",
