@@ -1,8 +1,8 @@
 ---
 title: "Web"
-image: posts/bible/edwin-andrade-4V1dC_eoCwg-unsplash.jpg
+image: posts/web/edwin-andrade-4V1dC_eoCwg-unsplash.jpg
 listing:
-  contents: posts/bible
+  contents: posts/web
   sort: "date desc"
   type: grid
   categories: true
