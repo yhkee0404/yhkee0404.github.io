@@ -111,11 +111,15 @@ all(sol.hasCycle(head, a) for a in range(1, 100))
 
 ## Two Pointers Speed Control
 
-Two Pointers Cycle 검사는 속력 차가 1이어야 했다. 정렬된 List에서 Median 찾기는 속력 차가 2배이면 된다. 홀수 $n$개 원소가 정렬된 List의 Median은 0부터 셀 때 $\lfloor n / 2 \rfloor$번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 $O(1)$이 걸리니 선형 시간의 Two Pointers가 더 느리다: $O(n) \ne O(1)$. 반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 $\lfloor n / 2 \rfloor$번째 원소를 찾을 때 $n$을 몰라도 된다는 장점이 있다. $\forall q \in \mathbb{Z}^+$인 $n / q$번째 원소라면 속력 차가 $q$배면 되는 것이다.
+Two Pointers Cycle 검사는 속력 차가 1이어야 했다: $a + 1$. 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: $2a$.
+
+홀수 $n$개 원소가 정렬된 List의 Median은 0부터 셀 때 $\lfloor \frac n 2 \rfloor$번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 $O(1)$이 걸리니 선형 시간의 Two Pointers가 더 느리다: $O(n) \ne O(1)$.
+
+반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 $\lfloor \frac n 2 \rfloor$번째 원소를 찾을 때 $n$을 몰라도 된다는 장점이 있다. $\forall q \in \mathbb{Z}^+$인 $\lfloor \frac n q \rfloor$번째 원소라면 속력 비가 $q$이면 되는 것이다.
 
 ## Middle of the Linked List
 
-LeetCode 문제 [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 $\lfloor n / 2 \rfloor$번째 원소만 찾으면 된다. 원래는 $n$을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 [백발백준](https://leetcode.com/submissions/detail/1196229225/) 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. [다음](https://leetcode.com/submissions/detail/1202349821/) Kotlin 풀이는 $n$도 모르고 Index 계산도 하지 않는다:
+LeetCode 문제 [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 $\lfloor \frac n 2 \rfloor$번째 원소만 찾으면 된다. 원래는 $n$을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 [백발백준](https://leetcode.com/submissions/detail/1196229225/) 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. [다음](https://leetcode.com/submissions/detail/1202349821/) Kotlin 풀이는 $n$도 모르고 Index 계산도 하지 않는다:
 
 ```kotlin
 /**
