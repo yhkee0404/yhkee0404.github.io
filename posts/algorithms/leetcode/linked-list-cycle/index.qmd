@@ -1,6 +1,6 @@
 ---
 title: "Two Pointers Speed Control"
-subtitle: Cycle 검사, Median, 시계
+subtitle: "Cycle 검사, Median, 시계"
 author: "Yunho Kee"
 date: "2024-03-14"
 categories:
@@ -15,6 +15,7 @@ categories:
   - speed
   - 쥐쥐
   - 백발백준
+image: susan-q-yin-Ctaj_HCqW84-unsplash.jpg
 ---
 
 ## Intro

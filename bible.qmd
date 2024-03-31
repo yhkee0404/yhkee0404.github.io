@@ -8,6 +8,8 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
+search: false
+image: posts/bible/edwin-andrade-4V1dC_eoCwg-unsplash.jpg
 ---
-  
+
 

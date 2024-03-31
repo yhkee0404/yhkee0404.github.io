@@ -3,6 +3,7 @@ title: "[코드트리 챌린지] 4주차 - DFS"
 author: "Yunho Kee"
 date: "2023-10-02"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
+image: report_2023-10-02.png
 ---
 
 ::: {layout="[525, 475]" layout-valign="bottom"}

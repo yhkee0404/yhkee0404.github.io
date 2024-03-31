@@ -8,6 +8,8 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
+search: false
+image: posts/algorithms/kelly-sikkema-PgToaHfQjq0-unsplash.jpg
 ---
-  
+
 

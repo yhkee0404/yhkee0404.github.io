@@ -5,6 +5,9 @@ listing:
   sort: "date desc"
   type: grid
   categories: true
+  feed:
+    language: ko
+    categories: featured
   sort-ui: false
   filter-ui: false
   fields:

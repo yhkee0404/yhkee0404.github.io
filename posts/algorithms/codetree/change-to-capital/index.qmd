@@ -3,6 +3,7 @@ title: "[코드트리 챌린지] 6주차 - 2차원 배열 입력"
 author: "Yunho Kee"
 date: "2023-10-16"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
+image: report_2023-10-16.png
 ---
 
 ::: {layout="[526, 474]" layout-valign="bottom"}
