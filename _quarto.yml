@@ -9,6 +9,7 @@ website:
   image: haezoom-everland-jyh-lunapic.jpg
   open-graph:
     locale: ko_KR
+  google-analytics: G-KH3KTM2DG3
   navbar:
     title: yhkee0404.github.io
     left:
