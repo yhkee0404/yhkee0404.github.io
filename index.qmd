@@ -7,6 +7,14 @@ listing:
   categories: true
   sort-ui: false
   filter-ui: false
+  fields:
+    - image
+    - title
+    - subtitle
+    - reading-time
+    - categories
+    - author
+    - date
 page-layout: full
 ---
   
