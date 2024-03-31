@@ -16,4 +16,4 @@ about:
 
 ---
 
-I am happy when exploring hot repos on GitHub, examining them with debugging tools, and discussing better practices.
+I really enjoy exploring GitHub to find recently updated solutions to my problems. It is a lot of fun to see how they really work, and discuss better practices!
