@@ -16,4 +16,4 @@ about:
 
 ---
 
-I really enjoy exploring GitHub to find latest solutions to my problems. It is a lot of fun to see how they really work, and discuss better practices!
+I really enjoy exploring GitHub to find latest solutions to my problems. It's a lot of fun to see how they really work and to discuss better practices!
