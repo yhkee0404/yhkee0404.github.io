@@ -40,6 +40,9 @@ format:
       light: flatly
     css: styles.css
     highlight-style: github
-
-
+    toc: true
+    toc-location: right-body
+    link-external-icon: true
+    link-external-newwindow: true
+    smooth-scroll: true
 

@@ -14,11 +14,14 @@ listing:
     - image
     - title
     - subtitle
+    - description
     - reading-time
     - categories
     - author
     - date
 page-layout: full
+search: false
+comments: false
 ---
   
 
