@@ -8,3 +8,6 @@ freeze: true
 # title-block-banner: true
 
 lightbox: true
+
+search: false
+comments: false
