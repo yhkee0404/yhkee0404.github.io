@@ -1,0 +1,135 @@
+---
+title: "LeetCode Daily Crawling"
+subtitle: "Server 비용 없이 Google Sheets 운영하기"
+author: "Yunho Kee"
+date: "2024-03-17"
+categories:
+  - featured
+  - web
+  - crawling
+  - graphql
+  - cloud
+  - spreadsheet
+  - "request method"
+  - "query string"
+  - "chrome devtools"
+  - leetcode
+  - discord
+image: "화면 캡처 2024-03-16 235413.jpg"
+reference-location: margin
+citation-location: margin
+---
+
+## Intro
+
+Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,^[IaaS (Infrastructure as a Service)] AWS EKS,^[CaaS (Container as a Service)] Heroku,^[PaaS (Platform as a Service)] Google Firebase,^[BaaS (Backend as a Service)] AWS Lambda,^[FaaS (Function as a Service)] Google Sheets.^[SaaS (Software as a Service)]
+
+Google Sheets는 무료이다. Excel로 GPT도 만든다던데,^[Spreadsheets are all you need {{< video https://youtu.be/yjD2n_e9E3w >}}] Crawling Server도 무료 대체 가능할까?
+
+## Goodbye LeetCode Click
+
+::: {layout="[[1], [1], [1]]"}
+![LeetCode Click의 운영 중단](화면 캡처 2024-03-16 235413.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot of the discontinuation of the LeetCode click service."}
+
+연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 [LeetCode Click](https://leetcode.click)에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.
+
+![LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응](KakaoTalk_Snapshot_20240316_233937.png){group="leetcode-daily-crawling" fig-alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."}
+:::
+
+## LeetCode Daily Coding Challenge Question
+
+![LeetCode Daily Question 확인 방법](화면 캡처 2024-03-17 003045.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."}
+
+그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 `Status`에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 `daily-question` 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다.
+
+## LeetCode GraphQL API
+
+오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 `graphql/` 중 하나를 Click하니 `Preview` 또는 `Response` Tab에 다음처럼 쓸 만한 응답이 보인다.
+
+```{.json #lst-response lst-cap="GraphQL Response"}
+{
+    "data": {
+        "activeDailyCodingChallengeQuestion": {
+            "date": "2024-03-16",
+            "userStatus": "NotStart",
+            "link": "/problems/contiguous-array/",
+            "question": {
+                "acRate": 47.945016299587756,
+                "difficulty": "Medium",
+                "freqBar": null,
+                "frontendQuestionId": "525",
+                "isFavor": false,
+                "paidOnly": false,
+                "status": null,
+                "title": "Contiguous Array",
+                "titleSlug": "contiguous-array",
+                "hasVideoSolution": false,
+                "hasSolution": true,
+                "topicTags": [
+                    {
+                        "name": "Array",
+                        "id": "VG9waWNUYWdOb2RlOjU=",
+                        "slug": "array"
+                    },
+                    {
+                        "name": "Hash Table",
+                        "id": "VG9waWNUYWdOb2RlOjY=",
+                        "slug": "hash-table"
+                    },
+                    {
+                        "name": "Prefix Sum",
+                        "id": "VG9waWNUYWdOb2RlOjYxMDY4",
+                        "slug": "prefix-sum"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+:::{.callout-note}
+GraphQL 응답은 Chrome 개발자 도구의 `Network` Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 &mdash; 다른 방법 아시면 댓글 부탁 드립니다!
+:::
+
+실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 `dailyCodingChallengeV2`라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 &mdash; 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 [elprimobot](https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22) 유용해 보이네요!
+
+![Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload](화면 캡처 2024-03-17 015135.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot of a GraphQL request's payload from Chrome DevTools."}
+
+cURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과^[[REPL-driven development](https://www.cs.utexas.edu/ftp/garbage/cs345/schintro-v13/schintro_114.html)],  `operationName`, `variables` 등 불필요한 항목을 지울 수 있었다.
+
+## GraphQL Query String
+
+어떤 Client는 `POST` Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 `GET` Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?
+
+```javascript
+new URLSearchParams({"query": "query questionOfToday {\n  activeDailyCodingChallengeQuestion {\n    date\n    link\n    question {\n      acRate\n      difficulty\n      frontendQuestionId: questionFrontendId\n      title\n      titleSlug\n    }\n  }\n}"}).toString()
+// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'
+```
+
+`GET` [성공이다](https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D). 연속된 `+`는 하나로 줄였다.
+
+## Google Sheets As a Crawling App
+
+@lst-response 의 `/problems/contiguous-array/`가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. `https://leetcode.com`과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?
+
+다행히 스터디에서 사용하던 Google Sheets가 `GET` 요청, 문자열 연산, Hyperlink를 지원한다: `IMPORTDATA`, `CONCATENATE`, `MID`, `LEN`.
+
+```scala
+=IMPORTDATA("https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D")
+=CONCATENATE("https://leetcode.com", MID(D1, 56, LEN(D1) - 59))
+```
+
+![Google Sheets에서 Parsing한 GraphQL JSON 응답](화면 캡처 2024-03-17 031317.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."}
+
+한 칸으로 줄이지 못한 이유는 `MID`와 `LEN` 함수를 둘다 호출하는 데 `IMPORTDATA`의 중복 요청을 막기 위해서이다 &mdash; 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!
+
+## Product
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2m9qgm3GOsed10XSQzleV8QRioetbAUpdA3SkJ-hvjpJh-gz-_ckADAGieCeifnmPXFXsR3O5ayxI/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+<https://shorturl.at/cdmsZ>
+
+## Limitations
+
+기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 `GET` 이외의 Method 또는 Request Header를 요구하면 `IMPORTDATA`는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.
