@@ -15,6 +15,8 @@ website:
     left:
       - text: Algorithms
         href: algorithms.qmd#category=featured
+      - text: Web
+        href: web.qmd#category=featured
       - text: Bible
         href: bible.qmd#category=featured
     right:
