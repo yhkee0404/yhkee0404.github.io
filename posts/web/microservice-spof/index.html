@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2024-04-04">
+<meta name="dcterms.date" content="2024-04-14">
 
-<title>Yunho Kee’s Cultivation - 이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.</title>
+<title>Yunho Kee’s Cultivation - Microservice와 Single Point of Failure (SPOF)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,9 +63,6 @@ div.csl-indent {
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,13 +114,11 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - 이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.">
-<meta property="og:description" content="A problem was detected with the Chrome Remote Desktop installation on this computer.">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png">
+<meta property="og:title" content="Yunho Kee’s Cultivation - Microservice와 Single Point of Failure (SPOF)">
+<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/web/handshake-6674572_640.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image:height" content="798">
-<meta property="og:image:width" content="2732">
 </head>
 
 <body class="nav-fixed">
@@ -203,31 +198,21 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#problem" id="toc-problem" class="nav-link active" data-scroll-target="#problem">Problem</a></li>
-  <li><a href="#reasonable-suspicion" id="toc-reasonable-suspicion" class="nav-link" data-scroll-target="#reasonable-suspicion">Reasonable Suspicion</a></li>
-  <li><a href="#google-llc" id="toc-google-llc" class="nav-link" data-scroll-target="#google-llc">Google LLC</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.</h1>
-<p class="subtitle lead">A problem was detected with the Chrome Remote Desktop installation on this computer.</p>
+<h1 class="title">Microservice와 Single Point of Failure (SPOF)</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">featured</div>
     <div class="quarto-category">troubleshoot</div>
-    <div class="quarto-category">chrome remote desktop</div>
-    <div class="quarto-category">macOS</div>
-    <div class="quarto-category">migration assistant</div>
-    <div class="quarto-category">background</div>
-    <div class="quarto-category">login items</div>
+    <div class="quarto-category">microservice</div>
+    <div class="quarto-category">monolith</div>
+    <div class="quarto-category">single point of failure</div>
+    <div class="quarto-category">netflix</div>
+    <div class="quarto-category">chaos monkey</div>
   </div>
   </div>
 
@@ -245,16 +230,10 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 4, 2024</p>
+      <p class="date">April 14, 2024</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 8, 2024</p>
-    </div>
-  </div>
     
   </div>
   
@@ -263,121 +242,17 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </header>
 
 
-<section id="problem" class="level2">
-<h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<div id="fig-chrome-remote-desktop-reinstall" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-chrome-remote-desktop-reinstall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-1" title="The infinite reinstallation of Chrome Remote Desktop"><img src="Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
-<figcaption>The infinite reinstallation of Chrome Remote Desktop</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-2"><img src="스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chrome-remote-desktop-reinstall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
-</figcaption>
-</figure>
-</div>
-<p>회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!</p>
-</section>
-<section id="reasonable-suspicion" class="level2">
-<h2 class="anchored" data-anchor-id="reasonable-suspicion">Reasonable Suspicion</h2>
-<div id="fig-chrome-remote-desktop-reasonable-suspicion" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-chrome-remote-desktop-reasonable-suspicion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-chrome-remote-desktop-macos-sonoma" class="quarto-figure quarto-figure-center quarto-float anchored" alt="">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-3"><img src="Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) macOS Sonoma
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-migration-assistant" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A screenshot.">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-4"><img src="Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Migration Assistant
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chrome-remote-desktop-reasonable-suspicion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Reasonable Suspicion
-</figcaption>
-</figure>
-</div>
-<p>결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.</p>
-<p>첫째, macOS Upgrade 때문이다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.</p>
-<p>둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.</p>
-<p>셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다.</p>
-</section>
-<section id="google-llc" class="level2">
-<h2 class="anchored" data-anchor-id="google-llc">Google LLC</h2>
-<div id="fig-chrome-remote-desktop-google-llc" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-chrome-remote-desktop-google-llc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-5"><img src="Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-6"><img src="Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chrome-remote-desktop-google-llc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: <code>System Settings</code> &gt; <code>General</code> &gt; <code>Login Items</code> &gt; <code>Allow in the Background</code> &gt; <code>Google LLC</code>
-</figcaption>
-</figure>
-</div>
-<p><code>시스템 설정</code> &gt; <code>일반</code> &gt; <code>로그인 항목</code> &gt; <code>백그라운드에서 허용</code> &gt; <code>Google LLC</code>를 켜면 된다 <span class="citation" data-cites="kakadais2024">(<a href="#ref-kakadais2024" role="doc-biblioref">kakadais 2024</a>)</span>. 끄면 재발한다.</p>
+<p><span class="citation" data-cites="rusendic2022">Rusendić (<a href="#ref-rusendic2022" role="doc-biblioref">2022</a>)</span> 에 따르면 동일한 Class와 Method를 하나의 Program에서 구현하면 Monolith(Monolithic architecture), 여러 Program 또는 Service와 API로 나누어서 구현하면 Microservice(MSA)로 볼 수 있다. Netflix가 후자로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다.</p>
+<p>그러나 서비스가 정상적으로 제공될 확률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">The infinite reinstallation of Chrome Remote Desktop</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치</span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;2&nbsp;(a): macOS Sonoma</span>
-<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;2&nbsp;(b): Migration Assistant</span>
-<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;3: <code>System Settings</code> &gt; <code>General</code> &gt; <code>Login Items</code> &gt; <code>Allow in the Background</code> &gt; <code>Google LLC</code></span>
-<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;3: <code>System Settings</code> &gt; <code>General</code> &gt; <code>Login Items</code> &gt; <code>Allow in the Background</code> &gt; <code>Google LLC</code></span>
-</div>
-
-</section>
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-apple_support2024" class="csl-entry" role="listitem">
-Apple Support. 2024. <span>“Installing Chrome Remote Desktop on Mac: What Are Updates and Upgrades?”</span> February 9, 2024. <a href="https://support.apple.com/en-us/108382">https://support.apple.com/en-us/108382</a>.
+<div id="ref-rusendic2022" class="csl-entry" role="listitem">
+Rusendić, Stanko Krtalić. 2022. <span>“Having a Monolith Is a Single Point of Failure.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
 </div>
-<div id="ref-kakadais2024" class="csl-entry" role="listitem">
-kakadais. 2024. <span>“Installing Chrome Remote Desktop on Mac.”</span> February 29, 2024. <a href="https://support.google.com/chrome/thread/246436331?hl=en&amp;msgid=261175390">https://support.google.com/chrome/thread/246436331?hl=en&amp;msgid=261175390</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Upgrade는 Update와 다르다 <span class="citation" data-cites="apple_support2024">(<a href="#ref-apple_support2024" role="doc-biblioref">Apple Support 2024</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -952,31 +827,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
