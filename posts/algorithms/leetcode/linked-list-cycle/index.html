@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
 <meta name="dcterms.date" content="2024-03-14">
 
-<title>yhkee0404.github.io - Two Pointers Speed Control</title>
+<title>Yunho Kee’s Cultivation - Two Pointers Speed Control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,11 +72,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -107,6 +107,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KH3KTM2DG3"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "enableExperimentalNewNoteButton": true
@@ -150,9 +160,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../../../styles.css">
+<meta property="og:title" content="Yunho Kee’s Cultivation - Two Pointers Speed Control">
+<meta property="og:description" content="Cycle 검사, Median, 시계">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg">
+<meta property="og:site_name" content="Yunho Kee's Cultivation">
+<meta property="og:locale" content="ko_KR">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -172,6 +187,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../../../../algorithms.html#category=featured"> 
 <span class="menu-text">Algorithms</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../web.html#category=featured"> 
+<span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../../bible.html#category=featured"> 
@@ -203,6 +222,11 @@ window.Quarto = {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -215,7 +239,21 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#two-pointers" id="toc-two-pointers" class="nav-link" data-scroll-target="#two-pointers">Two Pointers</a></li>
+  <li><a href="#two-pointers를-통한-graph-cycle-검사" id="toc-two-pointers를-통한-graph-cycle-검사" class="nav-link" data-scroll-target="#two-pointers를-통한-graph-cycle-검사">Two Pointers를 통한 Graph Cycle 검사</a></li>
+  <li><a href="#linked-list-cycle" id="toc-linked-list-cycle" class="nav-link" data-scroll-target="#linked-list-cycle">Linked List Cycle</a></li>
+  <li><a href="#two-pointers-speed-control" id="toc-two-pointers-speed-control" class="nav-link" data-scroll-target="#two-pointers-speed-control">Two Pointers Speed Control</a></li>
+  <li><a href="#middle-of-the-linked-list" id="toc-middle-of-the-linked-list" class="nav-link" data-scroll-target="#middle-of-the-linked-list">Middle of the Linked List</a></li>
+  <li><a href="#아날로그-시계" id="toc-아날로그-시계" class="nav-link" data-scroll-target="#아날로그-시계">아날로그 시계</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -226,11 +264,12 @@ window.Quarto = {
   <div class="quarto-categories">
     <div class="quarto-category">featured</div>
     <div class="quarto-category">leetcode</div>
+    <div class="quarto-category">programmers</div>
     <div class="quarto-category">two pointers</div>
     <div class="quarto-category">linked list</div>
     <div class="quarto-category">cycle</div>
     <div class="quarto-category">median</div>
-    <div class="quarto-category">시계</div>
+    <div class="quarto-category">clock</div>
     <div class="quarto-category">speed</div>
     <div class="quarto-category">쥐쥐</div>
     <div class="quarto-category">백발백준</div>
@@ -267,7 +306,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -277,12 +316,13 @@ window.Quarto = {
 </section>
 <section id="two-pointers" class="level2">
 <h2 class="anchored" data-anchor-id="two-pointers">Two Pointers</h2>
-<p>Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 <span class="math inline">\(n\)</span>개일 때 각 Pointer는 <span class="math inline">\(n\)</span>개의 원소를 최대 1번씩 방문하다가 선형 시간 <span class="math inline">\(O(n)\)</span> 안에 탐색을 마친다. 따라서 총 수행 시간 <span class="math inline">\(T(n)\)</span>은 Pointer의 개수 <span class="math inline">\(k\)</span>에 비례한다: <span class="math inline">\(T(n) = O(kn)\)</span>. 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 <span class="math inline">\(k\)</span>번 반복하므로 <span class="math inline">\(k\)</span>에 따라 지수적으로 증가한다: <span class="math inline">\(O(n^k)\)</span>. 가령, <span class="math inline">\(k = 2\)</span>이면 <span class="math inline">\(O(n^2) \ne O(2n) = O(n)\)</span>이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진한다.</p>
+<p>Two Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 <span class="math inline">\(n\)</span>개일 때 각 Pointer는 <span class="math inline">\(n\)</span>개의 원소를 최대 1번씩 방문하다가 선형 시간 <span class="math inline">\(O(n)\)</span> 안에 탐색을 마친다. 따라서 총 수행 시간 <span class="math inline">\(T(n)\)</span>은 Pointer의 개수 <span class="math inline">\(k\)</span>에 비례한다: <span class="math inline">\(T(n) = O(kn)\)</span>. 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 <span class="math inline">\(k\)</span>번 반복하므로 <span class="math inline">\(k\)</span>에 따라 지수적으로 증가한다: <span class="math inline">\(O(n^k)\)</span>. 가령, <span class="math inline">\(k = 2\)</span>이면 <span class="math inline">\(O(n^2) \ne O(2n) = O(n)\)</span>이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진만 허용한다.</p>
 </section>
 <section id="two-pointers를-통한-graph-cycle-검사" class="level2">
 <h2 class="anchored" data-anchor-id="two-pointers를-통한-graph-cycle-검사">Two Pointers를 통한 Graph Cycle 검사</h2>
 <p>Two Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.</p>
 <p>Cycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 <span class="math inline">\(1\)</span>이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 <span class="math inline">\(0\)</span>부터 오름차순으로 <span class="math inline">\(i_s\)</span>번째, 후발대는 <span class="math inline">\(j_s\)</span>번째라고 하고, <span class="math inline">\(i_s\)</span>와 <span class="math inline">\(j_s\)</span>가 길이가 <span class="math inline">\(m\)</span>인 Cycle 위에 있을 때 <span class="math inline">\(t\)</span> 시간을 더 탐색하면:</p>
+<div style="overflow-x: auto">
 <p><span class="math display">\[
 \begin{align}
 \forall i_s, j_s \in \mathbb{Z}, \forall m \in \mathbb{Z}^+ : \exists t \in \mathbb{Z} \text{ such that }  \\
@@ -293,8 +333,9 @@ window.Quarto = {
 &amp; &amp; i_s + (a + 1)t  &amp; \equiv j_s + at   &amp; \pmod{m}.
 \end{align}
 \]</span></p>
-<p>다시 말해 후발대가 <span class="math inline">\(a\)</span>의 속력으로 이동할 때 선발대가 <span class="math inline">\(a + 1\)</span>의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 <span class="math inline">\(x\)</span> 시점에 도착하는 <span class="math inline">\(j_x = j_s + at\)</span>번째 원소와 <span class="math inline">\(i_x = i_s + (a + 1)t\)</span>번째 원소가 <span class="math inline">\(x = t\)</span> 시점에서 일치(<span class="math inline">\(i_x \equiv j_x \pmod{m}\)</span>)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 <span class="math inline">\(T_c(m) = O(m)\)</span>이다. 왜냐하면 <span class="math inline">\(T_c(m) = t\)</span>이고 <span class="math inline">\(0 \leq t &lt; m\)</span>이기 때문이다.</p>
-<p>일반적으로 원소의 개수가 <span class="math inline">\(n\)</span>인 Graph를 탐색할 때 <span class="math inline">\(i_0 = j_0 = 0\)</span>번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 <span class="math inline">\(a &gt; 0\)</span>이면 Cycle 내 원소까지 선형 시간(<span class="math inline">\(T_u(n) = i_s - i_0 = O(n)\)</span>)에 반드시 도달한다. 또한 <span class="math inline">\(m = O(n)\)</span>이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:</p>
+</div>
+<p>다시 말해 후발대가 <span class="math inline">\(a\)</span>의 속력으로 이동할 때 선발대가 <span class="math inline">\(a + 1\)</span>의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 <span class="math inline">\(x\)</span> 시점에 도착하는 <span class="math inline">\(j_x = j_s + at\)</span>번째 원소와 <span class="math inline">\(i_x = i_s + (a + 1)t\)</span>번째 원소가 <span class="math inline">\(x = t\)</span> 시점에서 처음으로 일치(<span class="math inline">\(i_x \equiv j_x \pmod{m}\)</span>)할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 <span class="math inline">\(T_c(m) = O(m)\)</span>이다. 왜냐하면 <span class="math inline">\(T_c(m) = O(t)\)</span>이고 <span class="math inline">\(t = O(m)\)</span>이기 때문이다.</p>
+<p>일반적으로 원소의 개수가 <span class="math inline">\(n\)</span>인 Graph를 탐색할 때 <span class="math inline">\(i_0 = j_0 = 0\)</span>번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 <span class="math inline">\(a &gt; 0\)</span>이면 Cycle 내 원소까지 선형 시간(<span class="math inline">\(T_u(n) = i_s - i_0 = O(n)\)</span>)에 가능한 한 반드시 도달한다. 또한 <span class="math inline">\(m = O(n)\)</span>이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:</p>
 <p><span class="math display">\[
 \begin{align}
 T(n) &amp; = T_u(n) + T_c(m)\\
@@ -305,8 +346,8 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 </section>
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
-<p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 <code>a &gt;= 1</code>인 모든 정수에 대해 동작한다:</p>
-<div id="719e8325" class="cell" data-execution_count="2">
+<p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
+<div id="a8a8b899" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition for singly-linked list.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ListNode:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x):</span>
@@ -330,7 +371,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9d396c11" class="cell" data-execution_count="3">
+<div id="1915bda9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> [ListNode(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>]]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nodes) <span class="op">-</span> <span class="dv">1</span>):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    nodes[i].<span class="bu">next</span> <span class="op">=</span> nodes[i <span class="op">+</span> <span class="dv">1</span>]</span>
@@ -346,11 +387,13 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 </section>
 <section id="two-pointers-speed-control" class="level2">
 <h2 class="anchored" data-anchor-id="two-pointers-speed-control">Two Pointers Speed Control</h2>
-<p>Two Pointers Cycle 검사는 속력 차가 1이어야 했다. 정렬된 List에서 Median 찾기는 속력 차가 2배이면 된다. 홀수 <span class="math inline">\(n\)</span>개 원소가 정렬된 List의 Median은 <span class="math inline">\(n / 2\)</span>번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 <span class="math inline">\(O(1)\)</span>이 걸리니 선형 시간의 Two Pointers가 더 느리다: <span class="math inline">\(O(1) \ne O(n)\)</span>. 반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 <span class="math inline">\(n / 2\)</span>번째 원소를 찾을 때 <span class="math inline">\(n\)</span>을 몰라도 된다는 장점이 있다. <span class="math inline">\(\forall q \in \mathbb{Z}^+\)</span>인 <span class="math inline">\(n / q\)</span>번째 원소라면 속력 차가 <span class="math inline">\(q\)</span>배면 되는 것이다.</p>
+<p>Two Pointers Cycle 검사는 속력 차가 1이어야 했다: <span class="math inline">\(a + 1\)</span>. 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: <span class="math inline">\(2a\)</span>.</p>
+<p>홀수 <span class="math inline">\(n\)</span>개 원소가 정렬된 List의 Median은 0부터 셀 때 <span class="math inline">\(\lfloor \frac n 2 \rfloor\)</span>번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 <span class="math inline">\(O(1)\)</span>이 걸리니 선형 시간의 Two Pointers가 더 느리다: <span class="math inline">\(O(n) \ne O(1)\)</span>.</p>
+<p>반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 <span class="math inline">\(\lfloor \frac n 2 \rfloor\)</span>번째 원소를 찾을 때 <span class="math inline">\(n\)</span>을 몰라도 된다는 장점이 있다. <span class="math inline">\(\forall q \in \mathbb{Z}^+\)</span>인 <span class="math inline">\(\lfloor \frac n q \rfloor\)</span>번째 원소라면 속력 비가 <span class="math inline">\(q\)</span>이면 되는 것이다.</p>
 </section>
 <section id="middle-of-the-linked-list" class="level2">
 <h2 class="anchored" data-anchor-id="middle-of-the-linked-list">Middle of the Linked List</h2>
-<p>LeetCode 문제 <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a>는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 <span class="math inline">\(n / 2\)</span>번째 원소만 찾으면 된다. 원래는 <span class="math inline">\(n\)</span>을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 <a href="https://leetcode.com/submissions/detail/1196229225/">백발백준</a>님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. <a href="https://leetcode.com/submissions/detail/1202349821/">다음</a>은 Kotlin 풀이이다:</p>
+<p>LeetCode 문제 <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List</a>는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 <span class="math inline">\(\lfloor \frac n 2 \rfloor\)</span>번째 원소만 찾으면 된다. 원래는 <span class="math inline">\(n\)</span>을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 <a href="https://leetcode.com/submissions/detail/1196229225/">백발백준</a> 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. <a href="https://leetcode.com/submissions/detail/1202349821/">다음</a> Kotlin 풀이는 <span class="math inline">\(n\)</span>도 모르고 Index 계산도 하지 않는다:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * Example:</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * var li = ListNode(5)</span></span>
@@ -378,9 +421,9 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 </section>
 <section id="아날로그-시계" class="level2">
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
-<p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <span class="math inline">\(12 * 60 * 60\)</span>개 상태를 탐색하므로 <span class="math inline">\(12 + 60 + 60\)</span>개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
-<p>문제는 지역적인 중복이 아니라 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. <a href="#cb5-20">20</a>번째와 <a href="#cb5-23">23</a>번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: <a href="#cb5-14">14</a>번째, <a href="#cb5-28">27-28</a>번째 줄.k</p>
-<div id="bdd6fa90" class="cell" data-execution_count="4">
+<p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <span class="math inline">\(12 \times 60 \times 60\)</span>개 상태를 탐색하므로 <span class="math inline">\(12 + 60 + 60\)</span>개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
+<p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. <a href="#cb5-20">20-21</a>번째와 <a href="#cb5-23">23-24</a>번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: <a href="#cb5-14">14</a>번째, <a href="#cb5-27">27-28</a>번째 줄.</p>
+<div id="fc0cdffb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>MOD <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>DH <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>DM <span class="op">=</span> <span class="dv">12</span></span>
@@ -414,7 +457,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb5-31"><a href="#cb5-31"></a>        si <span class="op">=</span> sj <span class="op">%</span> MOD</span>
 <span id="cb5-32"><a href="#cb5-32"></a>    <span class="cf">return</span> ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4bf26d03" class="cell" data-execution_count="5">
+<div id="14d3f8a0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'''</span><span class="ch">\</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">0   5   30  0   7   0   2</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">12  0   0   12  0   30  1</span></span>
@@ -440,7 +483,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 </div>
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -577,7 +620,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
+  const darkModeDefault = true;
   let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
@@ -666,7 +709,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/yhkee0404\.github\.io\/");
+      var filterRegex = new RegExp("https:\/\/yhkee0404\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -680,6 +723,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -995,7 +1045,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2023, Yunho Kee</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1024,4 +1087,5 @@ window.onload = () => {
 
 
 
+<script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

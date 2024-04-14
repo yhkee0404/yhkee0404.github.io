@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2024-02-14">
+<meta name="dcterms.date" content="2024-03-17">
 
-<title>Yunho Kee’s Cultivation - Philemon</title>
+<title>Yunho Kee’s Cultivation - LeetCode Daily Crawling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,6 +77,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,9 +131,9 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - Philemon">
-<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/bible/edwin-andrade-4V1dC_eoCwg-unsplash.jpg">
+<meta property="og:title" content="Yunho Kee’s Cultivation - LeetCode Daily Crawling">
+<meta property="og:description" content="Server 비용 없이 Google Sheets 운영하기">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -178,29 +215,36 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#goodbye-leetcode-click" id="toc-goodbye-leetcode-click" class="nav-link" data-scroll-target="#goodbye-leetcode-click">Goodbye LeetCode Click</a></li>
+  <li><a href="#leetcode-daily-coding-challenge-question" id="toc-leetcode-daily-coding-challenge-question" class="nav-link" data-scroll-target="#leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</a></li>
+  <li><a href="#leetcode-graphql-api" id="toc-leetcode-graphql-api" class="nav-link" data-scroll-target="#leetcode-graphql-api">LeetCode GraphQL API</a></li>
+  <li><a href="#graphql-query-string" id="toc-graphql-query-string" class="nav-link" data-scroll-target="#graphql-query-string">GraphQL Query String</a></li>
+  <li><a href="#google-sheets-as-a-crawling-app" id="toc-google-sheets-as-a-crawling-app" class="nav-link" data-scroll-target="#google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</a></li>
+  <li><a href="#product" id="toc-product" class="nav-link" data-scroll-target="#product">Product</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Philemon</h1>
+<h1 class="title">LeetCode Daily Crawling</h1>
+<p class="subtitle lead">Server 비용 없이 Google Sheets 운영하기</p>
   <div class="quarto-categories">
-    <div class="quarto-category">bible</div>
-    <div class="quarto-category">Philemon</div>
-    <div class="quarto-category">Paul</div>
-    <div class="quarto-category">Timothy</div>
-    <div class="quarto-category">Apphia</div>
-    <div class="quarto-category">Archippus</div>
-    <div class="quarto-category">Onesimus</div>
-    <div class="quarto-category">Epaphras</div>
-    <div class="quarto-category">Mark</div>
-    <div class="quarto-category">Aristarchus</div>
-    <div class="quarto-category">Demas</div>
-    <div class="quarto-category">Luke</div>
+    <div class="quarto-category">featured</div>
+    <div class="quarto-category">web</div>
+    <div class="quarto-category">crawling</div>
+    <div class="quarto-category">graphql</div>
+    <div class="quarto-category">cloud</div>
+    <div class="quarto-category">spreadsheet</div>
+    <div class="quarto-category">request method</div>
+    <div class="quarto-category">query string</div>
+    <div class="quarto-category">chrome devtools</div>
+    <div class="quarto-category">leetcode</div>
+    <div class="quarto-category">discord</div>
   </div>
   </div>
 
@@ -218,16 +262,10 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 14, 2024</p>
+      <p class="date">March 17, 2024</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 6, 2024</p>
-    </div>
-  </div>
     
   </div>
   
@@ -236,128 +274,168 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </header>
 
 
-<p>Greetings from<br>
-This letter is from<br>
-I am writing to<br>
-Paul’s Final Greetings<br>
-send you his greetings<br>
-So do</p>
-<p>May give you grace and peace<br>
-May the grace of be with your spirit</p>
-<p>One more thing—<br>
-please prepare a guest room for me<br>
-I am hoping<br>
-God will answer your prayers<br>
-let me return to you soon</p>
-<p>send back to<br>
-with him comes my own heart<br>
-for a little while<br>
-have back forever</p>
-<p>keep here with me<br>
-while here<br>
-while I am<br>
-help on your behalf</p>
-<p>That is why</p>
-<p>has been in the past<br>
-wanted and he would have helped<br>
-It seems you lost so that you could</p>
-<p>I<br>
-with my own hand<br>
-owe me your very soul<br>
-And I won’t mention</p>
-<p>I am confident as<br>
-and even more!</p>
-<p>a prisoner for preaching<br>
-a prisoner for the sake of<br>
-in prison<br>
-in these chains for</p>
-<p>an old man</p>
-<p>preaching the Good News</p>
-<p>the Good News about</p>
-<p>Christ Jesus<br>
-the Lord Jesus Christ<br>
-the Lord Jesus<br>
-Christ<br>
-for the Lord’s sake<br>
-encouragement in Christ</p>
-<p>God our Father<br>
-my God</p>
-<p>God’s people</p>
-<p>누가 하나님의 사람인가</p>
-<p>my brother<br>
-my child<br>
-both of us<br>
-to you<br>
-especially to me<br>
-consider me your partner<br>
-welcome as you would<br>
-Yes</p>
-<p>wrong in any way<br>
-owe anything</p>
-<p>charge to<br>
-repay</p>
-<p>our brother<br>
-our beloved co-worker<br>
-our sister<br>
-our fellow soldier<br>
-the church<br>
-my fellow prisoner<br>
-my co-workers</p>
-<p>집에서 모이는 교회도 있다.</p>
-<p>our love<br>
-become his father in the faith<br>
-a beloved brother<br>
-mean much more as<br>
-show kindness to<br>
-a brother in the Lord</p>
-<p>of much use<br>
-very useful<br>
-no longer like a slave<br>
-more than a slave<br>
-a man</p>
-<p>Paul’s Thanksgiving<br>
-always thank when I pray<br>
-love for all of</p>
-<p>사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.</p>
-<p>Pray<br>
-pray for<br>
-pray that you will<br>
-put into action the generosity</p>
-<p>understand and experience<br>
-all the good things we have in</p>
-<p>사람을 위해 기도한다.</p>
-<p>믿는 사람은 이해하고 경험하면서 너그러워진다.<br>
-행동까지 너그러워지게 기도한다.</p>
-<p>give me much joy and comfort<br>
-your kindness<br>
-often refresh the hearts of</p>
-<p>친절은 종종 사람들의 마음을 회복시킨다.<br>
-사람들이 마음을 회복할수록 기분이 좋다.</p>
-<p>Appeal for<br>
-a request from<br>
-I am boldly asking<br>
-I appeal to you to show<br>
-ask a favor of<br>
-do a favor for<br>
-please<br>
-Give me this encouragement in</p>
-<p>could demand<br>
-demand in the name<br>
-it is the right thing<br>
-prefer simply to ask<br>
-Consider this as a request<br>
-an old man</p>
-<p>anything without your consent<br>
-help because you were willing<br>
-not because you were forced</p>
-<section id="references" class="level1">
-<h1>References</h1>
-<ol type="1">
-<li>New Living Translation. (2015). Tyndale. <a href="https://www.tyndale.com/nlt/search" class="uri">https://www.tyndale.com/nlt/search</a></li>
-</ol>
-
-
+<section id="intro" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> AWS EKS,<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Heroku,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Google Firebase,<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> AWS Lambda,<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Google Sheets.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;IaaS (Infrastructure as a Service)</p></div><div id="fn2"><p><sup>2</sup>&nbsp;CaaS (Container as a Service)</p></div><div id="fn3"><p><sup>3</sup>&nbsp;PaaS (Platform as a Service)</p></div><div id="fn4"><p><sup>4</sup>&nbsp;BaaS (Backend as a Service)</p></div><div id="fn5"><p><sup>5</sup>&nbsp;FaaS (Function as a Service)</p></div><div id="fn6"><p><sup>6</sup>&nbsp;SaaS (Software as a Service)</p></div><div id="fn7"><p><sup>7</sup>&nbsp;Spreadsheets are all you need </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yjD2n_e9E3w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p></div></div><p>Google Sheets는 무료이다. Excel로 GPT도 만든다던데,<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Crawling Server도 무료 대체 가능할까?</p>
 </section>
+<section id="goodbye-leetcode-click" class="level2">
+<h2 class="anchored" data-anchor-id="goodbye-leetcode-click">Goodbye LeetCode Click</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1], [1], [1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<figcaption>LeetCode Click의 운영 중단</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 <a href="https://leetcode.click">LeetCode Click</a>에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leetcode-daily-coding-challenge-question" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<figcaption>LeetCode Daily Question 확인 방법</figcaption>
+</figure>
+</div>
+<p>그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 <code>Status</code>에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 <code>daily-question</code> 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다.</p>
+</section>
+<section id="leetcode-graphql-api" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="leetcode-graphql-api">LeetCode GraphQL API</h2>
+<p>오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 <code>graphql/</code> 중 하나를 Click하니 <code>Preview</code> 또는 <code>Response</code> Tab에 다음처럼 쓸 만한 응답이 보인다.</p>
+<div id="lst-response" class="json listing quarto-float">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-response-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: GraphQL Response
+</figcaption>
+<div aria-describedby="lst-response-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode" id="lst-response"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="lst-response-1"><a href="#lst-response-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="lst-response-2"><a href="#lst-response-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="lst-response-3"><a href="#lst-response-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"activeDailyCodingChallengeQuestion"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="lst-response-4"><a href="#lst-response-4" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2024-03-16"</span><span class="fu">,</span></span>
+<span id="lst-response-5"><a href="#lst-response-5" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"userStatus"</span><span class="fu">:</span> <span class="st">"NotStart"</span><span class="fu">,</span></span>
+<span id="lst-response-6"><a href="#lst-response-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"link"</span><span class="fu">:</span> <span class="st">"/problems/contiguous-array/"</span><span class="fu">,</span></span>
+<span id="lst-response-7"><a href="#lst-response-7" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"question"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="lst-response-8"><a href="#lst-response-8" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"acRate"</span><span class="fu">:</span> <span class="fl">47.945016299587756</span><span class="fu">,</span></span>
+<span id="lst-response-9"><a href="#lst-response-9" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"difficulty"</span><span class="fu">:</span> <span class="st">"Medium"</span><span class="fu">,</span></span>
+<span id="lst-response-10"><a href="#lst-response-10" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"freqBar"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="lst-response-11"><a href="#lst-response-11" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"frontendQuestionId"</span><span class="fu">:</span> <span class="st">"525"</span><span class="fu">,</span></span>
+<span id="lst-response-12"><a href="#lst-response-12" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"isFavor"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="lst-response-13"><a href="#lst-response-13" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"paidOnly"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="lst-response-14"><a href="#lst-response-14" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"status"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="lst-response-15"><a href="#lst-response-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Contiguous Array"</span><span class="fu">,</span></span>
+<span id="lst-response-16"><a href="#lst-response-16" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"titleSlug"</span><span class="fu">:</span> <span class="st">"contiguous-array"</span><span class="fu">,</span></span>
+<span id="lst-response-17"><a href="#lst-response-17" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"hasVideoSolution"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="lst-response-18"><a href="#lst-response-18" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"hasSolution"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="lst-response-19"><a href="#lst-response-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">"topicTags"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="lst-response-20"><a href="#lst-response-20" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="lst-response-21"><a href="#lst-response-21" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Array"</span><span class="fu">,</span></span>
+<span id="lst-response-22"><a href="#lst-response-22" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjU="</span><span class="fu">,</span></span>
+<span id="lst-response-23"><a href="#lst-response-23" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"array"</span></span>
+<span id="lst-response-24"><a href="#lst-response-24" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="lst-response-25"><a href="#lst-response-25" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="lst-response-26"><a href="#lst-response-26" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Hash Table"</span><span class="fu">,</span></span>
+<span id="lst-response-27"><a href="#lst-response-27" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjY="</span><span class="fu">,</span></span>
+<span id="lst-response-28"><a href="#lst-response-28" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"hash-table"</span></span>
+<span id="lst-response-29"><a href="#lst-response-29" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="lst-response-30"><a href="#lst-response-30" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">{</span></span>
+<span id="lst-response-31"><a href="#lst-response-31" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Prefix Sum"</span><span class="fu">,</span></span>
+<span id="lst-response-32"><a href="#lst-response-32" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"VG9waWNUYWdOb2RlOjYxMDY4"</span><span class="fu">,</span></span>
+<span id="lst-response-33"><a href="#lst-response-33" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"prefix-sum"</span></span>
+<span id="lst-response-34"><a href="#lst-response-34" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">}</span></span>
+<span id="lst-response-35"><a href="#lst-response-35" aria-hidden="true" tabindex="-1"></a>                <span class="ot">]</span></span>
+<span id="lst-response-36"><a href="#lst-response-36" aria-hidden="true" tabindex="-1"></a>            <span class="fu">}</span></span>
+<span id="lst-response-37"><a href="#lst-response-37" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="lst-response-38"><a href="#lst-response-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="lst-response-39"><a href="#lst-response-39" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GraphQL 응답은 Chrome 개발자 도구의 <code>Network</code> Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!</p>
+</div>
+</div>
+<p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
+</figure>
+</div>
+<p>cURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, <code>operationName</code>, <code>variables</code> 등 불필요한 항목을 지울 수 있었다.</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;<a href="https://www.cs.utexas.edu/ftp/garbage/cs345/schintro-v13/schintro_114.html">REPL-driven development</a></p></div></div></section>
+<section id="graphql-query-string" class="level2">
+<h2 class="anchored" data-anchor-id="graphql-query-string">GraphQL Query String</h2>
+<p>어떤 Client는 <code>POST</code> Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 <code>GET</code> Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">URLSearchParams</span>({<span class="st">"query"</span><span class="op">:</span> <span class="st">"query questionOfToday {</span><span class="sc">\n</span><span class="st">  activeDailyCodingChallengeQuestion {</span><span class="sc">\n</span><span class="st">    date</span><span class="sc">\n</span><span class="st">    link</span><span class="sc">\n</span><span class="st">    question {</span><span class="sc">\n</span><span class="st">      acRate</span><span class="sc">\n</span><span class="st">      difficulty</span><span class="sc">\n</span><span class="st">      frontendQuestionId: questionFrontendId</span><span class="sc">\n</span><span class="st">      title</span><span class="sc">\n</span><span class="st">      titleSlug</span><span class="sc">\n</span><span class="st">    }</span><span class="sc">\n</span><span class="st">  }</span><span class="sc">\n</span><span class="st">}"</span>})<span class="op">.</span><span class="fu">toString</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>GET</code> <a href="https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D">성공이다</a>. 연속된 <code>+</code>는 하나로 줄였다.</p>
+</section>
+<section id="google-sheets-as-a-crawling-app" class="level2">
+<h2 class="anchored" data-anchor-id="google-sheets-as-a-crawling-app">Google Sheets As a Crawling App</h2>
+<p><a href="#lst-response" class="quarto-xref">Listing&nbsp;1</a> 의 <code>/problems/contiguous-array/</code>가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. <code>https://leetcode.com</code>과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?</p>
+<p>다행히 스터디에서 사용하던 Google Sheets가 <code>GET</code> 요청, 문자열 연산, Hyperlink를 지원한다: <code>IMPORTDATA</code>, <code>CONCATENATE</code>, <code>MID</code>, <code>LEN</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala code-with-copy"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="fu">IMPORTDATA</span><span class="op">(</span><span class="st">"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D"</span><span class="op">)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="fu">CONCATENATE</span><span class="op">(</span><span class="st">"https://leetcode.com"</span><span class="op">,</span> <span class="fu">MID</span><span class="op">(</span>D1<span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="fu">LEN</span><span class="op">(</span>D1<span class="op">)</span> <span class="op">-</span> <span class="dv">59</span><span class="op">))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
+</figure>
+</div>
+<p>한 칸으로 줄이지 못한 이유는 <code>MID</code>와 <code>LEN</code> 함수를 둘다 호출하는 데 <code>IMPORTDATA</code>의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!</p>
+</section>
+<section id="product" class="level2">
+<h2 class="anchored" data-anchor-id="product">Product</h2>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2m9qgm3GOsed10XSQzleV8QRioetbAUpdA3SkJ-hvjpJh-gz-_ckADAGieCeifnmPXFXsR3O5ayxI/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+</iframe>
+<p><a href="https://shorturl.at/cdmsZ" class="uri">https://shorturl.at/cdmsZ</a></p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 <code>GET</code> 이외의 Method 또는 Request Header를 요구하면 <code>IMPORTDATA</code>는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.</p>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">LeetCode Click의 운영 중단</span>
+<span class="glightbox-desc lightbox-desc-2">LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</span>
+<span class="glightbox-desc lightbox-desc-3">LeetCode Daily Question 확인 방법</span>
+<span class="glightbox-desc lightbox-desc-4">Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</span>
+<span class="glightbox-desc lightbox-desc-5">Google Sheets에서 Parsing한 GraphQL JSON 응답</span>
+</div>
+</section>
+
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -934,6 +1012,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
