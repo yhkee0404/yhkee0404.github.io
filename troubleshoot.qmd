@@ -1,0 +1,23 @@
+---
+title: "Troubleshoot"
+image: posts/troubleshoot/sven-brandsma-OdF1YWzW_vA-unsplash.jpg
+listing:
+  contents: posts/troubleshoot
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields:
+    - image
+    - title
+    - subtitle
+    - description
+    - reading-time
+    - categories
+    - author
+    - date
+page-layout: full
+search: false
+comments: false
+---
