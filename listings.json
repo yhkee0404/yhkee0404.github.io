@@ -1,18 +1,5 @@
 [
   {
-    "listing": "/troubleshoot.html",
-    "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
-    ]
-  },
-  {
-    "listing": "/web.html",
-    "items": [
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/posts/web/microservice-spof/index.html",
@@ -28,6 +15,19 @@
       "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
       "/posts/algorithms/codetree/three-five-moo/index.html",
       "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
+    ]
+  },
+  {
+    "listing": "/troubleshoot.html",
+    "items": [
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+    ]
+  },
+  {
+    "listing": "/web.html",
+    "items": [
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
     ]
   },
   {
