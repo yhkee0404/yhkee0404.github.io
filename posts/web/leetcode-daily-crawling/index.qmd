@@ -22,7 +22,7 @@ citation-location: margin
 
 ## Intro
 
-Crawling Server는 ChatGPT처럼 동적으로 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,^[IaaS (Infrastructure as a Service)] AWS EKS,^[CaaS (Container as a Service)] Heroku,^[PaaS (Platform as a Service)] Google Firebase,^[BaaS (Backend as a Service)] AWS Lambda,^[FaaS (Function as a Service)] Google Sheets.^[SaaS (Software as a Service)]
+Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,^[IaaS (Infrastructure as a Service)] AWS EKS,^[CaaS (Container as a Service)] Heroku,^[PaaS (Platform as a Service)] Google Firebase,^[BaaS (Backend as a Service)] AWS Lambda,^[FaaS (Function as a Service)] Google Sheets.^[SaaS (Software as a Service)]
 
 Google Sheets는 무료이다. Excel로 GPT도 만든다던데,^[Spreadsheets are all you need {{< video https://youtu.be/yjD2n_e9E3w >}}] Crawling Server도 무료 대체 가능할까?
 
