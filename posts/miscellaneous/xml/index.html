@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -80,14 +100,27 @@ gtag('js', new Date());
 gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "enableExperimentalNewNoteButton": true
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 <link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="Yunho Kee’s Cultivation - XML">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/drafts/miscellaneous/xml/its-leviosa-not-leviosa-harry-potter-magic-spell-vector">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/miscellaneous/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image:height" content="5000">
+<meta property="og:image:width" content="5000">
 </head>
 
 <body class="nav-fixed">
@@ -116,8 +149,12 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html"> 
+    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
 <span class="menu-text">Troubleshoot</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../miscellaneous.html#category=featured"> 
+<span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../bible.html#category=featured"> 
@@ -247,17 +284,22 @@ Text | OpeningTag Element ClosingTag | SingleTag
 <p>Optional Field나 Missing Field를 허용한다.</p>
 
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ullman2014first" class="csl-entry" role="listitem">
+Ullman, J. D., and J. Widom. 2014. <em>A First Course in Database Systems</em>. Always Learning. Pearson. <a href="https://books.google.co.kr/books?id=9vNgngEACAAJ">https://books.google.co.kr/books?id=9vNgngEACAAJ</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
   title = {XML},
   date = {2024-04-28},
-  url = {https://yhkee0404.github.io/drafts/miscellaneous/xml},
-  langid = {en}
+  url = {https://yhkee0404.github.io/posts/miscellaneous/xml},
+  langid = {ko}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee0404.github.io/drafts/miscellaneous/xml">https://yhkee0404.github.io/drafts/miscellaneous/xml</a>.
+Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee0404.github.io/posts/miscellaneous/xml">https://yhkee0404.github.io/posts/miscellaneous/xml</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

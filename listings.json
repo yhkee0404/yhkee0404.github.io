@@ -1,15 +1,40 @@
 [
   {
-    "listing": "/bible.html",
+    "listing": "/index.html",
     "items": [
-      "/posts/bible/philemon/index.html"
+      "/posts/miscellaneous/xml/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/troubleshoot/chrome-remote-desktop/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html",
+      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/bible/philemon/index.html",
+      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
+      "/posts/algorithms/codetree/subsequence-above-t/index.html",
+      "/posts/algorithms/codetree/change-to-capital/index.html",
+      "/posts/algorithms/codetree/shortest-distance-9/index.html",
+      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+      "/posts/algorithms/codetree/three-five-moo/index.html",
+      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
     ]
   },
   {
-    "listing": "/drafts.html",
+    "listing": "/miscellaneous.html",
     "items": [
-      "/drafts/miscellaneous/xml/index.html",
-      "/drafts/dummy.html"
+      "/posts/miscellaneous/xml/index.html"
+    ]
+  },
+  {
+    "listing": "/troubleshoot.html",
+    "items": [
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+    ]
+  },
+  {
+    "listing": "/web.html",
+    "items": [
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
     ]
   },
   {
@@ -27,34 +52,15 @@
     ]
   },
   {
-    "listing": "/web.html",
+    "listing": "/drafts.html",
     "items": [
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
+      "/drafts/dummy.html"
     ]
   },
   {
-    "listing": "/troubleshoot.html",
+    "listing": "/bible.html",
     "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/web/microservice-spof/index.html",
-      "/posts/troubleshoot/chrome-remote-desktop/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html",
-      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/bible/philemon/index.html",
-      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
-      "/posts/algorithms/codetree/subsequence-above-t/index.html",
-      "/posts/algorithms/codetree/change-to-capital/index.html",
-      "/posts/algorithms/codetree/shortest-distance-9/index.html",
-      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-      "/posts/algorithms/codetree/three-five-moo/index.html",
-      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
+      "/posts/bible/philemon/index.html"
     ]
   }
 ]

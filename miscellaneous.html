@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2024-04-14">
 
-<title>Yunho Kee’s Cultivation - Microservice와 Single Point of Failure (SPOF)</title>
+<title>Yunho Kee’s Cultivation - Miscellaneous</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,47 +20,29 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,6 +70,35 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-subtitle','listing-description','listing-reading-time','listing-categories','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KH3KTM2DG3"></script>
 
 <script type="text/javascript">
@@ -100,25 +109,44 @@ gtag('js', new Date());
 gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script type="application/json" class="js-hypothesis-config">
-{
-  "enableExperimentalNewNoteButton": true
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
+window.Quarto = {
+  typesetMath
+};
 </script>
 
-
-<link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - Microservice와 Single Point of Failure (SPOF)">
-<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/web/handshake-6674572_640.jpg">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Yunho Kee’s Cultivation - Miscellaneous">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/miscellaneous/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image:height" content="5000">
+<meta property="og:image:width" content="5000">
 </head>
 
 <body class="nav-fixed">
@@ -128,7 +156,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -139,29 +167,29 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="./algorithms.html#category=featured"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../web.html#category=featured"> 
+    <a class="nav-link" href="./web.html#category=featured"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="./troubleshoot.html#category=featured"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../miscellaneous.html#category=featured"> 
+    <a class="nav-link" href="./miscellaneous.html#category=featured"> 
 <span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../bible.html#category=featured"> 
+    <a class="nav-link" href="./bible.html#category=featured"> 
 <span class="menu-text">Bible</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -185,7 +213,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./index-featured.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -198,45 +226,25 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="database">database <span class="quarto-category-count">(1)</span></div><div class="category" data-category="html">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="semantic tag">semantic tag <span class="quarto-category-count">(1)</span></div><div class="category" data-category="semistructured data">semistructured data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="xml">xml <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Microservice와 Single Point of Failure (SPOF)</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">troubleshoot</div>
-    <div class="quarto-category">microservice</div>
-    <div class="quarto-category">monolith</div>
-    <div class="quarto-category">single point of failure</div>
-    <div class="quarto-category">netflix</div>
-    <div class="quarto-category">chaos monkey</div>
-  </div>
-  </div>
+<h1 class="title">Miscellaneous</h1>
+</div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Yunho Kee </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 14, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -246,28 +254,62 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </header>
 
 
-<p>Web developer <span class="citation" data-cites="rusendic2022">Rusendić (<a href="#ref-rusendic2022" role="doc-biblioref">2022</a>)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 Microservice(MSA)이다.</p>
-<p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="rusendic2022">(<a href="#ref-rusendic2022" role="doc-biblioref">Rusendić 2022</a>)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="rusendic2022">(<a href="#ref-rusendic2022" role="doc-biblioref">Rusendić 2022</a>)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="rusendic2022">(<a href="#ref-rusendic2022" role="doc-biblioref">Rusendić 2022</a>)</span>.</p>
-<p>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</p>
 
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-rusendic2022" class="csl-entry" role="listitem">
-Rusendić, Stanko Krtalić. 2022. <span>“Having a Monolith Is a Single Point of Failure.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="xml,database,html,semistructured data,semantic tag" data-listing-date-sort="1714262400000" data-listing-file-modified-sort="1714316228967" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="42">
+<a href="./posts/miscellaneous/xml/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/miscellaneous/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+XML
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
-  author = {Kee, Yunho},
-  title = {Microservice와 Single Point of Failure (SPOF)},
-  date = {2024-04-14},
-  url = {https://yhkee0404.github.io/posts/web/microservice-spof},
-  langid = {ko}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kee, Yunho. 2024. <span>“Microservice와 Single Point of Failure
-(SPOF).”</span> April 14, 2024. <a href="https://yhkee0404.github.io/posts/web/microservice-spof">https://yhkee0404.github.io/posts/web/microservice-spof</a>.
-</div></div></section></div></main> <!-- /main -->
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('xml'); return false;">
+xml
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('database'); return false;">
+database
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('html'); return false;">
+html
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('semistructured data'); return false;">
+semistructured data
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('semantic tag'); return false;">
+semantic tag
+</div>
+</div>
+<div class="card-text listing-description">
+Tag는 Graph의 간선(Arc)에 해당한다.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Yunho Kee
+</div>
+<div class="listing-date">
+Apr 28, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -846,5 +888,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
