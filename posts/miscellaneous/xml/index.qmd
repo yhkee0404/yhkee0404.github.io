@@ -9,6 +9,8 @@ categories:
   - "semistructured data"
   - "semantic tag"
 bibliography: A_First_Course_in_Database_Systems.bibtex
+nocite: |
+  @*
 ---
 
 ## Semistructured Data
