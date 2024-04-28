@@ -9,7 +9,8 @@ freeze: true
 
 lightbox: true
 
-citation: true
+citation:
+  language: ko
 
 search: false
 comments: false
