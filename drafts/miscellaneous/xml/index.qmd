@@ -1,0 +1,35 @@
+---
+title: "XML"
+author: "Yunho Kee"
+date: "2024-04-28"
+categories:
+  - xml
+  - database
+  - html
+  - "semistructured data"
+  - "semantic tag"
+bibliography: A_First_Course_in_Database_Systems.bibtex
+---
+
+## Semistructured Data
+
+Tag는 Graph의 간선(Arc)에 해당한다.
+
+## HTML과 XML의 차이
+
+HTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다.
+
+## Semantic Tags
+
+Element
+: Text | OpeningTag Element ClosingTag | SingleTag
+
+Tag는 Attribute가 있다.
+
+## XML Schema
+
+DTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML.
+
+## DTD의 유연성
+
+Optional Field나 Missing Field를 허용한다.

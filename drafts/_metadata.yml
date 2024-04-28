@@ -9,6 +9,8 @@ freeze: true
 
 lightbox: true
 
+citation: true
+
 search: false
 comments: false
 
