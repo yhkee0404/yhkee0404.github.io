@@ -800,7 +800,7 @@ Kee, Yunho. 2024. <span>“LeetCode Daily Crawling.”</span> March 17,
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -826,7 +826,7 @@ Kee, Yunho. 2024. <span>“LeetCode Daily Crawling.”</span> March 17,
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
-<div id="a8a8b899" class="cell" data-execution_count="2">
+<div id="0826238a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Definition for singly-linked list.</span></span>
@@ -962,7 +962,7 @@ font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span></span></code></pre></div>
 </div>
-<div id="1915bda9" class="cell" data-execution_count="3">
+<div id="b8d5af44" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">nodes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [ListNode(x) <span class="cf" style="color: #003B4F;
@@ -1035,7 +1035,7 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>))</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -1193,9 +1193,9 @@ font-style: inherit;">}</span></span></code></pre></div>
 <section id="아날로그-시계" class="level2">
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
 <p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <img src="https://latex.codecogs.com/png.latex?12%20%5Ctimes%2060%20%5Ctimes%2060">개 상태를 탐색하므로 <img src="https://latex.codecogs.com/png.latex?12%20+%2060%20+%2060">개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
-<p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. 20-21번째와 23-24번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: 14번째, 27-28번째 줄.</p>
-<div id="fc0cdffb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1">MOD <span class="op" style="color: #5E5E5E;
+<p>그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.</p>
+<div id="be504576" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-4" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1">MOD <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1208,17 +1208,17 @@ background-color: null;
 font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">60</span></span>
-<span id="cb5-2">DH <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-2">DH <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span></span>
-<span id="cb5-3">DM <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-3">DM <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">12</span></span>
-<span id="cb5-4">DS <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-4">DS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1227,21 +1227,21 @@ background-color: null;
 font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">60</span></span>
-<span id="cb5-5">DSH <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-5">DSH <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> DH</span>
-<span id="cb5-6">DSM <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-6">DSM <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DS <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> DM</span>
-<span id="cb5-7"></span>
-<span id="cb5-8"><span class="kw" style="color: #003B4F;
+<span id="annotated-cell-4-7"></span>
+<span id="annotated-cell-4-8"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">def</span> solution(h1, m1, s1, h2, m2, s2):</span>
-<span id="cb5-9">    src <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-9">    src <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (h1 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1256,7 +1256,7 @@ background-color: null;
 font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> s1</span>
-<span id="cb5-10">    dest <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-10">    dest <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (h2 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1271,12 +1271,12 @@ background-color: null;
 font-style: inherit;">60</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> s2</span>
-<span id="cb5-11">    hi <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-11">    hi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> src <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span> MOD</span>
-<span id="cb5-12">    mi <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-12">    mi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (m1 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1287,12 +1287,12 @@ background-color: null;
 font-style: inherit;">+</span> s1) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> DM</span>
-<span id="cb5-13">    si <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-13">    si <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> s1 <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> DS</span>
-<span id="cb5-14">    ans <span class="op" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-4-14" class="code-annotation-target">    ans <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1311,34 +1311,34 @@ background-color: null;
 font-style: inherit;">else</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span></span>
-<span id="cb5-15">    <span class="cf" style="color: #003B4F;
+<span id="annotated-cell-4-15">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">in</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">range</span>(src, dest):</span>
-<span id="cb5-16">        hj <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-16">        hj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> hi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> DH</span>
-<span id="cb5-17">        mj <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-17">        mj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> mi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> DM</span>
-<span id="cb5-18">        sj <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-18">        sj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> si <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> DS</span>
-<span id="cb5-19">        sh <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-19">        sh <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb5-20">        <span class="cf" style="color: #003B4F;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-20" class="code-annotation-target">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">if</span> hi <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1347,19 +1347,19 @@ background-color: null;
 font-style: inherit;">and</span> hj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;=</span> sj:</span>
-<span id="cb5-21">            sh <span class="op" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-21" class="code-annotation-target">            sh <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (hi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> si) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> DSM</span>
-<span id="cb5-22">        sm <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-22">        sm <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb5-23">        <span class="cf" style="color: #003B4F;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-23" class="code-annotation-target">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">if</span> mi <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1368,14 +1368,14 @@ background-color: null;
 font-style: inherit;">and</span> mj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;=</span> sj:</span>
-<span id="cb5-24">            sm <span class="op" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-24" class="code-annotation-target">            sm <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (mi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span> si) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> DSH</span>
-<span id="cb5-25">        bsh <span class="op" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-4-25" class="code-annotation-target">        bsh <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> sh <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1384,7 +1384,7 @@ background-color: null;
 font-style: inherit;">not</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb5-26">        bsm <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-26">        bsm <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> sm <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1393,12 +1393,12 @@ background-color: null;
 font-style: inherit;">not</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb5-27">        <span class="cf" style="color: #003B4F;
+<span id="annotated-cell-4-27">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">if</span> bsh <span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">or</span> bsm:</span>
-<span id="cb5-28">            ans <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-28">            ans <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1415,63 +1415,91 @@ background-color: null;
 font-style: inherit;">else</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span></span>
-<span id="cb5-29">        hi <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-29">        hi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> hj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span> MOD</span>
-<span id="cb5-30">        mi <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-30">        mi <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> mj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span> MOD</span>
-<span id="cb5-31">        si <span class="op" style="color: #5E5E5E;
+<span id="annotated-cell-4-31">        si <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> sj <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span> MOD</span>
-<span id="cb5-32">    <span class="cf" style="color: #003B4F;
+<span id="annotated-cell-4-32">    <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">return</span> ans</span></code></pre></div>
+font-style: inherit;">return</span> ans</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="20" data-code-annotation="1">시침 직선과 초침 직선의 교차</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="21" data-code-annotation="2">시침 직선과 초침 직선이 교차하는 정확한 시각에 <code>DSM * DSH</code>를 곱해 정수 표현한 값</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="23" data-code-annotation="3">분침 직선과 초침 직선의 교차</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="24" data-code-annotation="4">분침 직선과 초침 직선이 교차하는 정확한 시각에 <code>DSM * DSH</code>를 곱해 정수 표현한 값</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="14" data-code-annotation="5">시작부터 교차하는지</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="25,26,27,28" data-code-annotation="6">직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지</span>
+</dd>
+</dl>
 </div>
-<div id="14d3f8a0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">s <span class="op" style="color: #5E5E5E;
+</div>
+<div id="08f99be7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">s <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'''</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb6-2"><span class="st" style="color: #20794D;
+<span id="cb5-2"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">0   5   30  0   7   0   2</span></span>
-<span id="cb6-3"><span class="st" style="color: #20794D;
+<span id="cb5-3"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">12  0   0   12  0   30  1</span></span>
-<span id="cb6-4"><span class="st" style="color: #20794D;
+<span id="cb5-4"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">0   6   1   0   6   6   0</span></span>
-<span id="cb6-5"><span class="st" style="color: #20794D;
+<span id="cb5-5"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">11  59  30  12  0   0   1</span></span>
-<span id="cb6-6"><span class="st" style="color: #20794D;
+<span id="cb5-6"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">11  58  59  11  59  0   1</span></span>
-<span id="cb6-7"><span class="st" style="color: #20794D;
+<span id="cb5-7"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">1   5   5   1   5   6   2</span></span>
-<span id="cb6-8"><span class="st" style="color: #20794D;
+<span id="cb5-8"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">0   0   0   23  59  59  2852</span></span>
-<span id="cb6-9"><span class="st" style="color: #20794D;
+<span id="cb5-9"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'''</span></span>
-<span id="cb6-10">ans <span class="op" style="color: #5E5E5E;
+<span id="cb5-10">ans <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span></span>
-<span id="cb6-11"><span class="cf" style="color: #003B4F;
+<span id="cb5-11"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span> line <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1482,7 +1510,7 @@ background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>):</span>
-<span id="cb6-12">    <span class="op" style="color: #5E5E5E;
+<span id="cb5-12">    <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span>args, result <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1497,7 +1525,7 @@ background-color: null;
 font-style: inherit;">\t</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>))</span>
-<span id="cb6-13">    ans <span class="op" style="color: #5E5E5E;
+<span id="cb5-13">    ans <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ans <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1506,8 +1534,8 @@ background-color: null;
 font-style: inherit;">*</span>args) <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> result</span>
-<span id="cb6-14">ans</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<span id="cb5-14">ans</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -1717,7 +1745,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1725,7 +1753,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
+<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
 <figcaption>배열 기록 / 선두를 지켜라 3</figcaption>
 </figure>
 </div>
@@ -1775,7 +1803,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -1783,7 +1811,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
+<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
 <figcaption>최장 연속 부분 수열 / T를 초과하는 연속 부분 수열</figcaption>
 </figure>
 </div>
@@ -2140,7 +2168,7 @@ Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts
 <div class="quarto-layout-cell" style="flex-basis: 49.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2148,7 +2176,7 @@ Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts
 <div class="quarto-layout-cell" style="flex-basis: 50.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
+<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
 <figcaption>구간 단위로 완전탐색 / 아름다운 수열 2</figcaption>
 </figure>
 </div>

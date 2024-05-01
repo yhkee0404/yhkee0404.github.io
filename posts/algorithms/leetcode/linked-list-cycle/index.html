@@ -314,7 +314,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of poeple in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -355,7 +355,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
-<div id="a8a8b899" class="cell" data-execution_count="2">
+<div id="0826238a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition for singly-linked list.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ListNode:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x):</span>
@@ -379,7 +379,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1915bda9" class="cell" data-execution_count="3">
+<div id="b8d5af44" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> [ListNode(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>]]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nodes) <span class="op">-</span> <span class="dv">1</span>):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    nodes[i].<span class="bu">next</span> <span class="op">=</span> nodes[i <span class="op">+</span> <span class="dv">1</span>]</span>
@@ -388,7 +388,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> Solution()</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">all</span>(sol.hasCycle(head, a) <span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -430,57 +430,85 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <section id="아날로그-시계" class="level2">
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
 <p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <span class="math inline">\(12 \times 60 \times 60\)</span>개 상태를 탐색하므로 <span class="math inline">\(12 + 60 + 60\)</span>개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
-<p>문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. <a href="#cb5-20">20-21</a>번째와 <a href="#cb5-23">23-24</a>번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: <a href="#cb5-14">14</a>번째, <a href="#cb5-27">27-28</a>번째 줄.</p>
-<div id="fc0cdffb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>MOD <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>DH <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>DM <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>DS <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>DSH <span class="op">=</span> DS <span class="op">-</span> DH</span>
-<span id="cb5-6"><a href="#cb5-6"></a>DSM <span class="op">=</span> DS <span class="op">-</span> DM</span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">def</span> solution(h1, m1, s1, h2, m2, s2):</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    src <span class="op">=</span> (h1 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> m1) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s1</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    dest <span class="op">=</span> (h2 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> m2) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s2</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    hi <span class="op">=</span> src <span class="op">%</span> MOD</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    mi <span class="op">=</span> (m1 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s1) <span class="op">*</span> DM</span>
-<span id="cb5-13"><a href="#cb5-13"></a>    si <span class="op">=</span> s1 <span class="op">*</span> DS</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    ans <span class="op">=</span> <span class="dv">1</span> <span class="cf">if</span> <span class="bu">any</span>(xi <span class="op">==</span> si <span class="cf">for</span> xi <span class="kw">in</span> [hi, mi]) <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(src, dest):</span>
-<span id="cb5-16"><a href="#cb5-16"></a>        hj <span class="op">=</span> hi <span class="op">+</span> DH</span>
-<span id="cb5-17"><a href="#cb5-17"></a>        mj <span class="op">=</span> mi <span class="op">+</span> DM</span>
-<span id="cb5-18"><a href="#cb5-18"></a>        sj <span class="op">=</span> si <span class="op">+</span> DS</span>
-<span id="cb5-19"><a href="#cb5-19"></a>        sh <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a>        <span class="cf">if</span> hi <span class="op">&gt;</span> si <span class="kw">and</span> hj <span class="op">&lt;=</span> sj:</span>
-<span id="cb5-21"><a href="#cb5-21"></a>            sh <span class="op">=</span> (hi <span class="op">-</span> si) <span class="op">*</span> DSM</span>
-<span id="cb5-22"><a href="#cb5-22"></a>        sm <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a>        <span class="cf">if</span> mi <span class="op">&gt;</span> si <span class="kw">and</span> mj <span class="op">&lt;=</span> sj:</span>
-<span id="cb5-24"><a href="#cb5-24"></a>            sm <span class="op">=</span> (mi <span class="op">-</span> si) <span class="op">*</span> DSH</span>
-<span id="cb5-25"><a href="#cb5-25"></a>        bsh <span class="op">=</span> sh <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a>        bsm <span class="op">=</span> sm <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a>        <span class="cf">if</span> bsh <span class="kw">or</span> bsm:</span>
-<span id="cb5-28"><a href="#cb5-28"></a>            ans <span class="op">+=</span> <span class="dv">2</span> <span class="cf">if</span> bsh <span class="kw">and</span> bsm <span class="kw">and</span> sh <span class="op">!=</span> sm <span class="cf">else</span> <span class="dv">1</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a>        hi <span class="op">=</span> hj <span class="op">%</span> MOD</span>
-<span id="cb5-30"><a href="#cb5-30"></a>        mi <span class="op">=</span> mj <span class="op">%</span> MOD</span>
-<span id="cb5-31"><a href="#cb5-31"></a>        si <span class="op">=</span> sj <span class="op">%</span> MOD</span>
-<span id="cb5-32"><a href="#cb5-32"></a>    <span class="cf">return</span> ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.</p>
+<div id="be504576" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>MOD <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>DH <span class="op">=</span> <span class="dv">1</span></span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>DM <span class="op">=</span> <span class="dv">12</span></span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>DS <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span></span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>DSH <span class="op">=</span> DS <span class="op">-</span> DH</span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>DSM <span class="op">=</span> DS <span class="op">-</span> DM</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solution(h1, m1, s1, h2, m2, s2):</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>    src <span class="op">=</span> (h1 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> m1) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s1</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>    dest <span class="op">=</span> (h2 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> m2) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s2</span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a>    hi <span class="op">=</span> src <span class="op">%</span> MOD</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>    mi <span class="op">=</span> (m1 <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> s1) <span class="op">*</span> DM</span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>    si <span class="op">=</span> s1 <span class="op">*</span> DS</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-4-14" class="code-annotation-target"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> <span class="dv">1</span> <span class="cf">if</span> <span class="bu">any</span>(xi <span class="op">==</span> si <span class="cf">for</span> xi <span class="kw">in</span> [hi, mi]) <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="annotated-cell-4-15"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(src, dest):</span>
+<span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>        hj <span class="op">=</span> hi <span class="op">+</span> DH</span>
+<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>        mj <span class="op">=</span> mi <span class="op">+</span> DM</span>
+<span id="annotated-cell-4-18"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>        sj <span class="op">=</span> si <span class="op">+</span> DS</span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>        sh <span class="op">=</span> <span class="va">None</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-20" class="code-annotation-target"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> hi <span class="op">&gt;</span> si <span class="kw">and</span> hj <span class="op">&lt;=</span> sj:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-21" class="code-annotation-target"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a>            sh <span class="op">=</span> (hi <span class="op">-</span> si) <span class="op">*</span> DSM</span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>        sm <span class="op">=</span> <span class="va">None</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-23" class="code-annotation-target"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> mi <span class="op">&gt;</span> si <span class="kw">and</span> mj <span class="op">&lt;=</span> sj:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-4-24" class="code-annotation-target"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>            sm <span class="op">=</span> (mi <span class="op">-</span> si) <span class="op">*</span> DSH</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-4-25" class="code-annotation-target"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>        bsh <span class="op">=</span> sh <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a>        bsm <span class="op">=</span> sm <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> bsh <span class="kw">or</span> bsm:</span>
+<span id="annotated-cell-4-28"><a href="#annotated-cell-4-28" aria-hidden="true" tabindex="-1"></a>            ans <span class="op">+=</span> <span class="dv">2</span> <span class="cf">if</span> bsh <span class="kw">and</span> bsm <span class="kw">and</span> sh <span class="op">!=</span> sm <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="annotated-cell-4-29"><a href="#annotated-cell-4-29" aria-hidden="true" tabindex="-1"></a>        hi <span class="op">=</span> hj <span class="op">%</span> MOD</span>
+<span id="annotated-cell-4-30"><a href="#annotated-cell-4-30" aria-hidden="true" tabindex="-1"></a>        mi <span class="op">=</span> mj <span class="op">%</span> MOD</span>
+<span id="annotated-cell-4-31"><a href="#annotated-cell-4-31" aria-hidden="true" tabindex="-1"></a>        si <span class="op">=</span> sj <span class="op">%</span> MOD</span>
+<span id="annotated-cell-4-32"><a href="#annotated-cell-4-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ans</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="20" data-code-annotation="1">시침 직선과 초침 직선의 교차</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="21" data-code-annotation="2">시침 직선과 초침 직선이 교차하는 정확한 시각에 <code>DSM * DSH</code>를 곱해 정수 표현한 값</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="23" data-code-annotation="3">분침 직선과 초침 직선의 교차</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="24" data-code-annotation="4">분침 직선과 초침 직선이 교차하는 정확한 시각에 <code>DSM * DSH</code>를 곱해 정수 표현한 값</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="14" data-code-annotation="5">시작부터 교차하는지</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="25,26,27,28" data-code-annotation="6">직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지</span>
+</dd>
+</dl>
 </div>
-<div id="14d3f8a0" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'''</span><span class="ch">\</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">0   5   30  0   7   0   2</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">12  0   0   12  0   30  1</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">0   6   1   0   6   6   0</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">11  59  30  12  0   0   1</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">11  58  59  11  59  0   1</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">1   5   5   1   5   6   2</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">0   0   0   23  59  59  2852</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> s.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>args, result <span class="op">=</span> <span class="bu">map</span>(<span class="bu">eval</span>, line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> ans <span class="kw">and</span> solution(<span class="op">*</span>args) <span class="op">==</span> result</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+</div>
+<div id="08f99be7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'''</span><span class="ch">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">0   5   30  0   7   0   2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">12  0   0   12  0   30  1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">0   6   1   0   6   6   0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">11  59  30  12  0   0   1</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">11  58  59  11  59  0   1</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">1   5   5   1   5   6   2</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">0   0   0   23  59  59  2852</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> s.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>args, result <span class="op">=</span> <span class="bu">map</span>(<span class="bu">eval</span>, line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> ans <span class="kw">and</span> solution(<span class="op">*</span>args) <span class="op">==</span> result</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -1076,7 +1104,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
