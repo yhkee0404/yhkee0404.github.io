@@ -20,7 +20,7 @@ image: susan-q-yin-Ctaj_HCqW84-unsplash.jpg
 
 ## Intro
 
-![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash.jpg){fig-alt="A photo of poeple in a maze."}
+![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash.jpg){fig-alt="A photo of people in a maze."}
 
 미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?
 
@@ -152,11 +152,9 @@ class Solution {
 
 프로그래머스 문제 [아날로그 시계](https://school.programmers.co.kr/learn/courses/30/lessons/250135)는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 $12 \times 60 \times 60$개 상태를 탐색하므로 $12 + 60 + 60$개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.
 
-문제는 지역적인 중복이 아니고 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 더 큰 문제는 아날로그 시계의 원소가 초 단위 디지털 정수가 아닌 실수 공간에 있다는 사실이다. [20-21](#cb5-20)번째와 [23-24](#cb5-23)번째 줄에서 실수 교차를 처리했다. 마지막으로 시침과 분침이 각각 초침과 겹치는 횟수를 구하는 것과 달리 모두 겹치면 중복으로 처리했다: [14](#cb5-14)번째, [27-28](#cb5-27)번째 줄.
+그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.
 
 ```{python}
-#| code-line-numbers: true
-
 MOD = 12 * 60 * 60
 DH = 1
 DM = 12
@@ -170,26 +168,33 @@ def solution(h1, m1, s1, h2, m2, s2):
     hi = src % MOD
     mi = (m1 * 60 + s1) * DM
     si = s1 * DS
-    ans = 1 if any(xi == si for xi in [hi, mi]) else 0
+    ans = 1 if any(xi == si for xi in [hi, mi]) else 0 # <5>
     for _ in range(src, dest):
         hj = hi + DH
         mj = mi + DM
         sj = si + DS
         sh = None
-        if hi > si and hj <= sj:
-            sh = (hi - si) * DSM
+        if hi > si and hj <= sj: # <1>
+            sh = (hi - si) * DSM # <2>
         sm = None
-        if mi > si and mj <= sj:
-            sm = (mi - si) * DSH
-        bsh = sh is not None
-        bsm = sm is not None
-        if bsh or bsm:
-            ans += 2 if bsh and bsm and sh != sm else 1
+        if mi > si and mj <= sj: # <3>
+            sm = (mi - si) * DSH # <4>
+        bsh = sh is not None # <6>
+        bsm = sm is not None # <6>
+        if bsh or bsm: # <6>
+            ans += 2 if bsh and bsm and sh != sm else 1 # <6>
         hi = hj % MOD
         mi = mj % MOD
         si = sj % MOD
     return ans
 ```
+
+1. 시침 직선과 초침 직선의 교차
+2. 시침 직선과 초침 직선이 교차하는 정확한 시각에 `DSM * DSH`를 곱해 정수 표현한 값
+3. 분침 직선과 초침 직선의 교차
+4. 분침 직선과 초침 직선이 교차하는 정확한 시각에 `DSM * DSH`를 곱해 정수 표현한 값
+5. 시작부터 교차하는지
+6. 직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지
 
 ```{python}
 s = '''\
