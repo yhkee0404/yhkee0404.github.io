@@ -2,7 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/miscellaneous/xml/index.html",
+      "/posts/web/escape-xml10/index.html",
+      "/posts/database/xml/index.html",
       "/posts/web/microservice-spof/index.html",
       "/posts/troubleshoot/chrome-remote-desktop/index.html",
       "/posts/web/leetcode-daily-crawling/index.html",
@@ -19,9 +20,11 @@
     ]
   },
   {
-    "listing": "/miscellaneous.html",
+    "listing": "/web.html",
     "items": [
-      "/posts/miscellaneous/xml/index.html"
+      "/posts/web/escape-xml10/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
     ]
   },
   {
@@ -31,10 +34,9 @@
     ]
   },
   {
-    "listing": "/web.html",
+    "listing": "/database.html",
     "items": [
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
+      "/posts/database/xml/index.html"
     ]
   },
   {
