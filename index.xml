@@ -29,7 +29,7 @@
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>해군 소프트웨어개발병 시절 발견한 문제이다.</p>
-<p>DB 조회 개수가 XML API 응답 개수가 왜 다를까?</p>
+<p>DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾을 수 없었다.</p>
 </section>
 <section id="problem-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="problem-analysis">Problem Analysis</h2>
@@ -40,7 +40,7 @@
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="escape-xml10" title="예상 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-1" title="예상 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
 <figcaption>예상 XML API 응답</figcaption>
 </figure>
 </div>
@@ -48,7 +48,7 @@
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="escape-xml10" title="실제 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-2" title="실제 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
 <figcaption>실제 XML API 응답</figcaption>
 </figure>
 </div>
@@ -64,7 +64,7 @@ Figure&nbsp;1: Browser의 XML Parse 실패
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution">Solution</h2>
-<p>다음과 같이 <code>StringEscapeUtils.escapeXml10</code>을 거치면 문제가 되는 유니코드 문자가 제거된다. 그리고 <code>StringEscapeUtils.unescapeXml</code>로 복원하면 된다. <code>org.apache.commons.lang3.StringEscapeUtils</code>이 deprecated되고 <code>org.apache.commons.text.StringEscapeUtils</code>로 이동했다.</p>
+<p>다음과 같이 <code>StringEscapeUtils.escapeXml10</code>을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 <code>StringEscapeUtils.unescapeXml</code>로 일부 복원한다.</p>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">package</span><span class="im" style="color: #00769E;
@@ -329,12 +329,22 @@ font-style: inherit;">}</span></span>
 <span id="cb1-26"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
+<p>Deprecate된 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.lang3.StringEscapeUtils</code></a>에서 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111"><code>escapeXML</code></a>도 확인할 수 있다. 이제는 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.text.StringEscapeUtils</code></a>로 이동했다.</p>
+<p>한편 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168"><code>EscapeXml11</code></a>도 있다. 그러나 DevSecOps Engineer <span class="citation" data-cites="lee2012">Lee (2012)</span> 에 따르면 XML 1.1은 권장되지 않는다. <span class="citation" data-cites="mdnwebdocs2023">MDN Web Docs (2023)</span> 에 따르면 Browser 지원도 없다.</p>
+
 
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-lee2012" class="csl-entry">
+Lee, Linus. 2012. <span>“XML 1.0을 써야하는 이유.”</span> April 12, 2012. <a href="https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/">https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/</a>.
+</div>
+<div id="ref-mdnwebdocs2023" class="csl-entry">
+MDN Web Docs. 2023. <span>“Document: xmlVersion Property.”</span> April 7, 2023. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion">https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
   title = {XML API 응답 개수가 DB 조회 개수와 달라요},
   date = {2024-05-05},
@@ -350,9 +360,11 @@ Kee, Yunho. 2024. <span>“XML API 응답 개수가 DB 조회 개수와
   <category>escapeXml10</category>
   <category>unescapeXml</category>
   <category>spring</category>
+  <category>StringEscapeUtils</category>
+  <category>Apache Commons</category>
   <guid>https://yhkee0404.github.io/posts/web/escape-xml10/</guid>
   <pubDate>Sun, 05 May 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/posts/web/handshake-6674572_640.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" medium="image" type="image/png" height="102" width="144"/>
 </item>
 <item>
   <title>XML</title>
@@ -425,9 +437,9 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 
 
 
-<p>Web developer <span class="citation" data-cites="rusendic2022">Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 Microservice(MSA)이다.</p>
+<p>Web developer <span class="citation" data-cites="rusendic2022">Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.</p>
 <p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>.</p>
-<p>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</p>
+<p><del>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</del> 좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.</p>
 
 
 
@@ -475,13 +487,13 @@ Kee, Yunho. 2024. <span>“Microservice와 Single Point of Failure
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-1" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
+<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="chrome-remote-desktop-reinstall" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
 <figcaption>The infinite reinstallation of Chrome Remote Desktop</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-2"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
+<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="chrome-remote-desktop-reinstall"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
 </div>
 </div>
 </div>
@@ -502,7 +514,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-chrome-remote-desktop-macos-sonoma" class="quarto-figure quarto-figure-center quarto-float anchored" alt="">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-3"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
+<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) macOS Sonoma
@@ -514,7 +526,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-migration-assistant" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A screenshot.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-4"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
+<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Migration Assistant
@@ -541,10 +553,10 @@ Figure&nbsp;2: Reasonable Suspicion
 <div aria-describedby="fig-chrome-remote-desktop-google-llc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-5"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-6"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
 </div>
 </div>
 </div>
@@ -1137,7 +1149,7 @@ Kee, Yunho. 2024. <span>“LeetCode Daily Crawling.”</span> March 17,
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -2140,7 +2152,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2148,7 +2160,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
+<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
 <figcaption>최장 연속 부분 수열 / T를 초과하는 연속 부분 수열</figcaption>
 </figure>
 </div>
@@ -2201,7 +2213,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 7주차 - 최장 연속 부�
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-16.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/report_2023-10-16.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/report_2023-10-16.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2209,7 +2221,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 7주차 - 최장 연속 부�
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-16 223542.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="2차원 배열 입력 / 대문자로 바꾸기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img" alt="2차원 배열 입력 / 대문자로 바꾸기"></a></p>
+<p><a href="화면 캡처 2023-10-16 223542.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="2차원 배열 입력 / 대문자로 바꾸기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img" alt="2차원 배열 입력 / 대문자로 바꾸기"></a></p>
 <figcaption>2차원 배열 입력 / 대문자로 바꾸기</figcaption>
 </figure>
 </div>
@@ -2258,7 +2270,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-09.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-09.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2266,7 +2278,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
+<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
 <figcaption>Dijkstra / 최단 거리 9</figcaption>
 </figure>
 </div>
@@ -2278,7 +2290,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
+<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
 <figcaption>진단 센터 / 문항별 통계</figcaption>
 </figure>
 </div>
@@ -2324,7 +2336,7 @@ October 9, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/
 <div class="quarto-layout-cell" style="flex-basis: 52.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-02.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2332,7 +2344,7 @@ October 9, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/
 <div class="quarto-layout-cell" style="flex-basis: 47.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
+<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
 <figcaption>DFS / 두 방향 탈출 가능 여부 판별하기</figcaption>
 </figure>
 </div>
@@ -2447,7 +2459,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
 <div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2455,7 +2467,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
 <div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
 <figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>

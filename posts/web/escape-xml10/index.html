@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -133,9 +153,11 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="Yunho Kee’s Cultivation - XML API 응답 개수가 DB 조회 개수와 달라요">
 <meta property="og:description" content="StringEscapeUtils.escapeXML10">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/web/handshake-6674572_640.jpg">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image:height" content="466">
+<meta property="og:image:width" content="658">
 </head>
 
 <body class="nav-fixed">
@@ -156,20 +178,20 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
-<span class="menu-text">Algorithms</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../../web.html#category=featured"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
-<span class="menu-text">Troubleshoot</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../../database.html#category=featured"> 
 <span class="menu-text">Database</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
+<span class="menu-text">Algorithms</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
+<span class="menu-text">Troubleshoot</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../bible.html#category=featured"> 
@@ -242,6 +264,8 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div class="quarto-category">escapeXml10</div>
     <div class="quarto-category">unescapeXml</div>
     <div class="quarto-category">spring</div>
+    <div class="quarto-category">StringEscapeUtils</div>
+    <div class="quarto-category">Apache Commons</div>
   </div>
   </div>
 
@@ -274,7 +298,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>해군 소프트웨어개발병 시절 발견한 문제이다.</p>
-<p>DB 조회 개수가 XML API 응답 개수가 왜 다를까?</p>
+<p>DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾을 수 없었다.</p>
 </section>
 <section id="problem-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="problem-analysis">Problem Analysis</h2>
@@ -285,7 +309,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="escape-xml10" title="예상 XML API 응답"><img src="스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-1" title="예상 XML API 응답"><img src="스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
 <figcaption>예상 XML API 응답</figcaption>
 </figure>
 </div>
@@ -293,7 +317,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="escape-xml10" title="실제 XML API 응답"><img src="스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-2" title="실제 XML API 응답"><img src="스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
 <figcaption>실제 XML API 응답</figcaption>
 </figure>
 </div>
@@ -309,7 +333,7 @@ Figure&nbsp;1: Browser의 XML Parse 실패
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution">Solution</h2>
-<p>다음과 같이 <code>StringEscapeUtils.escapeXml10</code>을 거치면 문제가 되는 유니코드 문자가 제거된다. 그리고 <code>StringEscapeUtils.unescapeXml</code>로 복원하면 된다. <code>org.apache.commons.lang3.StringEscapeUtils</code>이 deprecated되고 <code>org.apache.commons.text.StringEscapeUtils</code>로 이동했다.</p>
+<p>다음과 같이 <code>StringEscapeUtils.escapeXml10</code>을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 <code>StringEscapeUtils.unescapeXml</code>로 일부 복원한다.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> yhkee0404</span><span class="op">.</span><span class="im">escapexml10</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span><span class="op">;</span></span>
@@ -336,15 +360,25 @@ Figure&nbsp;1: Browser의 XML Parse 실패
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> StringEscapeUtils<span class="op">.</span><span class="fu">unescapeXml</span><span class="op">(</span>StringEscapeUtils<span class="op">.</span><span class="fu">escapeXml10</span><span class="op">(</span>unicodeXML<span class="op">));</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deprecate된 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.lang3.StringEscapeUtils</code></a>에서 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111"><code>escapeXML</code></a>도 확인할 수 있다. 이제는 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.text.StringEscapeUtils</code></a>로 이동했다.</p>
+<p>한편 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168"><code>EscapeXml11</code></a>도 있다. 그러나 DevSecOps Engineer <span class="citation" data-cites="lee2012">Lee (<a href="#ref-lee2012" role="doc-biblioref">2012</a>)</span> 에 따르면 XML 1.1은 권장되지 않는다. <span class="citation" data-cites="mdnwebdocs2023">MDN Web Docs (<a href="#ref-mdnwebdocs2023" role="doc-biblioref">2023</a>)</span> 에 따르면 Browser 지원도 없다.</p>
 
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">예상 XML API 응답</span>
 <span class="glightbox-desc lightbox-desc-2">실제 XML API 응답</span>
 </div>
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lee2012" class="csl-entry" role="listitem">
+Lee, Linus. 2012. <span>“XML 1.0을 써야하는 이유.”</span> April 12, 2012. <a href="https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/">https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/</a>.
+</div>
+<div id="ref-mdnwebdocs2023" class="csl-entry" role="listitem">
+MDN Web Docs. 2023. <span>“Document: xmlVersion Property.”</span> April 7, 2023. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion">https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
   title = {XML API 응답 개수가 DB 조회 개수와 달라요},
   date = {2024-05-05},
@@ -929,7 +963,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
