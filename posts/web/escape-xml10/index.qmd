@@ -17,9 +17,9 @@ bibliography: references.bib
 
 ## Intro 
 
-해군 소프트웨어개발병 시절 발견한 문제이다.
+2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.
 
-DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾을 수 없었다.
+DB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?
 
 ## Problem Analysis
 
@@ -31,7 +31,7 @@ DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾�
 Browser의 XML Parse 실패
 :::
 
-누락된 항목도 응답은 도착했다. 다만 Browser에서 XML Parse에 실패했다.
+사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다.
 
 ## Solution
 
@@ -68,4 +68,4 @@ public class XMLController {
 
 Deprecate된 [`org.apache.commons.lang3.StringEscapeUtils`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-)에서 [`escapeXML`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111)도 확인할 수 있다. 이제는 [`org.apache.commons.text.StringEscapeUtils`](https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-)로 이동했다.
 
-한편 [`EscapeXml11`](https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168)도 있다. 그러나 DevSecOps Engineer @lee2012 에 따르면 XML 1.1은 권장되지 않는다. @mdnwebdocs2023 에 따르면 Browser 지원도 없다.
+한편 [`EscapeXml11`](https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168)도 있다. 그러나 DevSecOps Engineer @lee2012 에 따르면 XML 1.1은 권장되지 않는다. 그리고 @mdnwebdocs2023 에 따르면 Browser 지원도 없다.
