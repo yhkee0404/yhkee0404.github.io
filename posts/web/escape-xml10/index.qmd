@@ -1,0 +1,64 @@
+---
+title: "XML API 응답 개수가 DB 조회 개수와 달라요"
+subtitle: StringEscapeUtils.escapeXML10
+author: "Yunho Kee"
+date: "2024-05-05"
+categories:
+  - web
+  - xml
+  - escapeXml10
+  - unescapeXml
+  - spring
+---
+
+## Intro 
+
+해군 소프트웨어개발병 시절 발견한 문제이다.
+
+DB 조회 개수가 XML API 응답 개수가 왜 다를까?
+
+## Problem Analysis
+
+::: {#fig-escape-xml10 layout-ncol=2}
+![예상 XML API 응답](스크린샷 2024-05-05 233811.png){group="escape-xml10" fig-alt="A screenshot of the expected xml api response."}
+
+![실제 XML API 응답](스크린샷 2024-05-05 233633.png){group="escape-xml10" fig-alt="A screenshot of the real xml api response."}
+
+Browser의 XML Parse 실패
+:::
+
+누락된 항목도 응답은 도착했다. 다만 Browser에서 XML Parse에 실패했다.
+
+## Solution
+
+다음과 같이 `StringEscapeUtils.escapeXml10`을 거치면 문제가 되는 유니코드 문자가 제거된다. 그리고 `StringEscapeUtils.unescapeXml`로 복원하면 된다.
+`org.apache.commons.lang3.StringEscapeUtils`이 deprecated되고 `org.apache.commons.text.StringEscapeUtils`로 이동했다.
+
+```java
+package yhkee0404.escapexml10.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
+import org.apache.commons.text.StringEscapeUtils;
+
+@RestController
+@RequiredArgsConstructor
+public class XMLController {
+
+    private static final String unicodeXML = 
+			"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+			+ "<post>"
+			+ "<title>BACK\u0008SPACE</title>"
+			+ "<text>EXCLAMATION\u0021MARK</text>"
+			+ "</post>";
+
+    @GetMapping(value = "/xml", produces = MediaType.APPLICATION_XML_VALUE)
+    public String xml() {
+        // return unicodeXML;
+        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));
+    }
+}
+```
