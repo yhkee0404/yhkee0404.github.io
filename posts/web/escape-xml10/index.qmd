@@ -9,13 +9,17 @@ categories:
   - escapeXml10
   - unescapeXml
   - spring
+  - StringEscapeUtils
+  - "Apache Commons"
+image: "스크린샷 2024-05-05 233633.png"
+bibliography: references.bib
 ---
 
 ## Intro 
 
 해군 소프트웨어개발병 시절 발견한 문제이다.
 
-DB 조회 개수가 XML API 응답 개수가 왜 다를까?
+DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾을 수 없었다.
 
 ## Problem Analysis
 
@@ -31,8 +35,7 @@ Browser의 XML Parse 실패
 
 ## Solution
 
-다음과 같이 `StringEscapeUtils.escapeXml10`을 거치면 문제가 되는 유니코드 문자가 제거된다. 그리고 `StringEscapeUtils.unescapeXml`로 복원하면 된다.
-`org.apache.commons.lang3.StringEscapeUtils`이 deprecated되고 `org.apache.commons.text.StringEscapeUtils`로 이동했다.
+다음과 같이 `StringEscapeUtils.escapeXml10`을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 `StringEscapeUtils.unescapeXml`로 일부 복원한다. 
 
 ```java
 package yhkee0404.escapexml10.controller;
@@ -62,3 +65,7 @@ public class XMLController {
     }
 }
 ```
+
+Deprecate된 [`org.apache.commons.lang3.StringEscapeUtils`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-)에서 [`escapeXML`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111)도 확인할 수 있다. 이제는 [`org.apache.commons.text.StringEscapeUtils`](https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-)로 이동했다.
+
+한편 [`EscapeXml11`](https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168)도 있다. 그러나 DevSecOps Engineer @lee2012 에 따르면 XML 1.1은 권장되지 않는다. @mdnwebdocs2023 에 따르면 Browser 지원도 없다.

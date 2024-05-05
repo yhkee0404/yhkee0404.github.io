@@ -13,14 +13,14 @@ website:
   navbar:
     title: yhkee0404.github.io
     left:
-      - text: Algorithms
-        href: algorithms.qmd#category=featured
       - text: Web
         href: web.qmd#category=featured
-      - text: Troubleshoot
-        href: troubleshoot.qmd#category=featured
       - text: Database
         href: database.qmd#category=featured
+      - text: Algorithms
+        href: algorithms.qmd#category=featured
+      - text: Troubleshoot
+        href: troubleshoot.qmd#category=featured
       - text: Bible
         href: bible.qmd#category=featured
     right:

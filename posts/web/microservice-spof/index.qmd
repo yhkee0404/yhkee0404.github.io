@@ -2,6 +2,7 @@
 title: "Microservice와 Single Point of Failure (SPOF)"
 author: "Yunho Kee"
 date: "2024-04-14"
+date-modified: "2024-05-06"
 categories:
   - troubleshoot
   - microservice
@@ -12,8 +13,8 @@ categories:
 bibliography: references.bib
 ---
 
-Web developer @rusendic2022 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 Microservice(MSA)이다.
+Web developer @rusendic2022 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.
 
 Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 [@rusendic2022]. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 [@rusendic2022]. Netflix가 Microservice로 유명하며, [Chaos Monkey](https://github.com/netflix/chaosmonkey)라는 Test 도구도 개발했다 [@rusendic2022].
 
-그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.
+~~그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.~~ 좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.
