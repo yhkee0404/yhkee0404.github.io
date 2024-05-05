@@ -28,8 +28,8 @@
 
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>해군 소프트웨어개발병 시절 발견한 문제이다.</p>
-<p>DB에서 조회되는 항목 중 일부를 Browser의 XML API 응답에서 찾을 수 없었다.</p>
+<p>2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.</p>
+<p>DB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?</p>
 </section>
 <section id="problem-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="problem-analysis">Problem Analysis</h2>
@@ -60,7 +60,7 @@ Figure&nbsp;1: Browser의 XML Parse 실패
 </figcaption>
 </figure>
 </div>
-<p>누락된 항목도 응답은 도착했다. 다만 Browser에서 XML Parse에 실패했다.</p>
+<p>사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다.</p>
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution">Solution</h2>
@@ -330,7 +330,7 @@ font-style: inherit;">}</span></span>
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
 <p>Deprecate된 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.lang3.StringEscapeUtils</code></a>에서 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111"><code>escapeXML</code></a>도 확인할 수 있다. 이제는 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.text.StringEscapeUtils</code></a>로 이동했다.</p>
-<p>한편 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168"><code>EscapeXml11</code></a>도 있다. 그러나 DevSecOps Engineer <span class="citation" data-cites="lee2012">Lee (2012)</span> 에 따르면 XML 1.1은 권장되지 않는다. <span class="citation" data-cites="mdnwebdocs2023">MDN Web Docs (2023)</span> 에 따르면 Browser 지원도 없다.</p>
+<p>한편 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168"><code>EscapeXml11</code></a>도 있다. 그러나 DevSecOps Engineer <span class="citation" data-cites="lee2012">Lee (2012)</span> 에 따르면 XML 1.1은 권장되지 않는다. 그리고 <span class="citation" data-cites="mdnwebdocs2023">MDN Web Docs (2023)</span> 에 따르면 Browser 지원도 없다.</p>
 
 
 
@@ -439,7 +439,8 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 
 <p>Web developer <span class="citation" data-cites="rusendic2022">Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.</p>
 <p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="rusendic2022">(Rusendić 2022)</span>.</p>
-<p><del>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</del> 좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.</p>
+<p><del>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</del></p>
+<p>좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.</p>
 
 
 
@@ -632,7 +633,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode Click의 운영 중단</figcaption>
 </figure>
 </div>
@@ -647,7 +648,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-2" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
 </figure>
 </div>
@@ -659,7 +660,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
 <figcaption>LeetCode Daily Question 확인 방법</figcaption>
 </figure>
 </div>
@@ -962,7 +963,7 @@ Note
 <p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
 <figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
 </figure>
 </div>
@@ -1089,7 +1090,7 @@ background-color: null;
 font-style: inherit;">))</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
 <figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
 </figure>
 </div>
@@ -1149,7 +1150,7 @@ Kee, Yunho. 2024. <span>“LeetCode Daily Crawling.”</span> March 17,
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -2152,7 +2153,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2160,7 +2161,7 @@ October 30, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
+<p><a href="화면 캡처 2023-10-23 225538.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/화면 캡처 2023-10-23 225538.jpg" class="img-fluid figure-img" alt="최장 연속 부분 수열 / T를 초과하는 연속 부분 수열"></a></p>
 <figcaption>최장 연속 부분 수열 / T를 초과하는 연속 부분 수열</figcaption>
 </figure>
 </div>
@@ -2213,7 +2214,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 7주차 - 최장 연속 부�
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/report_2023-10-16.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-16.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/report_2023-10-16.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2221,7 +2222,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 7주차 - 최장 연속 부�
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-16 223542.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="2차원 배열 입력 / 대문자로 바꾸기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img" alt="2차원 배열 입력 / 대문자로 바꾸기"></a></p>
+<p><a href="화면 캡처 2023-10-16 223542.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="2차원 배열 입력 / 대문자로 바꾸기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img" alt="2차원 배열 입력 / 대문자로 바꾸기"></a></p>
 <figcaption>2차원 배열 입력 / 대문자로 바꾸기</figcaption>
 </figure>
 </div>
@@ -2270,7 +2271,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-09.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-09.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2278,7 +2279,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
+<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
 <figcaption>Dijkstra / 최단 거리 9</figcaption>
 </figure>
 </div>
@@ -2290,7 +2291,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
+<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
 <figcaption>진단 센터 / 문항별 통계</figcaption>
 </figure>
 </div>
@@ -2336,7 +2337,7 @@ October 9, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/
 <div class="quarto-layout-cell" style="flex-basis: 52.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-02.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2344,7 +2345,7 @@ October 9, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/
 <div class="quarto-layout-cell" style="flex-basis: 47.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
+<p><a href="화면 캡처 2023-10-02 183621.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="DFS / 두 방향 탈출 가능 여부 판별하기"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/화면 캡처 2023-10-02 183621.jpg" class="img-fluid figure-img" alt="DFS / 두 방향 탈출 가능 여부 판별하기"></a></p>
 <figcaption>DFS / 두 방향 탈출 가능 여부 판별하기</figcaption>
 </figure>
 </div>
@@ -2398,7 +2399,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2406,7 +2407,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
+<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
 <figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
 </figure>
 </div>
