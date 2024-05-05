@@ -19,8 +19,8 @@ website:
         href: web.qmd#category=featured
       - text: Troubleshoot
         href: troubleshoot.qmd#category=featured
-      - text: Miscellaneous
-        href: miscellaneous.qmd#category=featured
+      - text: Database
+        href: database.qmd#category=featured
       - text: Bible
         href: bible.qmd#category=featured
     right:

@@ -1,8 +1,8 @@
 ---
-title: "Miscellaneous"
-image: posts/miscellaneous/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png
+title: "Database"
+image: posts/database/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png
 listing:
-  contents: posts/miscellaneous
+  contents: posts/database
   sort: "date desc"
   type: grid
   categories: true

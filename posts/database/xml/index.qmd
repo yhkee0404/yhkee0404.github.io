@@ -11,6 +11,8 @@ categories:
 bibliography: A_First_Course_in_Database_Systems.bibtex
 nocite: |
   @*
+aliases:
+  - /posts/miscellaneous/xml
 ---
 
 ## Semistructured Data
