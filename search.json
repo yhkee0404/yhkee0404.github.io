@@ -305,6 +305,34 @@
     "href": "posts/algorithms/negative-zero/index.html",
     "title": "-0.0을 0.0으로 어떻게 바꿀까?",
     "section": "",
-    "text": "Intro\n-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n\n\nAbs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 음수를 보존하려면 또는 후술할 min, max의 경우 절댓값을 적용할 수 없다.\n\n\nMin, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서라도 직접 구현시 비슷한 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다.\n\n\nAdd\n0.0을 더하면 된다.\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {-0.0을 0.0으로 어떻게 바꿀까?},\n  date = {2024-05-12},\n  url = {https://yhkee0404.github.io/posts/algorithms/negative-zero},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “-0.0을 0.0으로 어떻게 바꿀까?” May 12,\n2024. https://yhkee0404.github.io/posts/algorithms/negative-zero."
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#intro",
+    "href": "posts/algorithms/negative-zero/index.html#intro",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "",
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#abs",
+    "href": "posts/algorithms/negative-zero/index.html#abs",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Abs",
+    "text": "Abs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다."
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#min-max",
+    "href": "posts/algorithms/negative-zero/index.html#min-max",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Min, Max",
+    "text": "Min, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.\n결론적으로 max(0.0, x)는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.\n반대로 min(-0.0, x)는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.\n내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#add",
+    "href": "posts/algorithms/negative-zero/index.html#add",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Add",
+    "text": "Add\n0.0을 더하면 된다."
   }
 ]
