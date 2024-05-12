@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Yunho Kee">
+<meta name="dcterms.date" content="2024-05-12">
 
-<title>Yunho Kee’s Cultivation - Algorithms</title>
+<title>Yunho Kee’s Cultivation - -0.0을 0.0으로 어떻게 바꿀까?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle','listing-description','listing-reading-time','listing-categories','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KH3KTM2DG3"></script>
 
 <script type="text/javascript">
@@ -109,39 +80,22 @@ gtag('js', new Date());
 gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
+<script type="application/json" class="js-hypothesis-config">
+{
+  "enableExperimentalNewNoteButton": true
 }
-window.Quarto = {
-  typesetMath
-};
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - Algorithms">
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Yunho Kee’s Cultivation - -0.0을 0.0으로 어떻게 바꿀까?">
+<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
 <meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/kelly-sikkema-PgToaHfQjq0-unsplash.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
@@ -154,7 +108,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -165,29 +119,29 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./web.html#category=featured"> 
+    <a class="nav-link" href="../../../web.html#category=featured"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./database.html#category=featured"> 
+    <a class="nav-link" href="../../../database.html#category=featured"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bible.html#category=featured"> 
+    <a class="nav-link" href="../../../bible.html#category=featured"> 
 <span class="menu-text">Bible</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -211,7 +165,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -224,25 +178,58 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="abs">abs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="add">add <span class="quarto-category-count">(1)</span></div><div class="category" data-category="algorithms">algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c">c <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c++">c++ <span class="quarto-category-count">(1)</span></div><div class="category" data-category="clock">clock <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cycle">cycle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="featured">featured <span class="quarto-category-count">(1)</span></div><div class="category" data-category="java">java <span class="quarto-category-count">(1)</span></div><div class="category" data-category="javascript">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="leetcode">leetcode <span class="quarto-category-count">(1)</span></div><div class="category" data-category="linked list">linked list <span class="quarto-category-count">(1)</span></div><div class="category" data-category="max">max <span class="quarto-category-count">(1)</span></div><div class="category" data-category="median">median <span class="quarto-category-count">(1)</span></div><div class="category" data-category="min">min <span class="quarto-category-count">(1)</span></div><div class="category" data-category="negative zero">negative zero <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programmers">programmers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="speed">speed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="two pointers">two pointers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="백발백준">백발백준 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="쥐쥐">쥐쥐 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="코드트리">코드트리 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="코딩테스트">코딩테스트 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="코딩테스트실력진단">코딩테스트실력진단 <span class="quarto-category-count">(8)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#abs" id="toc-abs" class="nav-link" data-scroll-target="#abs">Abs</a></li>
+  <li><a href="#min-max" id="toc-min-max" class="nav-link" data-scroll-target="#min-max">Min, Max</a></li>
+  <li><a href="#add" id="toc-add" class="nav-link" data-scroll-target="#add">Add</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Algorithms</h1>
-</div>
+<h1 class="title">-0.0을 0.0으로 어떻게 바꿀까?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">algorithms</div>
+    <div class="quarto-category">abs</div>
+    <div class="quarto-category">negative zero</div>
+    <div class="quarto-category">min</div>
+    <div class="quarto-category">max</div>
+    <div class="quarto-category">add</div>
+    <div class="quarto-category">c</div>
+    <div class="quarto-category">c++</div>
+    <div class="quarto-category">java</div>
+    <div class="quarto-category">javascript</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yunho Kee </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -252,455 +239,37 @@ window.Quarto = {
 </header>
 
 
+<section id="intro" class="level1">
+<h1>Intro</h1>
+<p>-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.</p>
+</section>
+<section id="abs" class="level1">
+<h1>Abs</h1>
+<p>언어별로 절댓값을 구하는 함수를 제공한다. 하지만 음수를 보존하려면 후술할 min, max의 경우 절댓값을 적용할 수 없다.</p>
+</section>
+<section id="min-max" class="level1">
+<h1>Min, Max</h1>
+<p>C++, Java, Javascript에서 <code>max(-0.0, 0.0)</code>과 <code>max(0.0, -0.0)</code>은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.</p>
+<p>이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서라도 직접 구현시 비슷한 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다.</p>
+</section>
+<section id="add" class="level1">
+<h1>Add</h1>
+<p>0.0을 더하면 된다.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="algorithms,abs,negative zero,min,max,add,c,c++,java,javascript" data-listing-date-sort="1715472000000" data-listing-file-modified-sort="1715525983589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
-<a href="./posts/algorithms/negative-zero/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/kelly-sikkema-PgToaHfQjq0-unsplash.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
--0.0을 0.0으로 어떻게 바꿀까?
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('algorithms'); return false;">
-algorithms
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('abs'); return false;">
-abs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('negative zero'); return false;">
-negative zero
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('min'); return false;">
-min
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('max'); return false;">
-max
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('add'); return false;">
-add
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c'); return false;">
-c
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c++'); return false;">
-c++
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('java'); return false;">
-java
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('javascript'); return false;">
-javascript
-</div>
-</div>
-<div class="card-text listing-description">
--0.0을 출력하면 보이는 음의 부호를 지우고 싶다.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-May 12, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="featured,leetcode,programmers,two pointers,linked list,cycle,median,clock,speed,쥐쥐,백발백준" data-listing-date-sort="1710374400000" data-listing-file-modified-sort="1715525983589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1840">
-<a href="./posts/algorithms/leetcode/linked-list-cycle/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Two Pointers Speed Control
-</h5>
-<div class="card-subtitle listing-subtitle">
-Cycle 검사, Median, 시계
-</div>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('featured'); return false;">
-featured
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('leetcode'); return false;">
-leetcode
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('programmers'); return false;">
-programmers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('two pointers'); return false;">
-two pointers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('linked list'); return false;">
-linked list
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cycle'); return false;">
-cycle
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('median'); return false;">
-median
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('clock'); return false;">
-clock
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('speed'); return false;">
-speed
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('쥐쥐'); return false;">
-쥐쥐
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('백발백준'); return false;">
-백발백준
-</div>
-</div>
-<div class="card-text listing-description">
-미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Mar 14, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1698624000000" data-listing-file-modified-sort="1715525983581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
-<a href="./posts/algorithms/codetree/keep-the-lead-3/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 8주차 - 배열 기록
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/cote/17/problems/keep-the-lead-3/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Oct 30, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1715525983585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
-<a href="./posts/algorithms/codetree/subsequence-above-t/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/subsequence-above-t/report_2023-10-23.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 7주차 - 최장 연속 부분 수열
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/cote/17/problems/subsequence-above-t/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Oct 23, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1697414400000" data-listing-file-modified-sort="1715525983577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="31">
-<a href="./posts/algorithms/codetree/change-to-capital/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/change-to-capital/report_2023-10-16.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 6주차 - 2차원 배열 입력
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/missions/4/problems/change-to-capital/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Oct 16, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1715525983581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
-<a href="./posts/algorithms/codetree/shortest-distance-9/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 5주차 - Dijkstra
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/missions/8/problems/shortest-distance-9/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Oct 9, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1696204800000" data-listing-file-modified-sort="1715525983577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="92">
-<a href="./posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/determine-escapableness-with-2-ways/report_2023-10-02.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 4주차 - DFS
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Oct 2, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1715525983581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
-<a href="./posts/algorithms/codetree/lis-on-the-integer-grid/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/missions/8/problems/three-five-moo/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Sep 25, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1715525983585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40">
-<a href="./posts/algorithms/codetree/three-five-moo/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 2주차 - Parametric Search
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Sep 25, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="9" data-categories="코드트리,코딩테스트,코딩테스트실력진단" data-listing-date-sort="1694390400000" data-listing-file-modified-sort="1715525983573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="36">
-<a href="./posts/algorithms/codetree/beautiful-sequence-2/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('코드트리'); return false;">
-코드트리
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트'); return false;">
-코딩테스트
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('코딩테스트실력진단'); return false;">
-코딩테스트실력진단
-</div>
-</div>
-<div class="card-text listing-description">
-https://www.codetree.ai/cote/14/problems/beautiful-sequence-2/
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Yunho Kee
-</div>
-<div class="listing-date">
-Sep 11, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {-0.0을 0.0으로 어떻게 바꿀까?},
+  date = {2024-05-12},
+  url = {https://yhkee0404.github.io/posts/algorithms/negative-zero},
+  langid = {ko}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kee, Yunho. 2024. <span>“-0.0을 0.0으로 어떻게 바꿀까?”</span> May 12,
+2024. <a href="https://yhkee0404.github.io/posts/algorithms/negative-zero">https://yhkee0404.github.io/posts/algorithms/negative-zero</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1279,5 +848,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

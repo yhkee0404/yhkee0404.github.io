@@ -35,32 +35,179 @@
     "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
   },
   {
-    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
+    "href": "posts/algorithms/codetree/three-five-moo/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n실력 진단 결과\n배열 기록 / 선두를 지켜라 3\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n실력 진단 결과\nParametric Search / 삼 오 무\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo."
   },
   {
-    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
-    "href": "posts/algorithms/codetree/change-to-capital/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "objectID": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+    "href": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n실력 진단 결과\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n실력 진단 결과\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways."
   },
   {
-    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n실력 진단 결과\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n실력 진단 결과\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t."
   },
   {
-    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n실력 진단 결과\nDijkstra / 최단 거리 9\n진단 센터 / 문항별 통계\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n실력 진단 결과\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html",
+    "title": "Two Pointers Speed Control",
+    "section": "",
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
+    "title": "Two Pointers Speed Control",
+    "section": "",
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers",
+    "text": "Two Pointers\nTwo Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 \\(n\\)개일 때 각 Pointer는 \\(n\\)개의 원소를 최대 1번씩 방문하다가 선형 시간 \\(O(n)\\) 안에 탐색을 마친다. 따라서 총 수행 시간 \\(T(n)\\)은 Pointer의 개수 \\(k\\)에 비례한다: \\(T(n) = O(kn)\\). 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 \\(k\\)번 반복하므로 \\(k\\)에 따라 지수적으로 증가한다: \\(O(n^k)\\). 가령, \\(k = 2\\)이면 \\(O(n^2) \\ne O(2n) = O(n)\\)이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진만 허용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers를 통한 Graph Cycle 검사",
+    "text": "Two Pointers를 통한 Graph Cycle 검사\nTwo Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.\nCycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 \\(1\\)이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 \\(0\\)부터 오름차순으로 \\(i_s\\)번째, 후발대는 \\(j_s\\)번째라고 하고, \\(i_s\\)와 \\(j_s\\)가 길이가 \\(m\\)인 Cycle 위에 있을 때 \\(t\\) 시간을 더 탐색하면:\n\n\\[\n\\begin{align}\n\\forall i_s, j_s \\in \\mathbb{Z}, \\forall m \\in \\mathbb{Z}^+ : \\exists t \\in \\mathbb{Z} \\text{ such that }  \\\\\n& & i_s + t         & \\equiv j_s        & \\pmod{m}\\;\\\\\n\\text{ and }\\\\\n& & 0 \\leq t        & &lt; m.\\\\\n\\therefore \\forall a \\in \\mathbb{Z} :\\\\\n& & i_s + (a + 1)t  & \\equiv j_s + at   & \\pmod{m}.\n\\end{align}\n\\]\n\n다시 말해 후발대가 \\(a\\)의 속력으로 이동할 때 선발대가 \\(a + 1\\)의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 \\(x\\) 시점에 도착하는 \\(j_x = j_s + at\\)번째 원소와 \\(i_x = i_s + (a + 1)t\\)번째 원소가 \\(x = t\\) 시점에서 처음으로 일치(\\(i_x \\equiv j_x \\pmod{m}\\))할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 \\(T_c(m) = O(m)\\)이다. 왜냐하면 \\(T_c(m) = O(t)\\)이고 \\(t = O(m)\\)이기 때문이다.\n일반적으로 원소의 개수가 \\(n\\)인 Graph를 탐색할 때 \\(i_0 = j_0 = 0\\)번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 \\(a &gt; 0\\)이면 Cycle 내 원소까지 선형 시간(\\(T_u(n) = i_s - i_0 = O(n)\\))에 가능한 한 반드시 도달한다. 또한 \\(m = O(n)\\)이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:\n\\[\n\\begin{align}\nT(n) & = T_u(n) + T_c(m)\\\\\n     & = O(n) + O(m)\\\\\n     & = O(n)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
+    "title": "Two Pointers Speed Control",
+    "section": "Linked List Cycle",
+    "text": "Linked List Cycle\nLeetCode 문제 Linked List Cycle은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 Follow up에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 쥐쥐 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. 다음 Python 풀이는 모든 양의 정수 a에 대해 동작한다:\n\n# Definition for singly-linked list.\nclass ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode], a = 1) -&gt; bool:\n        node_i = head\n        node_j = head\n        while node_i is not None and node_j is not None:\n            for _ in range(a + 1):\n                node_i = node_i.next\n                if node_i is None:\n                    return False\n            for _ in range(a):\n                node_j = node_j.next\n                if node_j is None:\n                    return False\n            if node_i == node_j:\n                return True\n        return False\n\n\nnodes = [ListNode(x) for x in [3,2,0,-4]]\nfor i in range(len(nodes) - 1):\n    nodes[i].next = nodes[i + 1]\nnodes[-1].next = nodes[1]\nhead = nodes[0]\n\nsol = Solution()\nall(sol.hasCycle(head, a) for a in range(1, 100))\n\nTrue"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers Speed Control",
+    "text": "Two Pointers Speed Control\nTwo Pointers Cycle 검사는 속력 차가 1이어야 했다: \\(a + 1\\). 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: \\(2a\\).\n홀수 \\(n\\)개 원소가 정렬된 List의 Median은 0부터 셀 때 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 \\(O(1)\\)이 걸리니 선형 시간의 Two Pointers가 더 느리다: \\(O(n) \\ne O(1)\\).\n반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소를 찾을 때 \\(n\\)을 몰라도 된다는 장점이 있다. \\(\\forall q \\in \\mathbb{Z}^+\\)인 \\(\\lfloor \\frac n q \\rfloor\\)번째 원소라면 속력 비가 \\(q\\)이면 되는 것이다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
+    "title": "Two Pointers Speed Control",
+    "section": "Middle of the Linked List",
+    "text": "Middle of the Linked List\nLeetCode 문제 Middle of the Linked List는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소만 찾으면 된다. 원래는 \\(n\\)을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 백발백준 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. 다음 Kotlin 풀이는 \\(n\\)도 모르고 Index 계산도 하지 않는다:\n/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\nclass Solution {\n    fun middleNode(head: ListNode?): ListNode? {\n        var node: ListNode? = head\n        var ans: ListNode? = head\n        var odd: Boolean = false\n        while (node !== null) {\n            node = node.next\n            if (odd) {\n                ans = ans!!.next\n            }\n            odd = odd xor true\n        }\n        return ans\n    }\n}"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
+    "title": "Two Pointers Speed Control",
+    "section": "아날로그 시계",
+    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue\n\n\n\n\n\nPhoto by Susan Q Yin on Unsplash"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html",
+    "href": "posts/web/escape-xml10/index.html",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#intro",
+    "href": "posts/web/escape-xml10/index.html#intro",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
+    "href": "posts/web/escape-xml10/index.html#problem-analysis",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Problem Analysis",
+    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#solution",
+    "href": "posts/web/escape-xml10/index.html#solution",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Solution",
+    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다.\n\n\n\n예상 XML API 응답\n실제 XML API 응답"
+  },
+  {
+    "objectID": "posts/database/xml/index.html",
+    "href": "posts/database/xml/index.html",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semistructured-data",
+    "href": "posts/database/xml/index.html#semistructured-data",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
+    "href": "posts/database/xml/index.html#html과-xml의-차이",
+    "title": "XML",
+    "section": "HTML과 XML의 차이",
+    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semantic-tags",
+    "href": "posts/database/xml/index.html#semantic-tags",
+    "title": "XML",
+    "section": "Semantic Tags",
+    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#xml-schema",
+    "href": "posts/database/xml/index.html#xml-schema",
+    "title": "XML",
+    "section": "XML Schema",
+    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#dtd의-유연성",
+    "href": "posts/database/xml/index.html#dtd의-유연성",
+    "title": "XML",
+    "section": "DTD의 유연성",
+    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Yunho Kee",
+    "section": "",
+    "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/bible/philemon/index.html",
+    "href": "posts/bible/philemon/index.html",
+    "title": "Philemon",
+    "section": "",
+    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Philemon},\n  date = {2024-02-14},\n  url = {https://yhkee0404.github.io/posts/bible/philemon},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Philemon.” February 14, 2024. https://yhkee0404.github.io/posts/bible/philemon."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/index.html",
+    "href": "posts/web/microservice-spof/index.html",
+    "title": "Microservice와 Single Point of Failure (SPOF)",
+    "section": "",
+    "text": "Web developer Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof."
   },
   {
     "objectID": "posts/web/leetcode-daily-crawling/index.html",
@@ -126,178 +273,38 @@
     "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.\n\n\n\nLeetCode Click의 운영 중단\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응\nLeetCode Daily Question 확인 방법\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답"
   },
   {
-    "objectID": "posts/web/microservice-spof/index.html",
-    "href": "posts/web/microservice-spof/index.html",
-    "title": "Microservice와 Single Point of Failure (SPOF)",
+    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
     "section": "",
-    "text": "Web developer Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n실력 진단 결과\nDijkstra / 최단 거리 9\n진단 센터 / 문항별 통계\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9."
   },
   {
-    "objectID": "posts/bible/philemon/index.html",
-    "href": "posts/bible/philemon/index.html",
-    "title": "Philemon",
+    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
     "section": "",
-    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Philemon},\n  date = {2024-02-14},\n  url = {https://yhkee0404.github.io/posts/bible/philemon},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Philemon.” February 14, 2024. https://yhkee0404.github.io/posts/bible/philemon."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n실력 진단 결과\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Yunho Kee",
+    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
+    "href": "posts/algorithms/codetree/change-to-capital/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
     "section": "",
-    "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n실력 진단 결과\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital."
   },
   {
-    "objectID": "posts/database/xml/index.html",
-    "href": "posts/database/xml/index.html",
-    "title": "XML",
+    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
     "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n실력 진단 결과\n배열 기록 / 선두를 지켜라 3\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3."
   },
   {
-    "objectID": "posts/database/xml/index.html#semistructured-data",
-    "href": "posts/database/xml/index.html#semistructured-data",
-    "title": "XML",
+    "objectID": "posts/algorithms/negative-zero/index.html",
+    "href": "posts/algorithms/negative-zero/index.html",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
     "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
-    "href": "posts/database/xml/index.html#html과-xml의-차이",
-    "title": "XML",
-    "section": "HTML과 XML의 차이",
-    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#semantic-tags",
-    "href": "posts/database/xml/index.html#semantic-tags",
-    "title": "XML",
-    "section": "Semantic Tags",
-    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#xml-schema",
-    "href": "posts/database/xml/index.html#xml-schema",
-    "title": "XML",
-    "section": "XML Schema",
-    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#dtd의-유연성",
-    "href": "posts/database/xml/index.html#dtd의-유연성",
-    "title": "XML",
-    "section": "DTD의 유연성",
-    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html",
-    "href": "posts/web/escape-xml10/index.html",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#intro",
-    "href": "posts/web/escape-xml10/index.html#intro",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
-    "href": "posts/web/escape-xml10/index.html#problem-analysis",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Problem Analysis",
-    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#solution",
-    "href": "posts/web/escape-xml10/index.html#solution",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Solution",
-    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다.\n\n\n\n예상 XML API 응답\n실제 XML API 응답"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html",
-    "title": "Two Pointers Speed Control",
-    "section": "",
-    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
-    "title": "Two Pointers Speed Control",
-    "section": "",
-    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers",
-    "text": "Two Pointers\nTwo Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 \\(n\\)개일 때 각 Pointer는 \\(n\\)개의 원소를 최대 1번씩 방문하다가 선형 시간 \\(O(n)\\) 안에 탐색을 마친다. 따라서 총 수행 시간 \\(T(n)\\)은 Pointer의 개수 \\(k\\)에 비례한다: \\(T(n) = O(kn)\\). 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 \\(k\\)번 반복하므로 \\(k\\)에 따라 지수적으로 증가한다: \\(O(n^k)\\). 가령, \\(k = 2\\)이면 \\(O(n^2) \\ne O(2n) = O(n)\\)이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진만 허용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers를 통한 Graph Cycle 검사",
-    "text": "Two Pointers를 통한 Graph Cycle 검사\nTwo Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.\nCycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 \\(1\\)이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 \\(0\\)부터 오름차순으로 \\(i_s\\)번째, 후발대는 \\(j_s\\)번째라고 하고, \\(i_s\\)와 \\(j_s\\)가 길이가 \\(m\\)인 Cycle 위에 있을 때 \\(t\\) 시간을 더 탐색하면:\n\n\\[\n\\begin{align}\n\\forall i_s, j_s \\in \\mathbb{Z}, \\forall m \\in \\mathbb{Z}^+ : \\exists t \\in \\mathbb{Z} \\text{ such that }  \\\\\n& & i_s + t         & \\equiv j_s        & \\pmod{m}\\;\\\\\n\\text{ and }\\\\\n& & 0 \\leq t        & &lt; m.\\\\\n\\therefore \\forall a \\in \\mathbb{Z} :\\\\\n& & i_s + (a + 1)t  & \\equiv j_s + at   & \\pmod{m}.\n\\end{align}\n\\]\n\n다시 말해 후발대가 \\(a\\)의 속력으로 이동할 때 선발대가 \\(a + 1\\)의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 \\(x\\) 시점에 도착하는 \\(j_x = j_s + at\\)번째 원소와 \\(i_x = i_s + (a + 1)t\\)번째 원소가 \\(x = t\\) 시점에서 처음으로 일치(\\(i_x \\equiv j_x \\pmod{m}\\))할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 \\(T_c(m) = O(m)\\)이다. 왜냐하면 \\(T_c(m) = O(t)\\)이고 \\(t = O(m)\\)이기 때문이다.\n일반적으로 원소의 개수가 \\(n\\)인 Graph를 탐색할 때 \\(i_0 = j_0 = 0\\)번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 \\(a &gt; 0\\)이면 Cycle 내 원소까지 선형 시간(\\(T_u(n) = i_s - i_0 = O(n)\\))에 가능한 한 반드시 도달한다. 또한 \\(m = O(n)\\)이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:\n\\[\n\\begin{align}\nT(n) & = T_u(n) + T_c(m)\\\\\n     & = O(n) + O(m)\\\\\n     & = O(n)\n\\end{align}\n\\]"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
-    "title": "Two Pointers Speed Control",
-    "section": "Linked List Cycle",
-    "text": "Linked List Cycle\nLeetCode 문제 Linked List Cycle은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 Follow up에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 쥐쥐 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. 다음 Python 풀이는 모든 양의 정수 a에 대해 동작한다:\n\n# Definition for singly-linked list.\nclass ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode], a = 1) -&gt; bool:\n        node_i = head\n        node_j = head\n        while node_i is not None and node_j is not None:\n            for _ in range(a + 1):\n                node_i = node_i.next\n                if node_i is None:\n                    return False\n            for _ in range(a):\n                node_j = node_j.next\n                if node_j is None:\n                    return False\n            if node_i == node_j:\n                return True\n        return False\n\n\nnodes = [ListNode(x) for x in [3,2,0,-4]]\nfor i in range(len(nodes) - 1):\n    nodes[i].next = nodes[i + 1]\nnodes[-1].next = nodes[1]\nhead = nodes[0]\n\nsol = Solution()\nall(sol.hasCycle(head, a) for a in range(1, 100))\n\nTrue"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers Speed Control",
-    "text": "Two Pointers Speed Control\nTwo Pointers Cycle 검사는 속력 차가 1이어야 했다: \\(a + 1\\). 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: \\(2a\\).\n홀수 \\(n\\)개 원소가 정렬된 List의 Median은 0부터 셀 때 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 \\(O(1)\\)이 걸리니 선형 시간의 Two Pointers가 더 느리다: \\(O(n) \\ne O(1)\\).\n반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소를 찾을 때 \\(n\\)을 몰라도 된다는 장점이 있다. \\(\\forall q \\in \\mathbb{Z}^+\\)인 \\(\\lfloor \\frac n q \\rfloor\\)번째 원소라면 속력 비가 \\(q\\)이면 되는 것이다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
-    "title": "Two Pointers Speed Control",
-    "section": "Middle of the Linked List",
-    "text": "Middle of the Linked List\nLeetCode 문제 Middle of the Linked List는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소만 찾으면 된다. 원래는 \\(n\\)을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 백발백준 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. 다음 Kotlin 풀이는 \\(n\\)도 모르고 Index 계산도 하지 않는다:\n/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\nclass Solution {\n    fun middleNode(head: ListNode?): ListNode? {\n        var node: ListNode? = head\n        var ans: ListNode? = head\n        var odd: Boolean = false\n        while (node !== null) {\n            node = node.next\n            if (odd) {\n                ans = ans!!.next\n            }\n            odd = odd xor true\n        }\n        return ans\n    }\n}"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
-    "title": "Two Pointers Speed Control",
-    "section": "아날로그 시계",
-    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue\n\n\n\n\n\nPhoto by Susan Q Yin on Unsplash"
-  },
-  {
-    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n실력 진단 결과\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n실력 진단 결과\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-    "href": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-    "title": "[코드트리 챌린지] 4주차 - DFS",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n실력 진단 결과\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
-    "href": "posts/algorithms/codetree/three-five-moo/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n실력 진단 결과\nParametric Search / 삼 오 무\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo."
+    "text": "Intro\n-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n\n\nAbs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 음수를 보존하려면 후술할 min, max의 경우 절댓값을 적용할 수 없다.\n\n\nMin, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서라도 직접 구현시 비슷한 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다.\n\n\nAdd\n0.0을 더하면 된다.\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {-0.0을 0.0으로 어떻게 바꿀까?},\n  date = {2024-05-12},\n  url = {https://yhkee0404.github.io/posts/algorithms/negative-zero},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “-0.0을 0.0으로 어떻게 바꿀까?” May 12,\n2024. https://yhkee0404.github.io/posts/algorithms/negative-zero."
   }
 ]
