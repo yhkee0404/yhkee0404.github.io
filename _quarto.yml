@@ -17,6 +17,8 @@ website:
         href: web.qmd#category=featured
       - text: Database
         href: database.qmd#category=featured
+      - text: Data Science
+        href: data-science.qmd#category=featured
       - text: Algorithms
         href: algorithms.qmd#category=featured
       - text: Troubleshoot
