@@ -1,13 +1,61 @@
 ---
-title: "Timezone PR"
-subtitle: pvlib
+title: "Timezone은 무조건 UTC 변환하면 될까?"
 author: "Yunho Kee"
 date: "2024-05-19"
 categories:
   - "data science"
-  - "pvlib"
-  - "open source"
-  - "contribution"
+  - pvlib
+  - "open source contribution"
+  - timezone
+  - naive
+  - aware
+  - serializer
+  - iana
+  - django
+  - "django rest framework"
+image: james-lee-4ujY2rb7KOQ-unsplash.png
 ---
 
-작성중
+## Intro
+
+Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 [PR][PR]을 남긴다.
+
+## Terms
+
+Timezone 정보가 없는 자료형을 Timezone-naive, 반대는 Timezone-aware라고 부른다.
+
+Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 [Time Zone Database](https://iana.org/time-zones/)를 관리하고 있다. 줄여서 tz나 zoneinfo라 부른다.
+
+UTC는 Offset이 0이라 대표적이다. 한국 시각은 9시간을 더해 KST라고 부른다.
+
+## Python
+
+Tz-aware한 Python 함수는 `tzinfo`를 요구한다. `tzinfo`는 `tzoffset` 수나 `tzname` 이름을 가질 수 있다.
+
+내장 `datetime.timezone`은 이름을 인식하지 못해서 이전에는 `pytz.timezone`을 설치해서 사용했다. 이제는 내장 `zoneinfo.ZoneInfo`가 이름을 인식하니 별도로 설치할 필요 없다. 우리나라는 `Asia/Seoul`이다.
+
+`datetime.date`는 `datetime.datetime`과 달리 Timezone 정보가 없어서 불편할 수 있다.
+
+`datetime.datetime`은 `datetime.date`와 달리 실수 시간을 반환하는 `timestamp` 함수가 있다.
+
+## Pandas
+
+`pd.Timestamp`는 Tz-aware하다.
+
+## Timezone 정보가 없으면 어느 나라로 간주할까?
+
+시간의 최소 단위가 날짜인 Date라도 나라마다 시작 시각이 다르다.
+
+Django Server는 `USE_TZ` 설정이 기본이다. 참고로 Timezone 정보가 있어도 DRF(Django Rest Framework)는 DateTimeField의 Serializer가 알아서 UTC로 변환한다. Django ORM도 DB에 UTC로 자동 변환 저장한다.
+
+그리고 Client의 Timezone 정보가 있으면 따를 수 있는데, 전혀 없으면 Server의 위치 등 설정에 Client가 무언의 약속을 하는 셈이다. 번거로우니 UTC가 상식이기는 하다. 하지만 가령 한국어만 제공하는 Server는 Client도 한국에만 있다고 간주해 KST로 저장할 수도 있다.
+
+## Timezone은 무조건 UTC 변환하면 될까?
+
+만일 Client의 Timezone 정보를 Server가 UTC 등 Timezone으로 무조건 변환한 경우에도 다시 복구해서 응답할 수 있을까? 미리 저장해 두어야 한다. DRF Serializer는 자동 변환 기능을 해제해야 하므로 `enforce_timezone` 함수를 Override한다.
+
+## Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?
+
+무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 [PR][PR]을 남긴 것이다.
+
+[PR]: https://github.com/pvlib/pvlib-python/pull/2055
