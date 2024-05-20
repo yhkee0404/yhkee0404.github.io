@@ -96,7 +96,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="Yunho Kee’s Cultivation - Timezone은 무조건 UTC 변환하면 될까?">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.png">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -253,7 +253,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="terms" class="level2">
 <h2 class="anchored" data-anchor-id="terms">Terms</h2>
 <p>Timezone 정보가 없는 자료형을 Timezone-naive, 반대는 Timezone-aware라고 부른다.</p>
-<p>Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 <a href="https://iana.org/time-zones/">Time Zone Database</a>를 관리하고 있다. 줄여서 tz나 zoneinfo라 부른다.</p>
+<p>Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 <a href="https://iana.org/time-zones/">Time Zone Database</a>를 관리하고 있다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 줄여서 tz나 zoneinfo라 부른다.</p>
 <p>UTC는 Offset이 0이라 대표적이다. 한국 시각은 9시간을 더해 KST라고 부른다.</p>
 </section>
 <section id="python" class="level2">
@@ -284,7 +284,13 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>다운로드를 요구하지 않는 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>가 더 편해 보인다.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
   title = {Timezone은 무조건 UTC 변환하면 될까?},
   date = {2024-05-19},
