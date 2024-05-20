@@ -9,7 +9,7 @@
 <meta name="author" content="Yunho Kee">
 <meta name="dcterms.date" content="2024-05-19">
 
-<title>Yunho Kee’s Cultivation - Timezone PR</title>
+<title>Yunho Kee’s Cultivation - Timezone은 무조건 UTC 변환하면 될까?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,13 +94,11 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - Timezone PR">
-<meta property="og:description" content="pvlib">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png">
+<meta property="og:title" content="Yunho Kee’s Cultivation - Timezone은 무조건 UTC 변환하면 될까?">
+<meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.png">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image:height" content="5000">
-<meta property="og:image:width" content="5000">
 </head>
 
 <body class="nav-fixed">
@@ -188,20 +186,37 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms">Terms</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas">Pandas</a></li>
+  <li><a href="#timezone-정보가-없으면-어느-나라로-간주할까" id="toc-timezone-정보가-없으면-어느-나라로-간주할까" class="nav-link" data-scroll-target="#timezone-정보가-없으면-어느-나라로-간주할까">Timezone 정보가 없으면 어느 나라로 간주할까?</a></li>
+  <li><a href="#timezone은-무조건-utc-변환하면-될까" id="toc-timezone은-무조건-utc-변환하면-될까" class="nav-link" data-scroll-target="#timezone은-무조건-utc-변환하면-될까">Timezone은 무조건 UTC 변환하면 될까?</a></li>
+  <li><a href="#timezone-정보가-있는데-무시하면-어느-나라로-간주할까" id="toc-timezone-정보가-있는데-무시하면-어느-나라로-간주할까" class="nav-link" data-scroll-target="#timezone-정보가-있는데-무시하면-어느-나라로-간주할까">Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Timezone PR</h1>
-<p class="subtitle lead">pvlib</p>
+<h1 class="title">Timezone은 무조건 UTC 변환하면 될까?</h1>
   <div class="quarto-categories">
     <div class="quarto-category">data science</div>
     <div class="quarto-category">pvlib</div>
-    <div class="quarto-category">open source</div>
-    <div class="quarto-category">contribution</div>
+    <div class="quarto-category">open source contribution</div>
+    <div class="quarto-category">timezone</div>
+    <div class="quarto-category">naive</div>
+    <div class="quarto-category">aware</div>
+    <div class="quarto-category">serializer</div>
+    <div class="quarto-category">iana</div>
+    <div class="quarto-category">django</div>
+    <div class="quarto-category">django rest framework</div>
   </div>
   </div>
 
@@ -231,19 +246,54 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </header>
 
 
-<p>작성중</p>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴다.</p>
+</section>
+<section id="terms" class="level2">
+<h2 class="anchored" data-anchor-id="terms">Terms</h2>
+<p>Timezone 정보가 없는 자료형을 Timezone-naive, 반대는 Timezone-aware라고 부른다.</p>
+<p>Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 <a href="https://iana.org/time-zones/">Time Zone Database</a>를 관리하고 있다. 줄여서 tz나 zoneinfo라 부른다.</p>
+<p>UTC는 Offset이 0이라 대표적이다. 한국 시각은 9시간을 더해 KST라고 부른다.</p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p>Tz-aware한 Python 함수는 <code>tzinfo</code>를 요구한다. <code>tzinfo</code>는 <code>tzoffset</code> 수나 <code>tzname</code> 이름을 가질 수 있다.</p>
+<p>내장 <code>datetime.timezone</code>은 이름을 인식하지 못해서 이전에는 <code>pytz.timezone</code>을 설치해서 사용했다. 이제는 내장 <code>zoneinfo.ZoneInfo</code>가 이름을 인식하니 별도로 설치할 필요 없다. 우리나라는 <code>Asia/Seoul</code>이다.</p>
+<p><code>datetime.date</code>는 <code>datetime.datetime</code>과 달리 Timezone 정보가 없어서 불편할 수 있다.</p>
+<p><code>datetime.datetime</code>은 <code>datetime.date</code>와 달리 실수 시간을 반환하는 <code>timestamp</code> 함수가 있다.</p>
+</section>
+<section id="pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<p><code>pd.Timestamp</code>는 Tz-aware하다.</p>
+</section>
+<section id="timezone-정보가-없으면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-없으면-어느-나라로-간주할까">Timezone 정보가 없으면 어느 나라로 간주할까?</h2>
+<p>시간의 최소 단위가 날짜인 Date라도 나라마다 시작 시각이 다르다.</p>
+<p>Django Server는 <code>USE_TZ</code> 설정이 기본이다. 참고로 Timezone 정보가 있어도 DRF(Django Rest Framework)는 DateTimeField의 Serializer가 알아서 UTC로 변환한다. Django ORM도 DB에 UTC로 자동 변환 저장한다.</p>
+<p>그리고 Client의 Timezone 정보가 있으면 따를 수 있는데, 전혀 없으면 Server의 위치 등 설정에 Client가 무언의 약속을 하는 셈이다. 번거로우니 UTC가 상식이기는 하다. 하지만 가령 한국어만 제공하는 Server는 Client도 한국에만 있다고 간주해 KST로 저장할 수도 있다.</p>
+</section>
+<section id="timezone은-무조건-utc-변환하면-될까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone은-무조건-utc-변환하면-될까">Timezone은 무조건 UTC 변환하면 될까?</h2>
+<p>만일 Client의 Timezone 정보를 Server가 UTC 등 Timezone으로 무조건 변환한 경우에도 다시 복구해서 응답할 수 있을까? 미리 저장해 두어야 한다. DRF Serializer는 자동 변환 기능을 해제해야 하므로 <code>enforce_timezone</code> 함수를 Override한다.</p>
+</section>
+<section id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까">Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?</h2>
+<p>무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴 것이다.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
-  title = {Timezone PR},
+  title = {Timezone은 무조건 UTC 변환하면 될까?},
   date = {2024-05-19},
   url = {https://yhkee0404.github.io/posts/data-science/pvlib-timezone},
   langid = {ko}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kee, Yunho. 2024. <span>“Timezone PR.”</span> May 19, 2024. <a href="https://yhkee0404.github.io/posts/data-science/pvlib-timezone">https://yhkee0404.github.io/posts/data-science/pvlib-timezone</a>.
+Kee, Yunho. 2024. <span>“Timezone은 무조건 UTC 변환하면 될까?”</span>
+May 19, 2024. <a href="https://yhkee0404.github.io/posts/data-science/pvlib-timezone">https://yhkee0404.github.io/posts/data-science/pvlib-timezone</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

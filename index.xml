@@ -18,7 +18,7 @@
 <generator>quarto-1.4.554</generator>
 <lastBuildDate>Sun, 19 May 2024 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Timezone PR</title>
+  <title>Timezone은 무조건 UTC 변환하면 될까?</title>
   <dc:creator>Yunho Kee</dc:creator>
   <link>https://yhkee0404.github.io/posts/data-science/pvlib-timezone/</link>
   <description><![CDATA[ 
@@ -26,27 +26,68 @@
 
 
 
-<p>작성중</p>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴다.</p>
+</section>
+<section id="terms" class="level2">
+<h2 class="anchored" data-anchor-id="terms">Terms</h2>
+<p>Timezone 정보가 없는 자료형을 Timezone-naive, 반대는 Timezone-aware라고 부른다.</p>
+<p>Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 <a href="https://iana.org/time-zones/">Time Zone Database</a>를 관리하고 있다. 줄여서 tz나 zoneinfo라 부른다.</p>
+<p>UTC는 Offset이 0이라 대표적이다. 한국 시각은 9시간을 더해 KST라고 부른다.</p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p>Tz-aware한 Python 함수는 <code>tzinfo</code>를 요구한다. <code>tzinfo</code>는 <code>tzoffset</code> 수나 <code>tzname</code> 이름을 가질 수 있다.</p>
+<p>내장 <code>datetime.timezone</code>은 이름을 인식하지 못해서 이전에는 <code>pytz.timezone</code>을 설치해서 사용했다. 이제는 내장 <code>zoneinfo.ZoneInfo</code>가 이름을 인식하니 별도로 설치할 필요 없다. 우리나라는 <code>Asia/Seoul</code>이다.</p>
+<p><code>datetime.date</code>는 <code>datetime.datetime</code>과 달리 Timezone 정보가 없어서 불편할 수 있다.</p>
+<p><code>datetime.datetime</code>은 <code>datetime.date</code>와 달리 실수 시간을 반환하는 <code>timestamp</code> 함수가 있다.</p>
+</section>
+<section id="pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<p><code>pd.Timestamp</code>는 Tz-aware하다.</p>
+</section>
+<section id="timezone-정보가-없으면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-없으면-어느-나라로-간주할까">Timezone 정보가 없으면 어느 나라로 간주할까?</h2>
+<p>시간의 최소 단위가 날짜인 Date라도 나라마다 시작 시각이 다르다.</p>
+<p>Django Server는 <code>USE_TZ</code> 설정이 기본이다. 참고로 Timezone 정보가 있어도 DRF(Django Rest Framework)는 DateTimeField의 Serializer가 알아서 UTC로 변환한다. Django ORM도 DB에 UTC로 자동 변환 저장한다.</p>
+<p>그리고 Client의 Timezone 정보가 있으면 따를 수 있는데, 전혀 없으면 Server의 위치 등 설정에 Client가 무언의 약속을 하는 셈이다. 번거로우니 UTC가 상식이기는 하다. 하지만 가령 한국어만 제공하는 Server는 Client도 한국에만 있다고 간주해 KST로 저장할 수도 있다.</p>
+</section>
+<section id="timezone은-무조건-utc-변환하면-될까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone은-무조건-utc-변환하면-될까">Timezone은 무조건 UTC 변환하면 될까?</h2>
+<p>만일 Client의 Timezone 정보를 Server가 UTC 등 Timezone으로 무조건 변환한 경우에도 다시 복구해서 응답할 수 있을까? 미리 저장해 두어야 한다. DRF Serializer는 자동 변환 기능을 해제해야 하므로 <code>enforce_timezone</code> 함수를 Override한다.</p>
+</section>
+<section id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까">Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?</h2>
+<p>무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴 것이다.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
-  title = {Timezone PR},
+  title = {Timezone은 무조건 UTC 변환하면 될까?},
   date = {2024-05-19},
   url = {https://yhkee0404.github.io/posts/data-science/pvlib-timezone},
   langid = {ko}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2024. <span>“Timezone PR.”</span> May 19, 2024. <a href="https://yhkee0404.github.io/posts/data-science/pvlib-timezone">https://yhkee0404.github.io/posts/data-science/pvlib-timezone</a>.
+Kee, Yunho. 2024. <span>“Timezone은 무조건 UTC 변환하면 될까?”</span>
+May 19, 2024. <a href="https://yhkee0404.github.io/posts/data-science/pvlib-timezone">https://yhkee0404.github.io/posts/data-science/pvlib-timezone</a>.
 </div></div></section></div> ]]></description>
   <category>data science</category>
   <category>pvlib</category>
-  <category>open source</category>
-  <category>contribution</category>
+  <category>open source contribution</category>
+  <category>timezone</category>
+  <category>naive</category>
+  <category>aware</category>
+  <category>serializer</category>
+  <category>iana</category>
+  <category>django</category>
+  <category>django rest framework</category>
   <guid>https://yhkee0404.github.io/posts/data-science/pvlib-timezone/</guid>
   <pubDate>Sun, 19 May 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/posts/data-science/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>-0.0을 0.0으로 어떻게 바꿀까?</title>
@@ -722,7 +763,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode Click의 운영 중단</figcaption>
 </figure>
 </div>
@@ -737,7 +778,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-2" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
 </figure>
 </div>
@@ -749,7 +790,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
 <figcaption>LeetCode Daily Question 확인 방법</figcaption>
 </figure>
 </div>
@@ -1052,7 +1093,7 @@ Note
 <p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
 <figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
 </figure>
 </div>
@@ -1179,7 +1220,7 @@ background-color: null;
 font-style: inherit;">))</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
 <figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
 </figure>
 </div>
@@ -2184,7 +2225,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2192,7 +2233,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
+<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
 <figcaption>배열 기록 / 선두를 지켜라 3</figcaption>
 </figure>
 </div>
@@ -2488,7 +2529,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2496,7 +2537,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
 <figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
