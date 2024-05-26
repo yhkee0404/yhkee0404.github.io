@@ -35,13 +35,13 @@
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="chrome-remote-desktop-reinstall" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
+<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-1" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
 <figcaption>The infinite reinstallation of Chrome Remote Desktop</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="chrome-remote-desktop-reinstall"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
+<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-2"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
 </div>
 </div>
 </div>
@@ -62,7 +62,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-chrome-remote-desktop-macos-sonoma" class="quarto-figure quarto-figure-center quarto-float anchored" alt="">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
+<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-3"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) macOS Sonoma
@@ -74,7 +74,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-migration-assistant" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A screenshot.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
+<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-4"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Migration Assistant
@@ -101,10 +101,10 @@ Figure&nbsp;2: Reasonable Suspicion
 <div aria-describedby="fig-chrome-remote-desktop-google-llc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-5"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-6"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
 </div>
 </div>
 </div>

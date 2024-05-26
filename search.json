@@ -326,7 +326,7 @@
     "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
     "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
     "section": "오차 관리",
-    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리에서 최소 오차를 예상할 수 있다면 n + 1번째 자리에 작은 수를 더하거나 빼 주면 된다.\n\n_EPSILON = 1e-2\nfour = (7 - 10 / 6 * 3 + 1e-2) * 2\nprint(four)\nprint(int(four))\n\n4.02\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + Decimal('1e-2')\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n4.009999999999999999999999998\n4\n4\n\n\n\n\n\nPhoto by Elimende Inagella on Unsplash"
+    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리에서 실수 연산의 최소 오차를 예상할 수 있다면 그보다 작은 수를 가령 n + 1번째 자리에 1을 더하거나 빼 주면 된다.\n\n_EPSILON = 1e-2\n\nfour = (7 - 10 / 6 * 3) * 2 + _EPSILON\nprint(four)\nprint(int(four))\n\n4.01\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\n_EPSILON = Decimal('1e-2')\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + _EPSILON\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n4.009999999999999999999999998\n4\n4\n\n\n\n\n\nPhoto by Elimende Inagella on Unsplash"
   },
   {
     "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",

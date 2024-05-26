@@ -278,7 +278,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -291,7 +291,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="실수-오차" class="level2">
 <h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
 <p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
-<div id="9cc80aa1" class="cell" data-execution_count="1">
+<div id="3a321632" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -300,7 +300,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 4</code></pre>
 </div>
 </div>
-<div id="f464c061" class="cell" data-execution_count="2">
+<div id="555fd240" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span></span>
@@ -316,24 +316,27 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </section>
 <section id="오차-관리" class="level2">
 <h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
-<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리에서 최소 오차를 예상할 수 있다면 <code>n + 1</code>번째 자리에 작은 수를 더하거나 빼 주면 된다.</p>
-<div id="f319da23" class="cell" data-execution_count="3">
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리에서 실수 연산의 최소 오차를 예상할 수 있다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다.</p>
+<div id="eca91432" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> <span class="fl">1e-2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="fl">1e-2</span>) <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.02
+<pre><code>4.01
 4</code></pre>
 </div>
 </div>
-<div id="4783bdb5" class="cell" data-execution_count="4">
+<div id="2a3af631" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> Decimal(<span class="st">'1e-2'</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> Decimal(<span class="st">'1e-2'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4.009999999999999999999999998
 4
@@ -932,7 +935,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
