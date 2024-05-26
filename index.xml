@@ -16,7 +16,238 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.4.554</generator>
-<lastBuildDate>Sun, 19 May 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 26 May 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>이진수 대신 십진수를 쓰면 오차가 없어질까?</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/algorithms/decimal-round-down/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Elimende Inagella on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
+<p>정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?</p>
+</section>
+<section id="정수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="정수-오차">정수 오차</h2>
+<p>저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다.</p>
+</section>
+<section id="실수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
+<p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
+<div id="9cc80aa1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb1-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.0
+4</code></pre>
+</div>
+</div>
+<div id="f464c061" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'7'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'10'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'6'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3'</span>)) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb3-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span>
+<span id="cb3-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four.quantize(Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.999999999999999999999999998
+3
+3</code></pre>
+</div>
+</div>
+</section>
+<section id="오차-관리" class="level2">
+<h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리에서 최소 오차를 예상할 수 있다면 <code>n + 1</code>번째 자리에 작은 수를 더하거나 빼 주면 된다.</p>
+<div id="f319da23" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">_EPSILON <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1e-2</span></span>
+<span id="cb5-2">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1e-2</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb5-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb5-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.02
+4</code></pre>
+</div>
+</div>
+<div id="4783bdb5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb7-2"></span>
+<span id="cb7-3">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'7'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'10'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'6'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3'</span>)) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'1e-2'</span>)</span>
+<span id="cb7-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb7-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span>
+<span id="cb7-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four.quantize(Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.009999999999999999999999998
+4
+4</code></pre>
+</div>
+</div>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {이진수 대신 십진수를 쓰면 오차가 없어질까?},
+  date = {2024-05-26},
+  url = {https://yhkee0404.github.io/posts/algorithms/decimal-round-down},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2024. <span>“이진수 대신 십진수를 쓰면 오차가
+없어질까?”</span> May 26, 2024. <a href="https://yhkee0404.github.io/posts/algorithms/decimal-round-down">https://yhkee0404.github.io/posts/algorithms/decimal-round-down</a>.
+</div></div></section></div> ]]></description>
+  <category>algorithms</category>
+  <category>float</category>
+  <category>decimal</category>
+  <category>python</category>
+  <guid>https://yhkee0404.github.io/posts/algorithms/decimal-round-down/</guid>
+  <pubDate>Sun, 26 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Timezone은 무조건 UTC 변환하면 될까?</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -176,7 +407,7 @@ Kee, Yunho. 2024. <span>“-0.0을 0.0으로 어떻게 바꿀까?”</span> May 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-1" title="예상 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="escape-xml10" title="예상 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
 <figcaption>예상 XML API 응답</figcaption>
 </figure>
 </div>
@@ -184,7 +415,7 @@ Kee, Yunho. 2024. <span>“-0.0을 0.0으로 어떻게 바꿀까?”</span> May 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-2" title="실제 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
+<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="escape-xml10" title="실제 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
 <figcaption>실제 XML API 응답</figcaption>
 </figure>
 </div>
@@ -769,7 +1000,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode Click의 운영 중단</figcaption>
 </figure>
 </div>
@@ -784,7 +1015,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-2" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
 </figure>
 </div>
@@ -796,7 +1027,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
 <figcaption>LeetCode Daily Question 확인 방법</figcaption>
 </figure>
 </div>
@@ -1099,7 +1330,7 @@ Note
 <p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
 <figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
 </figure>
 </div>
@@ -1226,7 +1457,7 @@ background-color: null;
 font-style: inherit;">))</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
 <figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
 </figure>
 </div>
@@ -2231,7 +2462,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/report_2023-10-30.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2239,7 +2470,7 @@ Kee, Yunho. 2024. <span>“Philemon.”</span> February 14, 2024. <a href="https
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
+<p><a href="화면 캡처 2023-10-30 235037.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="배열 기록 / 선두를 지켜라 3"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/화면 캡처 2023-10-30 235037.jpg" class="img-fluid figure-img" alt="배열 기록 / 선두를 지켜라 3"></a></p>
 <figcaption>배열 기록 / 선두를 지켜라 3</figcaption>
 </figure>
 </div>
@@ -2407,7 +2638,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-09.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="report_2023-10-09.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2415,7 +2646,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
+<p><a href="화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
 <figcaption>Dijkstra / 최단 거리 9</figcaption>
 </figure>
 </div>
@@ -2427,7 +2658,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
 <p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
+<p><a href="화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
 <figcaption>진단 센터 / 문항별 통계</figcaption>
 </figure>
 </div>
@@ -2535,7 +2766,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2543,7 +2774,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
 <div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<p><a href="화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
 <figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
@@ -2593,7 +2824,7 @@ Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts
 <div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2601,7 +2832,7 @@ Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts
 <div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
+<p><a href="화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
 <figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
 </figure>
 </div>
@@ -2654,7 +2885,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
 <div class="quarto-layout-cell" style="flex-basis: 49.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
@@ -2662,7 +2893,7 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
 <div class="quarto-layout-cell" style="flex-basis: 50.7%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
+<p><a href="화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
 <figcaption>구간 단위로 완전탐색 / 아름다운 수열 2</figcaption>
 </figure>
 </div>

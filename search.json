@@ -294,6 +294,41 @@
     "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
   },
   {
+    "objectID": "posts/algorithms/decimal-round-down/index.html",
+    "href": "posts/algorithms/decimal-round-down/index.html",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#intro",
+    "href": "posts/algorithms/decimal-round-down/index.html#intro",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "정수 오차",
+    "text": "정수 오차\n저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다."
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "실수 오차",
+    "text": "실수 오차\n정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.\n\nfour = (7 - 10 / 6 * 3) * 2\nprint(four)\nprint(int(four))\n\n4.0\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n3.999999999999999999999999998\n3\n3"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "오차 관리",
+    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리에서 최소 오차를 예상할 수 있다면 n + 1번째 자리에 작은 수를 더하거나 빼 주면 된다.\n\n_EPSILON = 1e-2\nfour = (7 - 10 / 6 * 3 + 1e-2) * 2\nprint(four)\nprint(int(four))\n\n4.02\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + Decimal('1e-2')\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n4.009999999999999999999999998\n4\n4\n\n\n\n\n\nPhoto by Elimende Inagella on Unsplash"
+  },
+  {
     "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
     "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
     "title": "[코드트리 챌린지] 5주차 - Dijkstra",

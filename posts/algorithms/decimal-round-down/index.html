@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2023-10-16">
+<meta name="dcterms.date" content="2024-05-26">
 
-<title>Yunho Kee’s Cultivation - [코드트리 챌린지] 6주차 - 2차원 배열 입력</title>
+<title>Yunho Kee’s Cultivation - 이진수 대신 십진수를 쓰면 오차가 없어질까?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,30 +22,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,14 +130,12 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - [코드트리 챌린지] 6주차 - 2차원 배열 입력">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Yunho Kee’s Cultivation - 이진수 대신 십진수를 쓰면 오차가 없어질까?">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/report_2023-10-16.png">
+<meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image:height" content="660">
-<meta property="og:image:width" content="1400">
 </head>
 
 <body class="nav-fixed">
@@ -113,7 +145,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">yhkee0404.github.io</span>
     </a>
   </div>
@@ -124,33 +156,33 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../web.html#category=featured"> 
+    <a class="nav-link" href="../../../web.html#category=featured"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../database.html#category=featured"> 
+    <a class="nav-link" href="../../../database.html#category=featured"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../data-science.html#category=featured"> 
+    <a class="nav-link" href="../../../data-science.html#category=featured"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../bible.html#category=featured"> 
+    <a class="nav-link" href="../../../bible.html#category=featured"> 
 <span class="menu-text">Bible</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Yunho Kee</span></a>
   </li>  
   <li class="nav-item compact">
@@ -174,7 +206,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -191,18 +223,28 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#정수-오차" id="toc-정수-오차" class="nav-link" data-scroll-target="#정수-오차">정수 오차</a></li>
+  <li><a href="#실수-오차" id="toc-실수-오차" class="nav-link" data-scroll-target="#실수-오차">실수 오차</a></li>
+  <li><a href="#오차-관리" id="toc-오차-관리" class="nav-link" data-scroll-target="#오차-관리">오차 관리</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">[코드트리 챌린지] 6주차 - 2차원 배열 입력</h1>
+<h1 class="title">이진수 대신 십진수를 쓰면 오차가 없어질까?</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">코드트리</div>
-    <div class="quarto-category">코딩테스트</div>
-    <div class="quarto-category">코딩테스트실력진단</div>
+    <div class="quarto-category">algorithms</div>
+    <div class="quarto-category">float</div>
+    <div class="quarto-category">decimal</div>
+    <div class="quarto-category">python</div>
   </div>
   </div>
 
@@ -220,7 +262,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 16, 2023</p>
+      <p class="date">May 26, 2024</p>
     </div>
   </div>
   
@@ -232,49 +274,89 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </header>
 
 
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[526, 474]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="report_2023-10-16.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="report_2023-10-16.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
+<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
+<p>정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?</p>
+</section>
+<section id="정수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="정수-오차">정수 오차</h2>
+<p>저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다.</p>
+</section>
+<section id="실수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
+<p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
+<div id="9cc80aa1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.0
+4</code></pre>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="화면 캡처 2023-10-16 223542.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="2차원 배열 입력 / 대문자로 바꾸기"><img src="화면 캡처 2023-10-16 223542.jpg" class="img-fluid figure-img" alt="2차원 배열 입력 / 대문자로 바꾸기"></a></p>
-<figcaption>2차원 배열 입력 / 대문자로 바꾸기</figcaption>
-</figure>
+</div>
+<div id="f464c061" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.999999999999999999999999998
+3
+3</code></pre>
 </div>
 </div>
+</section>
+<section id="오차-관리" class="level2">
+<h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리에서 최소 오차를 예상할 수 있다면 <code>n + 1</code>번째 자리에 작은 수를 더하거나 빼 주면 된다.</p>
+<div id="f319da23" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> <span class="fl">1e-2</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="fl">1e-2</span>) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.02
+4</code></pre>
 </div>
 </div>
-<p><a href="https://www.codetree.ai/missions/4/problems/change-to-capital/" class="uri">https://www.codetree.ai/missions/4/problems/change-to-capital/</a></p>
-<p>숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.</p>
-<p>최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.</p>
+<div id="4783bdb5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> Decimal(<span class="st">'1e-2'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.009999999999999999999999998
+4
+4</code></pre>
+</div>
+</div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">실력 진단 결과</span>
-<span class="glightbox-desc lightbox-desc-2">2차원 배열 입력 / 대문자로 바꾸기</span>
+<span class="glightbox-desc lightbox-desc-1">Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></span>
 </div>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},
-  date = {2023-10-16},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital},
+  title = {이진수 대신 십진수를 쓰면 오차가 없어질까?},
+  date = {2024-05-26},
+  url = {https://yhkee0404.github.io/posts/algorithms/decimal-round-down},
   langid = {ko}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
-입력.”</span> October 16, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital">https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kee, Yunho. 2024. <span>“이진수 대신 십진수를 쓰면 오차가
+없어질까?”</span> May 26, 2024. <a href="https://yhkee0404.github.io/posts/algorithms/decimal-round-down">https://yhkee0404.github.io/posts/algorithms/decimal-round-down</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -850,7 +932,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -879,5 +961,5 @@ window.onload = () => {
 
 
 
-<script src="../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
