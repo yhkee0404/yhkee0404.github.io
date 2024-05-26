@@ -1,0 +1,60 @@
+---
+title: "이진수 대신 십진수를 쓰면 오차가 없어질까?"
+author: "Yunho Kee"
+date: "2024-05-26"
+categories:
+  - algorithms
+  - float
+  - decimal
+  - python
+image: elimende-inagella-4ApmfdVo32Q-unsplash.jpg
+---
+
+## Intro
+
+![Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](elimende-inagella-4ApmfdVo32Q-unsplash.jpg){fig-alt="A photo of 2+2=5."}
+  
+정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?
+
+## 정수 오차
+
+저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다.
+
+## 실수 오차
+
+정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.
+
+```{python}
+four = (7 - 10 / 6 * 3) * 2
+print(four)
+print(int(four))
+```
+
+```{python}
+from decimal import Decimal, ROUND_DOWN
+
+four = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2
+print(four)
+print(int(four))
+print(four.quantize(Decimal('0'), ROUND_DOWN))
+```
+
+## 오차 관리
+
+소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 `n`번째 자리에서 최소 오차를 예상할 수 있다면 `n + 1`번째 자리에 작은 수를 더하거나 빼 주면 된다.
+
+```{python}
+_EPSILON = 1e-2
+four = (7 - 10 / 6 * 3 + 1e-2) * 2
+print(four)
+print(int(four))
+```
+
+```{python}
+from decimal import Decimal, ROUND_DOWN
+
+four = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + Decimal('1e-2')
+print(four)
+print(int(four))
+print(four.quantize(Decimal('0'), ROUND_DOWN))
+```
