@@ -291,7 +291,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="실수-오차" class="level2">
 <h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
 <p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
-<div id="3a321632" class="cell" data-execution_count="1">
+<div id="72fb9f12" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -300,7 +300,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 4</code></pre>
 </div>
 </div>
-<div id="555fd240" class="cell" data-execution_count="2">
+<div id="8913ef44" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span></span>
@@ -316,8 +316,8 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </section>
 <section id="오차-관리" class="level2">
 <h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
-<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리에서 실수 연산의 최소 오차를 예상할 수 있다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다.</p>
-<div id="eca91432" class="cell" data-execution_count="3">
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절삭, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
+<div id="a5482fa4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> <span class="fl">1e-2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
@@ -328,7 +328,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 4</code></pre>
 </div>
 </div>
-<div id="2a3af631" class="cell" data-execution_count="4">
+<div id="0cbbcb68" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> Decimal(<span class="st">'1e-2'</span>)</span>
@@ -935,7 +935,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
