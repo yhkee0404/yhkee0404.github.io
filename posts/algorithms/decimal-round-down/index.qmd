@@ -41,11 +41,12 @@ print(four.quantize(Decimal('0'), ROUND_DOWN))
 
 ## 오차 관리
 
-소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 `n`번째 자리에서 최소 오차를 예상할 수 있다면 `n + 1`번째 자리에 작은 수를 더하거나 빼 주면 된다.
+소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 `n`번째 자리에서 실수 연산의 최소 오차를 예상할 수 있다면 그보다 작은 수를 가령 `n + 1`번째 자리에 `1`을 더하거나 빼 주면 된다.
 
 ```{python}
 _EPSILON = 1e-2
-four = (7 - 10 / 6 * 3 + 1e-2) * 2
+
+four = (7 - 10 / 6 * 3) * 2 + _EPSILON
 print(four)
 print(int(four))
 ```
@@ -53,7 +54,9 @@ print(int(four))
 ```{python}
 from decimal import Decimal, ROUND_DOWN
 
-four = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + Decimal('1e-2')
+_EPSILON = Decimal('1e-2')
+
+four = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + _EPSILON
 print(four)
 print(int(four))
 print(four.quantize(Decimal('0'), ROUND_DOWN))
