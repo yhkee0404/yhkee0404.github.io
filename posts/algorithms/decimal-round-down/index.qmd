@@ -4,6 +4,7 @@ author: "Yunho Kee"
 date: "2024-05-26"
 categories:
   - algorithms
+  - featured
   - float
   - decimal
   - python

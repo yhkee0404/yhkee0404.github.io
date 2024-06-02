@@ -5,6 +5,7 @@ author: "Yunho Kee"
 date: "2024-05-05"
 categories:
   - web
+  - featured
   - xml
   - escapeXml10
   - unescapeXml
