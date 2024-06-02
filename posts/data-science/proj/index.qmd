@@ -1,0 +1,39 @@
+---
+title: "위성 데이터에서 우리집 찾기"
+author: "Yunho Kee"
+date: "2024-06-02"
+categories:
+  - "data science"
+  # - featured
+  - gk2a
+  - proj
+  - "kd tree"
+image: george-bakos-9d0lN17MdEU-unsplash.jpg
+---
+
+## Intro
+
+![Photo by <a href="https://unsplash.com/@georgebakos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">George Bakos</a> on <a href="https://unsplash.com/photos/black-and-white-cat-in-cage-9d0lN17MdEU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](george-bakos-9d0lN17MdEU-unsplash.jpg){fig-alt="A photo of elliptical world map."}
+
+위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?
+
+작성중 입니다..
+
+## 파일 읽기
+
+격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상 중에는 LCC 도법(Lambert Conformal Conic Projection)에 따른 것들이 있다. [천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보](https://datasvc.nmsc.kma.go.kr/homepage/json/base/bbs/selectAtchFile.do?attachFileUsq=40221&refTbUsq=200217)에 따라  나눌 수 있다. 에서 확인할 수 있다. 한 변이 2km인 정사각형 $3600 \times 2600$ 개로 나눈  [국가기상위성센터 > 지원 > 소프트웨어](https://datasvc.nmsc.kma.go.kr/datasvc/html/base/cmm/selectPage.do?page=static.software)에 따라 
+
+```{python}
+import time
+import requests
+
+s = time.time()
+with requests.get("https://datasvc.nmsc.kma.go.kr/datasvc/json/base/resources/selectAtchFile.do?attachFileUsq=41961") as response:
+e = time.time()
+print(e - s)
+
+```
+
+```{python}
+response
+```
