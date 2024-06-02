@@ -16,7 +16,730 @@
 <link>https://yhkee0404.github.io/#category=featured</link>
 </image>
 <generator>quarto-1.4.554</generator>
-<lastBuildDate>Thu, 04 Apr 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 26 May 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>이진수 대신 십진수를 쓰면 오차가 없어질까?</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/algorithms/decimal-round-down/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Elimende Inagella on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
+<p>정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?</p>
+</section>
+<section id="정수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="정수-오차">정수 오차</h2>
+<p>저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다.</p>
+</section>
+<section id="실수-오차" class="level2">
+<h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
+<p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
+<div id="64999112" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb1-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.0
+4</code></pre>
+</div>
+</div>
+<div id="8cc2ec32" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'7'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'10'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'6'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3'</span>)) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb3-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span>
+<span id="cb3-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four.quantize(Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.999999999999999999999999998
+3
+3</code></pre>
+</div>
+</div>
+</section>
+<section id="오차-관리" class="level2">
+<h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절삭, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
+<div id="cf972ed3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">_EPSILON <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1e-2</span></span>
+<span id="cb5-2"></span>
+<span id="cb5-3">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> _EPSILON</span>
+<span id="cb5-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb5-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.01
+4</code></pre>
+</div>
+</div>
+<div id="500716ac" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Decimal, ROUND_DOWN</span>
+<span id="cb7-2"></span>
+<span id="cb7-3">_EPSILON <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'1e-2'</span>)</span>
+<span id="cb7-4"></span>
+<span id="cb7-5">four <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'7'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'10'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'6'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'3'</span>)) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> _EPSILON</span>
+<span id="cb7-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four)</span>
+<span id="cb7-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(four))</span>
+<span id="cb7-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(four.quantize(Decimal(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.009999999999999999999999998
+4
+4</code></pre>
+</div>
+</div>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {이진수 대신 십진수를 쓰면 오차가 없어질까?},
+  date = {2024-05-26},
+  url = {https://yhkee0404.github.io/posts/algorithms/decimal-round-down},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2024. <span>“이진수 대신 십진수를 쓰면 오차가
+없어질까?”</span> May 26, 2024. <a href="https://yhkee0404.github.io/posts/algorithms/decimal-round-down">https://yhkee0404.github.io/posts/algorithms/decimal-round-down</a>.
+</div></div></section></div> ]]></description>
+  <category>algorithms</category>
+  <category>featured</category>
+  <category>float</category>
+  <category>decimal</category>
+  <category>python</category>
+  <guid>https://yhkee0404.github.io/posts/algorithms/decimal-round-down/</guid>
+  <pubDate>Sun, 26 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Timezone은 무조건 UTC 변환하면 될까?</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/data-science/pvlib-timezone/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴다.</p>
+</section>
+<section id="terms" class="level2">
+<h2 class="anchored" data-anchor-id="terms">Terms</h2>
+<p>Timezone 정보가 없는 자료형을 Timezone-naive, 반대는 Timezone-aware라고 부른다.</p>
+<p>Timezone은 Offset 수만으로 충분히 비교할 수 있지만 같은 수라도 편의상 다른 지명 등의 이름을 붙일 수 있다. IANA(Internet Assigned Numbers Authority)에서 <a href="https://iana.org/time-zones/">Time Zone Database</a>를 관리하고 있다.<sup>1</sup> 줄여서 tz나 zoneinfo라 부른다.</p>
+<p>UTC는 Offset이 0이라 대표적이다. 한국 시각은 9시간을 더해 KST라고 부른다.</p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p>Tz-aware한 Python 함수는 <code>tzinfo</code>를 요구한다. <code>tzinfo</code>는 <code>tzoffset</code> 수나 <code>tzname</code> 이름을 가질 수 있다.</p>
+<p>내장 <code>datetime.timezone</code>은 이름을 인식하지 못해서 이전에는 <code>pytz.timezone</code>을 설치해서 사용했다. 이제는 내장 <code>zoneinfo.ZoneInfo</code>가 이름을 인식하니 별도로 설치할 필요 없다. 우리나라는 <code>Asia/Seoul</code>이다.</p>
+<p><code>datetime.date</code>는 <code>datetime.datetime</code>과 달리 Timezone 정보가 없어서 불편할 수 있다.</p>
+<p><code>datetime.datetime</code>은 <code>datetime.date</code>와 달리 실수 시간을 반환하는 <code>timestamp</code> 함수가 있다.</p>
+</section>
+<section id="pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<p><code>pd.Timestamp</code>는 Tz-aware하다.</p>
+</section>
+<section id="timezone-정보가-없으면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-없으면-어느-나라로-간주할까">Timezone 정보가 없으면 어느 나라로 간주할까?</h2>
+<p>시간의 최소 단위가 날짜인 Date라도 나라마다 시작 시각이 다르다.</p>
+<p>Django Server는 <code>USE_TZ</code> 설정이 기본이다. 참고로 Timezone 정보가 있어도 DRF(Django Rest Framework)는 DateTimeField의 Serializer가 알아서 UTC로 변환한다. Django ORM도 DB에 UTC로 자동 변환 저장한다.</p>
+<p>그리고 Client의 Timezone 정보가 있으면 따를 수 있는데, 전혀 없으면 Server의 위치 등 설정에 Client가 무언의 약속을 하는 셈이다. 번거로우니 UTC가 상식이기는 하다. 하지만 가령 한국어만 제공하는 Server는 Client도 한국에만 있다고 간주해 KST로 저장할 수도 있다.</p>
+</section>
+<section id="timezone은-무조건-utc-변환하면-될까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone은-무조건-utc-변환하면-될까">Timezone은 무조건 UTC 변환하면 될까?</h2>
+<p>만일 Client의 Timezone 정보를 Server가 UTC 등 Timezone으로 무조건 변환한 경우에도 다시 복구해서 응답할 수 있을까? 미리 저장해 두어야 한다. DRF Serializer는 자동 변환 기능을 해제해야 하므로 <code>enforce_timezone</code> 함수를 Override한다.</p>
+</section>
+<section id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-정보가-있는데-무시하면-어느-나라로-간주할까">Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?</h2>
+<p>무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴 것이다.</p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>다운로드를 요구하지 않는 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>가 더 편해 보인다.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {Timezone은 무조건 UTC 변환하면 될까?},
+  date = {2024-05-19},
+  url = {https://yhkee0404.github.io/posts/data-science/pvlib-timezone},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2024. <span>“Timezone은 무조건 UTC 변환하면 될까?”</span>
+May 19, 2024. <a href="https://yhkee0404.github.io/posts/data-science/pvlib-timezone">https://yhkee0404.github.io/posts/data-science/pvlib-timezone</a>.
+</div></div></section></div> ]]></description>
+  <category>data science</category>
+  <category>featured</category>
+  <category>pvlib</category>
+  <category>open source contribution</category>
+  <category>timezone</category>
+  <category>naive</category>
+  <category>aware</category>
+  <category>serializer</category>
+  <category>iana</category>
+  <category>django</category>
+  <category>django rest framework</category>
+  <guid>https://yhkee0404.github.io/posts/data-science/pvlib-timezone/</guid>
+  <pubDate>Sun, 19 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>-0.0을 0.0으로 어떻게 바꿀까?</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/algorithms/negative-zero/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.</p>
+<p>컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!</p>
+</section>
+<section id="abs" class="level2">
+<h2 class="anchored" data-anchor-id="abs">Abs</h2>
+<p>언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다.</p>
+</section>
+<section id="min-max" class="level2">
+<h2 class="anchored" data-anchor-id="min-max">Min, Max</h2>
+<p>C++, Java, Javascript에서 <code>max(-0.0, 0.0)</code>과 <code>max(0.0, -0.0)</code>은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.</p>
+<p>이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.</p>
+<p>결론적으로 <code>max(0.0, x)</code>는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.</p>
+<p>반대로 <code>min(-0.0, x)</code>는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.</p>
+<p>내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!</p>
+</section>
+<section id="add" class="level2">
+<h2 class="anchored" data-anchor-id="add">Add</h2>
+<p>0.0을 더하면 된다.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {-0.0을 0.0으로 어떻게 바꿀까?},
+  date = {2024-05-12},
+  url = {https://yhkee0404.github.io/posts/algorithms/negative-zero},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2024. <span>“-0.0을 0.0으로 어떻게 바꿀까?”</span> May 12,
+2024. <a href="https://yhkee0404.github.io/posts/algorithms/negative-zero">https://yhkee0404.github.io/posts/algorithms/negative-zero</a>.
+</div></div></section></div> ]]></description>
+  <category>algorithms</category>
+  <category>featured</category>
+  <category>abs</category>
+  <category>negative zero</category>
+  <category>min</category>
+  <category>max</category>
+  <category>add</category>
+  <category>c</category>
+  <category>c++</category>
+  <category>java</category>
+  <category>javascript</category>
+  <guid>https://yhkee0404.github.io/posts/algorithms/negative-zero/</guid>
+  <pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/algorithms/kelly-sikkema-PgToaHfQjq0-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>XML API 응답 개수가 DB 조회 개수와 달라요</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/web/escape-xml10/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.</p>
+<p>DB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?</p>
+</section>
+<section id="problem-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="problem-analysis">Problem Analysis</h2>
+<div id="fig-escape-xml10" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-escape-xml10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="스크린샷 2024-05-05 233811.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-1" title="예상 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233811.png" class="img-fluid figure-img" alt="A screenshot of the expected xml api response."></a></p>
+<figcaption>예상 XML API 응답</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="스크린샷 2024-05-05 233633.png" class="lightbox" data-gallery="escape-xml10" data-glightbox="description: .lightbox-desc-2" title="실제 XML API 응답"><img src="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" class="img-fluid figure-img" alt="A screenshot of the real xml api response."></a></p>
+<figcaption>실제 XML API 응답</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-escape-xml10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Browser의 XML Parse 실패
+</figcaption>
+</figure>
+</div>
+<p>사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다.</p>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>다음과 같이 <code>StringEscapeUtils.escapeXml10</code>을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 <code>StringEscapeUtils.unescapeXml</code>로 일부 복원한다.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">package</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;"> yhkee0404</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">escapexml10</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">controller</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">import</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">org</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">springframework</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">web</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">bind</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">annotation</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">GetMapping</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">import</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">org</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">springframework</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">web</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">bind</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">annotation</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">RestController</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">import</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">lombok</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">RequiredArgsConstructor</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-7"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">import</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">org</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">springframework</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">http</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">MediaType</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">import</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">org</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">apache</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">commons</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">text</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">StringEscapeUtils</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-9"></span>
+<span id="cb1-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@RestController</span></span>
+<span id="cb1-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@RequiredArgsConstructor</span></span>
+<span id="cb1-12"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> XMLController <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb1-13"></span>
+<span id="cb1-14">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">final</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> unicodeXML <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> </span>
+<span id="cb1-15">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;?xml version=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">1.0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> encoding=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">UTF-8</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> standalone=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">yes</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">?&gt;"</span></span>
+<span id="cb1-16">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;post&gt;"</span></span>
+<span id="cb1-17">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;title&gt;BACK</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\u0008</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">SPACE&lt;/title&gt;"</span></span>
+<span id="cb1-18">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;text&gt;EXCLAMATION</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\u0021</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">MARK&lt;/text&gt;"</span></span>
+<span id="cb1-19">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;/post&gt;"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-20"></span>
+<span id="cb1-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@GetMapping</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/xml"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> produces <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> MediaType<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">APPLICATION_XML_VALUE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb1-22">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb1-23">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// return unicodeXML;</span></span>
+<span id="cb1-24">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> StringEscapeUtils<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unescapeXml</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>StringEscapeUtils<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">escapeXml10</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>unicodeXML<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span></span>
+<span id="cb1-25">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb1-26"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>Deprecate된 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.lang3.StringEscapeUtils</code></a>에서 <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111"><code>escapeXML</code></a>도 확인할 수 있다. 이제는 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-"><code>org.apache.commons.text.StringEscapeUtils</code></a>로 이동했다.</p>
+<p>한편 <a href="https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168"><code>EscapeXml11</code></a>도 있다. 그러나 DevSecOps Engineer <span class="citation" data-cites="lee2012">Lee (2012)</span> 에 따르면 XML 1.1은 권장되지 않는다. 그리고 <span class="citation" data-cites="mdnwebdocs2023">MDN Web Docs (2023)</span> 에 따르면 Browser 지원도 없다.</p>
+
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-lee2012" class="csl-entry">
+Lee, Linus. 2012. <span>“XML 1.0을 써야하는 이유.”</span> April 12, 2012. <a href="https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/">https://andromedarabbit.net/2012/04/12/xml-1-0%ec%9d%84-%ec%8d%a8%ec%95%bc%ed%95%98%eb%8a%94-%ec%9d%b4%ec%9c%a0/</a>.
+</div>
+<div id="ref-mdnwebdocs2023" class="csl-entry">
+MDN Web Docs. 2023. <span>“Document: xmlVersion Property.”</span> April 7, 2023. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion">https://developer.mozilla.org/en-US/docs/Web/API/Document/xmlVersion</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+  author = {Kee, Yunho},
+  title = {XML API 응답 개수가 DB 조회 개수와 달라요},
+  date = {2024-05-05},
+  url = {https://yhkee0404.github.io/posts/web/escape-xml10},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2024. <span>“XML API 응답 개수가 DB 조회 개수와
+달라요.”</span> May 5, 2024. <a href="https://yhkee0404.github.io/posts/web/escape-xml10">https://yhkee0404.github.io/posts/web/escape-xml10</a>.
+</div></div></section></div> ]]></description>
+  <category>web</category>
+  <category>featured</category>
+  <category>xml</category>
+  <category>escapeXml10</category>
+  <category>unescapeXml</category>
+  <category>spring</category>
+  <category>StringEscapeUtils</category>
+  <category>Apache Commons</category>
+  <guid>https://yhkee0404.github.io/posts/web/escape-xml10/</guid>
+  <pubDate>Sun, 05 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/posts/web/escape-xml10/스크린샷 2024-05-05 233633.png" medium="image" type="image/png" height="102" width="144"/>
+</item>
 <item>
   <title>이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -35,13 +758,13 @@
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="chrome-remote-desktop-reinstall" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
+<p><a href="Screenshot 2024-03-31 at 3.33.36 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-1" title="The infinite reinstallation of Chrome Remote Desktop"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 3.33.36 PM.png" class="img-fluid figure-img" alt="A screenshot of the English direction."></a></p>
 <figcaption>The infinite reinstallation of Chrome Remote Desktop</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="chrome-remote-desktop-reinstall"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
+<p><a href="스크린샷 2024-03-31 오전 10.01.44.png" class="lightbox" data-gallery="chrome-remote-desktop-reinstall" data-glightbox="description: .lightbox-desc-2"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/스크린샷 2024-03-31 오전 10.01.44.png" class="img-fluid figure-img" alt="A screenshot of the Korean direction."></a></p>
 </div>
 </div>
 </div>
@@ -62,7 +785,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-chrome-remote-desktop-macos-sonoma" class="quarto-figure quarto-figure-center quarto-float anchored" alt="">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
+<a href="Screenshot 2024-03-31 at 11.52.31 AM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-3"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 11.52.31 AM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt=""></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-chrome-remote-desktop-macos-sonoma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) macOS Sonoma
@@ -74,7 +797,7 @@ Figure&nbsp;1: Chrome 원격 데스크톱 무한 재설치
 <div id="fig-migration-assistant" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A screenshot.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
+<a href="Screenshot 2024-03-31 at 5.34.53 PM.png" class="lightbox" data-gallery="fig-chrome-remote-desktop-reasonable-suspicion" data-glightbox="description: .lightbox-desc-4"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 5.34.53 PM.png" class="img-fluid figure-img" data-ref-parent="fig-chrome-remote-desktop-reasonable-suspicion" alt="A screenshot."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-migration-assistant-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Migration Assistant
@@ -101,10 +824,10 @@ Figure&nbsp;2: Reasonable Suspicion
 <div aria-describedby="fig-chrome-remote-desktop-google-llc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.44.19 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-5"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.44.19 PM.png" class="img-fluid figure-img" alt="A screenshot of login items."></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="chrome-remote-desktop-google-llc"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
+<p><a href="Screenshot 2024-03-31 at 9.45.56 PM.png" class="lightbox" data-gallery="chrome-remote-desktop-google-llc" data-glightbox="description: .lightbox-desc-6"><img src="https://yhkee0404.github.io/posts/troubleshoot/chrome-remote-desktop/Screenshot 2024-03-31 at 9.45.56 PM.png" class="img-fluid figure-img" alt="A screenshot of Google LLC."></a></p>
 </div>
 </div>
 </div>
@@ -180,7 +903,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="leetcode-daily-crawling" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
+<p><a href="화면 캡처 2024-03-16 235413.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-1" title="LeetCode Click의 운영 중단"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-16 235413.jpg" class="img-fluid figure-img" alt="A screenshot of the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode Click의 운영 중단</figcaption>
 </figure>
 </div>
@@ -195,7 +918,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="leetcode-daily-crawling" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
+<p><a href="KakaoTalk_Snapshot_20240316_233937.png" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-2" title="LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/KakaoTalk_Snapshot_20240316_233937.png" class="img-fluid figure-img" alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."></a></p>
 <figcaption>LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응</figcaption>
 </figure>
 </div>
@@ -207,7 +930,7 @@ Kee, Yunho. 2024. <span>“이 컴퓨터의 Chrome 원격 데스크톱 설치에
 <h2 class="anchored" data-anchor-id="leetcode-daily-coding-challenge-question">LeetCode Daily Coding Challenge Question</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="leetcode-daily-crawling" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
+<p><a href="화면 캡처 2024-03-17 003045.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-3" title="LeetCode Daily Question 확인 방법"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 003045.jpg" class="img-fluid figure-img" alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."></a></p>
 <figcaption>LeetCode Daily Question 확인 방법</figcaption>
 </figure>
 </div>
@@ -510,7 +1233,7 @@ Note
 <p>실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 <code>dailyCodingChallengeV2</code>라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 <a href="https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22">elprimobot</a> 유용해 보이네요!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="leetcode-daily-crawling" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
+<p><a href="화면 캡처 2024-03-17 015135.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-4" title="Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 015135.jpg" class="img-fluid figure-img" alt="A screenshot of a GraphQL request's payload from Chrome DevTools."></a></p>
 <figcaption>Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload</figcaption>
 </figure>
 </div>
@@ -637,7 +1360,7 @@ background-color: null;
 font-style: inherit;">))</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="leetcode-daily-crawling" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
+<p><a href="화면 캡처 2024-03-17 031317.jpg" class="lightbox" data-gallery="leetcode-daily-crawling" data-glightbox="description: .lightbox-desc-5" title="Google Sheets에서 Parsing한 GraphQL JSON 응답"><img src="https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/화면 캡처 2024-03-17 031317.jpg" class="img-fluid figure-img" alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."></a></p>
 <figcaption>Google Sheets에서 Parsing한 GraphQL JSON 응답</figcaption>
 </figure>
 </div>
@@ -697,7 +1420,7 @@ Kee, Yunho. 2024. <span>“LeetCode Daily Crawling.”</span> March 17,
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
+<p><a href="susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Susan Q Yin on Unsplash"><img src="https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/susan-q-yin-Ctaj_HCqW84-unsplash.jpg" class="img-fluid figure-img" alt="A photo of people in a maze."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
