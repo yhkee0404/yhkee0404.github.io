@@ -1,0 +1,21 @@
+---
+title: "Java Comparable, Comparator 차이"
+author: "Yunho Kee"
+date: "2024-06-09"
+categories:
+  - algorithms
+  - featured
+  - java
+  - comparable
+  - comparator
+  - ordering
+  - 
+---
+
+## Intro
+
+작성중
+
+```java
+{{< include Adequality.java >}}
+```
