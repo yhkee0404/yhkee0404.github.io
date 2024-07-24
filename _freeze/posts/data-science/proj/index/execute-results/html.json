@@ -1,0 +1,12 @@
+{
+  "hash": "16c45cbdb02ba88f5864095ffc88fa99",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"위성 데이터에서 우리집 찾기\"\nauthor: \"Yunho Kee\"\ndate: \"2024-06-02\"\ncategories:\n  - \"data science\"\n  # - featured\n  - gk2a\n  - proj\n  - \"kd tree\"\nimage: george-bakos-9d0lN17MdEU-unsplash.jpg\n---\n\n## Intro\n\n![Photo by <a href=\"https://unsplash.com/@georgebakos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash\">George Bakos</a> on <a href=\"https://unsplash.com/photos/black-and-white-cat-in-cage-9d0lN17MdEU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash\">Unsplash</a>](george-bakos-9d0lN17MdEU-unsplash.jpg){fig-alt=\"A photo of elliptical world map.\"}\n\n위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?\n\n작성중 입니다..\n\n## 파일 읽기\n\n격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상은 LCC 도법(Lambert Conformal Conic Projection)으로 읽을 수 있다. [천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보](https://datasvc.nmsc.kma.go.kr/homepage/json/base/bbs/selectAtchFile.do?attachFileUsq=40221&refTbUsq=200217)에 따르면 동아시아 영상 중 한 변이 2km인 정사각형 $3600 \\times 2600$ 개로 나눈 것도 있다. 그 결과를 [국가기상위성센터 > 지원 > 소프트웨어](https://datasvc.nmsc.kma.go.kr/datasvc/html/base/cmm/selectPage.do?page=static.software)에서 다운로드할 수 있다.\n\n::: {#8c02c1de .cell execution_count=1}\n``` {.python .cell-code}\nimport time\nimport requests\n\ns = time.time()\nwith requests.get(\"https://datasvc.nmsc.kma.go.kr/datasvc/json/base/resources/selectAtchFile.do?attachFileUsq=41961\") as response:\n  e = time.time()\n  print(f'파일 다운로드 시간: {(e - s):.6f} 초')\n  content = response.content\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n파일 다운로드 시간: 8.781900 초\n```\n:::\n:::\n\n\n::: {#ecb044b6 .cell execution_count=2}\n``` {.python .cell-code}\nkvs = response.headers['Content-Disposition'].split(';')\nfilename = None\nfor kv in kvs:\n  kv = kv.strip()\n  if kv.startswith('filename'):\n    filename = kv.split('=')[1]\n    break\nfilename\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n'\"latlon_ea_2000.txt\"'\n```\n:::\n:::\n\n\n::: {#cff44531 .cell execution_count=3}\n``` {.python .cell-code}\nwith open(filename, 'wb') as f:\n  f.write(content)\n```\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

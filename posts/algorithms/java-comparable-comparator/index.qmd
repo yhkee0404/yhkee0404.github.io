@@ -1,21 +1,72 @@
 ---
-title: "Java Comparable, Comparator 차이"
+title: "Java Comparable, Comparator"
 author: "Yunho Kee"
 date: "2024-06-09"
 categories:
   - algorithms
   - featured
   - java
-  - comparable
-  - comparator
+  - Comparable
+  - Comparator
   - ordering
-  - 
+  - nullable
+  - Set
+  - SortedSet
+image: bozhin-karaivanov-dvMJR9-Drbs-unsplash.jpg
+bibliography: references.bib
 ---
 
 ## Intro
+
+동일한 객체 간에 순서를 부여하거나, 서로 다른 객체 간에 순서를 동일시할 수 있을까?
+
+## Comparable, Comparator
+
+정렬시 또는 정렬된 자료구조에서 순서(Ordering) 비교가 필요하다.
+
+### Ordering
+
+Relation과 Quotient가 있다.
+
+### Imposed Ordering
+
+Comparable이나 Comparator로 객체에 순서를 부여(Impose)할 수 있다.
+
+### Natural Ordering
+
+Comparable이 정의하는 순서를 Class의 Natural Ordering이라고 한다.
+
+### Equivalence Relation
+
+Comparable의 `a.compareTo(b)`이나 Comparator의 `int compare(a, b)` 모두 Quotient가 Equivalence Relation이다.
+
+### Consistent with Equals
+
+Ordering의 Quotient가 
+
+## Set
+
+
+
+## Adequality
+
+같은 객체의 순서가 다른 경우는 0과 거의 같지만 얼마든지 더 작아질 수 있는 무한소를 예로 들 수 있다.
+
+## BigDecimal
+
+
 
 작성중
 
 ```java
 {{< include Adequality.java >}}
+```
+
+```java
+[a0.1000000]                            [4.00, 4.0]
+[a0.0100000, a0.0010000]                [4.0]
+[a0.0001000, a0.0000100]                [4.0]
+[null, a0.0000010]                      [null, 4.00, 4.0]
+java.lang.NullPointerException          java.lang.NullPointerException
+[a0.0000001, a0.0000000, null, null]    [null, 4.0]
 ```

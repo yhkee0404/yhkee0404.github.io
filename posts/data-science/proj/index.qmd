@@ -21,19 +21,31 @@ image: george-bakos-9d0lN17MdEU-unsplash.jpg
 
 ## 파일 읽기
 
-격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상 중에는 LCC 도법(Lambert Conformal Conic Projection)에 따른 것들이 있다. [천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보](https://datasvc.nmsc.kma.go.kr/homepage/json/base/bbs/selectAtchFile.do?attachFileUsq=40221&refTbUsq=200217)에 따라  나눌 수 있다. 에서 확인할 수 있다. 한 변이 2km인 정사각형 $3600 \times 2600$ 개로 나눈  [국가기상위성센터 > 지원 > 소프트웨어](https://datasvc.nmsc.kma.go.kr/datasvc/html/base/cmm/selectPage.do?page=static.software)에 따라 
+격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상은 LCC 도법(Lambert Conformal Conic Projection)으로 읽을 수 있다. [천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보](https://datasvc.nmsc.kma.go.kr/homepage/json/base/bbs/selectAtchFile.do?attachFileUsq=40221&refTbUsq=200217)에 따르면 동아시아 영상 중 한 변이 2km인 정사각형 $3600 \times 2600$ 개로 나눈 것도 있다. 그 결과를 [국가기상위성센터 > 지원 > 소프트웨어](https://datasvc.nmsc.kma.go.kr/datasvc/html/base/cmm/selectPage.do?page=static.software)에서 다운로드할 수 있다.
 
-```python
+```{python}
 import time
 import requests
 
 s = time.time()
 with requests.get("https://datasvc.nmsc.kma.go.kr/datasvc/json/base/resources/selectAtchFile.do?attachFileUsq=41961") as response:
-e = time.time()
-print(e - s)
-
+  e = time.time()
+  print(f'파일 다운로드 시간: {(e - s):.6f} 초')
+  content = response.content
 ```
 
-```python
-response
+```{python}
+kvs = response.headers['Content-Disposition'].split(';')
+filename = None
+for kv in kvs:
+  kv = kv.strip()
+  if kv.startswith('filename'):
+    filename = kv.split('=')[1]
+    break
+filename
+```
+
+```{python}
+with open(filename, 'wb') as f:
+  f.write(content)
 ```
