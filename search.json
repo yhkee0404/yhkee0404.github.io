@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "posts/bible/philemon/index.html",
+    "href": "posts/bible/philemon/index.html",
+    "title": "Philemon",
+    "section": "",
+    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Philemon},\n  date = {2024-02-14},\n  url = {https://yhkee0404.github.io/posts/bible/philemon/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Philemon.” February 14, 2024. https://yhkee0404.github.io/posts/bible/philemon/."
+  },
+  {
     "objectID": "posts/database/xml/index.html",
     "href": "posts/database/xml/index.html",
     "title": "XML",
@@ -40,6 +47,167 @@
     "title": "XML",
     "section": "DTD의 유연성",
     "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html",
+    "href": "posts/web/escape-xml10/index.html",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#intro",
+    "href": "posts/web/escape-xml10/index.html#intro",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
+    "href": "posts/web/escape-xml10/index.html#problem-analysis",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Problem Analysis",
+    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#solution",
+    "href": "posts/web/escape-xml10/index.html#solution",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Solution",
+    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다."
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html",
+    "href": "posts/algorithms/negative-zero/index.html",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "",
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#intro",
+    "href": "posts/algorithms/negative-zero/index.html#intro",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "",
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#abs",
+    "href": "posts/algorithms/negative-zero/index.html#abs",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Abs",
+    "text": "Abs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다."
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#min-max",
+    "href": "posts/algorithms/negative-zero/index.html#min-max",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Min, Max",
+    "text": "Min, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.\n결론적으로 max(0.0, x)는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.\n반대로 min(-0.0, x)는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.\n내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#add",
+    "href": "posts/algorithms/negative-zero/index.html#add",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Add",
+    "text": "Add\n0.0을 더하면 된다."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
+    "href": "posts/algorithms/codetree/change-to-capital/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
+    "href": "posts/algorithms/codetree/three-five-moo/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo/."
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html",
+    "href": "posts/algorithms/decimal-round-down/index.html",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#intro",
+    "href": "posts/algorithms/decimal-round-down/index.html#intro",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "정수 오차",
+    "text": "정수 오차\n저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다."
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "실수 오차",
+    "text": "실수 오차\n정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2\n\nprint(five, int(five))\nprint(four, int(four))\n\n5.0 5\n4.0 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2')\n\nprint(five, int(five), five.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.000000000000000000000000001 5 5\n3.999999999999999999999999998 3 3"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "오차 관리",
+    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리까지 필요하다면 그보다 작은 수를 가령 n + 1번째 자리에 1을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, ROUND_DOWN이나 ROUND_HALF_UP이 필요할 때이다. 뺄 때는 절상, 올림, ROUND_UP이나 ROUND_HALF_DOWN이 요구될 때이다.\n\n_EPSILON = 1e-2\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2 + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon))\nprint(four, int(four))\n\n5.01 5\n4.01 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\n_EPSILON = Decimal('1e-2')\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2') + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon), five_epsilon.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.010000000000000000000000001 5 5\n4.009999999999999999999999998 4 4"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#언어-무관",
+    "href": "posts/algorithms/decimal-round-down/index.html#언어-무관",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "언어 무관",
+    "text": "언어 무관\nJava는 BigDecimal 오차 관리가 필요할 때 Runtime에 ArithmeticException을 발생시킨다. 이처럼 예외 처리를 강제하면 Python에서 발생할 오차를 일부 예방할 수 있다. 가령 연산의 중간 과정마다 주의하며 RoundingMode 그리고 scale이나 precision 등을 일일이 명시해야 비정상 종료를 방지할 수 있다. 따라서 오차를 지역적으로 관리한다.\n하지만 일부 오차는 지역적 결과에 의존하는 Greedy한 관리가 불가능하다. 가령 다음 예시에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.\n그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 divideRoundingMode가 RoundingMode.DOWN, RoundingMode.UP 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.\nimport java.math.BigDecimal;\nimport java.math.MathContext;\nimport java.math.RoundingMode;\n\nclass DecimalRoundDown {\n\n    public static void main(final String[] args) {\n\n        printNaivePrimitiveDoubles();\n        \n        System.out.println();\n        printNaiveBigDecimals(RoundingMode.DOWN);\n        printNaiveBigDecimals(RoundingMode.UP);\n        \n        System.out.println();\n        printEpsilonPrimitiveDoubles();\n        \n        System.out.println();\n        printEpsilonBigDecimals(RoundingMode.DOWN);\n        printEpsilonBigDecimals(RoundingMode.UP);\n\n    }\n\n    private static void printNaivePrimitiveDoubles() {\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2;\n\n        System.out.println(five + \" \" + (int) five);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printNaiveBigDecimals(final RoundingMode divideRoundingMode) {\n\n        BigDecimal five;\n        try {\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"))\n                    .multiply(new BigDecimal(\"3\"));\n        } catch (Exception e) {\n            e.printStackTrace();\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                    .multiply(new BigDecimal(\"3\"));\n        }\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"));\n\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(five + \" \" + five.intValue() + \" \" + five.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n    private static void printEpsilonPrimitiveDoubles() {\n\n        final double EPSILON = 1e-2;\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2 + EPSILON;\n\n        final double fiveEpsilon = five + EPSILON;\n        System.out.println(fiveEpsilon + \" \" + (int) fiveEpsilon);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printEpsilonBigDecimals(final RoundingMode divideRoundingMode) {\n\n        final BigDecimal EPSILON = new BigDecimal(\"1e-2\");\n\n        final BigDecimal five = new BigDecimal(\"10\")\n                .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                .multiply(new BigDecimal(\"3\"));\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"))\n                .add(EPSILON);\n\n        final BigDecimal fiveEpsilon = five.add(EPSILON);\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(fiveEpsilon + \" \" + fiveEpsilon.intValue() + \" \" + fiveEpsilon.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n}\n5.0 5\n4.0 4\n\nNon-terminating decimal expansion; no exact representable decimal result.\n4.998 4 4.9\n4.004 4 4.0\nNon-terminating decimal expansion; no exact representable decimal result.\n5.001 5 5.0\n3.998 3 3.9\n\n5.01 5\n4.01 4\n\n5.008 5 5.0\n4.014 4 4.0\n5.011 5 5.0\n4.008 4 4.0"
+  },
+  {
+    "objectID": "posts/data-science/proj/index.html",
+    "href": "posts/data-science/proj/index.html",
+    "title": "위성 데이터에서 우리집 찾기",
+    "section": "",
+    "text": "Photo by George Bakos on Unsplash\n\n\n위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?\n작성중 입니다.."
+  },
+  {
+    "objectID": "posts/data-science/proj/index.html#intro",
+    "href": "posts/data-science/proj/index.html#intro",
+    "title": "위성 데이터에서 우리집 찾기",
+    "section": "",
+    "text": "Photo by George Bakos on Unsplash\n\n\n위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?\n작성중 입니다.."
+  },
+  {
+    "objectID": "posts/data-science/proj/index.html#파일-읽기",
+    "href": "posts/data-science/proj/index.html#파일-읽기",
+    "title": "위성 데이터에서 우리집 찾기",
+    "section": "파일 읽기",
+    "text": "파일 읽기\n격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상 중에는 LCC 도법(Lambert Conformal Conic Projection)에 따른 것들이 있다. 천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보에 따라 나눌 수 있다. 에서 확인할 수 있다. 한 변이 2km인 정사각형 \\(3600 \\times 2600\\) 개로 나눈 국가기상위성센터 &gt; 지원 &gt; 소프트웨어에 따라\nimport time\nimport requests\n\ns = time.time()\nwith requests.get(\"https://datasvc.nmsc.kma.go.kr/datasvc/json/base/resources/selectAtchFile.do?attachFileUsq=41961\") as response:\ne = time.time()\nprint(e - s)\nresponse"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Yunho Kee",
+    "section": "",
+    "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
   },
   {
     "objectID": "posts/data-science/pvlib-timezone/index.html",
@@ -105,41 +273,6 @@
     "text": "Footnotes\n\n\n다운로드를 요구하지 않는 Wikipedia가 더 편해 보인다.↩︎"
   },
   {
-    "objectID": "posts/web/escape-xml10/index.html",
-    "href": "posts/web/escape-xml10/index.html",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#intro",
-    "href": "posts/web/escape-xml10/index.html#intro",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
-    "href": "posts/web/escape-xml10/index.html#problem-analysis",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Problem Analysis",
-    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#solution",
-    "href": "posts/web/escape-xml10/index.html#solution",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Solution",
-    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다.\n\n\n\n예상 XML API 응답\n실제 XML API 응답"
-  },
-  {
-    "objectID": "posts/web/microservice-spof/index.html",
-    "href": "posts/web/microservice-spof/index.html",
-    "title": "Microservice와 Single Point of Failure (SPOF)",
-    "section": "",
-    "text": "Web developer Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof."
-  },
-  {
     "objectID": "posts/algorithms/java-comparable-comparator/index.html",
     "href": "posts/algorithms/java-comparable-comparator/index.html",
     "title": "Java Comparable, Comparator 차이",
@@ -154,32 +287,32 @@
     "text": "작성중\nimport java.math.BigDecimal;\nimport java.util.Set;\nimport java.util.SortedSet;\nimport java.util.HashSet;\nimport java.util.TreeSet;\n\nclass Adequality implements Comparable&lt;Adequality&gt; {\n\n    final String name;\n\n    Adequality(final String name) {\n        this.name = name;\n    }\n\n    @Override\n    public int compareTo(Adequality o) {\n        return 1;\n    }\n\n    @Override\n    public boolean equals(Object obj) {\n        return true;\n    }\n    \n    @Override\n    public String toString() {\n        return \"a\";\n    }\n\n    public static void main(String[] args) {\n\n        final Adequality adequality = new Adequality(\"a\");\n        final BigDecimal fourPointZero = new BigDecimal(\"4.0\");\n        final BigDecimal fourPointDoubleZero = new BigDecimal(\"4.00\");\n\n        final Set&lt;Adequality&gt; adequalitySet = new HashSet&lt;&gt;();\n        final Set&lt;BigDecimal&gt; bigDecimalSet = new HashSet&lt;&gt;();\n        final SortedSet&lt;Adequality&gt; adequalitySortedSet = new TreeSet&lt;&gt;();\n        final SortedSet&lt;BigDecimal&gt; bigDecimalSortedSet = new TreeSet&lt;&gt;();\n        final SortedSet&lt;Adequality&gt; nullableAdequalitySortedSet = new TreeSet&lt;&gt;((a, b) -&gt; 1);\n        final SortedSet&lt;BigDecimal&gt; nullableBigDecimalSortedSet = new TreeSet&lt;&gt;((a, b) -&gt; 1);\n\n        adequalitySet.add(adequality);\n        adequalitySet.add(adequality);\n        bigDecimalSet.add(fourPointZero);\n        bigDecimalSet.add(fourPointDoubleZero);\n        System.out.println(adequalitySet + \"\\t\\t\\t\" + bigDecimalSet);\n\n        adequalitySortedSet.add(adequality);\n        adequalitySortedSet.add(adequality);\n        bigDecimalSortedSet.add(fourPointZero);\n        bigDecimalSortedSet.add(fourPointDoubleZero);\n        System.out.println(adequalitySortedSet + \"\\t\\t\\t\" + bigDecimalSortedSet);\n\n        nullableAdequalitySortedSet.add(adequality);\n        nullableAdequalitySortedSet.add(adequality);\n        nullableBigDecimalSortedSet.add(fourPointZero);\n        nullableBigDecimalSortedSet.add(fourPointDoubleZero);\n        System.out.println(nullableAdequalitySortedSet + \"\\t\\t\\t\" + nullableBigDecimalSortedSet);\n\n        adequalitySet.add(null);\n        adequalitySet.add(null);\n        bigDecimalSet.add(null);\n        bigDecimalSet.add(null);\n        System.out.println(adequalitySet + \"\\t\\t\" + bigDecimalSet);\n\n        try {\n            adequalitySortedSet.add(null);\n        } catch (NullPointerException e) {\n            System.out.println(e);\n        }\n        try {\n            bigDecimalSortedSet.add(null);\n        } catch (NullPointerException e) {\n            System.out.println(e);\n        }\n\n        nullableAdequalitySortedSet.add(null);\n        nullableAdequalitySortedSet.add(null);\n        nullableBigDecimalSortedSet.add(null);\n        nullableBigDecimalSortedSet.add(null);\n        System.out.println(nullableAdequalitySortedSet + \"\\t\" + nullableBigDecimalSortedSet);\n\n    }\n\n}"
   },
   {
-    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n실력 진단 결과\n배열 기록 / 선두를 지켜라 3\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3."
-  },
-  {
     "objectID": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
     "href": "posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
     "title": "[코드트리 챌린지] 4주차 - DFS",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n실력 진단 결과\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/determine-escapableness-with-2-ways/."
   },
   {
-    "objectID": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "href": "posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "objectID": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "href": "posts/algorithms/codetree/keep-the-lead-3/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n실력 진단 결과\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/lis-on-the-integer-grid."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/keep-the-lead-3/."
   },
   {
-    "objectID": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "href": "posts/algorithms/codetree/subsequence-above-t/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n실력 진단 결과\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/subsequence-above-t."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2/."
   },
   {
     "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
@@ -235,147 +368,14 @@
     "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
     "title": "Two Pointers Speed Control",
     "section": "아날로그 시계",
-    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue\n\n\n\n\n\nPhoto by Susan Q Yin on Unsplash"
+    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Yunho Kee",
+    "objectID": "posts/web/microservice-spof/index.html",
+    "href": "posts/web/microservice-spof/index.html",
+    "title": "Microservice와 Single Point of Failure (SPOF)",
     "section": "",
-    "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html",
-    "href": "posts/algorithms/decimal-round-down/index.html",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "",
-    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#intro",
-    "href": "posts/algorithms/decimal-round-down/index.html#intro",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "",
-    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#정수-오차",
-    "href": "posts/algorithms/decimal-round-down/index.html#정수-오차",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "정수 오차",
-    "text": "정수 오차\n저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다."
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#실수-오차",
-    "href": "posts/algorithms/decimal-round-down/index.html#실수-오차",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "실수 오차",
-    "text": "실수 오차\n정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.\n\nfour = (7 - 10 / 6 * 3) * 2\nprint(four)\nprint(int(four))\n\n4.0\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n3.999999999999999999999999998\n3\n3"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#오차-관리",
-    "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "오차 관리",
-    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리까지 필요하다면 그보다 작은 수를 가령 n + 1번째 자리에 1을 더하거나 빼 주면 된다. 더할 때는 절삭, 절하, 내림, ROUND_DOWN이나 ROUND_HALF_UP이 필요할 때이다. 뺄 때는 절상, 올림, ROUND_UP이나 ROUND_HALF_DOWN이 요구될 때이다.\n\n_EPSILON = 1e-2\n\nfour = (7 - 10 / 6 * 3) * 2 + _EPSILON\nprint(four)\nprint(int(four))\n\n4.01\n4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\n_EPSILON = Decimal('1e-2')\n\nfour = (Decimal('7') - Decimal('10') / Decimal('6') * Decimal('3')) * 2 + _EPSILON\nprint(four)\nprint(int(four))\nprint(four.quantize(Decimal('0'), ROUND_DOWN))\n\n4.009999999999999999999999998\n4\n4\n\n\n\n\n\nPhoto by Elimende Inagella on Unsplash"
-  },
-  {
-    "objectID": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "href": "posts/algorithms/codetree/shortest-distance-9/index.html",
-    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n실력 진단 결과\nDijkstra / 최단 거리 9\n진단 센터 / 문항별 통계\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/shortest-distance-9."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/three-five-moo/index.html",
-    "href": "posts/algorithms/codetree/three-five-moo/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n실력 진단 결과\nParametric Search / 삼 오 무\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/three-five-moo."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "href": "posts/algorithms/codetree/beautiful-sequence-2/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n실력 진단 결과\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/beautiful-sequence-2."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/change-to-capital/index.html",
-    "href": "posts/algorithms/codetree/change-to-capital/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n실력 진단 결과\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/change-to-capital."
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html",
-    "href": "posts/algorithms/negative-zero/index.html",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "",
-    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#intro",
-    "href": "posts/algorithms/negative-zero/index.html#intro",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "",
-    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#abs",
-    "href": "posts/algorithms/negative-zero/index.html#abs",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Abs",
-    "text": "Abs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다."
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#min-max",
-    "href": "posts/algorithms/negative-zero/index.html#min-max",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Min, Max",
-    "text": "Min, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.\n결론적으로 max(0.0, x)는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.\n반대로 min(-0.0, x)는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.\n내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#add",
-    "href": "posts/algorithms/negative-zero/index.html#add",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Add",
-    "text": "Add\n0.0을 더하면 된다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Reasonable Suspicion",
-    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Google LLC",
-    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다.\n\n\n\nThe infinite reinstallation of Chrome Remote Desktop\nFigure 1: Chrome 원격 데스크톱 무한 재설치\nFigure 2 (a): macOS Sonoma\nFigure 2 (b): Migration Assistant\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
+    "text": "Web developer Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof/."
   },
   {
     "objectID": "posts/web/leetcode-daily-crawling/index.html",
@@ -438,34 +438,41 @@
     "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
     "title": "LeetCode Daily Crawling",
     "section": "Limitations",
-    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다.\n\n\n\nLeetCode Click의 운영 중단\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응\nLeetCode Daily Question 확인 방법\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답"
+    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다."
   },
   {
-    "objectID": "posts/data-science/proj/index.html",
-    "href": "posts/data-science/proj/index.html",
-    "title": "위성 데이터에서 우리집 찾기",
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
     "section": "",
-    "text": "Photo by George Bakos on Unsplash\n\n\n위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?\n작성중 입니다.."
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
   },
   {
-    "objectID": "posts/data-science/proj/index.html#intro",
-    "href": "posts/data-science/proj/index.html#intro",
-    "title": "위성 데이터에서 우리집 찾기",
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
     "section": "",
-    "text": "Photo by George Bakos on Unsplash\n\n\n위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?\n작성중 입니다.."
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
   },
   {
-    "objectID": "posts/data-science/proj/index.html#파일-읽기",
-    "href": "posts/data-science/proj/index.html#파일-읽기",
-    "title": "위성 데이터에서 우리집 찾기",
-    "section": "파일 읽기",
-    "text": "파일 읽기\n격자로 나누는 방법은 다양하다. 천리안위성 2A호의 위성영상 중에는 LCC 도법(Lambert Conformal Conic Projection)에 따른 것들이 있다. 천리안위성 2A호 Level 1B 자료 영역별 도법 및 영상 정보에 따라 나눌 수 있다. 에서 확인할 수 있다. 한 변이 2km인 정사각형 \\(3600 \\times 2600\\) 개로 나눈 국가기상위성센터 &gt; 지원 &gt; 소프트웨어에 따라\nimport time\nimport requests\n\ns = time.time()\nwith requests.get(\"https://datasvc.nmsc.kma.go.kr/datasvc/json/base/resources/selectAtchFile.do?attachFileUsq=41961\") as response:\ne = time.time()\nprint(e - s)\nresponse\n\n\n\nPhoto by George Bakos on Unsplash"
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Reasonable Suspicion",
+    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
   },
   {
-    "objectID": "posts/bible/philemon/index.html",
-    "href": "posts/bible/philemon/index.html",
-    "title": "Philemon",
-    "section": "",
-    "text": "Greetings from\nThis letter is from\nI am writing to\nPaul’s Final Greetings\nsend you his greetings\nSo do\nMay give you grace and peace\nMay the grace of be with your spirit\nOne more thing—\nplease prepare a guest room for me\nI am hoping\nGod will answer your prayers\nlet me return to you soon\nsend back to\nwith him comes my own heart\nfor a little while\nhave back forever\nkeep here with me\nwhile here\nwhile I am\nhelp on your behalf\nThat is why\nhas been in the past\nwanted and he would have helped\nIt seems you lost so that you could\nI\nwith my own hand\nowe me your very soul\nAnd I won’t mention\nI am confident as\nand even more!\na prisoner for preaching\na prisoner for the sake of\nin prison\nin these chains for\nan old man\npreaching the Good News\nthe Good News about\nChrist Jesus\nthe Lord Jesus Christ\nthe Lord Jesus\nChrist\nfor the Lord’s sake\nencouragement in Christ\nGod our Father\nmy God\nGod’s people\n누가 하나님의 사람인가\nmy brother\nmy child\nboth of us\nto you\nespecially to me\nconsider me your partner\nwelcome as you would\nYes\nwrong in any way\nowe anything\ncharge to\nrepay\nour brother\nour beloved co-worker\nour sister\nour fellow soldier\nthe church\nmy fellow prisoner\nmy co-workers\n집에서 모이는 교회도 있다.\nour love\nbecome his father in the faith\na beloved brother\nmean much more as\nshow kindness to\na brother in the Lord\nof much use\nvery useful\nno longer like a slave\nmore than a slave\na man\nPaul’s Thanksgiving\nalways thank when I pray\nlove for all of\n사람이 하나님을 믿고 하나님의 사람들 모두를 사랑해서 하나님께 감사하다.\nPray\npray for\npray that you will\nput into action the generosity\nunderstand and experience\nall the good things we have in\n사람을 위해 기도한다.\n믿는 사람은 이해하고 경험하면서 너그러워진다.\n행동까지 너그러워지게 기도한다.\ngive me much joy and comfort\nyour kindness\noften refresh the hearts of\n친절은 종종 사람들의 마음을 회복시킨다.\n사람들이 마음을 회복할수록 기분이 좋다.\nAppeal for\na request from\nI am boldly asking\nI appeal to you to show\nask a favor of\ndo a favor for\nplease\nGive me this encouragement in\ncould demand\ndemand in the name\nit is the right thing\nprefer simply to ask\nConsider this as a request\nan old man\nanything without your consent\nhelp because you were willing\nnot because you were forced\n\nReferences\n\nNew Living Translation. (2015). Tyndale. https://www.tyndale.com/nlt/search\n\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Philemon},\n  date = {2024-02-14},\n  url = {https://yhkee0404.github.io/posts/bible/philemon},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Philemon.” February 14, 2024. https://yhkee0404.github.io/posts/bible/philemon."
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Google LLC",
+    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
   }
 ]

@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
 <meta name="dcterms.date" content="2024-05-26">
 
-<title>Yunho Kee’s Cultivation - 이진수 대신 십진수를 쓰면 오차가 없어질까?</title>
+<title>이진수 대신 십진수를 쓰면 오차가 없어질까? – Yunho Kee’s Cultivation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -131,7 +131,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Yunho Kee’s Cultivation - 이진수 대신 십진수를 쓰면 오차가 없어질까?">
+<meta property="og:title" content="이진수 대신 십진수를 쓰면 오차가 없어질까? – Yunho Kee’s Cultivation">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
 <meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg">
 <meta property="og:site_name" content="Yunho Kee's Cultivation">
@@ -150,7 +150,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -212,7 +212,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -231,6 +231,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
   <li><a href="#정수-오차" id="toc-정수-오차" class="nav-link" data-scroll-target="#정수-오차">정수 오차</a></li>
   <li><a href="#실수-오차" id="toc-실수-오차" class="nav-link" data-scroll-target="#실수-오차">실수 오차</a></li>
   <li><a href="#오차-관리" id="toc-오차-관리" class="nav-link" data-scroll-target="#오차-관리">오차 관리</a></li>
+  <li><a href="#언어-무관" id="toc-언어-무관" class="nav-link" data-scroll-target="#언어-무관">언어 무관</a></li>
   </ul>
 </nav>
     </div>
@@ -245,7 +246,10 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     <div class="quarto-category">featured</div>
     <div class="quarto-category">float</div>
     <div class="quarto-category">decimal</div>
+    <div class="quarto-category">double</div>
+    <div class="quarto-category">BigDecimal</div>
     <div class="quarto-category">python</div>
+    <div class="quarto-category">java</div>
   </div>
   </div>
 
@@ -267,6 +271,12 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 26, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -279,7 +289,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -292,75 +302,190 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="실수-오차" class="level2">
 <h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
 <p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
-<div id="64999112" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9cd1243d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> five) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(five, <span class="bu">int</span>(five))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four, <span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.0
-4</code></pre>
+<pre><code>5.0 5
+4.0 4</code></pre>
 </div>
 </div>
-<div id="8cc2ec32" class="cell" data-execution_count="2">
+<div id="a42d5df3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> five) <span class="op">*</span> Decimal(<span class="st">'2'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(five, <span class="bu">int</span>(five), five.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four, <span class="bu">int</span>(four), four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>3.999999999999999999999999998
-3
-3</code></pre>
+<pre><code>5.000000000000000000000000001 5 5
+3.999999999999999999999999998 3 3</code></pre>
 </div>
 </div>
 </section>
 <section id="오차-관리" class="level2">
 <h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
-<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절삭, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
-<div id="cf972ed3" class="cell" data-execution_count="3">
+<p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
+<div id="6a75b89e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> <span class="fl">1e-2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> five) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>five_epsilon <span class="op">=</span> five <span class="op">+</span> _EPSILON</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(five_epsilon, <span class="bu">int</span>(five_epsilon))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four, <span class="bu">int</span>(four))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.01
-4</code></pre>
+<pre><code>5.01 5
+4.01 4</code></pre>
 </div>
 </div>
-<div id="500716ac" class="cell" data-execution_count="4">
+<div id="75ff08dc" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> Decimal(<span class="st">'1e-2'</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)) <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> _EPSILON</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">int</span>(four))</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (Decimal(<span class="st">'7'</span>) <span class="op">-</span> five) <span class="op">*</span> Decimal(<span class="st">'2'</span>) <span class="op">+</span> _EPSILON</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>five_epsilon <span class="op">=</span> five <span class="op">+</span> _EPSILON</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(five_epsilon, <span class="bu">int</span>(five_epsilon), five_epsilon.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(four, <span class="bu">int</span>(four), four.quantize(Decimal(<span class="st">'0'</span>), ROUND_DOWN))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4.009999999999999999999999998
-4
-4</code></pre>
+<pre><code>5.010000000000000000000000001 5 5
+4.009999999999999999999999998 4 4</code></pre>
 </div>
 </div>
+</section>
+<section id="언어-무관" class="level2">
+<h2 class="anchored" data-anchor-id="언어-무관">언어 무관</h2>
+<p>Java는 <code>BigDecimal</code> 오차 관리가 필요할 때 Runtime에 <code>ArithmeticException</code>을 발생시킨다. 이처럼 예외 처리를 강제하면 Python에서 발생할 오차를 일부 예방할 수 있다. 가령 연산의 중간 과정마다 주의하며 <code>RoundingMode</code> 그리고 <code>scale</code>이나 <code>precision</code> 등을 일일이 명시해야 비정상 종료를 방지할 수 있다. 따라서 오차를 지역적으로 관리한다.</p>
+<p>하지만 일부 오차는 지역적 결과에 의존하는 Greedy한 관리가 불가능하다. 가령 다음 예시에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.</p>
+<p>그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 <code>divideRoundingMode</code>가 <code>RoundingMode.DOWN</code>, <code>RoundingMode.UP</code> 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">math</span><span class="op">.</span><span class="im">BigDecimal</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">math</span><span class="op">.</span><span class="im">MathContext</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">math</span><span class="op">.</span><span class="im">RoundingMode</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DecimalRoundDown <span class="op">{</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="dt">final</span> <span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printNaivePrimitiveDoubles</span><span class="op">();</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printNaiveBigDecimals</span><span class="op">(</span><span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">DOWN</span><span class="op">);</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printNaiveBigDecimals</span><span class="op">(</span><span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">UP</span><span class="op">);</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printEpsilonPrimitiveDoubles</span><span class="op">();</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printEpsilonBigDecimals</span><span class="op">(</span><span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">DOWN</span><span class="op">);</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">printEpsilonBigDecimals</span><span class="op">(</span><span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">UP</span><span class="op">);</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printNaivePrimitiveDoubles</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> five <span class="op">=</span> <span class="fl">10.</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> four <span class="op">=</span> <span class="op">(</span><span class="dv">7</span> <span class="op">-</span> five<span class="op">)</span> <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>five <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> five<span class="op">);</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>four <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> four<span class="op">);</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printNaiveBigDecimals</span><span class="op">(</span><span class="dt">final</span> <span class="bu">RoundingMode</span> divideRoundingMode<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">BigDecimal</span> five<span class="op">;</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>            five <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">divide</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"6"</span><span class="op">))</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">multiply</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"3"</span><span class="op">));</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            e<span class="op">.</span><span class="fu">printStackTrace</span><span class="op">();</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            five <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">divide</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"6"</span><span class="op">),</span> <span class="dv">3</span><span class="op">,</span> divideRoundingMode<span class="op">)</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">multiply</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"3"</span><span class="op">));</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">BigDecimal</span> four <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"7"</span><span class="op">)</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">subtract</span><span class="op">(</span>five<span class="op">)</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">multiply</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"2"</span><span class="op">));</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">MathContext</span> mc <span class="op">=</span> <span class="kw">new</span> <span class="bu">MathContext</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">DOWN</span><span class="op">);</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>five <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> five<span class="op">.</span><span class="fu">intValue</span><span class="op">()</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> five<span class="op">.</span><span class="fu">round</span><span class="op">(</span>mc<span class="op">));</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>four <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> four<span class="op">.</span><span class="fu">intValue</span><span class="op">()</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> four<span class="op">.</span><span class="fu">round</span><span class="op">(</span>mc<span class="op">));</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printEpsilonPrimitiveDoubles</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> EPSILON <span class="op">=</span> <span class="fl">1e-2</span><span class="op">;</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> five <span class="op">=</span> <span class="fl">10.</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> four <span class="op">=</span> <span class="op">(</span><span class="dv">7</span> <span class="op">-</span> five<span class="op">)</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> EPSILON<span class="op">;</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="dt">double</span> fiveEpsilon <span class="op">=</span> five <span class="op">+</span> EPSILON<span class="op">;</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>fiveEpsilon <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> fiveEpsilon<span class="op">);</span></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>four <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> four<span class="op">);</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printEpsilonBigDecimals</span><span class="op">(</span><span class="dt">final</span> <span class="bu">RoundingMode</span> divideRoundingMode<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">BigDecimal</span> EPSILON <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"1e-2"</span><span class="op">);</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">BigDecimal</span> five <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">divide</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"6"</span><span class="op">),</span> <span class="dv">3</span><span class="op">,</span> divideRoundingMode<span class="op">)</span></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">multiply</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"3"</span><span class="op">));</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">BigDecimal</span> four <span class="op">=</span> <span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"7"</span><span class="op">)</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">subtract</span><span class="op">(</span>five<span class="op">)</span></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">multiply</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">"2"</span><span class="op">))</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">add</span><span class="op">(</span>EPSILON<span class="op">);</span></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">BigDecimal</span> fiveEpsilon <span class="op">=</span> five<span class="op">.</span><span class="fu">add</span><span class="op">(</span>EPSILON<span class="op">);</span></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>        <span class="dt">final</span> <span class="bu">MathContext</span> mc <span class="op">=</span> <span class="kw">new</span> <span class="bu">MathContext</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">RoundingMode</span><span class="op">.</span><span class="fu">DOWN</span><span class="op">);</span></span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>fiveEpsilon <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> fiveEpsilon<span class="op">.</span><span class="fu">intValue</span><span class="op">()</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> fiveEpsilon<span class="op">.</span><span class="fu">round</span><span class="op">(</span>mc<span class="op">));</span></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>four <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> four<span class="op">.</span><span class="fu">intValue</span><span class="op">()</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> four<span class="op">.</span><span class="fu">round</span><span class="op">(</span>mc<span class="op">));</span></span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>5.0 5
+4.0 4
+
+Non-terminating decimal expansion; no exact representable decimal result.
+4.998 4 4.9
+4.004 4 4.0
+Non-terminating decimal expansion; no exact representable decimal result.
+5.001 5 5.0
+3.998 3 3.9
+
+5.01 5
+4.01 4
+
+5.008 5 5.0
+4.014 4 4.0
+5.011 5 5.0
+4.008 4 4.0</code></pre>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></span>
-</div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
   title = {이진수 대신 십진수를 쓰면 오차가 없어질까?},
   date = {2024-05-26},
-  url = {https://yhkee0404.github.io/posts/algorithms/decimal-round-down},
+  url = {https://yhkee0404.github.io/posts/algorithms/decimal-round-down/},
   langid = {ko}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Kee, Yunho. 2024. <span>“이진수 대신 십진수를 쓰면 오차가
-없어질까?”</span> May 26, 2024. <a href="https://yhkee0404.github.io/posts/algorithms/decimal-round-down">https://yhkee0404.github.io/posts/algorithms/decimal-round-down</a>.
+없어질까?”</span> May 26, 2024. <a href="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/">https://yhkee0404.github.io/posts/algorithms/decimal-round-down/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -541,18 +666,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -584,7 +698,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/yhkee0404\.github\.io");
@@ -592,7 +728,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -936,30 +1072,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 
