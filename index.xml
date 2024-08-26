@@ -1027,7 +1027,7 @@ Kee, Yunho. 2024. <span>“위성 데이터에서 우리집 찾기.”</span> Ju
 <section id="실수-오차" class="level2">
 <h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
 <p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
-<div id="52fdfb5a" class="cell" data-execution_count="1">
+<div id="66e16516" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">five <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
@@ -1068,7 +1068,7 @@ font-style: inherit;">int</span>(four))</span></code></pre></div>
 4.0 4</code></pre>
 </div>
 </div>
-<div id="fc73b9eb" class="cell" data-execution_count="2">
+<div id="fe8b5642" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
@@ -1123,7 +1123,7 @@ font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
 <section id="오차-관리" class="level2">
 <h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
 <p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
-<div id="5e3f3add" class="cell" data-execution_count="3">
+<div id="1f79089a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">_EPSILON <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
@@ -1177,7 +1177,7 @@ font-style: inherit;">int</span>(four))</span></code></pre></div>
 4.01 4</code></pre>
 </div>
 </div>
-<div id="3f5ab9f3" class="cell" data-execution_count="4">
+<div id="34f74bcc" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> decimal <span class="im" style="color: #00769E;
@@ -1242,11 +1242,11 @@ font-style: inherit;">'0'</span>), ROUND_DOWN))</span></code></pre></div>
 </div>
 </div>
 </section>
-<section id="언어-무관" class="level2">
-<h2 class="anchored" data-anchor-id="언어-무관">언어 무관</h2>
+<section id="언어-초월" class="level2">
+<h2 class="anchored" data-anchor-id="언어-초월">언어 초월</h2>
 <p>Java의 <code>BigDecimal</code>은 오차를 지역적으로 관리한다. 오차 관리가 필요할 때 Runtime에 <code>ArithmeticException</code>을 발생시킨다. 이처럼 반강제적인 예외 처리는 Python에서 발생할 오차를 일부 예방한다. 가령 연산 과정마다 주의하며 <code>RoundingMode</code> 그리고 <code>scale</code>이나 <code>precision</code> 등을 일일이 명시해야 지역적 오차로 인한 비정상 종료가 방지된다.</p>
-<p>하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.</p>
-<p>그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 <code>divideRoundingMode</code>가 <code>RoundingMode.DOWN</code>, <code>RoundingMode.UP</code> 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.</p>
+<p>하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시의 <code>printNaiveBigDecimals</code>에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.</p>
+<p>그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 <code>printEpsilonBigDecimals</code>에서 <code>divideRoundingMode</code>가 <code>RoundingMode.DOWN</code>, <code>RoundingMode.UP</code> 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2292,10 +2292,16 @@ font-style: inherit;">}</span></span></code></pre></div>
 <pre><code>5.0 5
 4.0 4
 
-Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)
+        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)
+        at DecimalRoundDown.main(DecimalRoundDown.java:12)
 4.998 4 4.9
 4.004 4 4.0
-Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)
+        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)
+        at DecimalRoundDown.main(DecimalRoundDown.java:13)
 5.001 5 5.0
 3.998 3 3.9
 
