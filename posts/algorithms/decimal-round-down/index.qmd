@@ -77,9 +77,9 @@ print(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))
 
 ## 언어 무관
 
-Java는 `BigDecimal` 오차 관리가 필요할 때 Runtime에 `ArithmeticException`을 발생시킨다. 이처럼 예외 처리를 강제하면 Python에서 발생할 오차를 일부 예방할 수 있다. 가령 연산의 중간 과정마다 주의하며 `RoundingMode` 그리고 `scale`이나 `precision` 등을 일일이 명시해야 비정상 종료를 방지할 수 있다. 따라서 오차를 지역적으로 관리한다.
+Java의 `BigDecimal`은 오차를 지역적으로 관리한다. 오차 관리가 필요할 때 Runtime에 `ArithmeticException`을 발생시킨다. 이처럼 반강제적인 예외 처리는 Python에서 발생할 오차를 일부 예방한다. 가령 연산 과정마다 주의하며 `RoundingMode` 그리고 `scale`이나 `precision` 등을 일일이 명시해야 지역적 오차로 인한 비정상 종료가 방지된다.
 
-하지만 일부 오차는 지역적 결과에 의존하는 Greedy한 관리가 불가능하다. 가령 다음 예시에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.
+하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.
 
 그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 `divideRoundingMode`가 `RoundingMode.DOWN`, `RoundingMode.UP` 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.
 
