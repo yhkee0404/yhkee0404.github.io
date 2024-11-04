@@ -1,0 +1,24 @@
+---
+title: "Design Patterns"
+image: posts/design-patterns/sq-lim-BayU0fKwvRQ-unsplash.jpg
+listing:
+  contents: posts/design-patterns
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields:
+    - image
+    - title
+    - subtitle
+    - description
+    - reading-time
+    - categories
+    - author
+    - date
+page-layout: full
+search: false
+comments: false
+---
+
