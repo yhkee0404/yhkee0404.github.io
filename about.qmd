@@ -13,7 +13,152 @@ about:
     - icon: github
       text: Github
       href: https://github.com/yhkee0404/yhkee0404.github.io
-
+format:
+  html: default
+  docx: default
 ---
 
 I really enjoy exploring GitHub to find latest solutions to my problems. It's a lot of fun to see how they really work and to discuss better practices!
+
+정보처리기사 (2021/08)
+
+"Apache Airflow"
+          exp:
+            num: 0.7
+        - text: Celery
+          exp:
+            num: 0.5
+        - text: FastAPI
+          exp:
+            num: 0.6
+        - text: "Django REST Framework"
+          exp:
+            num: 0.7
+        - text: "Spring Framework"
+          exp:
+            num: 0.3
+        - text: Amazon DynamoDB
+          exp:
+            num: 0.4
+        - text: PostgreSQL
+          exp:
+            num: 0.5
+        - text: Oracle
+          exp:
+            num: 0.3
+        - text: "AWS IAM"
+
+컴퓨터공학심화 (공학교육 인증과정)
+  inst: 한동대학교
+  time: "2015/03 - 2020/02"
+  details: 3.95/4.5 (Cum Laude)
+
+
+        - icon: phone
+          text: "+82 10 8521 6393"
+        - icon: envelope
+          text: "yhkee0404@gmail.com"
+
+
+# Experience
+
+백엔드 개발자
+https://haezoom.com/
+해줌 서비스개발부문 백엔드팀 2022/12 - 2024/08 (1 yr. 8 mos.)
+
+태양광 발전량 예측 서비스 고도화 (Apache Airflow, Django REST Framework, Amazon DynamoDB):
+시장 변화 대응 (하루 전 실시간, 소요 시간 3시간\rightarrow 2분, NumPy, netCDF4, SciPy)
+알고리즘 재검토 (입력 부재; 과부족; 시간대 불일치, 오픈소스 
+https://www.linkedin.com/posts/yunho-kee-2a4878256_%EC%A7%80%EB%82%9C-5%EC%9B%94-%EB%A7%90%EB%B6%80%ED%84%B0-%EB%AF%B8%EA%B5%AD-%EC%83%8C%EB%94%94%EC%95%84-%EA%B5%AD%EB%A6%BD-%EC%97%B0%EA%B5%AC%EC%86%8Csandia-national-activity-7245677905689673728-nv5a
+pvlib 기여) 영상 탐색 알고리즘 개선 (구면\rightarrow 평면, 소요 시간 50 초\rightarrow 10 \textmu s, 정밀도 $10^{-5}$\rightarrow $10^{-14}$, 정확도 25%\rightarrow 100%, PROJ) 누락 파일 대체 자동화 
+https://yhkee0404.github.io/posts/data-science/pvlib-timezone/#timezone%EC%9D%80-%EB%AC%B4%EC%A1%B0%EA%B1%B4-utc-%EB%B3%80%ED%99%98%ED%95%98%EB%A9%B4-%EB%90%A0%EA%B9%8C
+요청 시간대 보존
+기간 자동 완성 (Datetime) 연구 지원 (Dependency Injection) 입찰 지원 (AWS Lambda) OpenAPI 버전 업그레이드 (2\rightarrow 3, drf-spectacular).
+
+정산 서비스 개발 (Celery, Django REST Framework, PostgreSQL): 수식 재검토 (2배, 
+https://yhkee0404.github.io/posts/algorithms/decimal-round-down/
+실수 연산 오류
+https://yhkee0404.github.io/posts/algorithms/negative-zero/
+음수
+, Max, 적분, PuLP, SciPy) 정합성 제약 설정 (Partial Index) 고객별 계산 모듈 개발 계산 이력 개발 (Covering Index) Google Sheets 지원 (Javascript) 
+https://yhkee0404.github.io/posts/data-science/pvlib-timezone/#timezone-%EC%A0%95%EB%B3%B4%EA%B0%80-%EC%97%86%EC%9C%BC%EB%A9%B4-%EC%96%B4%EB%8A%90-%EB%82%98%EB%9D%BC%EB%A1%9C-%EA%B0%84%EC%A3%BC%ED%95%A0%EA%B9%8C
+서울 시간대 조회
+(django-filter) 기간 자동 완성 (Date).
+
+Geocoding 서비스 개발 (FastAPI, Kakao API, NAVER API) 지번 자동 완성 요청 Best Practice 공유 (requests)
+
+클라우드 보안 시스템 구축 (AWS IAM, Amazon VPC, Terraform Cloud, RBAC, ABAC, Dependency Inversion Principle) DBMS 버전 업그레이드 (PostgreSQL 10\rightarrow 14, PostGIS 2\rightarrow3, 
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions.Deprecation10
+Amazon RDS) 업로드 장애 해결.
+
+DevOps 엔지니어
+https://www.jobda.im/
+마이다스인
+경솔기반그룹 DevOps셀
+2022/05 - 2022/09
+(0 yr. 5 mos.)
+
+클라우드 계정 통합 조회 서비스 개발 (AWS IAM, Spring Boot, Lombok, MapStruct, Flyway, Opencsv) 클라우드 모니터링 시스템 구축 (Amazon ECS Fargate, Datadog, Fluent Bit) 웹 서버 구축 (Application Load Balancer, Apache HTTP Server)
+
+소프트웨어개발병
+해군 해군본부 직할부대 정보체계관리단 소프트웨어개발과
+2020/06 - 2022/02
+(1 yr. 8 mos.)
+
+대면 시험 서비스 고도화 (교육사령관 개인상장, 응답 시간 10초\rightarrow 1초, 동적 쿼리 장애 해결, 인증 번호 전송 지연 해소) 
+https://ndts.navy.mil.kr/NDTS/index
+상담 서비스 고도화 (형상 관리, IP 추가, 차단 해제) 통계 서비스 개발 (소속 변경 대응) 근태 관리 서비스 고도화 (인증 편의 개선, 당직 변경 표시, 게시판 분할)
+https://yhkee0404.github.io/posts/web/escape-xml10/
+응답 누락 해소 (Spring Framework, Oracle, iBATIS, XML).
+
+# Projects
+
+https://github.com/WICWIU/WICWIU
+WICWIU: What I can Create is What I Understand
+Creator
+국내 대학 최초 딥러닝 오픈소스 프레임워크 공개 (2018 한국컴퓨터종합학술대회 인공지능 부문 우수논문상, \texttt{C++}): BFS 설계 Batch Normalization (분산 미분) Convolution, Max pooling, Sigmoid, ReLU NVIDIA CUDA cuDNN.
+Open Sources
+Contributor
+pvlib (
+https://github.com/pvlib/pvlib-python/pull/2055
+시간대 불일치 1
+https://github.com/pvlib/pvlib-python/issues/2238#issuecomment-2397951866
+시간대 불일치 2;
+美 샌디아 국립 연구소) 
+https://github.com/NREL/SolarResourceModelsandTools/issues/4
+Bird Clear Sky Model (시간대 불일치, 美 국립 재생에너지 연구소)
+https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Create+a+site+or+blog+from+your+GitHub+repositories+with+GitHub+Pages.%22&type=repositories&s=&o=desc
+GitHub Skills (구 
+https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Your+GitHub+Learning+Lab+Repository+for+GitHub+Pages.%22&type=repositories&s=&o=desc
+GitHub Learning Lab) 
+https://github.com/githubtraining/github-pages/issues/36
+GitHub Pages Template (32.4k 블로그 생성, 제목 중복, Liquid) 
+https://github.com/DavidVujic/python-polylith-example/pull/13
+Python Polylith Example (참조 실패, Serverless Framework, AWS Lambda, Monorepo)
+https://github.com/netresearch/jira-export/pull/7
+Static JIRA issue export (항목 누락, PHP)
+https://github.com/kakaopay/techlog-comments/discussions/99#discussioncomment-10793505
+Spring Framework (Declined, 항목 누락)
+
+Online Judges
+Contributor
+SW Expert Academy 
+https://swexpertacademy.com/main/help/report/reportBoardView.do?commuId=AY5Ur-dqSo8DFAVL
+12818. Inversion Counting, 15999. Inversion Counting (교육용)
+(주소 정렬, \texttt{C++}). Baekjoon Online Judge 
+https://www.acmicpc.net/board/view/149451
+17386번 - 선분 교차 1, 
+https://www.acmicpc.net/board/view/149454
+17387번 - 선분 교차 2, 
+https://www.acmicpc.net/board/view/149455
+20149번 - 선분 교차 3 (연립 일차 방정식의 해가 없는 경우) 
+https://www.acmicpc.net/board/view/130925
+7511번 - Poking the Social (번역 원전 문제 오류) 18110번 - solved.ac (
+https://www.acmicpc.net/board/view/131585
+실수 연산 오류 1, 
+https://www.acmicpc.net/board/view/131664
+실수 연산 오류 2) 
+https://www.acmicpc.net/board/view/150974
+가희와 총선거 5 (탐색 누락) 
+https://news.hada.io/topic?id=13856
+LeetCode Daily Crawling
