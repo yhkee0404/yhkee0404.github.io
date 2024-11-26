@@ -26,7 +26,8 @@ website:
       - text: Bible
         href: bible.qmd#category=featured
     right:
-      - about.qmd
+      - text: Yunho Kee
+        href: about.qmd
       - icon: github
         href: https://github.com/yhkee0404/yhkee0404.github.io
       - icon: linkedin
