@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - "javascript/"
 
 website:
   title: "Yunho Kee's Cultivation"
