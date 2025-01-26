@@ -9,7 +9,6 @@ categories:
   - comparable
   - comparator
   - ordering
-  - 
 ---
 
 ## Intro
