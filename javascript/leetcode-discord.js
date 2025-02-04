@@ -1,12 +1,17 @@
 (async ()=>{
-  const {discordName, webhookUrl} = window.leetcodeDiscordConfig();
-  if (! discordName) {
-    window.alert('Discord 닉네임을 입력해야 합니다.');
-    return;
-  }
-  if (! webhookUrl) {
-    window.alert('Discord Webhook 주소를 입력해야 합니다.');
-    return;
+  'use strict';
+  let discordName, webhookUrl;
+  try {
+    const {discordName, webhookUrl} = window.leetcodeDiscordConfig();
+  } finally {
+    if (! discordName) {
+      window.alert('Discord 닉네임을 입력해야 합니다.');
+      return;
+    }
+    if (! webhookUrl) {
+      window.alert('Discord Webhook 주소를 입력해야 합니다.');
+      return;
+    }
   }
 
   const leetcodeUrl = 'https://leetcode.com/';
@@ -100,11 +105,11 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
   */
-  function embedDiscordMessage(nickname, date, streak) {
+  function embedDiscordMessage(nickname, date, streak, color = 5814783) {
     return {
       title: "[Bookmark] LeetCode Daily Challenge Completed! 🎉",
       description: "모바일 또는 크롬 외 브라우저의 [북마크 인증](https://discord.com/channels/1191440569671614554/1327186963681247252/1332780701237514302)입니다. 지난 문제 재인증을 지원합니다.",
-      color: 5814783,
+      color: color,
       fields: [
         { name: "Nickname", value: nickname, inline: true },
         { name: "Date", value: date, inline: true },
@@ -117,7 +122,7 @@
     }
   };
   try {
-    const embeds = [embedDiscordMessage(discordName, `[${item.date}](${window.location.href})`, `${item.streakCount + 1} days`)];
+    const embeds = [embedDiscordMessage(discordName, `[${item.date}](${window.location.href})`, `${item.streakCount + 1} days`, 743376)];
     const payload = {
       username: "LeetStreak",
       embeds: embeds,
