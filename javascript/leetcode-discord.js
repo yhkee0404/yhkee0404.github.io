@@ -2,7 +2,7 @@
   'use strict';
   let discordName, webhookUrl;
   try {
-    const {discordName, webhookUrl} = window.leetcodeDiscordConfig();
+    ({discordName, webhookUrl} = window.leetcodeDiscordConfig());
   } finally {
     if (! discordName) {
       window.alert('Discord 닉네임을 입력해야 합니다.');
