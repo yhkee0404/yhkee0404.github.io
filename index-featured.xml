@@ -5,14 +5,14 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Yunho Kee&#39;s Cultivation</title>
+<title>Yunho Kee&#39;s Monorepo of Source Thoughts</title>
 <link>https://yhkee0404.github.io/#category=featured</link>
 <atom:link href="https://yhkee0404.github.io/index-featured.xml" rel="self" type="application/rss+xml"/>
 <description>a personal cloud diary of Yunho Kee, a software engineer</description>
 <language>ko</language>
 <image>
 <url>https://yhkee0404.github.io/haezoom-everland-jyh-lunapic.jpg</url>
-<title>Yunho Kee&#39;s Cultivation</title>
+<title>Yunho Kee&#39;s Monorepo of Source Thoughts</title>
 <link>https://yhkee0404.github.io/#category=featured</link>
 </image>
 <generator>quarto-1.6.40</generator>

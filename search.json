@@ -177,9 +177,23 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Yunho Kee",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
     "section": "",
-    "text": "I really enjoy exploring GitHub to find latest solutions to my problems. It’s a lot of fun to see how they really work and to discuss better practices!\n\n\n Back to top"
+    "text": "소프트웨어 품질을 높이기 위해 기존 기획과 기술을 보완합니다. 기존 기술에 의존하는 데서 나아가 기여하고자 노력합니다. 쿠르트 괴델이 증명한 것처럼 인공지능이 해결하지 못하는 문제를 찾아 도전합니다. 매일 LeetCode 문제를 풉니다. 복잡한 문제 해결 과정을 기본 개념으로 설명할 수 있도록 공부합니다."
+  },
+  {
+    "objectID": "about.html#contributions",
+    "href": "about.html#contributions",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "Contributions",
+    "text": "Contributions\n\npvlib (美 샌디아 국립 연구소): 시간대 불일치 (Linkedin Post, Issue, Pull Request)\nBird Clear Sky Model (美 국립 재생에너지 연구소): 시간대 불일치 (Issue)\nGitHub Skills (구 GitHub Learning Lab) GitHub Pages Template: 32.4k 블로그 생성, 제목 중복 (Pull Request, Liquid)\nPython Polylith Example: 참조 오류 (Pull Request, Serverless Framework, AWS Lambda)\nStatic JIRA issue export: 항목 누락 (Pull Request, PHP)\nSpring Framework: URL Parser Issue (Declined)"
+  },
+  {
+    "objectID": "about.html#online-judges",
+    "href": "about.html#online-judges",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "Online Judges",
+    "text": "Online Judges\n\nLeetCode\n\nLeetCode Daily Crawling: Google Sheets\nTwo Pointers Speed Control: Cycle 검사, Median, 시계\n\n\n\nBaekjoon Online Judge\n\n가희와 함께 하는 7회 코딩 테스트: 10th/142\n17386번 - 선분 교차 1, 17387번 - 선분 교차 2, 20149번 - 선분 교차 3: 연립 일차 방정식의 해가 없는 경우\n30795번 - 가희와 총선거 5: 탐색 누락 (요청)\n18110번 - solved.ac: 실수 오차 (요청 1, 요청 2)\n7511번 - Poking the Social: 번역 원전 문제 오류 (요청)\n\n\n\nSW Expert Academy\n\n12818. Inversion Counting, 15999. Inversion Counting (교육용): 주소 정렬 (사이트 오류 제보, C++)\n\n\n\n\n부스트캠프 AI Tech\n2022-09\n–\n2022-12\n4개월\n\n\n\n\n\n자연어처리\n\n연속형 데이터 분류 성능을 위한 랭킹 유사도 학습\n임베딩 성능을 위한 SimCSE\n관계 추출 성능을 위한 Prompt Tuning과 Retrieval (kNN)"
   },
   {
     "objectID": "posts/algorithms/java-comparable-comparator/index.html",
