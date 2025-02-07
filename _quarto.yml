@@ -4,7 +4,7 @@ project:
     - "javascript/"
 
 website:
-  title: "Yunho Kee's Cultivation"
+  title: "Yunho Kee's Monorepo of Source Thoughts"
   description: "a personal cloud diary of Yunho Kee, a software engineer"
   page-footer: "Copyright 2023, Yunho Kee"
   site-url: https://yhkee0404.github.io
