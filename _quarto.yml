@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - "javascript/"
+    - "custom-reference-doc.docx"
 
 website:
   title: "Yunho Kee's Monorepo of Source Thoughts"
