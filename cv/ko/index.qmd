@@ -1,0 +1,334 @@
+---
+title: "기윤호 | 품질을 높이는 백엔드 개발"
+date-modified: 2025-02-18
+date-format: iso
+format:
+  html:
+    image: haezoom-everland-jyh-lunapic.jpg
+    include-in-header:
+      - file: noto-sans-kr.html
+    css:
+      - styles.css
+    page-layout: full
+  docx:
+    lang: ko-KR
+    reference-doc: reference.docx
+    email: yhkee0404@gmail.com
+    linkedin: https://www.linkedin.com/in/yunho-kee-2a4878256/
+    output-file: yhkee0404.docx
+format-links:
+  - text: PDF
+    href: yhkee0404.pdf
+    icon: file-pdf
+  - docx
+---
+
+:::{.content-visible when-format="docx"}
+
++-------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](bio-photo.jpg){width=3.5cm fig-alt="A portrait photo."} | 소프트웨어 품질을 높이기 위해 기존 기획과 기술을 보완합니다.                                                                               |
+|                                                             | 쿠르트 괴델이 증명한 것처럼 인공지능이 자동화하지 못한 기획, 연구의 구현에 도전합니다.                                                     |
+|                                                             | 또한 기술을 의존하는 데서 나아가 오픈소스 5곳에 기여하고 알고리즘 문제 8개와 강의 1개를 보완했습니다.                                      |
+|                                                             |                                                                                                                                            |
+|                                                             | 낯선 문제를 익숙한 원리로 해결하고 설명할 수 있도록 꾸준히 복습합니다.                                                                     |
+|                                                             | 문제 해결을 위해 언어에 구애받지 않도록 매일 [LeetCode][linked-list-cycle]에서 Kotlin, TypeScript, Java, Python, C++ 중 하나를 연습합니다. |
+|                                                             | 가령 본 이력서는 다양한 변환을 자동화하고 상태를 관리하기 쉽도록 Markdown으로 작성하고 Quarto로 생성했습니다.                              |
++-------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+: {tbl-colwidths="[25,75]"}
+
+:::
+
+::::::{.content-visible when-format="html"}
+
+:::::{.quarto-about-solana}
+
+::::{.about-entity}
+
+:::{.about-links}
+
+```{=html}
+<a href="yhkee0404.pdf" class="about-link" rel="_alternate" target="_blank">
+  <i class="bi bi-file-pdf"></i><span class="about-link-text">Download PDF</span>
+</a>
+
+<a href="yhkee0404.docx" class="about-link" rel="_alternate" target="_blank">
+  <i class="bi bi-file-word"></i><span class="about-link-text">Download MS Word</span>
+</a>
+```
+
+:::
+
+::::
+
+:::::
+
+::::::
+
+# SKILLS
+
+:::{.column-page-inset}
+
+Java | Spring Framework | Python | Django REST Framework | FastAPI | Apache Airflow | Celery |
+Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actions | JavaScript
+
+:::
+
+# WORK EXPERIENCE
+
+:::{.column-screen-inset}
+
++------------------+--------------------+-----------------------------+-------------+---------------+--------:+----------:+
+| ## 백엔드 개발자 | ## [해줌][haezoom] | ### 서비스개발부문 백엔드팀 | ### 2022-12 | ### / 2024-08 | ### 1년 | ### 9개월 |
++------------------+--------------------+-----------------------------+-------------+---------------+---------+-----------+
+
+: {tbl-colwidths="[18,13,29,13,11,7,9]"}
+
+:::
+
+### 정산 서비스 개발: 일 1만 건 생성
+
+#### Django REST Framework, PostgreSQL, Celery, Redis, Sentry
+
+* 품질을 위한 기획 재검토 (이중 지급, 반올림, [실수 오차][decimal-round-down], [음수][negative-zero], 적분)
+* 최대 수익 검증을 위한 라이브러리 교체 실험 (PuLP, SciPy)
+* 수식 변경을 위한 연산 그래프 설계와 Reflection
+* 수식 변경 상태 관리를 위한 사용 기간 Segmentation
+* 요청 일자의 [시간대 간주][pvlib-timezone-none]를 위한 Filter 수정
+* 응답 시간과 기간의 자동 완성을 위한 종료 일시와 일자의 구별
+* 계산 이력 보존과 중복 방지를 위한 Soft Delete와 Partial Index
+* 계산 이력 관리 성능을 위한 Segment Tree 구조와 지역적 제약 설정
+* 조회 성능을 위한 Covering Index와 비동기 생성
+* 문서 공유 편의를 위한 자동화 (Confluence, Google Sheets)
+
+### 태양광 발전량 예측 서비스 고도화: 일 5만 건 생성 및 조회
+
+#### Apache Airflow, Amazon DynamoDB, Django REST Framework, PostgreSQL, Redis
+
+* 품질을 위한 연구 재검토 (정보 누설, 경계 왜곡, 시간대 지원, Cache 충돌): [오픈소스 pvlib 기여][pvlib linkedin]
+* 생성 빈도 24배 지원을 위한 Scale Out, 파일 압축, 행렬 전치, 전처리 (NumPy, netCDF4, SciPy): 90배 가속
+* 위치 추적 성능 개선을 위한 Reverse Engineering (PROJ): 구면 &rarr; 평면 좌표 변환 시간 47 초 &rarr; 22 &micro;s &rarr; 14 &micro;s, 정밀도 float32 &rarr; float64, 정확도 99.55% &rarr; 25.01% &rarr; 100%
+* 비동기 입력 동기화를 위한 Polling, Two Pointers와 Short-Circuit
+* [요청 시간대 보존][pvlib-timezone-utc]과 응답 시간 자동 완성을 위한 Serializer 수정
+* 다중 선택 지원을 위한 Factory Method와 Strategy
+* 문서 공유 편의를 위한 제어의 역전과 의존성 주입
+* 전용 지원과 주기적 송신을 위한 Serverless
+* [DB 장애][postgres aws] 해결을 위한 버전 업그레이드: PostgreSQL 10 &rarr; 14, PostGIS 2 &rarr; 3
+* API 명세 표준 지원을 위한 Annotation 수정: OpenAPI 2 &rarr; 3, drf-yasg &rarr; drf-spectacular
+
+### 주소 조회 서비스 개발
+
+#### FastAPI, Redis, Serverless Framework, Kakao API, NAVER API
+
+* 대체 응답과 비용 절감을 위한 Abstract Factory와 Short-Circuit
+* 최근접 지번 추정을 위한 Binary Search
+* 응답 Filter를 위한 Hash Map
+* 요청 자원 절약과 장애 방지를 위한 Timeout과 Retry
+
+### 클라우드 보안 시스템 구축
+
+#### AWS IAM, Amazon VPC, Terraform Cloud
+
+* 암호 유출 방지를 위한 RBAC과 System Call
+* 권한 관리 편의를 위한 의존성 역전 원칙
+* 임시 권한 관리 편의를 위한 ABAC
+* 사설망 접근 지원을 위한 SSH Tunneling
+* 네트워크 보안을 위한 NAT Gateway와 접근 제어 목록(ACL)
+* 네트워크 변경 이력 관리를 위한 IaC와 Federation
+
+:::{.column-screen-inset}
+
++--------------------+------------------------+---------------------------+-------------+---------------+----------:+
+| ## DevOps 엔지니어 | ## [마이다스인][jobda] | ### 경솔기반그룹 DevOps셀 | ### 2022-05 | ### / 2022-09 | ### 5개월 |
++--------------------+------------------------+---------------------------+-------------+---------------+-----------+
+
+: {tbl-colwidths="[18,13,29,13,11,16]"}
+
+:::
+
+### 클라우드 계정 통합 관리 서비스 개발
+
+#### Spring Boot, Lombok, MapStruct, Flyway, Fluent Bit, Datadog
+
+* 계정과 DB 암호 유출 방지를 위한 RBAC
+* 중복 요청 방지를 위한 낙관적 Lock
+* 제어의 역전을 위한 Consumer Builder
+* 배포 간소화를 위한 Gradle Plugin
+* 로그 추적 지원을 위한 Grok
+* 다중 행 로그 지원을 위한 정규식
+* Container 장애 분석을 위한 SSH Agent
+* 부하 절감과 보안 연결, 모바일 대응을 위한 ALB
+
+:::{.column-screen-inset}
+
++---------------------+-----------------+-------------------------------------+-------------+---------------+--------:+----------:+
+| ## 소프트웨어개발병 | ## 대한민국해군 | ### 정보체계관리단 소프트웨어개발과 | ### 2020-06 | ### / 2022-02 | ### 1년 | ### 8개월 |
++---------------------+-----------------+-------------------------------------+-------------+---------------+---------+-----------+
+
+: {tbl-colwidths="[18,13,29,13,11,7,9]"}
+
+:::
+
+### 국방망 및 [인터넷망][ndts] 웹 서비스 개발: 교육사령관 개인상장
+
+#### Spring Framework, Oracle
+
+* 품질을 위한 SQL 재검토 (중복, 누락, 응답 지연): 10초 &rarr; 1초
+* 조직 변경 대응을 위한 계층형 쿼리
+* 구간 중첩 방지를 위한 정렬
+* 응답 누락 해결을 위한 remapResults와 [Escape][escape-xml10]
+* 저사양 요청 지원을 위한 HTML meta
+* 다차원 요청 지원을 위한 Serializer
+* 다중 IP 인증을 위한 Delimiter
+* 인증 비용 절감을 위한 초기화
+* DB 부하 절감을 위한 Session과 Redirection
+* 보안 강화를 위한 SSO Logout
+* 게시판 추가를 위한 Multiplexing
+* 외부망 장애 해결을 위한 DNS 확인
+* 내부망 형상 관리를 위한 Local Repository
+
+# ACTIVITIES
+
+:::{.column-screen-inset}
+
++-----------------------------------------------------------------------------------------+-------------+---------------+----------:+
+| ## [LeetCode Daily Google Sheets Apps Script][leetcode-daily-google-sheets-apps-script] | ### 2025-01 | ### / 2025-02 | ### 1개월 |
++-----------------------------------------------------------------------------------------+-------------+---------------+-----------+
+
+: {tbl-colwidths="[60,13,11,16]"}
+
+:::
+
+### 풀이 인증 서비스 개발: 일 40명 사용
+
+#### JavaScript, Apps Script
+
+* 검증 편의를 위한 의존성 역전 원칙, Factory와 [Crawling][leetcode-daily-crawling]
+* 사진 대체를 위한 제어의 역전, Timer와 Webhook (Discord)
+* 모바일 및 크롬 외 브라우저 지원을 위한 즐겨찾기
+* 조회 성능을 위한 전처리와 Join
+
+:::{.column-screen-inset}
+
++-------------------------------------------------------+-------------+---------------+----------:+
+| ## [Woowacourse Java Format][woowacourse-java-format] | ### 2024-10 | ### / 2024-11 | ### 2개월 |
++-------------------------------------------------------+-------------+---------------+-----------+
+
+: {tbl-colwidths="[60,13,11,16]"}
+
+:::
+
+### 크로스 플랫폼 코드 포매터 개발
+
+#### Java, Gradle, Maven, GitHub Actions
+
+* 무설치 실행을 위한 GraalVM (macOS, Linux, Windows)
+* Plugin 설치를 위한 Gradle과 Maven (IntelliJ, Maven)
+* Java 실행을 위한 Jar
+* Maven 설치를 위한 저장소 배포 ([Central Portal][central-portal])
+
+:::{.column-screen-inset}
+
++---------------------+-------------+---------------+-----------:+
+| ## [WICWIU][wicwiu] | ### 2017-07 | ### / 2018-05 | ### 10개월 |
++---------------------+-------------+---------------+------------+
+
+: {tbl-colwidths="[60,13,11,16]"}
+
+:::
+
+### 딥러닝 프레임워크 개발: 국내 대학 최초 공개, 2018 한국컴퓨터종합학술대회 인공지능 부문 [우수논문상][Outstanding Paper Award]
+
+#### C++, CUDA, cuDNN
+
+* 역전파 학습을 위한 BFS 설계 (TensorFlow)
+* 개발 편의를 위한 논문 구현: Batch Normalization (분산 미분), Convolution, Max pooling, Sigmoid, ReLU
+* 운영 성능을 위한 GPU 지원 (NVIDIA CUDA, cuDNN)
+
+## Open Source and Online Judge Contributions
+
+::: {custom-style="First Paragraph"}
+
+美 샌디아 국립 연구소 [pvlib][pvlib linkedin] 시간대 교정 (Python) |
+美 국립 재생에너지 연구소 Bird Clear Sky Model 시간대 교정 ([대기][bird clear sky model]) |
+GitHub 41.3k ([19.9k][github learning lab]+[21.4k][github skills]) 저장소 생성 [GitHub Pages Template][github-pages-template] 출력 중복 제거 (Liquid) |
+[Python Polylith Example][python-polylith-example] 식별자 교정 |
+[Static JIRA issue export][jira-export] 출력 누락 복원 (PHP) |
+Spring Framework URI Parser 수정 ([반려][url-is-strange]) |
+백준 [선분 교차 1][inconsistent 1], [선분 교차 2][inconsistent 2], [선분 교차 3][inconsistent 3] 불능 방정식 오답 |
+백준 solved.ac 실수 오차 오답 ([대기 1][1.5e-1], [대기 2][3.3e-6]) |
+백준 Poking the Social 출제 조건 오류 ([대기][poking the social]) |
+백준 가희와 총선거 5 사전순 의존 ([대기][ordered set]) |
+SW Expert Academy [Inversion Counting][inversion counting] 모범 답안 정렬 기준 오답 (C++) |
+SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][tsp dp 2] 반복문 시간 복잡도 계산 실수
+
+:::
+
+# EDUCATION
+
+:::{.column-screen-inset}
+
++-----------------------+---------------+--------------------+-------------+---------------+--------:+--+
+| ## 컴퓨터공학심화전공 | ## 한동대학교 | ### 전산전자공학부 | ### 2015-03 | ### / 2020-02 | ### 5년 |  |
++-----------------------+---------------+--------------------+-------------+---------------+---------+--+
+
+: {tbl-colwidths="[18,13,29,13,11,7,9]"}
+
+:::
+
+* 공학교육인증 ([ABEEK][abeek])
+* GPA 3.95/4.5 (Cum Laude)
+* 2019 ACM-ICPC 서울 본선 (제19회 한국 대학생 프로그래밍 경시대회)
+* Teaching Assistant: 컴퓨터구조, 알고리듬분석, ICT 문제해결 기법, C 프로그래밍(전산전자), C프로그래밍 실습
+
+# CERTIFICATIONS
+
++-----------------+-------------+-------+--+
+| ## 정보처리기사 | ### 2021-08 | ### - |  |
++-----------------+-------------+-------+--+
+
+: {tbl-colwidths="[60,13,11,16]"}
+
+[haezoom]: https://haezoom.com/
+[jobda]: https://www.jobda.im/
+[ndts]: https://ndts.navy.mil.kr/NDTS/index
+[abeek]: https://www.abeek.or.kr/program
+
+[decimal-round-down]: /posts/algorithms/decimal-round-down/index.qmd
+[negative-zero]: /posts/algorithms/negative-zero/index.qmd
+[pvlib-timezone-none]: /posts/data-science/pvlib-timezone/index.qmd#timezone-정보가-없으면-어느-나라로-간주할까
+[pvlib linkedin]: https://www.linkedin.com/posts/yunho-kee-2a4878256_지난-5월-말부터-미국-샌디아-국립-연구소sandia-national-activity-7245677905689673728-nv5a
+[pvlib-timezone-utc]: /posts/data-science/pvlib-timezone/index.qmd#timezone은-무조건-utc-변환하면-될까
+[postgres aws]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.DBVersions.html#PostgreSQL.Concepts.General.DBVersions.Deprecation10
+[escape-xml10]: /posts/web/escape-xml10/index.qmd
+
+[leetcode-daily-google-sheets-apps-script]: https://github.com/yhkee0404/leetcode-daily-google-sheets-apps-script
+[leetcode-daily-crawling]: /posts/web/leetcode-daily-crawling/index.qmd
+[woowacourse-java-format]: https://github.com/yhkee0404/woowacourse-java-format
+[central-portal]: https://central.sonatype.com/artifact/io.github.yhkee0404.woowacoursejavaformat/woowacourse-java-format
+[wicwiu]: https://github.com/WICWIU/WICWIU
+[outstanding paper award]: https://www.kiise.or.kr/conference/board/boardview.do?CC=kcc&CS=2018&PARENT_ID=051400&NUM=119&type=newsinfo
+
+[bird clear sky model]: https://github.com/NREL/SolarResourceModelsandTools/issues/4
+[github learning lab]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Your+GitHub+Learning+Lab+Repository+for+GitHub+Pages.%22&type=repositories&s=&o=desc
+[github skills]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Create+a+site+or+blog+from+your+GitHub+repositories+with+GitHub+Pages.%22&type=repositories&s=&o=desc
+[github-pages-template]: https://github.com/githubtraining/github-pages/issues/36
+[python-polylith-example]: https://github.com/DavidVujic/python-polylith-example/pull/13
+[jira-export]: https://github.com/netresearch/jira-export/pull/7
+[url-is-strange]: https://github.com/kakaopay/techlog-comments/discussions/99#discussioncomment-10793505
+
+[inconsistent 1]: https://www.acmicpc.net/board/view/149451
+[inconsistent 2]: https://www.acmicpc.net/board/view/149454
+[inconsistent 3]: https://www.acmicpc.net/board/view/149455
+[1.5e-1]: https://www.acmicpc.net/board/view/131585
+[3.3e-6]: https://www.acmicpc.net/board/view/131664
+[poking the social]: https://www.acmicpc.net/board/view/130925
+[ordered set]: https://www.acmicpc.net/board/view/150974
+[inversion counting]: https://swexpertacademy.com/main/help/report/reportBoardView.do?commuId=AY5Ur-dqSo8DFAVL
+[tsp dp 1]: https://swexpertacademy.com/main/learn/course/lectureVideoPlayer.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWHQdIoaA2kDFAUn&lectureSeq=4
+[tsp dp 2]: https://swexpertacademy.com/main/learn/course/lectureVideoPlayer.do?courseId=CONTENTS_REVIEW&subjectId=AYVXakhKQSsDFARs&lectureSeq=7
+
+[linked-list-cycle]: /posts/algorithms/leetcode/linked-list-cycle/index.qmd
+[pvlib-2055]: https://github.com/pvlib/pvlib-python/pull/2055
+[pvlib-2238]: https://github.com/pvlib/pvlib-python/issues/2238#issuecomment-2397951866
+[gahui 7]: https://www.acmicpc.net/contest/board/1415

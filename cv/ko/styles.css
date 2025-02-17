@@ -1,0 +1,32 @@
+#quarto-document-content {
+    font-family: "dejavu-serif", "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-size: 1.05em;
+}
+
+.title {
+    font-size: 2.2em;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.15em;
+    border-bottom: 1px #4e4e4e;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.05em;
+    border-bottom: none;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.05em;
+}
+
+h4 {
+    font-style: italic;
+    font-size: 1.05em;
+}
+
