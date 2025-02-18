@@ -41,7 +41,7 @@ format-links:
 
 ::::::{.content-visible when-format="html"}
 
-:::::{.quarto-about-solana}
+:::::{.quarto-about-jolla}
 
 ::::{.about-entity}
 
@@ -245,7 +245,7 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 * 개발 편의를 위한 논문 구현: Batch Normalization (분산 미분), Convolution, Max pooling, Sigmoid, ReLU
 * 운영 성능을 위한 GPU 지원 (NVIDIA CUDA, cuDNN)
 
-## Open Source and Online Judge Contributions
+### Open Source and Online Judge Contributions
 
 ::: {custom-style="First Paragraph"}
 
@@ -283,11 +283,15 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 
 # CERTIFICATIONS
 
+:::{.column-screen-inset}
+
 +-----------------+-------------+-------+--+
 | ## 정보처리기사 | ### 2021-08 | ### - |  |
 +-----------------+-------------+-------+--+
 
 : {tbl-colwidths="[60,13,11,16]"}
+
+:::
 
 [haezoom]: https://haezoom.com/
 [jobda]: https://www.jobda.im/
