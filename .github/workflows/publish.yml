@@ -23,8 +23,7 @@ jobs:
       - name: Libreoffice Convert
         uses: jmservera/libreoffice-action@v0.3.0-alpha
         with:
-          command:
-            - |
+          command: |
               export NOTO_SANS_KR='/usr/local/share/fonts/Google/TrueType/Noto Sans KR/'
               curl -sS https://fonts.google.com/download/list?family=Noto%20Sans%20KR | tail -n +2 | jq ".manifest.fileRefs[].url" -r | xargs -I{} wget -q --content-disposition -P "$$NOTO_SANS_KR" {}
               fc-cache -f "$$NOTO_SANS_KR"
