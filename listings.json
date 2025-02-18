@@ -1,42 +1,5 @@
 [
   {
-    "listing": "/bible.html",
-    "items": [
-      "/posts/bible/philemon/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/algorithms/java-comparable-comparator/index.html",
-      "/posts/data-science/proj/index.html",
-      "/posts/algorithms/decimal-round-down/index.html",
-      "/posts/data-science/pvlib-timezone/index.html",
-      "/posts/algorithms/negative-zero/index.html",
-      "/posts/web/escape-xml10/index.html",
-      "/posts/database/xml/index.html",
-      "/posts/web/microservice-spof/index.html",
-      "/posts/troubleshoot/chrome-remote-desktop/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html",
-      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/bible/philemon/index.html",
-      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
-      "/posts/algorithms/codetree/subsequence-above-t/index.html",
-      "/posts/algorithms/codetree/change-to-capital/index.html",
-      "/posts/algorithms/codetree/shortest-distance-9/index.html",
-      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-      "/posts/algorithms/codetree/three-five-moo/index.html",
-      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
-    ]
-  },
-  {
-    "listing": "/database.html",
-    "items": [
-      "/posts/database/xml/index.html"
-    ]
-  },
-  {
     "listing": "/troubleshoot.html",
     "items": [
       "/posts/troubleshoot/chrome-remote-desktop/index.html"
@@ -60,6 +23,19 @@
     ]
   },
   {
+    "listing": "/database.html",
+    "items": [
+      "/posts/database/xml/index.html"
+    ]
+  },
+  {
+    "listing": "/data-science.html",
+    "items": [
+      "/posts/data-science/proj/index.html",
+      "/posts/data-science/pvlib-timezone/index.html"
+    ]
+  },
+  {
     "listing": "/web.html",
     "items": [
       "/posts/web/escape-xml10/index.html",
@@ -68,16 +44,33 @@
     ]
   },
   {
-    "listing": "/drafts.html",
+    "listing": "/index.html",
     "items": [
-      "/drafts/dummy.html"
+      "/posts/algorithms/java-comparable-comparator/index.html",
+      "/posts/data-science/proj/index.html",
+      "/posts/algorithms/decimal-round-down/index.html",
+      "/posts/data-science/pvlib-timezone/index.html",
+      "/posts/algorithms/negative-zero/index.html",
+      "/posts/web/escape-xml10/index.html",
+      "/posts/database/xml/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/troubleshoot/chrome-remote-desktop/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html",
+      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
+      "/posts/algorithms/codetree/subsequence-above-t/index.html",
+      "/posts/algorithms/codetree/change-to-capital/index.html",
+      "/posts/algorithms/codetree/shortest-distance-9/index.html",
+      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
+      "/posts/algorithms/codetree/three-five-moo/index.html",
+      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
+      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
     ]
   },
   {
-    "listing": "/data-science.html",
+    "listing": "/drafts.html",
     "items": [
-      "/posts/data-science/proj/index.html",
-      "/posts/data-science/pvlib-timezone/index.html"
+      "/drafts/dummy.html"
     ]
   }
 ]
