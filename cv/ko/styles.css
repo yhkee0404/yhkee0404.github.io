@@ -5,20 +5,22 @@
 }
 
 .title {
+    text-align: center;
     font-size: 2.2em;
 }
 
-h1 {
+h1:not(.title) {
+    text-align: center;
     font-weight: 600;
     font-size: 1.15em;
-    border-bottom: 1px #4e4e4e;
+    border-bottom: 1px solid white;
 }
 
 h2 {
+    text-align: center;
     font-weight: 600;
     font-size: 1.05em;
     border-bottom: none;
-    text-align: center;
 }
 
 h3 {
