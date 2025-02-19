@@ -298,18 +298,18 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 [ndts]: https://ndts.navy.mil.kr/NDTS/index
 [abeek]: https://www.abeek.or.kr/program
 
-[decimal-round-down]: https://yhkee0404.github.io/posts/algorithms/decimal-round-down/index.qmd
-[negative-zero]: https://yhkee0404.github.io/posts/algorithms/negative-zero/index.qmd
-[pvlib-timezone-none]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/index.qmd#timezone-정보가-없으면-어느-나라로-간주할까
+[decimal-round-down]: https://yhkee0404.github.io/posts/algorithms/decimal-round-down/
+[negative-zero]: https://yhkee0404.github.io/posts/algorithms/negative-zero/
+[pvlib-timezone-none]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/#timezone-정보가-없으면-어느-나라로-간주할까
 [pvlib linkedin]: https://www.linkedin.com/posts/yunho-kee-2a4878256_지난-5월-말부터-미국-샌디아-국립-연구소sandia-national-activity-7245677905689673728-nv5a
-[pvlib-timezone-utc]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/index.qmd#timezone은-무조건-utc-변환하면-될까
+[pvlib-timezone-utc]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/#timezone은-무조건-utc-변환하면-될까
 [postgres aws]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.DBVersions.html#PostgreSQL.Concepts.General.DBVersions.Deprecation10
 [consumer builder]: https://aws.amazon.com/blogs/developer/consumer-builders-in-the-aws-sdk-for-java-v2/
 [gradle-node-plugin]: https://github.com/node-gradle/gradle-node-plugin
-[escape-xml10]: https://yhkee0404.github.io/posts/web/escape-xml10/index.qmd
+[escape-xml10]: https://yhkee0404.github.io/posts/web/escape-xml10/
 
 [leetcode-daily-google-sheets-apps-script]: https://github.com/yhkee0404/leetcode-daily-google-sheets-apps-script
-[leetcode-daily-crawling]: https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/index.qmd
+[leetcode-daily-crawling]: https://yhkee0404.github.io/posts/web/leetcode-daily-crawling/
 [woowacourse-java-format]: https://github.com/yhkee0404/woowacourse-java-format
 [central-portal]: https://central.sonatype.com/artifact/io.github.yhkee0404.woowacoursejavaformat/woowacourse-java-format
 [wicwiu]: https://github.com/WICWIU/WICWIU
@@ -334,7 +334,7 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 [tsp dp 1]: https://swexpertacademy.com/main/learn/course/lectureVideoPlayer.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWHQdIoaA2kDFAUn&lectureSeq=4
 [tsp dp 2]: https://swexpertacademy.com/main/learn/course/lectureVideoPlayer.do?courseId=CONTENTS_REVIEW&subjectId=AYVXakhKQSsDFARs&lectureSeq=7
 
-[linked-list-cycle]: https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/index.qmd
+[linked-list-cycle]: https://yhkee0404.github.io/posts/algorithms/leetcode/linked-list-cycle/
 [pvlib-2055]: https://github.com/pvlib/pvlib-python/pull/2055
 [pvlib-2238]: https://github.com/pvlib/pvlib-python/issues/2238#issuecomment-2397951866
 [gahui 7]: https://www.acmicpc.net/contest/board/1415
