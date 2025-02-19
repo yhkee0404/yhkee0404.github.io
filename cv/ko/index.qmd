@@ -4,7 +4,7 @@ date-modified: today
 date-format: iso
 format:
   html:
-    image: ../../haezoom-everland-jyh-lunapic.jpg
+    image: /haezoom-everland-jyh-lunapic.jpg
     include-in-header:
       - file: noto-sans-kr.html
     css:
@@ -152,8 +152,8 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 * 계정과 DB 암호 유출 방지를 위한 RBAC
 * 중복 요청 방지를 위한 낙관적 Lock
-* 제어의 역전을 위한 Consumer Builder
-* 배포 간소화를 위한 Gradle Plugin
+* 제어의 역전을 위한 [Consumer Builder][consumer builder]
+* 배포 간소화를 위한 [Gradle Plugin][gradle-node-plugin]
 * 로그 추적 지원을 위한 Grok
 * 다중 행 로그 지원을 위한 정규식
 * Container 장애 분석을 위한 SSH Agent
@@ -304,6 +304,8 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 [pvlib linkedin]: https://www.linkedin.com/posts/yunho-kee-2a4878256_지난-5월-말부터-미국-샌디아-국립-연구소sandia-national-activity-7245677905689673728-nv5a
 [pvlib-timezone-utc]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/index.qmd#timezone은-무조건-utc-변환하면-될까
 [postgres aws]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.DBVersions.html#PostgreSQL.Concepts.General.DBVersions.Deprecation10
+[consumer builder]: https://aws.amazon.com/blogs/developer/consumer-builders-in-the-aws-sdk-for-java-v2/
+[gradle-node-plugin]: https://github.com/node-gradle/gradle-node-plugin
 [escape-xml10]: https://yhkee0404.github.io/posts/web/escape-xml10/index.qmd
 
 [leetcode-daily-google-sheets-apps-script]: https://github.com/yhkee0404/leetcode-daily-google-sheets-apps-script
