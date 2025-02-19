@@ -4,7 +4,7 @@ date-modified: today
 date-format: iso
 format:
   html:
-    image: haezoom-everland-jyh-lunapic.jpg
+    image: ../../haezoom-everland-jyh-lunapic.jpg
     include-in-header:
       - file: noto-sans-kr.html
     css:
