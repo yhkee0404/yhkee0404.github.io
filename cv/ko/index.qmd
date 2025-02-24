@@ -32,7 +32,7 @@ format-links:
 |                                                             |                                                                                                                                            |
 |                                                             | 낯선 문제를 익숙한 원리로 해결하고 설명할 수 있도록 꾸준히 복습합니다.                                                                     |
 |                                                             | 문제 해결을 위해 언어에 구애받지 않도록 매일 [LeetCode][linked-list-cycle]에서 Kotlin, TypeScript, Java, Python, C++ 중 하나를 연습합니다. |
-|                                                             | 가령 본 이력서는 다양한 변환을 자동화하고 상태를 관리하기 쉽도록 Markdown으로 작성하고 Quarto로 생성했습니다.                              |
+|                                                             | 가령 본 이력서는 [다양한 변환][cv ko]을 자동화하고 상태를 관리하기 쉽도록 Markdown으로 작성하고 Quarto로 생성했습니다.                     |
 +-------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 : {tbl-colwidths="[25,75]"}
@@ -293,6 +293,7 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 
 :::
 
+[cv ko]: https://yhkee0404.github.io/cv/ko/
 [haezoom]: https://haezoom.com/
 [jobda]: https://www.jobda.im/
 [ndts]: https://ndts.navy.mil.kr/NDTS/index
