@@ -6,6 +6,13 @@
     ]
   },
   {
+    "listing": "/data-science.html",
+    "items": [
+      "/posts/data-science/proj/index.html",
+      "/posts/data-science/pvlib-timezone/index.html"
+    ]
+  },
+  {
     "listing": "/algorithms.html",
     "items": [
       "/posts/algorithms/java-comparable-comparator/index.html",
@@ -23,24 +30,9 @@
     ]
   },
   {
-    "listing": "/database.html",
+    "listing": "/drafts.html",
     "items": [
-      "/posts/database/xml/index.html"
-    ]
-  },
-  {
-    "listing": "/data-science.html",
-    "items": [
-      "/posts/data-science/proj/index.html",
-      "/posts/data-science/pvlib-timezone/index.html"
-    ]
-  },
-  {
-    "listing": "/web.html",
-    "items": [
-      "/posts/web/escape-xml10/index.html",
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
+      "/drafts/dummy.html"
     ]
   },
   {
@@ -68,9 +60,17 @@
     ]
   },
   {
-    "listing": "/drafts.html",
+    "listing": "/database.html",
     "items": [
-      "/drafts/dummy.html"
+      "/posts/database/xml/index.html"
+    ]
+  },
+  {
+    "listing": "/web.html",
+    "items": [
+      "/posts/web/escape-xml10/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
     ]
   }
 ]
