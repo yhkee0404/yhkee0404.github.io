@@ -44,6 +44,9 @@ website:
       enableExperimentalNewNoteButton: true
   back-to-top-navigation: true
   draft-mode: visible
+  repo-url: https://github.com/yhkee0404/yhkee0404.github.io
+  repo-actions: source
+
 format:
   html:
     theme:
