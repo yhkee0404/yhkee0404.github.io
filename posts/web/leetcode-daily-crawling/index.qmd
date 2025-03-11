@@ -15,7 +15,7 @@ categories:
   - "chrome devtools"
   - leetcode
   - discord
-image: "화면 캡처 2024-03-16 235413.jpg"
+image: "/_images/browser/화면 캡처 2024-03-16 235413.jpg"
 reference-location: margin
 citation-location: margin
 ---
@@ -29,16 +29,16 @@ Google Sheets는 무료이다. Excel로 GPT도 만든다던데,^[Spreadsheets ar
 ## Goodbye LeetCode Click
 
 ::: {layout="[[1], [1], [1]]"}
-![LeetCode Click의 운영 중단](화면 캡처 2024-03-16 235413.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot of the discontinuation of the LeetCode click service."}
+![LeetCode Click의 운영 중단]({{< meta image >}}){group="leetcode-daily-crawling" fig-alt="A screenshot of the discontinuation of the LeetCode click service."}
 
 연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 [LeetCode Click](https://leetcode.click)에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.
 
-![LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응](KakaoTalk_Snapshot_20240316_233937.png){group="leetcode-daily-crawling" fig-alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."}
+![LeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응](/_images/kakaotalk/KakaoTalk_Snapshot_20240316_233937.png){group="leetcode-daily-crawling" fig-alt="A captured conversation of people frustrated by the discontinuation of the LeetCode click service."}
 :::
 
 ## LeetCode Daily Coding Challenge Question
 
-![LeetCode Daily Question 확인 방법](화면 캡처 2024-03-17 003045.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."}
+![LeetCode Daily Question 확인 방법](/_images/browser/화면 캡처 2024-03-17 003045.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying today's question in the problem list and the daily questions for each day on the calendar on the LeetCode website."}
 
 그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 `Status`에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 `daily-question` 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다.
 
@@ -94,7 +94,7 @@ GraphQL 응답은 Chrome 개발자 도구의 `Network` Tab에서 검색되지 �
 
 실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 `dailyCodingChallengeV2`라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 &mdash; 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 [elprimobot](https://github.com/kajahno/elprimobot/blob/857cd02d8e34fd360ad908cb00edc2e1708e7250/api/leetcode/queries.js#L22) 유용해 보이네요!
 
-![Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload](화면 캡처 2024-03-17 015135.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot of a GraphQL request's payload from Chrome DevTools."}
+![Chrome 개발자 도구로 확인한 GraphQL 요청의 Payload](/_images/browser/화면 캡처 2024-03-17 015135.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot of a GraphQL request's payload from Chrome DevTools."}
 
 cURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과^[[REPL-driven development](https://www.cs.utexas.edu/ftp/garbage/cs345/schintro-v13/schintro_114.html)],  `operationName`, `variables` 등 불필요한 항목을 지울 수 있었다.
 
@@ -120,7 +120,7 @@ new URLSearchParams({"query": "query questionOfToday {\n  activeDailyCodingChall
 =CONCATENATE("https://leetcode.com", MID(D1, 56, LEN(D1) - 59))
 ```
 
-![Google Sheets에서 Parsing한 GraphQL JSON 응답](화면 캡처 2024-03-17 031317.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."}
+![Google Sheets에서 Parsing한 GraphQL JSON 응답](/_images/browser/화면 캡처 2024-03-17 031317.jpg){group="leetcode-daily-crawling" fig-alt="A screenshot displaying a hyperlink parsed from a JSON response to a GraphQL request within Google Sheets."}
 
 한 칸으로 줄이지 못한 이유는 `MID`와 `LEN` 함수를 둘다 호출하는 데 `IMPORTDATA`의 중복 요청을 막기 위해서이다 &mdash; 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!
 

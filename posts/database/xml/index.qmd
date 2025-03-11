@@ -8,7 +8,8 @@ categories:
   - html
   - "semistructured data"
   - "semantic tag"
-bibliography: A_First_Course_in_Database_Systems.bibtex
+bibliography:
+  - ullman2014first.bibtex
 nocite: |
   @*
 aliases:

@@ -12,8 +12,10 @@ categories:
   - spring
   - StringEscapeUtils
   - "Apache Commons"
-image: "스크린샷 2024-05-05 233633.png"
-bibliography: references.bib
+image: "/_images/browser/스크린샷 2024-05-05 233633.png"
+bibliography:
+  - lee2012xml.bib
+  - mdn_web_docs2023xml_version.bib
 ---
 
 ## Intro 
@@ -25,9 +27,9 @@ DB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?
 ## Problem Analysis
 
 ::: {#fig-escape-xml10 layout-ncol=2}
-![예상 XML API 응답](스크린샷 2024-05-05 233811.png){group="escape-xml10" fig-alt="A screenshot of the expected xml api response."}
+![예상 XML API 응답](/_images/browser/스크린샷 2024-05-05 233811.png){group="escape-xml10" fig-alt="A screenshot of the expected xml api response."}
 
-![실제 XML API 응답](스크린샷 2024-05-05 233633.png){group="escape-xml10" fig-alt="A screenshot of the real xml api response."}
+![실제 XML API 응답]({{< meta image >}}){group="escape-xml10" fig-alt="A screenshot of the real xml api response."}
 
 Browser의 XML Parse 실패
 :::
@@ -69,4 +71,4 @@ public class XMLController {
 
 Deprecate된 [`org.apache.commons.lang3.StringEscapeUtils`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/StringEscapeUtils.html#escapeXml10-java.lang.String-)에서 [`escapeXML`](https://commons.apache.org/proper/commons-lang/javadocs/api-release/src-html/org/apache/commons/lang3/StringEscapeUtils.html#line.111)도 확인할 수 있다. 이제는 [`org.apache.commons.text.StringEscapeUtils`](https://commons.apache.org/proper/commons-text/javadocs/api-release/org/apache/commons/text/StringEscapeUtils.html#escapeXml10-java.lang.String-)로 이동했다.
 
-한편 [`EscapeXml11`](https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168)도 있다. 그러나 DevSecOps Engineer @lee2012 에 따르면 XML 1.1은 권장되지 않는다. 그리고 @mdnwebdocs2023 에 따르면 Browser 지원도 없다.
+한편 [`EscapeXml11`](https://commons.apache.org/proper/commons-text/javadocs/api-release/src-html/org/apache/commons/text/StringEscapeUtils.html#line.168)도 있다. 그러나 DevSecOps Engineer @lee2012xml 에 따르면 XML 1.1은 권장되지 않는다. 그리고 @mdn_web_docs2023xml_version 에 따르면 Browser 지원도 없다.

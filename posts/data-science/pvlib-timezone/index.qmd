@@ -14,12 +14,14 @@ categories:
   - iana
   - django
   - "django rest framework"
-image: james-lee-4ujY2rb7KOQ-unsplash.jpg
+image: /_images/thumbnails/james-lee-4ujY2rb7KOQ-unsplash.jpg
 ---
 
 ## Intro
 
-Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 [PR][PR]을 남긴다.
+![Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">James Lee</a> on <a href="https://unsplash.com/photos/brown-bread-on-blue-sea-during-daytime-4ujY2rb7KOQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of sea horizon."}
+
+Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 [PR][]을 남긴다.
 
 ## Terms
 
@@ -57,6 +59,6 @@ Django Server는 `USE_TZ` 설정이 기본이다. 참고로 Timezone 정보가 �
 
 ## Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?
 
-무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 [PR][PR]을 남긴 것이다.
+무시할 필요가 없고 Offset을 계산하면 변환할 수 있다. 실수로 무시하면 UTC로 간주하는 버그가 된다. 이를 고치려고 [PR][]을 남긴 것이다.
 
 [PR]: https://github.com/pvlib/pvlib-python/pull/2055

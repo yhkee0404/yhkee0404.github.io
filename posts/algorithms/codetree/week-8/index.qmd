@@ -3,13 +3,15 @@ title: "[코드트리 챌린지] 8주차 - 배열 기록"
 author: "Yunho Kee"
 date: "2023-10-30"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: report_2023-10-30.png
+image: /_images/codetree/report_2023-10-30.png
+aliases:
+  - /posts/algorithms/codetree/keep-the-lead-3
 ---
 
 ::: {layout="[526, 474]" layout-valign="bottom"}
-![실력 진단 결과](report_2023-10-30.png)
+![실력 진단 결과]({{< meta image >}})
 
-![배열 기록 / 선두를 지켜라 3](화면 캡처 2023-10-30 235037.jpg)
+![배열 기록 / 선두를 지켜라 3](/_images/codetree/화면 캡처 2023-10-30 235037.jpg)
 :::
 
 <https://www.codetree.ai/cote/17/problems/keep-the-lead-3/>

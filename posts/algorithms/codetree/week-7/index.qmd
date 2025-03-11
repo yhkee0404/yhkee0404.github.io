@@ -3,13 +3,15 @@ title: "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열"
 author: "Yunho Kee"
 date: "2023-10-23"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: report_2023-10-23.png
+image: /_images/codetree/report_2023-10-23.png
+aliases:
+  - /posts/algorithms/codetree/subsequence-above-t
 ---
 
 ::: {layout="[526, 474]" layout-valign="bottom"}
-![실력 진단 결과](report_2023-10-23.png)
+![실력 진단 결과]({{< meta image >}})
 
-![최장 연속 부분 수열 / T를 초과하는 연속 부분 수열](화면 캡처 2023-10-23 225538.jpg)
+![최장 연속 부분 수열 / T를 초과하는 연속 부분 수열](/_images/codetree/화면 캡처 2023-10-23 225538.jpg)
 :::
 
 <https://www.codetree.ai/cote/17/problems/subsequence-above-t/>

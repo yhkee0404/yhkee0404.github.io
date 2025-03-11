@@ -3,16 +3,18 @@ title: "[코드트리 챌린지] 2주차 - Parametric Search"
 author: "Yunho Kee"
 date: "2023-09-25"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: "화면 캡처 2023-09-25 234743.jpg"
+image: "/_images/codetree/화면 캡처 2023-09-25 234743.jpg"
+aliases:
+  - /posts/algorithms/codetree/three-five-moo
 ---
 
 ::: {layout="[212, 788]" layout-valign="bottom"}
-![실력 진단 결과](화면 캡처 2023-09-25 234743.jpg)
+![실력 진단 결과]({{< meta image >}})
 
-![Parametric Search / 삼 오 무](화면 캡처 2023-09-25 235104.jpg)
+![Parametric Search / 삼 오 무](/_images/codetree/화면 캡처 2023-09-25 235104.jpg)
 :::
 
-<https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/>
+<https://www.codetree.ai/missions/8/problems/three-five-moo/>
 
 감사하게도 보충 기회를 얻어 3주차에 작성한다.
 

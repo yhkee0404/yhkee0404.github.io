@@ -8,12 +8,12 @@ categories:
   - gk2a
   - proj
   - "kd tree"
-image: george-bakos-9d0lN17MdEU-unsplash.jpg
+image: /_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg
 ---
 
 ## Intro
 
-![Photo by <a href="https://unsplash.com/@georgebakos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">George Bakos</a> on <a href="https://unsplash.com/photos/black-and-white-cat-in-cage-9d0lN17MdEU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](george-bakos-9d0lN17MdEU-unsplash.jpg){fig-alt="A photo of elliptical world map."}
+![Photo by <a href="https://unsplash.com/@georgebakos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">George Bakos</a> on <a href="https://unsplash.com/photos/black-and-white-cat-in-cage-9d0lN17MdEU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of an elliptical world map."}
 
 위도와 경도를 격자로 나누면 우리집은 어느 칸에 있을까?
 

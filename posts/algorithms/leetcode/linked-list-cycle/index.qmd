@@ -15,12 +15,12 @@ categories:
   - speed
   - 쥐쥐
   - 백발백준
-image: susan-q-yin-Ctaj_HCqW84-unsplash.jpg
+image: /_images/thumbnails/susan-q-yin-Ctaj_HCqW84-unsplash.jpg
 ---
 
 ## Intro
 
-![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](susan-q-yin-Ctaj_HCqW84-unsplash.jpg){fig-alt="A photo of people in a maze."}
+![Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/people-sitting-on-white-concrete-stairs-Ctaj_HCqW84?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of people in a maze."}
 
 미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?
 

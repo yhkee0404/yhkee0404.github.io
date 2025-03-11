@@ -3,13 +3,15 @@ title: "[코드트리 챌린지] 6주차 - 2차원 배열 입력"
 author: "Yunho Kee"
 date: "2023-10-16"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: report_2023-10-16.png
+image: /_images/codetree/report_2023-10-16.png
+aliases:
+  - /posts/algorithms/codetree/change-to-capital
 ---
 
 ::: {layout="[526, 474]" layout-valign="bottom"}
-![실력 진단 결과](report_2023-10-16.png)
+![실력 진단 결과]({{< meta image >}})
 
-![2차원 배열 입력 / 대문자로 바꾸기](화면 캡처 2023-10-16 223542.jpg)
+![2차원 배열 입력 / 대문자로 바꾸기](/_images/codetree/화면 캡처 2023-10-16 223542.jpg)
 :::
 
 <https://www.codetree.ai/missions/4/problems/change-to-capital/>

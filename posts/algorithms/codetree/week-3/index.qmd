@@ -3,16 +3,18 @@ title: "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하
 author: "Yunho Kee"
 date: "2023-09-25"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: "화면 캡처 2023-09-25 231034.jpg"
+image: "/_images/codetree/화면 캡처 2023-09-25 231034.jpg"
+aliases:
+  - /posts/algorithms/codetree/lis-on-the-integer-grid
 ---
 
 ::: {layout="[257, 743]" layout-valign="bottom"}
-![실력 진단 결과](화면 캡처 2023-09-25 231034.jpg)
+![실력 진단 결과]({{< meta image >}})
 
-![격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열](화면 캡처 2023-09-25 225150.jpg)
+![격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열](/_images/codetree/화면 캡처 2023-09-25 225150.jpg)
 :::
 
-<https://www.codetree.ai/missions/8/problems/three-five-moo/>
+<https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/>
 
 DP라는 취약점을 재발견했다.
 

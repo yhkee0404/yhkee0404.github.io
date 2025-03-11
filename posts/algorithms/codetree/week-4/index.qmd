@@ -3,13 +3,15 @@ title: "[코드트리 챌린지] 4주차 - DFS"
 author: "Yunho Kee"
 date: "2023-10-02"
 categories: [코드트리, 코딩테스트, 코딩테스트실력진단]
-image: report_2023-10-02.png
+image: /_images/codetree/report_2023-10-02.png
+aliases:
+  - /posts/algorithms/codetree/determine-escapableness-with-2-ways
 ---
 
 ::: {layout="[525, 475]" layout-valign="bottom"}
-![실력 진단 결과](report_2023-10-02.png)
+![실력 진단 결과]({{< meta image >}})
 
-![DFS / 두 방향 탈출 가능 여부 판별하기](화면 캡처 2023-10-02 183621.jpg)
+![DFS / 두 방향 탈출 가능 여부 판별하기](/_images/codetree/화면 캡처 2023-10-02 183621.jpg)
 :::
 
 <https://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/>

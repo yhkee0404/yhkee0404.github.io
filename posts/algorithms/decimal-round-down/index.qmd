@@ -12,13 +12,13 @@ categories:
   - BigDecimal
   - python
   - java
-image: elimende-inagella-4ApmfdVo32Q-unsplash.jpg
+image: /_images/thumbnails/elimende-inagella-4ApmfdVo32Q-unsplash.jpg
 ---
 
 ## Intro
 
-![Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](elimende-inagella-4ApmfdVo32Q-unsplash.jpg){fig-alt="A photo of 2+2=5."}
-  
+![Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of 2+2=5."}
+
 정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?
 
 ## 정수 오차
