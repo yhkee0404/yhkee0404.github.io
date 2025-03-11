@@ -1,7 +1,7 @@
 project:
   type: website
   resources:
-    - "javascript/"
+    - "_js/"
 
 website:
   title: "Source Thoughts in a Monorepo"
