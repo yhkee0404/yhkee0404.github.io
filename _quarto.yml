@@ -17,15 +17,15 @@ website:
     title: "Source Thoughts in a Monorepo"
     left:
       - text: Web
-        href: listings/web.qmd#category=featured
+        href: listings/web.qmd
       - text: Database
-        href: listings/database.qmd#category=featured
+        href: listings/database.qmd
       - text: Data Science
-        href: listings/data-science.qmd#category=featured
+        href: listings/data-science.qmd
       - text: Algorithms
-        href: listings/algorithms.qmd#category=featured
+        href: listings/algorithms.qmd
       - text: Troubleshoot
-        href: listings/troubleshoot.qmd#category=featured
+        href: listings/troubleshoot.qmd
     right:
       - text: CV
         href: cv/ko/index.qmd
@@ -38,7 +38,7 @@ website:
       - icon: chat-left-quote-fill
         href: https://hypothes.is/search?q=url%3Ahttps%3A%2F%2Fyhkee0404.github.io%2F%2A
       - icon: rss
-        href: index-featured.xml
+        href: index.xml
   comments:
     hypothesis:
       enableExperimentalNewNoteButton: true

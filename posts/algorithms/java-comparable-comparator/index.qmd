@@ -4,11 +4,13 @@ author: "Yunho Kee"
 date: "2024-06-09"
 categories:
   - algorithms
-  - featured
   - java
   - comparable
   - comparator
   - ordering
+draft: true
+search: false
+comments: false
 ---
 
 ## Intro

@@ -4,7 +4,6 @@ subtitle: "Server 비용 없이 Google Sheets 운영하기"
 author: "Yunho Kee"
 date: "2024-03-17"
 categories:
-  - featured
   - web
   - crawling
   - graphql

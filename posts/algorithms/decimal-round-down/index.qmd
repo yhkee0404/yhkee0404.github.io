@@ -5,7 +5,6 @@ date: "2024-05-26"
 date-modified: "2024-08-26"
 categories:
   - algorithms
-  - featured
   - float
   - decimal
   - double

@@ -4,7 +4,7 @@ subtitle: "Cycle 검사, Median, 시계"
 author: "Yunho Kee"
 date: "2024-03-14"
 categories:
-  - featured
+  - algorithms
   - leetcode
   - programmers
   - "two pointers"

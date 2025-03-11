@@ -5,7 +5,6 @@ author: "Yunho Kee"
 date: "2024-04-04"
 date-modified: "2024-04-08"
 categories:
-  - featured
   - troubleshoot
   - "chrome remote desktop"
   - macOS

@@ -4,11 +4,13 @@ author: "Yunho Kee"
 date: "2024-06-02"
 categories:
   - "data science"
-  # - featured
   - gk2a
   - proj
   - "kd tree"
 image: /_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg
+draft: true
+search: false
+comments: false
 ---
 
 ## Intro
