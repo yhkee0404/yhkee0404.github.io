@@ -1,0 +1,8 @@
+---
+title: "Database"
+listing:
+  contents:
+    - ../../posts/database/**/*.qmd
+aliases:
+  - /database
+---

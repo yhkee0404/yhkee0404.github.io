@@ -1,0 +1,8 @@
+---
+title: "Data Science"
+listing:
+  contents:
+    - ../../posts/data-science/**/*.qmd
+aliases:
+  - /data-science
+---

@@ -1,0 +1,11 @@
+---
+title: "Drafts"
+listing:
+  contents:
+    - ../../posts/**/*.qmd
+    - ../../cv/**/*.qmd
+  exclude:
+    draft: "dummy"
+  include:
+    draft: true
+---

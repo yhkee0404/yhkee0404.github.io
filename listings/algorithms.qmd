@@ -1,0 +1,8 @@
+---
+title: "Algorithms"
+listing:
+  contents:
+    - ../../posts/algorithms/**/*.qmd
+aliases:
+  - /algorithms
+---

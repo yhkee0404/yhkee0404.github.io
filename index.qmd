@@ -2,26 +2,9 @@
 title: "All Posts"
 listing:
   contents: posts
-  sort: "date desc"
-  type: grid
-  categories: true
-  feed:
-    language: ko
-    categories: featured
-  sort-ui: false
-  filter-ui: false
-  fields:
-    - image
-    - title
-    - subtitle
-    - description
-    - reading-time
-    - categories
-    - author
-    - date
-page-layout: full
-search: false
-comments: false
+metadata-files: 
+  - listings/_metadata.yml
+feed:
+  language: ko
+  categories: featured
 ---
-  
-

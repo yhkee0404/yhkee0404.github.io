@@ -16,15 +16,15 @@ website:
     title: "Source Thoughts in a Monorepo"
     left:
       - text: Web
-        href: web.qmd#category=featured
+        href: listings/web.qmd#category=featured
       - text: Database
-        href: database.qmd#category=featured
+        href: listings/database.qmd#category=featured
       - text: Data Science
-        href: data-science.qmd#category=featured
+        href: listings/data-science.qmd#category=featured
       - text: Algorithms
-        href: algorithms.qmd#category=featured
+        href: listings/algorithms.qmd#category=featured
       - text: Troubleshoot
-        href: troubleshoot.qmd#category=featured
+        href: listings/troubleshoot.qmd#category=featured
     right:
       - text: CV
         href: cv/ko/index.qmd
@@ -42,6 +42,7 @@ website:
     hypothesis:
       enableExperimentalNewNoteButton: true
   back-to-top-navigation: true
+  draft-mode: visible
 format:
   html:
     theme:
