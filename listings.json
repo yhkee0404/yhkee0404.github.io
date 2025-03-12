@@ -1,45 +1,57 @@
 [
   {
-    "listing": "/troubleshoot.html",
+    "listing": "/listings/troubleshoot.html",
     "items": [
       "/posts/troubleshoot/chrome-remote-desktop/index.html"
     ]
   },
   {
-    "listing": "/data-science.html",
+    "listing": "/listings/algorithms.html",
     "items": [
-      "/posts/data-science/proj/index.html",
-      "/posts/data-science/pvlib-timezone/index.html"
-    ]
-  },
-  {
-    "listing": "/algorithms.html",
-    "items": [
-      "/posts/algorithms/java-comparable-comparator/index.html",
       "/posts/algorithms/decimal-round-down/index.html",
       "/posts/algorithms/negative-zero/index.html",
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
-      "/posts/algorithms/codetree/subsequence-above-t/index.html",
-      "/posts/algorithms/codetree/change-to-capital/index.html",
-      "/posts/algorithms/codetree/shortest-distance-9/index.html",
-      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-      "/posts/algorithms/codetree/three-five-moo/index.html",
-      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
+      "/posts/algorithms/codetree/week-8/index.html",
+      "/posts/algorithms/codetree/week-7/index.html",
+      "/posts/algorithms/codetree/week-6/index.html",
+      "/posts/algorithms/codetree/week-5/index.html",
+      "/posts/algorithms/codetree/week-4/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-1/index.html"
     ]
   },
   {
-    "listing": "/drafts.html",
+    "listing": "/listings/web.html",
     "items": [
-      "/drafts/dummy.html"
+      "/posts/web/escape-xml10/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
+    ]
+  },
+  {
+    "listing": "/listings/database.html",
+    "items": [
+      "/posts/database/xml/index.html"
+    ]
+  },
+  {
+    "listing": "/listings/drafts.html",
+    "items": [
+      "/cv/en/index.html",
+      "/posts/algorithms/java-comparable-comparator/index.html",
+      "/posts/data-science/proj/index.html"
+    ]
+  },
+  {
+    "listing": "/listings/data-science.html",
+    "items": [
+      "/posts/data-science/pvlib-timezone/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/algorithms/java-comparable-comparator/index.html",
-      "/posts/data-science/proj/index.html",
       "/posts/algorithms/decimal-round-down/index.html",
       "/posts/data-science/pvlib-timezone/index.html",
       "/posts/algorithms/negative-zero/index.html",
@@ -49,28 +61,14 @@
       "/posts/troubleshoot/chrome-remote-desktop/index.html",
       "/posts/web/leetcode-daily-crawling/index.html",
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/algorithms/codetree/keep-the-lead-3/index.html",
-      "/posts/algorithms/codetree/subsequence-above-t/index.html",
-      "/posts/algorithms/codetree/change-to-capital/index.html",
-      "/posts/algorithms/codetree/shortest-distance-9/index.html",
-      "/posts/algorithms/codetree/determine-escapableness-with-2-ways/index.html",
-      "/posts/algorithms/codetree/three-five-moo/index.html",
-      "/posts/algorithms/codetree/lis-on-the-integer-grid/index.html",
-      "/posts/algorithms/codetree/beautiful-sequence-2/index.html"
-    ]
-  },
-  {
-    "listing": "/database.html",
-    "items": [
-      "/posts/database/xml/index.html"
-    ]
-  },
-  {
-    "listing": "/web.html",
-    "items": [
-      "/posts/web/escape-xml10/index.html",
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
+      "/posts/algorithms/codetree/week-8/index.html",
+      "/posts/algorithms/codetree/week-7/index.html",
+      "/posts/algorithms/codetree/week-6/index.html",
+      "/posts/algorithms/codetree/week-5/index.html",
+      "/posts/algorithms/codetree/week-4/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-1/index.html"
     ]
   }
 ]

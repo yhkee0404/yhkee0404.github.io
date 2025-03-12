@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-6841ee8655a60fc663d2131c32b86a71.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark-d18ad24e855a8dd9b1f16a684c650905.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -95,7 +98,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 <meta property="og:title" content="Timezone은 무조건 UTC 변환하면 될까? – Source Thoughts in a Monorepo">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/pvlib-timezone/james-lee-4ujY2rb7KOQ-unsplash.jpg">
+<meta property="og:image" content="https://yhkee0404.github.io/_images/thumbnails/james-lee-4ujY2rb7KOQ-unsplash.jpg">
 <meta property="og:site_name" content="Source Thoughts in a Monorepo">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -118,23 +121,23 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../web.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/web.html"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../database.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/database.html"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../data-science.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/data-science.html"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/algorithms.html"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/troubleshoot.html"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
 </ul>
@@ -164,7 +167,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -193,7 +196,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
   <li><a href="#timezone은-무조건-utc-변환하면-될까" id="toc-timezone은-무조건-utc-변환하면-될까" class="nav-link" data-scroll-target="#timezone은-무조건-utc-변환하면-될까">Timezone은 무조건 UTC 변환하면 될까?</a></li>
   <li><a href="#timezone-정보가-있는데-무시하면-어느-나라로-간주할까" id="toc-timezone-정보가-있는데-무시하면-어느-나라로-간주할까" class="nav-link" data-scroll-target="#timezone-정보가-있는데-무시하면-어느-나라로-간주할까">Timezone 정보가 있는데 무시하면 어느 나라로 간주할까?</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/data-science/pvlib-timezone/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -203,7 +206,6 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h1 class="title">Timezone은 무조건 UTC 변환하면 될까?</h1>
   <div class="quarto-categories">
     <div class="quarto-category">data science</div>
-    <div class="quarto-category">featured</div>
     <div class="quarto-category">pvlib</div>
     <div class="quarto-category">open source contribution</div>
     <div class="quarto-category">timezone</div>
@@ -244,6 +246,12 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../_images/thumbnails/james-lee-4ujY2rb7KOQ-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by James Lee on Unsplash"><img src="../../../_images/thumbnails/james-lee-4ujY2rb7KOQ-unsplash.jpg" class="img-fluid figure-img" alt="A photo of sea horizon."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">James Lee</a> on <a href="https://unsplash.com/photos/brown-bread-on-blue-sea-during-daytime-4ujY2rb7KOQ?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
 <p>Timezone 버그 때문에 동료가 많이 고생했다. 이제야 오픈소스 <a href="https://github.com/pvlib/pvlib-python/pull/2055">PR</a>을 남긴다.</p>
 </section>
 <section id="terms" class="level2">
@@ -873,12 +881,44 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2023-2025, Yunho Kee</p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/data-science/pvlib-timezone/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

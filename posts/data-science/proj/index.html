@@ -117,17 +117,7 @@ gtag('js', new Date());
 gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script type="application/json" class="js-hypothesis-config">
-{
-  "enableExperimentalNewNoteButton": true
-}
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
+<meta name="quarto:status" content="draft">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -161,7 +151,7 @@ window.Quarto = {
 
 <meta property="og:title" content="위성 데이터에서 우리집 찾기 – Source Thoughts in a Monorepo">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/data-science/proj/george-bakos-9d0lN17MdEU-unsplash.jpg">
+<meta property="og:image" content="https://yhkee0404.github.io/_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg">
 <meta property="og:site_name" content="Source Thoughts in a Monorepo">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -169,7 +159,7 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -184,23 +174,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../web.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/web.html"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../database.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/database.html"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../data-science.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/data-science.html"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/algorithms.html"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/troubleshoot.html"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
 </ul>
@@ -230,7 +220,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -254,7 +244,7 @@ window.Quarto = {
   <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
   <li><a href="#파일-읽기" id="toc-파일-읽기" class="nav-link" data-scroll-target="#파일-읽기">파일 읽기</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/data-science/proj/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -300,7 +290,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="george-bakos-9d0lN17MdEU-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by George Bakos on Unsplash"><img src="george-bakos-9d0lN17MdEU-unsplash.jpg" class="img-fluid figure-img" alt="A photo of elliptical world map."></a></p>
+<p><a href="../../../_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by George Bakos on Unsplash"><img src="../../../_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg" class="img-fluid figure-img" alt="A photo of an elliptical world map."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@georgebakos?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">George Bakos</a> on <a href="https://unsplash.com/photos/black-and-white-cat-in-cage-9d0lN17MdEU?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -909,7 +899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2023-2025, Yunho Kee</p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/data-science/proj/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

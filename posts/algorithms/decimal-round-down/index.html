@@ -132,7 +132,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 <meta property="og:title" content="이진수 대신 십진수를 쓰면 오차가 없어질까? – Source Thoughts in a Monorepo">
 <meta property="og:description" content="a personal cloud diary of Yunho Kee, a software engineer">
-<meta property="og:image" content="https://yhkee0404.github.io/posts/algorithms/decimal-round-down/elimende-inagella-4ApmfdVo32Q-unsplash.jpg">
+<meta property="og:image" content="https://yhkee0404.github.io/_images/thumbnails/elimende-inagella-4ApmfdVo32Q-unsplash.jpg">
 <meta property="og:site_name" content="Source Thoughts in a Monorepo">
 <meta property="og:locale" content="ko_KR">
 </head>
@@ -155,23 +155,23 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../web.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/web.html"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../database.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/database.html"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../data-science.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/data-science.html"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../algorithms.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/algorithms.html"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../troubleshoot.html#category=featured"> 
+    <a class="nav-link" href="../../../listings/troubleshoot.html"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
 </ul>
@@ -201,7 +201,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../index-featured.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -228,7 +228,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
   <li><a href="#오차-관리" id="toc-오차-관리" class="nav-link" data-scroll-target="#오차-관리">오차 관리</a></li>
   <li><a href="#언어-초월" id="toc-언어-초월" class="nav-link" data-scroll-target="#언어-초월">언어 초월</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/algorithms/decimal-round-down/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -238,7 +238,6 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h1 class="title">이진수 대신 십진수를 쓰면 오차가 없어질까?</h1>
   <div class="quarto-categories">
     <div class="quarto-category">algorithms</div>
-    <div class="quarto-category">featured</div>
     <div class="quarto-category">float</div>
     <div class="quarto-category">decimal</div>
     <div class="quarto-category">double</div>
@@ -284,7 +283,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Elimende Inagella on Unsplash"><img src="elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
+<p><a href="../../../_images/thumbnails/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Elimende Inagella on Unsplash"><img src="../../../_images/thumbnails/elimende-inagella-4ApmfdVo32Q-unsplash.jpg" class="img-fluid figure-img" alt="A photo of 2+2=5."></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@elimendeinagella?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Elimende Inagella</a> on <a href="https://unsplash.com/photos/white-sheep-on-white-surface-4ApmfdVo32Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
@@ -297,7 +296,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="실수-오차" class="level2">
 <h2 class="anchored" data-anchor-id="실수-오차">실수 오차</h2>
 <p>정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.</p>
-<div id="66e16516" class="cell" data-execution_count="1">
+<div id="f5b6ff1f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>four <span class="op">=</span> (<span class="dv">7</span> <span class="op">-</span> five) <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -308,7 +307,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 4.0 4</code></pre>
 </div>
 </div>
-<div id="fe8b5642" class="cell" data-execution_count="2">
+<div id="7d69bef2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> Decimal(<span class="st">'10'</span>) <span class="op">/</span> Decimal(<span class="st">'6'</span>) <span class="op">*</span> Decimal(<span class="st">'3'</span>)</span>
@@ -325,7 +324,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <section id="오차-관리" class="level2">
 <h2 class="anchored" data-anchor-id="오차-관리">오차 관리</h2>
 <p>소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 <code>n</code>번째 자리까지 필요하다면 그보다 작은 수를 가령 <code>n + 1</code>번째 자리에 <code>1</code>을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, <code>ROUND_DOWN</code>이나 <code>ROUND_HALF_UP</code>이 필요할 때이다. 뺄 때는 절상, 올림, <code>ROUND_UP</code>이나 <code>ROUND_HALF_DOWN</code>이 요구될 때이다.</p>
-<div id="1f79089a" class="cell" data-execution_count="3">
+<div id="98b02263" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> <span class="fl">1e-2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>five <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span>
@@ -339,7 +338,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 4.01 4</code></pre>
 </div>
 </div>
-<div id="34f74bcc" class="cell" data-execution_count="4">
+<div id="1f9ed60e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal, ROUND_DOWN</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>_EPSILON <span class="op">=</span> Decimal(<span class="st">'1e-2'</span>)</span>
@@ -1064,7 +1063,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2023-2025, Yunho Kee</p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/algorithms/decimal-round-down/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
