@@ -1,0 +1,57 @@
+#quarto-document-content {
+    font-family: "dejavu-serif", "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-size: 1.05em;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.2em;
+}
+
+h1:not(.title) {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.15em;
+    border-bottom: 1px solid white;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.05em;
+    border-bottom: none;
+    margin-top: 1.5rem;
+}
+
+td:has(> h2) {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.05em;
+}
+
+h4 {
+    font-style: italic;
+    font-size: 1.05em;
+}
+
+@media (max-width: 1068px) {
+    tr {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    td {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    col {
+        width: unset !important;
+    }
+
+    .column-screen-inset {
+        grid-column: body-content-start/body-content-end !important;
+    }
+}

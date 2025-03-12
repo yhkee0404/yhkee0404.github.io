@@ -24,11 +24,11 @@ jobs:
         uses: jmservera/libreoffice-action@v0.3.0-alpha
         with:
           command: |
-            export NOTO_SANS_KR='/usr/local/share/fonts/Google/TrueType/Noto Sans KR/'
-            curl -sS https://fonts.google.com/download/list?family=Noto%20Sans%20KR | tail -n +2 | jq ".manifest.fileRefs[].url" -r | xargs -I{} wget -q --content-disposition -P "$NOTO_SANS_KR" {}
-            fc-cache -f "$NOTO_SANS_KR"
+            # export NOTO_SANS_KR='/usr/local/share/fonts/Google/TrueType/Noto Sans KR/'
+            # curl -sS https://fonts.google.com/download/list?family=Noto%20Sans%20KR | tail -n +2 | jq ".manifest.fileRefs[].url" -r | xargs -I{} wget -q --content-disposition -P "$NOTO_SANS_KR" {}
+            # fc-cache -f "$NOTO_SANS_KR"
             cd _site/cv/ko/
-            libreoffice --headless --invisible --convert-to pdf yhkee0404.docx
+            libreoffice --headless --invisible --convert-to 'pdf:draw_pdf_Export:{"SelectPdfVersion":{"type":"long","value":"3"}}' yhkee0404.docx
       
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2

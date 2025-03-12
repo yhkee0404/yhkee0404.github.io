@@ -1,0 +1,18 @@
+format:
+  html:
+    include-in-header:
+      - file: ../_fonts/dejavu-serif.html
+    css:
+      - styles.css
+    page-layout: full
+  docx:
+    lang: ko-KR
+    reference-doc: reference.docx
+    email: yhkee0404@gmail.com
+    linkedin: https://www.linkedin.com/in/yunho-kee-2a4878256/
+    output-file: yhkee0404
+format-links:
+  - text: PDF
+    href: yhkee0404.pdf
+    icon: file-pdf
+  - docx
