@@ -6,7 +6,6 @@ format:
       - styles.css
     page-layout: full
   docx:
-    lang: ko-KR
     reference-doc: reference.docx
     email: yhkee0404@gmail.com
     linkedin: https://www.linkedin.com/in/yunho-kee-2a4878256/
