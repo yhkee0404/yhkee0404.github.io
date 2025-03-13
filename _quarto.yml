@@ -8,7 +8,7 @@ website:
   description: "a personal cloud diary of Yunho Kee, a software engineer"
   page-footer: "Copyright 2023-2025, Yunho Kee"
   site-url: https://yhkee0404.github.io
-  image: _images/portrait/haezoom-everland-jyh-lunapic.jpg
+  image: /_images/portrait/haezoom-everland-jyh-lunapic.jpg
   image-alt: "A photo of him looking at butterflies"
   open-graph:
     locale: ko_KR
