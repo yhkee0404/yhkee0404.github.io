@@ -60,7 +60,7 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::
 
-### 정산 서비스 개발: 일 1만 건 생성
+### 정산 서비스 개발: 일 1만여 건 생성
 
 #### Django REST Framework, PostgreSQL, Celery, Redis, Sentry
 
@@ -75,7 +75,7 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 * 조회 성능을 위한 Covering Index와 비동기 생성
 * 문서 공유 편의를 위한 자동화 (Confluence, Google Sheets)
 
-### 태양광 발전량 예측 서비스 고도화: 일 5만 건 생성 및 조회
+### 태양광 발전량 예측 서비스 고도화: 일 5만여 건 생성 및 조회
 
 #### Apache Airflow, Amazon DynamoDB, Django REST Framework, PostgreSQL, Redis
 
@@ -176,7 +176,7 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::
 
-### 풀이 인증 서비스 개발: 일 40명 사용
+### 풀이 인증 서비스 개발: 일 10여 명 사용
 
 #### JavaScript, Apps Script, GraphQL
 
