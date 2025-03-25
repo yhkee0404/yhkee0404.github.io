@@ -17,18 +17,18 @@ website:
     title: "Source Thoughts in a Monorepo"
     left:
       - text: Web
-        href: listings/web.qmd
+        href: posts/web
       - text: Database
-        href: listings/database.qmd
+        href: posts/database
       - text: Data Science
-        href: listings/data-science.qmd
+        href: posts/data-science
       - text: Algorithms
-        href: listings/algorithms.qmd
+        href: posts/algorithms
       - text: Troubleshoot
-        href: listings/troubleshoot.qmd
+        href: posts/troubleshoot
     right:
       - text: CV
-        href: cv/ko/index.qmd
+        href: cv/ko
       - icon: github
         href: https://github.com/yhkee0404/yhkee0404.github.io
       - icon: linkedin

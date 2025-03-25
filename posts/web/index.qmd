@@ -1,0 +1,11 @@
+---
+title: "Web"
+metadata-files:
+  - ../../_listing.yml
+listing:
+  exclude:
+    draft: true
+aliases:
+  - /web
+  - /listings/web
+---

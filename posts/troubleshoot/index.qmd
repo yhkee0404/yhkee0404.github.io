@@ -1,0 +1,11 @@
+---
+title: "Troubleshoot"
+metadata-files:
+  - ../../_listing.yml
+listing:
+  exclude:
+    draft: true
+aliases:
+  - /troubleshoot
+  - /listings/troubleshoot
+---

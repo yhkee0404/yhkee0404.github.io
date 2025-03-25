@@ -1,0 +1,11 @@
+---
+title: "Algorithms"
+metadata-files:
+  - ../../_listing.yml
+listing:
+  exclude:
+    draft: true
+aliases:
+  - /algorithms
+  - /listings/algorithms
+---

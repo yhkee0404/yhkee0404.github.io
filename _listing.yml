@@ -1,8 +1,4 @@
 listing:
-  contents:
-    - "!../../**/_*.qmd"
-  exclude:
-    draft: true
   sort: "date desc"
   type: grid
   categories: true
@@ -20,3 +16,4 @@ listing:
 page-layout: full
 search: false
 comments: false
+citation: false

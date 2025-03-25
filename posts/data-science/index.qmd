@@ -1,0 +1,11 @@
+---
+title: "Data Science"
+metadata-files:
+  - ../../_listing.yml
+listing:
+  exclude:
+    draft: true
+aliases:
+  - /data-science
+  - /listings/data-science
+---

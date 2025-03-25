@@ -1,0 +1,11 @@
+---
+title: "Database"
+metadata-files:
+  - ../../_listing.yml
+listing:
+  exclude:
+    draft: true
+aliases:
+  - /database
+  - /listings/database
+---

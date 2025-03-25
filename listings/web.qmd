@@ -1,8 +1,0 @@
----
-title: "Web"
-listing:
-  contents:
-    - ../../posts/web/**/*.qmd
-aliases:
-  - /web
----

@@ -1,9 +1,12 @@
 ---
 title: "All Posts"
+metadata-files: 
+  - _listing.yml
 listing:
   contents: posts
-metadata-files: 
-  - listings/_metadata.yml
+  exclude:
+    metadata-files: "../../_listing.yml"
+    draft: true
 feed:
   language: ko
 ---
