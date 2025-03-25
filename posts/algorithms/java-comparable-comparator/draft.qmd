@@ -11,6 +11,8 @@ categories:
 draft: true
 search: false
 comments: false
+adsense:
+  enable-ads: false
 ---
 
 ## Intro

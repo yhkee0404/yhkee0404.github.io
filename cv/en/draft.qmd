@@ -4,6 +4,8 @@ date-modified: 2025-03-12
 draft: true
 search: false
 comments: false
+adsense:
+  enable-ads: false
 ---
 
 {{< include ../_links.qmd >}}

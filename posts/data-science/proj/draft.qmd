@@ -11,6 +11,8 @@ image: /_images/thumbnails/george-bakos-9d0lN17MdEU-unsplash.jpg
 draft: true
 search: false
 comments: false
+adsense:
+  enable-ads: false
 ---
 
 ## Intro

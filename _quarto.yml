@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - "_js/"
+    - ads.txt
 
 website:
   title: "Source Thoughts in a Monorepo"
@@ -58,6 +59,10 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     smooth-scroll: true
+    adsense:
+      publisher-id: pub-7601862041116603
+    filters:
+      - adsense
 
 resource-path:
   - ../../../_bibliographies/book/
