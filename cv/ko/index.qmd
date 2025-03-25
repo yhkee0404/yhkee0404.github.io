@@ -1,6 +1,6 @@
 ---
 title: "기윤호 | 품질을 높이는 백엔드 개발"
-date-modified: 2025-03-12
+date-modified: 2025-03-25
 format:
   html:
     include-in-header:
@@ -187,9 +187,9 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::
 
-### 풀이 인증 서비스 개발: 일 40명 사용
+### 풀이 인증 서비스 개발: 일 20명 사용
 
-#### JavaScript, Apps Script
+#### JavaScript, Apps Script, GraphQL
 
 * 검증 편의를 위한 의존성 역전 원칙, Factory와 [Crawling][leetcode-daily-crawling]
 * 사진 대체를 위한 제어의 역전, Timer와 Webhook (Discord)

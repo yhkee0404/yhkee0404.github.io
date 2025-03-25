@@ -36,6 +36,10 @@ adsense:
 
 ::::::
 
+# OBJECTIVE
+
+To design feasible software and fill in the gaps between dependencies using computational thinking
+
 # SKILLS
 
 :::{.column-page-inset style="text-align-last: center;"}
@@ -49,23 +53,10 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::{.column-screen-inset}
 
-+----------------------+-----------------------+-------------+---------------+------------------:+-------------:+
-| ## Backend Developer | ## [Haezoom](haezoom) | ### 2022-12 | ### / 2024-08 | ### 1 year&numsp; | ### 9 months |
-+----------------------+-----------------------+-------------+---------------+-------------------+--------------+
+**Backend Developer** | **[Haezoom](haezoom)** | 2022-12 | / 2024-08 | 1 year&numsp; | 9 months 
+-|-|-|-|-:|-:
 
-: {tbl-colwidths="[22,31,13,11,11,12]"}
-
-+--------------------+---------------------+-------------+---------------+-------------:+
-| ## DevOps Engineer | ## [MidasIn](jobda) | ### 2022-05 | ### / 2022-09 | ### 5 months |
-+--------------------+---------------------+-------------+---------------+--------------+
-
-: {tbl-colwidths="[22,31,13,11,23]"}
-
-+----------------------+---------------------------+-------------+---------------+------------------:+-------------:+
-| ## Software Engineer | ## Republic of Korea Navy | ### 2020-06 | ### / 2022-02 | ### 1 year&numsp; | ### 8 months |
-+----------------------+---------------------------+-------------+---------------+-------------------+--------------+
-
-: {tbl-colwidths="[22,31,13,11,11,12]"}
+: {tbl-colwidths="[23,29,13,11,12,12]"}
 
 :::
 
@@ -121,11 +112,10 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::{.column-screen-inset}
 
-+--------------------+------------------------+---------------------------+-------------+---------------+----------:+
-| ## DevOps 엔지니어 | ## [마이다스인][jobda] | ### 경솔기반그룹 DevOps셀 | ### 2022-05 | ### / 2022-09 | ### 5개월 |
-+--------------------+------------------------+---------------------------+-------------+---------------+-----------+
+**DevOps Engineer** | **[MidasIn](jobda)** | 2022-05 | / 2022-09 | 5 months 
+-|-|-|-|-:
 
-: {tbl-colwidths="[18,13,29,13,11,16]"}
+: {tbl-colwidths="[23,29,13,11,24]"}
 
 :::
 
@@ -144,11 +134,10 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::{.column-screen-inset}
 
-+----------------------+---------------------------+-------------+---------------+--------------------+---------------+
-| ## Software Engineer | ## Republic of Korea Navy | ### 2020-06 | ### / 2022-02 | ### 11 year&numsp; | ### 18 months |
-+----------------------+---------------------------+-------------+---------------+--------------------+---------------+
+**Software Engineer** | **Republic of Korea Navy** | 2020-06 | / 2022-02 | 1 year&numsp; | 8 months 
+-|-|-|-|-:|-:
 
-: {tbl-colwidths="[18,13,29,13,11,7,9]"}
+: {tbl-colwidths="[23,29,13,11,12,12]"}
 
 :::
 
@@ -174,6 +163,11 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 :::{.column-screen-inset}
 
+**Software Engineer** | **Republic of Korea Navy** | 2020-06 | / 2022-02 | 1 year&numsp; | 8 months 
+-|-|-|-|-:|-:
+
+: {tbl-colwidths="[23,29,13,11,12,12]"}
+
 +-----------------------------------------------------------------------------------------+-------------+---------------+----------:+
 | ## [LeetCode Daily Google Sheets Apps Script][leetcode-daily-google-sheets-apps-script] | ### 2025-01 | ### / 2025-02 | ### 1개월 |
 +-----------------------------------------------------------------------------------------+-------------+---------------+-----------+
@@ -184,7 +178,7 @@ Amazon DynamoDB | PostgreSQL | Oracle | AWS IAM | Terraform Cloud | GitHub Actio
 
 ### 풀이 인증 서비스 개발: 일 40명 사용
 
-#### JavaScript, Apps Script
+#### JavaScript, Apps Script, GraphQL
 
 * 검증 편의를 위한 의존성 역전 원칙, Factory와 [Crawling][leetcode-daily-crawling]
 * 사진 대체를 위한 제어의 역전, Timer와 Webhook (Discord)
@@ -280,10 +274,16 @@ SW Expert Academy 외판원 순회 문제 DP [강의 1][tsp dp 1], [강의 2][ts
 
 :::{.column-screen-inset}
 
-+-----------------+-------------+-------+--+
-| ## 정보처리기사 | ### 2021-08 | ### - |  |
-+-----------------+-------------+-------+--+
++-------------------------------------------+-------------+-------+--+
+| ## Engineer Information Processing - HRDK | ### 2021-08 | ### - |  |
++-------------------------------------------+-------------+-------+--+
 
 : {tbl-colwidths="[60,13,11,16]"}
+
++-------------------------------------------+
+| ## Engineer Information Processing - HRDK |
++-------------------------------------------+
+
+: {tbl-colwidths="[100]"}
 
 :::
