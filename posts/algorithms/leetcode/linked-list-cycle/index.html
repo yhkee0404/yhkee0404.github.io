@@ -184,29 +184,29 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../listings/web.html"> 
+    <a class="nav-link" href="../../../../posts/web"> 
 <span class="menu-text">Web</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../listings/database.html"> 
+    <a class="nav-link" href="../../../../posts/database"> 
 <span class="menu-text">Database</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../listings/data-science.html"> 
+    <a class="nav-link" href="../../../../posts/data-science"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../listings/algorithms.html"> 
+    <a class="nav-link" href="../../../../posts/algorithms"> 
 <span class="menu-text">Algorithms</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../listings/troubleshoot.html"> 
+    <a class="nav-link" href="../../../../posts/troubleshoot"> 
 <span class="menu-text">Troubleshoot</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../cv/ko/index.html"> 
+    <a class="nav-link" href="../../../../cv/ko"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -354,7 +354,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <section id="linked-list-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="linked-list-cycle">Linked List Cycle</h2>
 <p>LeetCode 문제 <a href="https://leetcode.com/problems/linked-list-cycle/">Linked List Cycle</a>은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 <code>Follow up</code>에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 <a href="https://leetcode.com/submissions/detail/1195224680/">쥐쥐</a> 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. <a href="https://leetcode.com/submissions/detail/1202054400/">다음</a> Python 풀이는 모든 양의 정수 <code>a</code>에 대해 동작한다:</p>
-<div id="1c9b62e7" class="cell" data-execution_count="2">
+<div id="2d4df8ee" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definition for singly-linked list.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ListNode:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x):</span>
@@ -378,7 +378,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="va">True</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a9725265" class="cell" data-execution_count="3">
+<div id="d9c3cc61" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> [ListNode(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">4</span>]]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nodes) <span class="op">-</span> <span class="dv">1</span>):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    nodes[i].<span class="bu">next</span> <span class="op">=</span> nodes[i <span class="op">+</span> <span class="dv">1</span>]</span>
@@ -430,7 +430,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 <h2 class="anchored" data-anchor-id="아날로그-시계">아날로그 시계</h2>
 <p>프로그래머스 문제 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/250135">아날로그 시계</a>는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 <span class="math inline">\(12 \times 60 \times 60\)</span>개 상태를 탐색하므로 <span class="math inline">\(12 + 60 + 60\)</span>개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.</p>
 <p>그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.</p>
-<div id="642a5e83" class="cell" data-execution_count="4">
+<div id="a51a4bde" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>MOD <span class="op">=</span> <span class="dv">12</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>DH <span class="op">=</span> <span class="dv">1</span></span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>DM <span class="op">=</span> <span class="dv">12</span></span>
@@ -492,7 +492,7 @@ T(n) &amp; = T_u(n) + T_c(m)\\
 </dl>
 </div>
 </div>
-<div id="f70b444d" class="cell" data-execution_count="5">
+<div id="a63c5ea8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'''</span><span class="ch">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">0   5   30  0   7   0   2</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">12  0   0   12  0   30  1</span></span>
