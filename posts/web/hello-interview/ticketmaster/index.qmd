@@ -1,0 +1,331 @@
+---
+title: "DB 병목을 나누는 시스템 설계"
+subtitle: "공연 예약 시스템"
+author: "Yunho Kee"
+date: "2025-03-29"
+categories:
+  - web
+  - "system design"
+  - "lost update"
+  - "redis"
+  - "change data capture"
+  - "Bay Area K Group"
+  - "Ticketmaster"
+bibliography:
+  - king_ticketmaster.bib
+  - ullman2014first.bibtex
+nocite: |
+  @*
+format:
+  revealjs:
+    include-in-header:
+      - text: |
+          <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+    theme: beige
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-lines: auto
+    logo: /_images/logos/869e2ce3002521ca17c01eaa6e9fa3d4.webp
+    footer: '[<i class="bi bi-github"></i> View Source](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/web/hello-interview/ticketmaster/index.qmd)'
+---
+
+## 기능적 시스템 요구사항 분석
+
+::::: {.columns}
+
+:::: {.column}
+
+### 필수 기능
+
+사용자가 직접 사용할 기능
+
+::: {.fragment .fade-up}
+
+* 자원 현황 검색
+* 자원 현황 조회
+* 실시간 자원 선점
+
+:::
+
+::::
+
+::::{.column}
+
+### 부가 기능
+
+우선 순위 질문 후 폐기
+
+::: {.fragment .fade-up}
+
+* 자원 생성/변경/삭제
+* 이전 현황 검색/조회
+* 사용자별 자원 조회
+* 시세 변동
+
+:::
+
+::::
+
+:::::
+
+## 비기능적 시스템 요구사항 분석
+
+::::: {.columns}
+
+:::: {.column}
+
+### 특수 제약
+
+어떤 성능이 관건일까?
+
+::: {.fragment .fade-up}
+
+* CAP Theorem
+  * Consistency:  
+    Concurrent Booking
+  * Availability:  
+    Live View
+* Read/Write Ratio: Anonymous Guests
+* Bursts: Popular Events
+
+:::
+
+::::
+
+::::{.column}
+
+### 선택 목표
+
+다다익선
+
+::: {.fragment .fade-up}
+
+* Security, i.e. Authentication
+* CI/CD Pipelines
+* Backups
+* General Data Protection Regulation
+* Fault Tolerance
+
+:::
+
+::::
+
+:::::
+
+# Functional High-Level Design
+
+## Functional Core Entities
+
+* User: Dummy
+* Venue: 장소 &harr; Seat Map
+* Event: 시간, 장소
+  * Ticket[]
+* Ticket: 시간별, 장소별 Seat Map 자원
+* Performer: Dummy
+* Booking: Dummy
+  * Ticket[]
+
+## Functional API
+
+::::{.columns}
+
+:::{.column}
+
+* `GET /events/search`  
+  &rarr; Event[]
+  * ```
+    ?keyword=Tailor  
+    &start=2025-03-01&end=2025-04-01  
+    &pageSize=10&page=1
+    ```
+* `GET /events/:eventId`  
+  &rarr; Event, Venue, Performer, Ticket[]
+
+:::
+
+:::{.column}
+
+* `POST /bookings/:eventId`  
+  &rarr; bookingId
+  * ```
+    {
+      "ticketIds": string[], 
+      "paymentDetails": ...
+    }
+    ```
+
+:::
+
+::::
+
+## Functional High-Level Design
+
+::::{.columns}
+
+:::{.column}
+
+* Single API Gateway
+  * Routing/Forwarding
+  * Rate Limit
+  * Authentication
+  * Logging
+* (Sidecars of Load Balancers)
+  * Horizontal Scale Out
+  * Least Connections
+  * Round Robin
+:::
+
+:::{.column}
+
+* Microservices
+  * One Application Service per One API
+* Familiar DBMS for Consistency
+  * RDBMS, e.g. PostgreSQL
+  * NoSQL, e.g. DynamoDB
+* External API for Payment
+  * Asynchronous Webhooks
+
+:::
+
+::::
+
+## Lost Updates Prevention
+
+::::{.columns}
+
+:::{.column width="30%"}
+
+Read AVAILABLE  
+<br/>
+<br/>
+<br/>
+Write BOOKED  
+Commit
+
+:::
+
+:::{.column width="30%"}
+
+<br/>
+Read AVAILABLE
+Write BOOKED  
+Commit
+
+:::
+
+:::{.column width="40%"}
+
+* `SELECT ... FOR UPDATE`
+* Isolation Level
+  * SERIALIZABLE, REPETABLE READ  
+    [2023](https://stackoverflow.com/a/77249495) &harr; [2024](https://mirrorofcode.tistory.com/416)
+  * READ UNCOMMITTED
+    * `UPDATE ... WHERE BOOKED=TRUE`
+
+:::
+
+::::
+
+# Non-Functional Deep Dives
+
+## 1. Payment Availability: Keep Locks
+
+1. Brute Force  
+   * No PostgreSQL Native Timeout? &harr; [2014](https://stackoverflow.com/a/20963803)
+2. DB Column Addition: Expiration Time
+   1. Cron: Periodic Expiration  
+      * External Dependency
+   2. Lazy Expiration
+3. (Atomic) Cache: Natural Expiration of TTL
+   * External Dependency
+   * RedLock: Scalable Distributed Locks
+
+## 2. Live View Availability
+
+* Server-Sent Events
+  * Unidirectional
+* WebSockets  
+  * Bidirectional, Full-Duplex
+  * (Virtual) Waiting Queue
+    * Dequeue Timing
+      * Periodic
+      * Booking Count
+    * Metadata
+
+## 3. Common Read Performance
+
+::::{.columns}
+
+:::{.column width="40%"}
+
+* Cache: Redis, MemCached
+  * Read-Through Cache Strategy
+    * Sync Triggers
+  * Individual TTLs
+  * Content Distribution Networks
+    * AWS CloudFront
+
+:::
+
+:::{.column width="30%"}
+
+* Index
+  * Compound Index
+    * Columns to Rows
+  * Partial Index
+  * Covering Index
+* Materialized View
+
+:::
+
+:::{.column width="30%"}
+
+* SQL
+  * `EXPLAIN`: Query Execution Plan Analysis
+  * Avoidance of `SELECT *`
+  * `LIMIT`, Pagination
+  * `UNION` instead of `OR`
+
+:::
+
+::::
+
+## 4. Search Performance
+
+::::{.columns}
+
+:::{.column}
+
+### Full-Table Scan Latency
+
+`%LIKE%`
+
+* Full-Text Search
+  * Inverted Indexes
+    * Keywords to Rows
+    * Fuzzy Search
+  * DB Indexes
+  * ElasticSearch
+    * Change Data Capture
+
+:::
+
+:::{.column}
+
+### Frequent Queries
+
+* ElasticSearch/OpenSearch
+  * Node Level Filter
+    * Least Recently Used Cache
+  * Shard Level Aggregation
+    * Adaptive Caching Strategies
+
+:::
+
+::::
+
+---
+
+## References
+
