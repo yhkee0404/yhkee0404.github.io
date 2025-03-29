@@ -16,8 +16,13 @@ bibliography:
   - ullman2014first.bibtex
 nocite: |
   @*
+image: /_images/thumbnails/aurelien-thomas-Ms9sjaDRW9A-unsplash.jpg
 format:
   revealjs:
+    title-slide-attributes:
+        data-background-image: "{{< meta image >}}"
+        data-background-size: contain
+        data-background-opacity: "0.5"
     include-in-header:
       - text: |
           <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
