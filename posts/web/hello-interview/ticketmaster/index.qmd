@@ -2,17 +2,30 @@
 title: "DB 병목을 나누는 시스템 설계"
 subtitle: "공연 예약 시스템"
 author: "Yunho Kee"
+institute: |
+  [\[Bay Area K Group\] 스터디 클럽++](https://svkoreans.com/com_group/365){style="color:var(--r-link-color);"}
 date: "2025-03-29"
+date-modified: "2025-03-31"
 categories:
   - web
   - "system design"
   - "lost update"
+  - "isolation"
   - "redis"
+  - "RedLock"
+  - "elasticsearch"
+  - "content distribution networks"
+  - "long polling"
+  - "server-sent events"
+  - "WebSockets"
   - "change data capture"
   - "Bay Area K Group"
   - "Ticketmaster"
 bibliography:
+  - kang2024lost_update.bib
   - king_ticketmaster.bib
+  - mihalcea2023lost_update.bib
+  - ringer2014postgres.bib
   - ullman2014first.bibtex
 nocite: |
   @*
@@ -122,14 +135,14 @@ format:
 
 ## Functional Core Entities
 
-* User: Dummy
-* Venue: 장소 &harr; Seat Map
-* Event: 시간, 장소
-  * Ticket[]
-* Ticket: 시간별, 장소별 Seat Map 자원
-* Performer: Dummy
-* Booking: Dummy
-  * Ticket[]
+1. User: Dummy
+2. Venue: 장소 &harr; Seat Map
+3. Event: 시간, 장소
+   * Ticket[]
+4. Ticket: 시간별, 장소별 Seat Map 자원
+5. Performer: Dummy
+6. Booking: Dummy
+   * Ticket[]
 
 ## Functional API
 
@@ -137,28 +150,28 @@ format:
 
 :::{.column}
 
-* `GET /events/search`  
-  &rarr; Event[]
-  * ```
-    ?keyword=Tailor  
-    &start=2025-03-01&end=2025-04-01  
-    &pageSize=10&page=1
-    ```
-* `GET /events/:eventId`  
-  &rarr; Event, Venue, Performer, Ticket[]
+1. `GET /events/search`  
+   &rarr; Event[]
+   * ```
+     ?keyword=Tailor  
+     &start=2025-03-01&end=2025-04-01  
+     &pageSize=10&page=1
+     ```
+2. `GET /events/:eventId`  
+   &rarr; Event, Venue, Performer, Ticket[]
 
 :::
 
 :::{.column}
 
-* `POST /bookings/:eventId`  
-  &rarr; bookingId
-  * ```
-    {
-      "ticketIds": string[], 
-      "paymentDetails": ...
-    }
-    ```
+3. `POST /bookings/:eventId`  
+   &rarr; bookingId
+   * ```
+     {
+       "ticketIds": string[], 
+       "paymentDetails": ...
+     }
+     ```
 
 :::
 
@@ -168,28 +181,34 @@ format:
 
 ::::{.columns}
 
-:::{.column}
+:::{.column width="40%"}
 
-* Single API Gateway
-  * Routing/Forwarding
-  * Rate Limit
-  * Authentication
-  * Logging
-* (Sidecars of Load Balancers)
-  * Horizontal Scale Out
-  * Least Connections
-  * Round Robin
+1. Single Scalable API Gateway
+   * Routing/Forwarding
+   * Rate Limit
+   * Authentication
+   * Logging
+2. Microservices
+   * One Application Service per One API
+
 :::
 
-:::{.column}
+:::{.column width="30%"}
 
-* Microservices
-  * One Application Service per One API
-* Familiar DBMS for Consistency
-  * RDBMS, e.g. PostgreSQL
-  * NoSQL, e.g. DynamoDB
-* External API for Payment
-  * Asynchronous Webhooks
+3. (Sidecars of Load Balancers)
+   * Horizontal Scale Out
+   * Least Connections
+   * Round Robin
+  
+:::
+
+:::{.column width="30%"}
+
+4. Familiar DBMS for Persistence and Consistency
+   * RDBMS, e.g. PostgreSQL
+   * NoSQL, e.g. DynamoDB
+5. External API for Payment
+   * Asynchronous Webhooks
 
 :::
 
@@ -200,6 +219,8 @@ format:
 ::::{.columns}
 
 :::{.column width="30%"}
+
+### Transaction A
 
 Read AVAILABLE  
 <br/>
@@ -212,6 +233,8 @@ Commit
 
 :::{.column width="30%"}
 
+### Transaction B
+
 <br/>
 Read AVAILABLE
 Write BOOKED  
@@ -221,12 +244,15 @@ Commit
 
 :::{.column width="40%"}
 
-* `SELECT ... FOR UPDATE`
+1. ```
+SELECT ... FOR UPDATE
+   ```
 * Isolation Level
-  * SERIALIZABLE, REPETABLE READ  
-    [2023](https://stackoverflow.com/a/77249495) &harr; [2024](https://mirrorofcode.tistory.com/416)
-  * READ UNCOMMITTED
-    * `UPDATE ... WHERE BOOKED=TRUE`
+  2. SERIALIZABLE, REPETABLE READ ^[compare @mihalcea2023lost_update with @kang2024lost_update]
+  3. READ UNCOMMITTED ^[@ullman2014first, pp. 296-297]
+     * ```
+     UPDATE ... WHERE BOOKED=FALSE
+       ```
 
 :::
 
@@ -234,29 +260,28 @@ Commit
 
 # Non-Functional Deep Dives
 
-## 1. Payment Availability: Keep Locks
+## 1. Payment Availability: Move Lock Up and Hold Longer {.smaller}
 
-1. Brute Force  
-   * No PostgreSQL Native Timeout? &harr; [2014](https://stackoverflow.com/a/20963803)
-2. DB Column Addition: Expiration Time
-   1. Cron: Periodic Expiration  
-      * External Dependency
-   2. Lazy Expiration
-3. (Atomic) Cache: Natural Expiration of TTL
-   * External Dependency
+1. Brute Force without Database Column Addition
+   * No Native Timeout for PostgreSQL? ^[but see @ringer2014postgres]
+* Database Column Addition: Expiration Time
+  2. Cron: Periodic Expiration  
+     * Additional Dependency aside from Database
+  3. Lazy Expiration
+4. (Atomic) Cache: Natural Expiration of Time To Live
+   * Additional Dependency aside from Database
    * RedLock: Scalable Distributed Locks
 
 ## 2. Live View Availability
 
-* Server-Sent Events
-  * Unidirectional
-* WebSockets  
-  * Bidirectional, Full-Duplex
-  * (Virtual) Waiting Queue
-    * Dequeue Timing
-      * Periodic
-      * Booking Count
-    * Metadata
+1. Long Polling
+2. Server-Sent Events
+   * Unidirectional
+3. WebSockets  
+   * Bidirectional, Full-Duplex
+   4. (Virtual) Waiting Queue
+      * Dequeue Timing
+        * Metadata
 
 ## 3. Common Read Performance
 
@@ -264,33 +289,33 @@ Commit
 
 :::{.column width="40%"}
 
-* Cache: Redis, MemCached
-  * Read-Through Cache Strategy
-    * Sync Triggers
-  * Individual TTLs
-  * Content Distribution Networks
-    * AWS CloudFront
+1. Cache: Redis, MemCached
+   * Read-Through Cache Strategy
+     * Sync Triggers
+   * Individual TTLs
+   * Content Distribution Networks
+     * AWS CloudFront
 
 :::
 
 :::{.column width="30%"}
 
-* Index
-  * Compound Index
-    * Columns to Rows
-  * Partial Index
-  * Covering Index
-* Materialized View
+2. Index
+   * Compound Index
+     * Columns to Rows
+   * Partial Index
+   * Covering Index
+3. Materialized View
 
 :::
 
 :::{.column width="30%"}
 
-* SQL
-  * `EXPLAIN`: Query Execution Plan Analysis
-  * Avoidance of `SELECT *`
-  * `LIMIT`, Pagination
-  * `UNION` instead of `OR`
+4. SQL
+   * `EXPLAIN`: Query Execution Plan Analysis
+   * Avoidance of `SELECT *`
+   * `LIMIT`, Pagination
+   * `UNION` instead of `OR`
 
 :::
 
@@ -302,7 +327,7 @@ Commit
 
 :::{.column}
 
-### Full-Table Scan Latency
+### 1. Full-Table Scan Latency
 
 `%LIKE%`
 
@@ -310,7 +335,7 @@ Commit
   * Inverted Indexes
     * Keywords to Rows
     * Fuzzy Search
-  * DB Indexes
+  * Database Indexes
   * ElasticSearch
     * Change Data Capture
 
@@ -318,7 +343,7 @@ Commit
 
 :::{.column}
 
-### Frequent Queries
+### 2. Frequent Queries
 
 * ElasticSearch/OpenSearch
   * Node Level Filter
