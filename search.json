@@ -151,28 +151,28 @@
     "href": "posts/web/hello-interview/ticketmaster/index.html#functional-high-level-design-1",
     "title": "DB 병목을 나누는 시스템 설계",
     "section": "Functional High-Level Design",
-    "text": "Functional High-Level Design\n\n\n\nSingle API Gateway\n\nRouting/Forwarding\nRate Limit\nAuthentication\nLogging\n\n(Sidecars of Load Balancers)\n\nHorizontal Scale Out\nLeast Connections\nRound Robin\n\n\n\n\nMicroservices\n\nOne Application Service per One API\n\nFamiliar DBMS for Consistency\n\nRDBMS, e.g. PostgreSQL\nNoSQL, e.g. DynamoDB\n\nExternal API for Payment\n\nAsynchronous Webhooks"
+    "text": "Functional High-Level Design\n\n\n\nSingle Scalable API Gateway\n\nRouting/Forwarding\nRate Limit\nAuthentication\nLogging\n\nMicroservices\n\nOne Application Service per One API\n\n\n\n\n(Sidecars of Load Balancers)\n\nHorizontal Scale Out\nLeast Connections\nRound Robin\n\n\n\n\nFamiliar DBMS for Persistence and Consistency\n\nRDBMS, e.g. PostgreSQL\nNoSQL, e.g. DynamoDB\n\nExternal API for Payment\n\nAsynchronous Webhooks"
   },
   {
     "objectID": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
     "href": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
     "title": "DB 병목을 나누는 시스템 설계",
     "section": "Lost Updates Prevention",
-    "text": "Lost Updates Prevention\n\n\nRead AVAILABLE\n   Write BOOKED\nCommit\n\n Read AVAILABLE Write BOOKED\nCommit\n\n\nSELECT ... FOR UPDATE\nIsolation Level\n\nSERIALIZABLE, REPETABLE READ\n2023 ↔︎ 2024\nREAD UNCOMMITTED\n\nUPDATE ... WHERE BOOKED=TRUE"
+    "text": "Lost Updates Prevention\n\n\nTransaction A\nRead AVAILABLE\n   Write BOOKED\nCommit\n\nTransaction B\n Read AVAILABLE Write BOOKED\nCommit\n\n\nSELECT ... FOR UPDATE\n\n\nIsolation Level\n\nSERIALIZABLE, REPETABLE READ 1\nREAD UNCOMMITTED 2\n\nUPDATE ... WHERE BOOKED=FALSE\n\n\n\n\ncompare Mihalcea (2023) with Kang (2024)Ullman and Widom (2014), pp. 296-297"
   },
   {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-keep-locks",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-keep-locks",
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
     "title": "DB 병목을 나누는 시스템 설계",
-    "section": "1. Payment Availability: Keep Locks",
-    "text": "1. Payment Availability: Keep Locks\n\nBrute Force\n\nNo PostgreSQL Native Timeout? ↔︎ 2014\n\nDB Column Addition: Expiration Time\n\nCron: Periodic Expiration\n\nExternal Dependency\n\nLazy Expiration\n\n(Atomic) Cache: Natural Expiration of TTL\n\nExternal Dependency\nRedLock: Scalable Distributed Locks"
+    "section": "1. Payment Availability: Move Lock Up and Hold Longer",
+    "text": "1. Payment Availability: Move Lock Up and Hold Longer\n\nBrute Force without Database Column Addition\n\nNo Native Timeout for PostgreSQL? 1\n\n\n\nDatabase Column Addition: Expiration Time\n\nCron: Periodic Expiration\n\nAdditional Dependency aside from Database\n\nLazy Expiration\n\n\n\n(Atomic) Cache: Natural Expiration of Time To Live\n\nAdditional Dependency aside from Database\nRedLock: Scalable Distributed Locks\n\n\nbut see Ringer (2014)"
   },
   {
     "objectID": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
     "href": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
     "title": "DB 병목을 나누는 시스템 설계",
     "section": "2. Live View Availability",
-    "text": "2. Live View Availability\n\nServer-Sent Events\n\nUnidirectional\n\nWebSockets\n\nBidirectional, Full-Duplex\n(Virtual) Waiting Queue\n\nDequeue Timing\n\nPeriodic\nBooking Count\n\nMetadata"
+    "text": "2. Live View Availability\n\nLong Polling\nServer-Sent Events\n\nUnidirectional\n\nWebSockets\n\nBidirectional, Full-Duplex\n\n\n(Virtual) Waiting Queue\n\nDequeue Timing\n\nMetadata"
   },
   {
     "objectID": "posts/web/hello-interview/ticketmaster/index.html#common-read-performance",
@@ -186,14 +186,14 @@
     "href": "posts/web/hello-interview/ticketmaster/index.html#search-performance",
     "title": "DB 병목을 나누는 시스템 설계",
     "section": "4. Search Performance",
-    "text": "4. Search Performance\n\n\nFull-Table Scan Latency\n%LIKE%\n\nFull-Text Search\n\nInverted Indexes\n\nKeywords to Rows\nFuzzy Search\n\nDB Indexes\nElasticSearch\n\nChange Data Capture\n\n\n\n\nFrequent Queries\n\nElasticSearch/OpenSearch\n\nNode Level Filter\n\nLeast Recently Used Cache\n\nShard Level Aggregation\n\nAdaptive Caching Strategies"
+    "text": "4. Search Performance\n\n\n1. Full-Table Scan Latency\n%LIKE%\n\nFull-Text Search\n\nInverted Indexes\n\nKeywords to Rows\nFuzzy Search\n\nDatabase Indexes\nElasticSearch\n\nChange Data Capture\n\n\n\n\n2. Frequent Queries\n\nElasticSearch/OpenSearch\n\nNode Level Filter\n\nLeast Recently Used Cache\n\nShard Level Aggregation\n\nAdaptive Caching Strategies"
   },
   {
     "objectID": "posts/web/hello-interview/ticketmaster/index.html#references",
     "href": "posts/web/hello-interview/ticketmaster/index.html#references",
     "title": "DB 병목을 나누는 시스템 설계",
     "section": "References",
-    "text": "References\n\n\n\n\nEvan King. n.d. “Design a Ticket Booking Site Like Ticketmaster.” Accessed March 27, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
+    "text": "References\n\n\n\n\nKang, Sihoo. 2024. “(데이터베이스) Lost update와 serializable.” July 14, 2024. https://mirrorofcode.tistory.com/416.\n\n\nKing, Evan. n.d. “Design a Ticket Booking Site Like Ticketmaster.” Accessed March 27, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\n\nMihalcea, Vlad. 2023. “Minimum Transaction Isolation Level to Avoid \"Lost Updates\".” October 7, 2023. https://stackoverflow.com/a/77249495.\n\n\nRinger, Craig. 2014. “Controlling Duration of PostgreSQL Lock Waits.” January 7, 2014. https://stackoverflow.com/a/20963803.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
   },
   {
     "objectID": "posts/web/microservice-spof/index.html",
