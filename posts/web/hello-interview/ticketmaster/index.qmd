@@ -87,7 +87,7 @@ format:
 
 :::::
 
-## 비기능적 시스템 요구사항 분석
+## 비기능적 시스템 요구사항 분석 {.smaller}
 
 ::::: {.columns}
 
@@ -177,7 +177,7 @@ format:
 
 ::::
 
-## Functional High-Level Design
+## Functional High-Level Design {.smaller}
 
 ::::{.columns}
 
@@ -283,7 +283,7 @@ SELECT ... FOR UPDATE
       * Dequeue Timing
         * Metadata
 
-## 3. Common Read Performance
+## 3. Common Read Performance {.smaller}
 
 ::::{.columns}
 
