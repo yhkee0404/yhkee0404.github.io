@@ -248,7 +248,7 @@ Commit
 SELECT ... FOR UPDATE
    ```
 * Isolation Level
-  2. SERIALIZABLE, REPETABLE READ ^[compare @mihalcea2023lost_update with @kang2024lost_update]
+  2. SERIALIZABLE, REPEATABLE READ ^[compare @mihalcea2023lost_update with @kang2024lost_update]
   3. READ UNCOMMITTED ^[@ullman2014first, pp. 296-297]
      * ```
      UPDATE ... WHERE BOOKED=FALSE
