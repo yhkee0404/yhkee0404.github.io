@@ -1,0 +1,205 @@
+---
+title: "느리게 동기화하는 시스템 설계"
+subtitle: "파일 동기화 시스템"
+author: "Yunho Kee"
+institute: |
+  [\[Bay Area K Group\] 스터디 클럽++](https://svkoreans.com/com_group/365){style="color:var(--r-link-color);"}
+date: "2025-04-12"
+categories:
+  - web
+  - "system design"
+  - "content distribution networks"
+  - "Bay Area K Group"
+  - "Dropbox"
+bibliography:
+  - king_dropbox.bib
+  - ullman2014first.bibtex
+nocite: |
+  @*
+image: /_images/thumbnails/sean-foster-eZPFIOgmPLM-unsplash.jpg
+format:
+  revealjs:
+    title-slide-attributes:
+        data-background-image: "{{< meta image >}}"
+        data-background-size: contain
+        data-background-opacity: "0.5"
+    include-in-header:
+      - text: |
+          <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+    theme: sky
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-lines: auto
+    logo: /_images/logos/869e2ce3002521ca17c01eaa6e9fa3d4.webp
+    footer: '[<i class="bi bi-github"></i> View Source](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/web/hello-interview/dropbox/index.qmd)'
+    incremental: true
+---
+
+## Transactions
+
+:::: {.columns}
+
+::: {.column}
+
+* Atomicity
+  * All or Nothing
+  * Subjective Term: Internal Atomicity
+  * Rollback ^[@ullman2014first, p. 293]
+* (Consistency)
+  * Database Constraints ^[@ullman2014first, p. 9]
+
+:::
+
+::: {.column}
+
+* Isolation
+  * Serializability
+    * No Overlap ^[@ullman2014first, p. 291]
+    * Subjective Term: External Atomicity
+  * Repeatability &harr; Resumability or Parallellism
+
+:::
+
+::::
+
+## Subjective Term: <br/> Internal Atomicity {.smaller}
+
+:::: {.columns}
+
+::: {.column width="30%"}
+
+* Timeout
+* Scope
+  * Network-Level Status
+    * Integrity: Pre-Signed URLs
+  * Application-Level Status
+
+:::
+
+::: {.column width="40%"}
+
+* Consistency
+  * Directions
+  1. (Persistent Connections)
+     * Long Polling
+     * Server-Sent Events
+     * WebSockets
+  2. Push from Source
+     * Notification
+       * Intranet &harr; Internet
+     * (Adaptive) Cron
+
+:::
+
+::: {.column width="30%"}
+
+  3. Pull from Destination
+    or (Lazy) Resilience
+     * On-Demand Refresh
+     * (Adaptive) Polling
+     * (Periodic) Reconciliation
+
+:::
+
+::::
+
+## (Repeatability or Recovery)
+
+Subjective Term: Internal Serializability  
+or Internal External Atomicity
+
+:::: {.columns}
+
+::: {.column}
+
+* Event Stream or Event Bus, e.g. Kafka
+* Change Data Capture
+* Cursors
+* Types
+  * Changes
+  * Snapshots
+
+:::
+
+::: {.column}
+
+* Actions
+  * Rollback
+  * Roll Forward, c.f. Replay
+* Audit Trails
+* Partitioning
+
+:::
+
+::::
+
+## Chunks {.smaller}
+
+:::: {.columns}
+
+::: {.column}
+
+* Options
+  * Size Upper Bound, e.g. 10 MB
+    * Directory: Segmentation
+  * Compression Algorithms
+  * Versions
+  * Logs
+
+:::
+
+::: {.column}
+
+* Scope
+  * Database Entity
+    * Durability
+    * Time-Saving Preprocess
+  * Network Protocol Data Unit
+    * Adaptive Size
+    * Real-Time Intelligence
+  * Encapsulation
+    * External Blob Storage
+
+:::
+
+::::
+
+## Optional <br/> Functional Requirements
+
+:::: {.columns}
+
+::: {.column}
+
+* RDBMS Analogy
+  * Directions
+    * Inner/Left/Right/Outer Joins
+  * Scope
+    * Modifications
+    * Insertions
+    * Deletions
+
+:::
+
+::: {.column}
+
+* Git Analogy
+  * Exclusions, <br/> c.f. .gitignore
+
+:::
+
+::::
+
+## Content Distribution Networks
+
+* Cache: Benefit of Reusability
+  * Static Data
+    * Database
+    * Network
+  * Shared Data &harr; Private
+* Benefit of Distance
+  * Far Data Centers
+  * Near Users
+
+## References
+
