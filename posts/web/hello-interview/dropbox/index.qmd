@@ -175,6 +175,17 @@ or Internal External Atomicity
 
 ::::
 
+## Content Distribution Networks
+
+* Cache: Benefit of Reusability
+  * Static Data
+    * Database
+    * Network
+  * Shared Data &harr; Private
+* Benefit of Distance
+  * Far Data Centers
+  * Near Users
+
 ## Optional <br/> Functional Requirements
 
 :::: {.columns}
@@ -199,17 +210,6 @@ or Internal External Atomicity
 :::
 
 ::::
-
-## Content Distribution Networks
-
-* Cache: Benefit of Reusability
-  * Static Data
-    * Database
-    * Network
-  * Shared Data &harr; Private
-* Benefit of Distance
-  * Far Data Centers
-  * Near Users
 
 ## References
 
