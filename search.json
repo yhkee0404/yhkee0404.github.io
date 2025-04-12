@@ -455,18 +455,18 @@
     "text": "Chunks\n\n\n\nOptions\n\nSize Upper Bound, e.g. 10 MB\n\nDirectory: Segmentation\n\nCompression Algorithms\nVersions\nLogs\n\n\n\n\nScope\n\nDatabase Entity\n\nDurability\nTime-Saving Preprocess\n\nNetwork Protocol Data Unit\n\nAdaptive Size\nReal-Time Intelligence\n\nEncapsulation\n\nExternal Blob Storage"
   },
   {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Optional  Functional Requirements",
-    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
-  },
-  {
     "objectID": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
     "href": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
     "title": "느리게 동기화하는 시스템 설계",
     "section": "Content Distribution Networks",
     "text": "Content Distribution Networks\n\nCache: Benefit of Reusability\n\nStatic Data\n\nDatabase\nNetwork\n\nShared Data ↔︎ Private\n\nBenefit of Distance\n\nFar Data Centers\nNear Users"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Optional  Functional Requirements",
+    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
   },
   {
     "objectID": "posts/web/hello-interview/dropbox/index.html#references",
