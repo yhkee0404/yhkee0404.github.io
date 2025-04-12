@@ -8,6 +8,16 @@ date: "2025-04-12"
 categories:
   - web
   - "system design"
+  - atomicity
+  - consistency
+  - isolation
+  - resumability
+  - reconciliation
+  - chunks
+  - blob
+  - "event stream"
+  - "event bus"
+  - kafka
   - "content distribution networks"
   - "Bay Area K Group"
   - "Dropbox"
