@@ -4,6 +4,7 @@
 [ndts]: https://ndts.navy.mil.kr/NDTS/index
 [abeek]: https://www.abeek.or.kr/program
 
+[ticketmaster]: https://yhkee0404.github.io/posts/web/hello-interview/ticketmaster/
 [decimal-round-down]: https://yhkee0404.github.io/posts/algorithms/decimal-round-down/
 [negative-zero]: https://yhkee0404.github.io/posts/algorithms/negative-zero/
 [pvlib-timezone-none]: https://yhkee0404.github.io/posts/data-science/pvlib-timezone/#timezone-정보가-없으면-어느-나라로-간주할까
@@ -21,17 +22,29 @@
 [wicwiu]: https://github.com/WICWIU/WICWIU
 [outstanding paper award]: https://www.kiise.or.kr/conference/board/boardview.do?CC=kcc&CS=2018&PARENT_ID=051400&NUM=119&type=newsinfo
 
+[quarto 1]: https://github.com/quarto-dev/quarto-cli/pull/12222
+[quarto 2]: https://github.com/quarto-dev/quarto-cli/pull/12244
+[posit]: https://en.wikipedia.org/wiki/Posit_PBC
+[rstudio]: https://en.wikipedia.org/wiki/RStudio
+[rstudio ko]: https://ko.wikipedia.org/wiki/RStudio
+[sandia]: https://en.wikipedia.org/wiki/Sandia_National_Laboratories
+[sandia ko]: https://ko.wikipedia.org/wiki/%EC%83%8C%EB%94%94%EC%95%84_%EA%B5%AD%EB%A6%BD_%EC%97%B0%EA%B5%AC%EC%86%8C
+[nrel]: https://en.wikipedia.org/wiki/National_Renewable_Energy_Laboratory
+[nrel ko]: https://ko.wikipedia.org/wiki/%EA%B5%AD%EB%A6%BD%EC%9E%AC%EC%83%9D%EC%97%90%EB%84%88%EC%A7%80%EC%97%B0%EA%B5%AC%EC%86%8C
 [bird clear sky model]: https://github.com/NREL/SolarResourceModelsandTools/issues/4
 [github learning lab]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Your+GitHub+Learning+Lab+Repository+for+GitHub+Pages.%22&type=repositories&s=&o=desc
 [github skills]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Create+a+site+or+blog+from+your+GitHub+repositories+with+GitHub+Pages.%22&type=repositories&s=&o=desc
 [github-pages-template]: https://github.com/githubtraining/github-pages/issues/36
 [python-polylith-example]: https://github.com/DavidVujic/python-polylith-example/pull/13
 [jira-export]: https://github.com/netresearch/jira-export/pull/7
+[netresearch]: https://netresearch.github.io/
 [url-is-strange]: https://github.com/kakaopay/techlog-comments/discussions/99#discussioncomment-10793505
 
-[inconsistent 1]: https://www.acmicpc.net/board/view/149451
-[inconsistent 2]: https://www.acmicpc.net/board/view/149454
-[inconsistent 3]: https://www.acmicpc.net/board/view/149455
+[backtracking pruning]: https://www.acmicpc.net/board/view/159200
+[nonlinear regression]: https://www.acmicpc.net/board/view/158310
+[intersect 1]: https://www.acmicpc.net/board/view/149451
+[intersect 2]: https://www.acmicpc.net/board/view/149454
+[intersect 3]: https://www.acmicpc.net/board/view/149455
 [1.5e-1]: https://www.acmicpc.net/board/view/131585
 [3.3e-6]: https://www.acmicpc.net/board/view/131664
 [poking the social]: https://www.acmicpc.net/board/view/130925
