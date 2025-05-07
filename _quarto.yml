@@ -3,6 +3,7 @@ project:
   resources:
     - "_js/"
     - ads.txt
+    - "_images/certificates/"
 
 website:
   title: "Source Thoughts in a Monorepo"
