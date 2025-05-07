@@ -72,7 +72,7 @@ Fixed the algorithm with leakage, boundary errors, invalid cache, and timezone b
 
 Fulfilled **24x more frequent** requests, reducing processing time from 3 hours to 2 minutes (**90x faster**) through chunking, file compression, tensor transposition, and preprocessing (AWS Fargate, NumPy, netCDF4, SciPy)
 
-Optimized coordinate transformation by reverse engineering (47 s &rarr; 14 &micro;s, float32 → float64, 99.55% → 100%)
+Optimized coordinate transformation by reverse engineering (**47 s &rarr; 14 &micro;s**, **float32 → float64**, **99.55% → 100%**)
 
 Polled asynchronous inputs using non-blocking read-through caching and two-pointer techniques (Apache Airflow)
 
@@ -128,7 +128,7 @@ Developed a **cross-account** AWS user management system with **observability** 
 
 :::
 
-Developed an **internet-based** [grievance service][ndts] and **intranet** services for educational assessment ([**exceptional award**](https://yhkee0404.github.io/_images/portrait/navy.jpg)), mental health assessment, and attendance management, fixing [missing rows][escape-xml10] (Spring Framework, Oracle)
+Developed an **internet-based** [grievance service][ndts] and **intranet** services for educational assessment ([**exceptional award**](https://yhkee0404.github.io/_images/certificates/navy.jpg)), mental health assessment, and attendance management, fixing [missing rows][escape-xml10] (Spring Framework, Oracle)
 
 :::::
 
@@ -178,7 +178,7 @@ Released the **first** [open source][open-source] deep learning framework among 
 
 :::{custom-style="Custom Justified" .column-page-inset}
 
-[Quarto][quarto 2] (PowerShell), [Posit][posit] ([RStudio Inc][rstudio]) | [pvlib python][pvlib linkedin], [Sandia (SNL)][sandia] | [Static JIRA issue export][jira-export] (PHP), [Netresearch][netresearch] | [Python Polylith Example][python-polylith-example] (Serverless Framework) | [Course: GitHub Pages][github-pages-template], 45.3k ([25.5k][github learning lab]+[19.8k][github skills]) repositories (Jekyll)
+[Quarto][quarto 2] (PowerShell), [Posit][posit] ([RStudio Inc][rstudio]) | [pvlib python][pvlib linkedin], [Sandia (SNL)][sandia] | [Static JIRA issue export][jira-export] (PHP), [Netresearch][netresearch] | [Python Polylith Example][python-polylith-example] (Serverless Framework) | [Course: GitHub Pages][github-pages-template], 61.8k ([42k][github skills]+[19.8k][github learning lab]) repositories (Jekyll)
 
 :::
 

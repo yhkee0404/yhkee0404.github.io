@@ -168,7 +168,7 @@ Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript 
 
 :::
 
-### 국방망 및 [인터넷망][ndts] 웹 서비스 개발: 교육사령관 [개인상장](https://yhkee0404.github.io/_images/portrait/navy.jpg)
+### 국방망 및 [인터넷망][ndts] 웹 서비스 개발: 교육사령관 [개인상장](https://yhkee0404.github.io/_images/certificates/navy.jpg)
 
 #### Spring Framework, Oracle
 
@@ -291,7 +291,7 @@ Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript 
 +----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
 | SW Expert Academy [1][tsp dp 1], [2][tsp dp 2]                             | 삼성전자, DP 시간 복잡도 계산 과정 교정                                                          | 2022-01           |
 +----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
-| [Course: GitHub Pages][github-pages-template]                              | 45.3k 저장소 생성 ([25.5k][github learning lab]+[19.8k][github skills]), 출력 중복 제거 (Jekyll) | 2021-04           |
+| [Course: GitHub Pages][github-pages-template]                              | 61.8k 저장소 생성 ([42k][github skills]+[19.8k][github learning lab]), 출력 중복 제거 (Jekyll)   | 2021-04           |
 +----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
 
 : {tbl-colwidths="[31,50,19]"}
