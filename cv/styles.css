@@ -40,7 +40,7 @@ h4 {
     tr {
         display: flex;
         flex-wrap: wrap;
-        border-bottom-width: medium;
+        border-bottom-width: thick;
     }
     
     td {

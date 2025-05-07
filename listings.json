@@ -1,26 +1,16 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/drafts/index.html",
     "items": [
-      "/posts/web/hello-interview/dropbox/index.html",
-      "/posts/web/hello-interview/ticketmaster/index.html",
-      "/posts/algorithms/decimal-round-down/index.html",
-      "/posts/data-science/pvlib-timezone/index.html",
-      "/posts/algorithms/negative-zero/index.html",
-      "/posts/web/escape-xml10/index.html",
-      "/posts/database/xml/index.html",
-      "/posts/web/microservice-spof/index.html",
-      "/posts/troubleshoot/chrome-remote-desktop/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html",
-      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/algorithms/codetree/week-8/index.html",
-      "/posts/algorithms/codetree/week-7/index.html",
-      "/posts/algorithms/codetree/week-6/index.html",
-      "/posts/algorithms/codetree/week-5/index.html",
-      "/posts/algorithms/codetree/week-4/index.html",
-      "/posts/algorithms/codetree/week-3/index.html",
-      "/posts/algorithms/codetree/week-2/index.html",
-      "/posts/algorithms/codetree/week-1/index.html"
+      "/cv/en/draft.html",
+      "/posts/algorithms/java-comparable-comparator/draft.html",
+      "/posts/data-science/proj/draft.html"
+    ]
+  },
+  {
+    "listing": "/posts/data-science/index.html",
+    "items": [
+      "/posts/data-science/pvlib-timezone/index.html"
     ]
   },
   {
@@ -34,17 +24,9 @@
       "/posts/algorithms/codetree/week-6/index.html",
       "/posts/algorithms/codetree/week-5/index.html",
       "/posts/algorithms/codetree/week-4/index.html",
-      "/posts/algorithms/codetree/week-3/index.html",
       "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
       "/posts/algorithms/codetree/week-1/index.html"
-    ]
-  },
-  {
-    "listing": "/drafts/index.html",
-    "items": [
-      "/cv/en/draft.html",
-      "/posts/algorithms/java-comparable-comparator/draft.html",
-      "/posts/data-science/proj/draft.html"
     ]
   },
   {
@@ -70,9 +52,27 @@
     ]
   },
   {
-    "listing": "/posts/data-science/index.html",
+    "listing": "/index.html",
     "items": [
-      "/posts/data-science/pvlib-timezone/index.html"
+      "/posts/web/hello-interview/dropbox/index.html",
+      "/posts/web/hello-interview/ticketmaster/index.html",
+      "/posts/algorithms/decimal-round-down/index.html",
+      "/posts/data-science/pvlib-timezone/index.html",
+      "/posts/algorithms/negative-zero/index.html",
+      "/posts/web/escape-xml10/index.html",
+      "/posts/database/xml/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/troubleshoot/chrome-remote-desktop/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html",
+      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/algorithms/codetree/week-8/index.html",
+      "/posts/algorithms/codetree/week-7/index.html",
+      "/posts/algorithms/codetree/week-6/index.html",
+      "/posts/algorithms/codetree/week-5/index.html",
+      "/posts/algorithms/codetree/week-4/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-1/index.html"
     ]
   }
 ]
