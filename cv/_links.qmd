@@ -3,6 +3,9 @@
 [jobda]: https://www.jobda.im/
 [ndts]: https://ndts.navy.mil.kr/NDTS/index
 [abeek]: https://www.abeek.or.kr/program
+[seoul accord]: https://www.abeek.or.kr/abeek/seoul/
+[seoul regional]: https://web.archive.org/web/20201108200059/https://sihyungyou.github.io/acmicpc2019%eb%b3%b8%ec%84%a0/
+[open-source]: https://opensource.org/blog/is-open-source-ever-hyphenated
 
 [ticketmaster]: https://yhkee0404.github.io/posts/web/hello-interview/ticketmaster/
 [decimal-round-down]: https://yhkee0404.github.io/posts/algorithms/decimal-round-down/
