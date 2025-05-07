@@ -7,6 +7,6 @@ listing:
   exclude:
     metadata-files: "../../_listing.yml"
     draft: true
-feed:
-  language: ko
+  feed:
+    language: ko
 ---
