@@ -5,6 +5,7 @@ format:
     css:
       - styles.css
     page-layout: full
+    toc-expand: true
   docx:
     reference-doc: reference.docx
     email: yhkee0404@gmail.com

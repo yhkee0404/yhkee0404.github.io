@@ -40,6 +40,10 @@ div[data-custom-style="Custom Bullet"] p {
     display: list-item;
 }
 
+li:has(> [id^="toc-dummy"]) {
+    display: none;
+}
+
 @media (max-width: 1068px) {
     tr {
         display: flex;
