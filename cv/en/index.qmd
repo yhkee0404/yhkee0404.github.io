@@ -1,11 +1,11 @@
 ---
 title: "Yunho Kee"
 date-modified: 2025-05-08
-draft: true
-search: false
-comments: false
-adsense:
-  enable-ads: false
+blog: "https://yhkee0404.github.io/cv/en/"
+format-links:
+  - text: Korean
+    href: ../ko/
+    icon: translate
 ---
 
 {{< include ../_links.qmd >}}
@@ -19,12 +19,16 @@ adsense:
 :::{.about-links}
 
 ```{=html}
-<a href="yhkee0404.pdf" class="about-link" rel="_alternate" target="_blank">
+<a href="yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-pdf"></i><span class="about-link-text">Download PDF</span>
 </a>
 
-<a href="yhkee0404.docx" class="about-link" rel="_alternate" target="_blank">
+<a href="yhkee0404.docx" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-word"></i><span class="about-link-text">Download MS Word</span>
+</a>
+
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
 </a>
 ```
 

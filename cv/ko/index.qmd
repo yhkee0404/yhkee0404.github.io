@@ -1,12 +1,16 @@
 ---
 title: "기윤호 | 품질을 높이는 백엔드 개발"
 date-modified: 2025-05-08
+blog: "https://yhkee0404.github.io/cv/ko/"
+lang: ko-KR
 format:
   html:
     include-in-header:
       - file: ../../_fonts/noto-sans-kr.html
-  docx:
-    lang: ko-KR
+format-links:
+  - text: English
+    href: ../en/
+    icon: translate
 ---
 
 {{< include ../_links.qmd >}}
@@ -36,12 +40,16 @@ format:
 :::{.about-links}
 
 ```{=html}
-<a href="yhkee0404.pdf" class="about-link" rel="_alternate" target="_blank">
+<a href="yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-pdf"></i><span class="about-link-text">Download PDF</span>
 </a>
 
-<a href="yhkee0404.docx" class="about-link" rel="_alternate" target="_blank">
+<a href="yhkee0404.docx" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-word"></i><span class="about-link-text">Download MS Word</span>
+</a>
+
+<a href="../en/" class="about-link" rel="alternate" hreflang="en">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to English</span>
 </a>
 ```
 

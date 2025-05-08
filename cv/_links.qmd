@@ -1,4 +1,5 @@
 [cv ko]: https://yhkee0404.github.io/cv/ko/
+[cv en]: https://yhkee0404.github.io/cv/en/
 [haezoom]: https://haezoom.com/
 [jobda]: https://www.jobda.im/
 [ndts]: https://ndts.navy.mil.kr/NDTS/index
