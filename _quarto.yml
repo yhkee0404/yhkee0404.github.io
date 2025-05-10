@@ -65,8 +65,13 @@ format:
     filters:
       - adsense
 
+# posts/a/b/c/ko/draft/index.qmd
 resource-path:
   - ../../../_bibliographies/book/
   - ../../../_bibliographies/online/
   - ../../../../_bibliographies/book/
   - ../../../../_bibliographies/online/
+  - ../../../../../_bibliographies/book/
+  - ../../../../../_bibliographies/online/
+  - ../../../../../../_bibliographies/book/
+  - ../../../../../../_bibliographies/online/

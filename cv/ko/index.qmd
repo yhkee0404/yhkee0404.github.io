@@ -11,11 +11,15 @@ format-links:
   - text: English
     href: ../en/
     icon: translate
+aliases:
+  - /cv
 ---
 
 {{< include ../_links.qmd >}}
 
 :::{.content-visible when-format="docx"}
+
+<!-- 표 안에서도 스타일을 적용하려면 간단한 표 대신 `+`가 사용되는 Grid Table을 사용해야 해요. 다만 공백 개수를 정확히 맞춰 주어야 해서 불편할 수 있는데, 한국어는 2글자씩 세는 것이 헷갈리기 때문에 [여기](https://quarto.org/docs/authoring/tables.html#grid-tables)에서 안내하는 대로 [Tables Generator](https://www.tablesgenerator.com/text_tables)를 사용해도 좋습니다. -->
 
 +-------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](/_images/portrait/bio-photo.jpg){width=3.5cm fig-alt="A portrait photo."} | 소프트웨어 품질을 높이기 위해 기존 기획과 기술을 보완합니다:                                                                                         |

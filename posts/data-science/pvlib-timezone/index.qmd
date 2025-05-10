@@ -5,7 +5,7 @@ date: "2024-05-19"
 categories:
   - "data science"
   - pvlib
-  - "open source contribution"
+  - "open-source"
   - timezone
   - naive
   - aware

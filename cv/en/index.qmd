@@ -174,7 +174,7 @@ Deployed IDE plugins (IntelliJ, Eclipse), **cross-platform** binaries (macOS, Li
 
 :::
 
-Released the **first** [open source][open-source] deep learning framework among Korean universities ([**outstanding paper award**][outstanding paper award])
+Released the **first** [open-source][open-source] deep learning framework among Korean universities ([**outstanding paper award**][outstanding paper award])
 
 ::::
 
@@ -201,7 +201,7 @@ Released the **first** [open source][open-source] deep learning framework among 
   <tbody>
     <tr>
       <td colspan="4">
-        <span data-qmd="**B.S. in Computer Science and Engineering** ([Seoul Accord](https://www.abeek.or.kr/abeek/seoul/) Recognized Program), GPA 3.95/4.5 (**Cum Laude**)"></span>
+        <span data-qmd="**B.S. in Computer Science and Engineering** ([Seoul Accord](https://www.abeek.or.kr/abeek/seoul/) recognized program), GPA 3.95/4.5 (**Cum Laude**)"></span>
       </td>
     </tr>
     <tr>

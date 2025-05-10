@@ -4,8 +4,8 @@ metadata-files:
   - ../_listing.yml
 listing:
   contents:
-    - ../posts/**/draft.qmd
-    - ../cv/**/draft.qmd
+    - ../posts/**/draft/*.qmd
+    - ../cv/**/draft/*.qmd
   include:
     draft: true
     search: false

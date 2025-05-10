@@ -1,0 +1,35 @@
+services:
+  quarto-render:
+    image: ghcr.io/quarto-dev/quarto:1.7.30
+    volumes:
+      - .:/home
+    working_dir: /home
+    command: quarto render
+      
+  libreoffice:
+    depends_on:
+      quarto-render:
+        condition: service_completed_successfully
+    build: https://github.com/jmservera/libreoffice-action.git#v0.3.0-alpha
+    volumes:
+      - .:/home
+    working_dir: /home
+    command: _docker/libreoffice.sh
+  
+  quarto-preview:
+    depends_on:
+      libreoffice:
+        condition: service_completed_successfully
+    image: ghcr.io/quarto-dev/quarto:1.7.30
+    volumes:
+      - .:/home
+    working_dir: /home
+    entrypoint:
+      - sh
+      - -c
+    command:
+      - |
+        quarto preview --port 8888 --host 0.0.0.0
+        sleep infinity
+    ports:
+      - "8888:8888"
