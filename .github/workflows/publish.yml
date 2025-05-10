@@ -23,7 +23,9 @@ jobs:
       - name: Libreoffice Convert
         uses: jmservera/libreoffice-action@v0.3.0-alpha
         with:
-          command: _docker/libreoffice.sh
+          command: |
+            chmod +x _docker/libreoffice.sh
+            _docker/libreoffice.sh
       
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
