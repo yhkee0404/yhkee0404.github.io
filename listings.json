@@ -2,14 +2,15 @@
   {
     "listing": "/drafts/index.html",
     "items": [
-      "/posts/algorithms/java-comparable-comparator/draft.html",
-      "/posts/data-science/proj/draft.html"
+      "/posts/database/cv-or-resume/ko/draft/index.html",
+      "/posts/algorithms/java-comparable-comparator/draft/index.html",
+      "/posts/data-science/proj/draft/index.html"
     ]
   },
   {
-    "listing": "/posts/data-science/index.html",
+    "listing": "/posts/troubleshoot/index.html",
     "items": [
-      "/posts/data-science/pvlib-timezone/index.html"
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
     ]
   },
   {
@@ -29,9 +30,9 @@
     ]
   },
   {
-    "listing": "/posts/troubleshoot/index.html",
+    "listing": "/posts/data-science/index.html",
     "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+      "/posts/data-science/pvlib-timezone/index.html"
     ]
   },
   {
