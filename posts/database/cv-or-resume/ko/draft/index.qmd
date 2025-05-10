@@ -14,6 +14,7 @@ aliases:
   - /posts/database/cv-or-resume/draft
 bibliography:
   - king_dropbox_sharelist.bib
+  - king_ticketmaster_search.bib
 draft: true
 search: false
 comments: false
@@ -69,7 +70,7 @@ Pandoc을 확장한 Quarto를 사용하면 Markdown을 바탕으로 일부 네�
 [Fork](https://github.com/yhkee0404/yhkee0404.github.io/fork)하시고,
 [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html#source-branch)를 설정해 보세요.
 
-또는 Docker Compose를 [설치](https://docs.docker.com/compose/install/)하시고 다음과 같이 실행해 보세요:
+또는 Docker Compose를 [설치](https://docs.docker.com/compose/install/)하시고 Terminal에서 다음 명령을 실행 후 `https://localhost:8888/`에 접속해 보세요:
 
 ```sh
 git clone https://github.com/yhkee0404/yhkee0404.github.io
