@@ -489,7 +489,7 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <h1>Open Source CV or Resume</h1>
 <p>이렇게 작성한 제 이력서는 사진과 같아요. 소스코드를 <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd">여기</a>에서 오픈 소스로 공개할 테니 더 잘 만드실 수 있는 분은 공유해 주세요.</p>
 <p><a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">Fork</a>하시고, <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>를 설정해 보세요.</p>
-<p>또는 Docker Compose를 <a href="https://docs.docker.com/compose/install/">설치</a>하시고 다음과 같이 실행해 보세요:</p>
+<p>또는 Docker Compose를 <a href="https://docs.docker.com/compose/install/">설치</a>하시고 Terminal에서 다음 명령을 실행 후 <code>https://localhost:8888/</code>에 접속해 보세요:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose up <span class="at">-d</span> <span class="at">--force-recreate</span> quarto-preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>어려운 점은 무엇이든 알려 주시면 도와드릴게요. reference.docx를 만들고 스타일을 적용하는 방법은 <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">여기</a>를 참고하시면 됩니다. 제가 설정한 내용은 문서 내에 모두 정리해 두었습니다.</p>
@@ -617,8 +617,8 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 <p>삭제할 것은 소스코드에서 주석처럼 처리함으로써 아예 없어져서 복구가 안 되는 상황을 막을 수 있어요.</p>
 <p>고칠 것은 소스코드가 선점(Preemptive)하기 때문에 소스코드를 변환한 MS Word 파일이나 웹페이지 둘 다 오타가 중복된다면 한꺼번에 원자적으로(Atomic) 확인하고 고치게 된다는 보장이 생겨요.</p>
 <p>오타와는 반대로 기본 글자 크기는 통일하지 않는 것이 갱신 이상 현상(Anomaly)이 아니라 오히려 정상일 수 있어요. 그래서 같은 칼럼의 서로 다른 값인 10 pt와 9 pt를 각각 서로 다른 칼럼으로 나눔으로써 각각 선택할 수 있게 했습니다. 물론 한 파일이 10 pt와 9 pt를 동시에 포함할 필요는 없으니 괜히 그러지 않도록 확인하면 좋습니다.</p>
-<p>한 파일이 어떤 칼럼을 포함할지 또는 포함하지 않을지는 파일마다 목록을 저장해서 관리할 수 있어요. 하지만 반대로 칼럼마다 어느 파일에 포함될지 또는 포함하지 않을지를 저장하는 방법도 있어요 <span class="citation" data-cites="king_dropbox_sharelist">(<a href="#ref-king_dropbox_sharelist" role="doc-biblioref">King n.d.</a>)</span>. 후자가 <a href="Conditional Content https://quarto.org/docs/authoring/conditional.html">Quarto</a>에서 사용하는 방법이에요.</p>
-<p>다만 Quarto는 소스코드를 변환할 파일마다 전체 칼럼을 탐색하는 것이 칼럼마다 해당하는 파일을 탐색하는 ElasticSearch의 Inverted Index와의 차이점이에요 <span class="citation" data-cites="king_ticketmaster_search">(see <a href="#ref-king_ticketmaster_search" role="doc-biblioref"><strong>king_ticketmaster_search?</strong></a>)</span>. 한편 칼럼마다 해당하는 파일을 탐색하는 기능은 모노레포의 소스코드를 다양한 방식으로 조합해서 배포할 수 있게 지원하는 Polylith에서도 지원하는 기능이에요. Python Polylith도 이러한 <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">deps</a> 기능을 지원하고, 위 표와 같은 Matrix도 확인할 수 있어요.</p>
+<p>한 파일이 어떤 칼럼을 포함할지 또는 포함하지 않을지는 파일마다 목록을 저장해서 관리할 수 있어요. 하지만 반대로 칼럼마다 어느 파일에 포함될지 또는 포함하지 않을지를 저장하는 방법도 있어요 <span class="citation" data-cites="king_dropbox_sharelist">(<a href="#ref-king_dropbox_sharelist" role="doc-biblioref">King n.d.a</a>)</span>. 후자가 <a href="Conditional Content https://quarto.org/docs/authoring/conditional.html">Quarto</a>에서 사용하는 방법이에요.</p>
+<p>다만 Quarto는 소스코드를 변환할 파일마다 전체 칼럼을 탐색하는 것이 칼럼마다 해당하는 파일을 탐색하는 ElasticSearch의 Inverted Index와의 차이점이에요 <span class="citation" data-cites="king_ticketmaster_search">(see <a href="#ref-king_ticketmaster_search" role="doc-biblioref">King n.d.b</a>)</span>. 한편 칼럼마다 해당하는 파일을 탐색하는 기능은 모노레포의 소스코드를 다양한 방식으로 조합해서 배포할 수 있게 지원하는 Polylith에서도 지원하는 기능이에요. Python Polylith도 이러한 <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">deps</a> 기능을 지원하고, 위 표와 같은 Matrix도 확인할 수 있어요.</p>
 </section>
 <section id="future-work" class="level1">
 <h1>Future Work</h1>
@@ -630,7 +630,10 @@ gtag('config', 'G-KH3KTM2DG3', { 'anonymize_ip': true});
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-king_dropbox_sharelist" class="csl-entry" role="listitem">
-King, Evan. n.d. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+</div>
+<div id="ref-king_ticketmaster_search" class="csl-entry" role="listitem">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
