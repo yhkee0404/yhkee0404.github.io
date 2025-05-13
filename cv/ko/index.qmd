@@ -1,6 +1,7 @@
 ---
 title: "기윤호 | 품질을 높이는 백엔드 개발"
-date-modified: 2025-05-08
+# date가 MS Word에 기본 출력되는 것을 우회합니다.
+date-modified: 2025-05-12
 blog: "https://yhkee0404.github.io/cv/ko/"
 lang: ko-KR
 format:
@@ -11,6 +12,19 @@ format-links:
   - text: English
     href: ../en/
     icon: translate
+    rel: alternate
+    # hreflang: en
+  - text: PDF Viewer
+    href: https://github.com/yhkee0404/yhkee0404.github.io/blob/gh-pages/cv/ko/yhkee0404.pdf
+    icon: file-pdf-fill
+    rel: alternate
+    target: _blank
+  - text: PDF
+    href: yhkee0404.pdf
+    icon: file-pdf
+    rel: alternate
+    target: _blank
+  - docx
 aliases:
   - /cv
 ---
@@ -19,7 +33,7 @@ aliases:
 
 :::{.content-visible when-format="docx"}
 
-<!-- 표 안에서도 스타일을 적용하려면 간단한 표 대신 `+`가 사용되는 Grid Table을 사용해야 해요. 다만 공백 개수를 정확히 맞춰 주어야 해서 불편할 수 있는데, 한국어는 2글자씩 세는 것이 헷갈리기 때문에 [여기](https://quarto.org/docs/authoring/tables.html#grid-tables)에서 안내하는 대로 [Tables Generator](https://www.tablesgenerator.com/text_tables)를 사용해도 좋습니다. -->
+<!-- 표 안에서도 스타일을 적용하려면 간단한 표 대신 `+`가 사용되는 Grid Table 또는 HTML Tags를 사용해야 해요. Html Tags와 달리 Grid Table은 공백 개수를 정확히 맞춰 주지 않으면 제대로 인식이 안 돼요. 한국어는 2글자씩 세어야 해서 헷갈릴 수 있으니 [여기](https://quarto.org/docs/authoring/tables.html#grid-tables)에서 안내하는 대로 [Tables Generator](https://www.tablesgenerator.com/text_tables)를 사용해도 좋습니다. -->
 
 +-------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ![](/_images/portrait/bio-photo.jpg){width=3.5cm fig-alt="A portrait photo."} | 소프트웨어 품질을 높이기 위해 기존 기획과 기술을 보완합니다:                                                                                         |
@@ -44,6 +58,14 @@ aliases:
 :::{.about-links}
 
 ```{=html}
+<a href="../en/" class="about-link" rel="alternate" hreflang="en">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to English</span>
+</a>
+
+<a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/gh-pages/cv/ko/yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
+  <i class="bi bi-file-pdf-fill"></i><span class="about-link-text">View PDF</span>
+</a>
+
 <a href="yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-pdf"></i><span class="about-link-text">Download PDF</span>
 </a>
@@ -52,8 +74,8 @@ aliases:
   <i class="bi bi-file-word"></i><span class="about-link-text">Download MS Word</span>
 </a>
 
-<a href="../en/" class="about-link" rel="alternate" hreflang="en">
-  <i class="bi bi-translate"></i><span class="about-link-text">Switch to English</span>
+<a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd" class="about-link" rel="alternate" target="_blank">
+  <i class="bi bi-github"></i><span class="about-link-text">View Source</span>
 </a>
 ```
 
@@ -69,7 +91,7 @@ aliases:
 
 :::{custom-style="Justified" .column-page-inset style="text-align-last: center;"}
 
-Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript | Apache Airflow | Celery | Amazon DynamoDB | PostgreSQL | Oracle | GitHub Actions | Maven | Terraform Cloud | AWS IAM | SSH Tunneling 
+Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript | Apache Airflow | Celery | Amazon DynamoDB | PostgreSQL | Oracle | GitHub Action | Maven | Terraform Cloud | AWS IAM | SSH Tunneling 
 
 :::
 

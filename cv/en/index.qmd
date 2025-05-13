@@ -1,11 +1,25 @@
 ---
 title: "Yunho Kee"
+# Keep date from being printed in MS Word
 date-modified: 2025-05-08
 blog: "https://yhkee0404.github.io/cv/en/"
 format-links:
   - text: Korean
     href: ../ko/
     icon: translate
+    rel: alternate
+    # hreflang: ko-KR
+  - text: PDF Viewer
+    href: https://github.com/yhkee0404/yhkee0404.github.io/blob/gh-pages/cv/en/yhkee0404.pdf
+    icon: file-pdf-fill
+    rel: alternate
+    target: _blank
+  - text: PDF
+    href: yhkee0404.pdf
+    icon: file-pdf
+    rel: alternate
+    target: _blank
+  - docx
 ---
 
 {{< include ../_links.qmd >}}
@@ -19,6 +33,14 @@ format-links:
 :::{.about-links}
 
 ```{=html}
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+
+<a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/gh-pages/cv/en/yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
+  <i class="bi bi-file-pdf-fill"></i><span class="about-link-text">View PDF</span>
+</a>
+
 <a href="yhkee0404.pdf" class="about-link" rel="alternate" target="_blank">
   <i class="bi bi-file-pdf"></i><span class="about-link-text">Download PDF</span>
 </a>
@@ -27,8 +49,8 @@ format-links:
   <i class="bi bi-file-word"></i><span class="about-link-text">Download MS Word</span>
 </a>
 
-<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
-  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+<a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd" class="about-link" rel="alternate" target="_blank">
+  <i class="bi bi-github"></i><span class="about-link-text">View Source</span>
 </a>
 ```
 
@@ -52,7 +74,7 @@ To design [feasible][ticketmaster] systems and fill in the gaps in reusable soft
 
 :::{custom-style="Custom Justified" .column-page-inset style="text-align-last: center;"}
 
-Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript | Apache Airflow | Celery | Amazon DynamoDB | PostgreSQL | Oracle | GitHub Actions | Maven | Terraform Cloud | AWS IAM | SSH Tunneling 
+Java | Spring Framework | Python | Django REST Framework | FastAPI | JavaScript | Apache Airflow | Celery | Amazon DynamoDB | PostgreSQL | Oracle | GitHub Action | Maven | Terraform Cloud | AWS IAM | SSH Tunneling 
 
 :::
 

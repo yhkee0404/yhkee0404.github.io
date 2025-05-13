@@ -11,8 +11,10 @@ format:
     email: yhkee0404@gmail.com
     linkedin: https://www.linkedin.com/in/yunho-kee/
     output-file: yhkee0404
-format-links:
-  - text: PDF
-    href: yhkee0404.pdf
-    icon: file-pdf
-  - docx
+# format-links:
+#   - text: PDF
+#     href: yhkee0404.pdf
+#     icon: file-pdf
+#     rel: alternate
+#     target: _blank
+#   - docx
