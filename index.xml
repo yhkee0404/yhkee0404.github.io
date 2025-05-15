@@ -16,7 +16,301 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sat, 12 Apr 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 15 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Open-Source CV or Resume Engineering</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-about-jolla">
+<div class="about-entity">
+<div class="about-links">
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+</div>
+</div>
+</div>
+<p><a href="../../../../_images/pdf/yhkee0404-cv-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" class="img-fluid" alt="A photo of a CV."></a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.</p>
+<p>You can <a href="https://yhkee0404.github.io/cv/en/">see the live web version</a> and <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd">explore the source code here</a> to try it out right away.</p>
+<p>To get started, simply <a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">fork the repository</a> and deploy your CV or resume online using <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including <code>.pdf</code> and <code>.docx</code>.</p>
+<p>Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>, run the commands below, and view your CV at <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a> or in the <code>_site/cv/</code> directory:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> yhkee0404.github.io</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force-recreate</span> quarto-preview</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># docker compose down</span></span></code></pre></div>
+<p>This project draws inspiration from <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a>, founder of the <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>, and <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a>, whose <a href="https://www.piratekingdom.com/resume">resume</a> led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own <code>reference.docx</code> using <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">these instructions</a>, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!</p>
+</section>
+<section id="objectives" class="level1">
+<h1>Objectives</h1>
+<p>This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features which include my insights that I had learnt from <a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a> and <a href="https://www.youtube.com/@hello_interview">Hello Interview</a>:</p>
+<ol type="1">
+<li>Consistency</li>
+</ol>
+<p>Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses <strong>references instead of copy-paste</strong>, enabling automatic propagation of changes from a single source document to all formats via <strong>Quarto</strong> and <strong>Pandoc</strong>.</p>
+<p>Inspired by database principles: traditional relational database management systems (RDBMSs) address <strong>redundancy</strong> and <strong>update anomalies</strong> via <strong>eager, static updates</strong> (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., <strong>“repeatable read” isolation</strong>).</p>
+<p>Instead, this workflow like foreign key joins in databases adopts <strong>on-demand, lazy evaluation</strong>, dynamically resolving updates. Similar concepts include <strong>reference variables</strong>, <strong>class inheritance</strong>, and <strong>monorepos</strong>, where code is shared, not duplicated.</p>
+<ol start="2" type="1">
+<li>Cross-Platform Support</li>
+</ol>
+<p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
+<p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
+<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster_search">(see King n.d.b)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
+<p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
+<ol start="3" type="1">
+<li>Easy Comparison</li>
+</ol>
+<p>The workflow is compatible with Git and GitHub, as it uses <strong>plain text files</strong> (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.</p>
+<ol start="4" type="1">
+<li>User-Friendly Authoring</li>
+</ol>
+<p>Writing and maintaining your CV is easier than with <a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a> or typical web development tools, since you primarily use Markdown for content creation and editing.</p>
+</section>
+<section id="future-work" class="level1">
+<h1>Future Work</h1>
+<p>I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.</p>
+<p><strong>Feel free to contribute, ask questions, or share your feedback!</strong></p>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-king_dropbox_sharelist" class="csl-entry">
+King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+</div>
+<div id="ref-king_ticketmaster_search" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {Open-Source CV or Resume Engineering},
+  date = {2025-05-15},
+  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“Open-Source CV or Resume Engineering.”</span>
+May 15, 2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/en/">https://yhkee0404.github.io/posts/database/cv-or-resume/en/</a>.
+</div></div></section></div> ]]></description>
+  <category>database</category>
+  <category>cv</category>
+  <category>resume</category>
+  <category>consistency</category>
+  <category>cross-platform</category>
+  <category>platform independence</category>
+  <category>references</category>
+  <category>anomalies</category>
+  <category>eager</category>
+  <category>lazy</category>
+  <category>isolation</category>
+  <category>on-demand</category>
+  <category>inheritance</category>
+  <category>monorepo</category>
+  <category>full-text index</category>
+  <category>inverted index</category>
+  <category>LaTeX</category>
+  <category>large language models</category>
+  <category>open-source</category>
+  <category>Bay Area K Group</category>
+  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</guid>
+  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" medium="image" type="image/png" height="186" width="144"/>
+</item>
+<item>
+  <title>오픈소스 이력서 엔지니어링</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-about-jolla">
+<div class="about-entity">
+<div class="about-links">
+<a href="../en/" class="about-link" rel="alternate" hreflang="en">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to English</span>
+</a>
+</div>
+</div>
+</div>
+<div id="fig-cv-or-resume-ko" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cv-or-resume-ko-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../../_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png" class="lightbox" data-gallery="fig-cv-or-resume-ko" title="1 / 3"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png" class="img-fluid figure-img" alt="A photo of page 1 of 3 of the CV."></a></p>
+<figcaption>1 / 3</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../../_images/pdf/yhkee0404-cv-ko-2025-05-12-2-3.png" class="lightbox" data-gallery="fig-cv-or-resume-ko" title="2 / 3"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-2-3.png" class="img-fluid figure-img" alt="A photo of page 2 of 3 of the CV."></a></p>
+<figcaption>2 / 3</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../../_images/pdf/yhkee0404-cv-ko-2025-05-12-3-3.png" class="lightbox" data-gallery="fig-cv-or-resume-ko" title="3 / 3"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-3-3.png" class="img-fluid figure-img" alt="A photo of page 3 of 3 of the CV."></a></p>
+<figcaption>3 / 3</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cv-or-resume-ko-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 이력서 PDF (2025-05-12)
+</figcaption>
+</figure>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>이력서를 한 번에 여러 포맷(PDF, DOCX, 웹)으로 관리하는 게 번거로우셨나요? 오픈소스 프로젝트로 직접 워크플로우를 만들어봤습니다.</p>
+<p>👉 <a href="https://yhkee0404.github.io/cv/">웹에서 실제 이력서 예시 보기</a></p>
+<section id="이런-분들께-추천합니다" class="level2">
+<h2 class="anchored" data-anchor-id="이런-분들께-추천합니다">이런 분들께 추천합니다</h2>
+<ul>
+<li><p>하나만 고쳐도 모든 포맷에 반영하고 싶은 분</p></li>
+<li><p>네이티브 기능까지 자동 적용하고 싶은 분</p></li>
+<li><p>Git, GitHub 등 버전관리를 활용하고 싶은 분</p></li>
+<li><p>Markdown처럼 쉽게 작성하고 싶은 분</p></li>
+</ul>
+</section>
+<section id="어떻게-시작하나요" class="level2">
+<h2 class="anchored" data-anchor-id="어떻게-시작하나요">어떻게 시작하나요?</h2>
+<ol type="1">
+<li><p><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd">소스코드를 확인</a>한 다음</p></li>
+<li><p><a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">이 저장소를 포크</a>하고</p></li>
+<li><p><a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>로 배포해보세요.</p></li>
+</ol>
+<p>별도의 설치 없이도 <a href="https://docs.docker.com/compose/install/">Docker Compose</a>만 있으면 아래 명령어로 바로 로컬에서 <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a>에 접속하거나 <code>_site/cv/</code>를 열어 확인할 수 있습니다.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> yhkee0404.github.io</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force-recreate</span> quarto-preview</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># docker compose down</span></span></code></pre></div>
+</section>
+<section id="커스터마이징" class="level2">
+<h2 class="anchored" data-anchor-id="커스터마이징">커스터마이징</h2>
+<p>제가 참고한 이력서는 <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>의 <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a> 님 그리고 Google, Microsoft, Amazon에 합격한 <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a> 님의 <a href="https://www.piratekingdom.com/resume">이력서</a>예요. 더 잘 만드실 분들이 많이 계실 것 같습니다. <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">이 안내를 참고</a>해 직접 <code>reference.docx</code>를 만들 수 있고, 제 문서에도 처음부터 어떻게 만들었는지 기록해 두었습니다. 여러분만의 버전, 피드백, 질문을 공유해 주세요!</p>
+</section>
+</section>
+<section id="설계-목표" class="level1">
+<h1>설계 목표</h1>
+<p><a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a>의 <a href="https://www.youtube.com/@hello_interview">Hello Interview</a> 스터디에 참여하며 배운 인사이트를 가미해 설명해 봤어요.</p>
+<ol type="1">
+<li>정합성</li>
+</ol>
+<p>PDF, DOCX, 웹 등 다양한 형식의 이력서에서 일관성을 유지하는 것은 쉽지 않습니다. 각 버전을 수동으로 업데이트하다 보면 오류가 발생하기 쉽습니다. 이 워크플로우는 <strong>복사/붙여넣기 대신 참조(reference)</strong>를 사용하여, 하나의 소스 문서만 수정해도 <strong>Quarto</strong>와 <strong>Pandoc</strong>을 통해 모든 형식에 자동으로 반영됩니다.</p>
+<p>데이터베이스 원리에서 영감을 받았습니다. 전통적인 관계형 데이터베이스(RDBMS)는 <strong>중복(redundancy)</strong>과 <strong>갱신 이상(update anomaly)</strong> 문제를 <strong>즉각적이고(static)</strong>, <strong>선처리된(eager) 업데이트</strong>(원자적 트랜잭션, 혹은 스레드 동기화 활용) 또는 변경을 무시하는 방식(예: <strong>repeatable read</strong> 격리 수준)으로 해결할 수도 있습니다.</p>
+<p>대신, 이 워크플로우는 데이터베이스의 외래키 조인처럼 <strong>온디맨드(lazy)</strong> 평가 방식을 채택하여, 업데이트를 런타임에 동적으로 반영합니다. 프로그래밍의 <strong>참조 변수(reference variable)</strong>, <strong>클래스 상속(class inheritance)</strong>, <strong>모노레포(monorepo)</strong>(코드를 중복하지 않고 공유하는 방식)와도 유사합니다.</p>
+<ol start="2" type="1">
+<li>크로스플랫폼 지원</li>
+</ol>
+<p>플랫폼별로 고유한 내용이나 스타일이 있더라도, 단순 변환 도구(converter)만으로는 재사용이 어렵습니다. 변환된 파일을 직접 수정하면, 소스가 바뀔 때마다 수작업이 반복되고 데이터가 유실될 수 있습니다.</p>
+<p>이 워크플로우는 <strong>고립되거나 미완성된 내용이나 스타일도 참조</strong>할 수 있어, <strong>주석</strong>, <strong>CSS 파일</strong>, <strong>reference</strong> 문서 등에 미리 정의해 두고 필요할 때마다 쉽게 재사용할 수 있습니다.</p>
+<p><a href="https://quarto.org/docs/authoring/conditional.html">조건부 콘텐츠</a> 지원으로 각 출력물에 원하는 내용만 노출할 수 있고, 파일 가시성 제어처럼 설정할 수 있습니다 <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Maven, Gradle, npm 등 기존 빌드 툴이 빌드 단위로 의존성을 정의하는 것과 달리, 이 워크플로우는 반대로 의존성이나 문서 섹션 단위로 빌드를 선언할 수 있습니다. 데이터베이스의 <strong>전문 검색 인덱스(full-text index)</strong>나 검색 엔진의 <strong>역색인(inverted index)</strong>처럼 관련 포맷을 빠르게 파악할 수 있지만 <span class="citation" data-cites="king_ticketmaster_search">(see King n.d.b)</span>, 렌더링 성능 이점은 없습니다. Python Polylith는 이러한 의존성을 동적으로 <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">시각화</a>하기도 합니다.</p>
+<p>관계형 데이터베이스에서는 이런 문제를 <strong>삽입/삭제 이상(insertion and deletion anomaly)</strong>이라고 부릅니다. Notion, Confluence, 단순 웹 변환기 등은 <strong>플랫폼 독립성(platform independence)</strong>을 제공하지만, 너무 단순해서 맞춤형 콘텐츠나 스타일을 수정하기 어렵고, 이는 일종의 brute-force 방식(<strong>Serializable</strong> 격리 수준)과 비슷합니다. 이 워크플로우는 대신 <strong>관계</strong>, <strong>연결 리스트</strong>, <strong>트리</strong>, <strong>그래프</strong>, <strong>클래스 계층</strong>, <strong>서브모듈</strong>, <strong>다형성</strong>, <strong>동적 로딩</strong>, <strong>포터블 실행파일</strong> 등 <strong>중첩 데이터 구조(nested data structure)</strong>를 활용해 플랫폼별 요소를 유연하게 관리합니다. Quarto의 <a href="https://quarto.org/docs/authoring/includes.html">includes 기능</a>은 재사용을 간편하게 해주지만, 과도하게 사용하면 정신적 stack overflow가 올 수 있으니 주의가 필요합니다.</p>
+<ol start="3" type="1">
+<li>손쉬운 비교</li>
+</ol>
+<p>이 워크플로우는 Markdown 등 <strong>텍스트 파일</strong> 기반이기 때문에 Git, GitHub와 완벽하게 호환됩니다. 따라서 표준 버전 관리 도구로 변경 이력 추적, 버전 비교, 히스토리 리뷰가 쉽습니다.</p>
+<ol start="4" type="1">
+<li>쉬운 작성</li>
+</ol>
+<p><a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a>이나 일반적인 웹 개발 도구보다, Markdown 위주로 작성할 수 있어 이력서 작성과 유지관리가 훨씬 쉽습니다.</p>
+</section>
+<section id="기대-효과" class="level1">
+<h1>기대 효과</h1>
+<p>이 워크플로우가 여러분의 커리어 관리와 LLM(대형 언어 모델) 활용에도 도움이 되길 바랍니다.</p>
+<p>#OpenSource #이력서 #CV #Resume #Quarto #Markdown #GitHub #자동화 #개발자 #커리어</p>
+<p><strong>기여, 질문, 피드백 모두 환영합니다!</strong></p>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-king_dropbox_sharelist" class="csl-entry">
+King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+</div>
+<div id="ref-king_ticketmaster_search" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {오픈소스 이력서 엔지니어링},
+  date = {2025-05-15},
+  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/ko/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“오픈소스 이력서 엔지니어링.”</span> May 15,
+2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/ko/">https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</a>.
+</div></div></section></div> ]]></description>
+  <category>database</category>
+  <category>cv</category>
+  <category>resume</category>
+  <category>consistency</category>
+  <category>cross-platform</category>
+  <category>platform independence</category>
+  <category>references</category>
+  <category>anomalies</category>
+  <category>eager</category>
+  <category>lazy</category>
+  <category>isolation</category>
+  <category>on-demand</category>
+  <category>inheritance</category>
+  <category>monorepo</category>
+  <category>full-text index</category>
+  <category>inverted index</category>
+  <category>LaTeX</category>
+  <category>large language models</category>
+  <category>open-source</category>
+  <category>Bay Area K Group</category>
+  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</guid>
+  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
 <item>
   <title></title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -58,6 +352,8 @@
   <category>server-sent events</category>
   <category>WebSockets</category>
   <category>change data capture</category>
+  <category>full-text indexes</category>
+  <category>inverted indexes</category>
   <category>Bay Area K Group</category>
   <category>Ticketmaster</category>
   <guid>https://yhkee0404.github.io/posts/web/hello-interview/ticketmaster/</guid>
@@ -3820,61 +4116,6 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
   <media:content url="https://yhkee0404.github.io/_images/codetree/report_2023-10-02.png" medium="image" type="image/png" height="68" width="144"/>
 </item>
 <item>
-  <title>[코드트리 챌린지] 2주차 - Parametric Search</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-layout-panel" data-layout="[212, 788]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
-<figcaption>Parametric Search / 삼 오 무</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p><a href="https://www.codetree.ai/missions/8/problems/three-five-moo/" class="uri">https://www.codetree.ai/missions/8/problems/three-five-moo/</a></p>
-<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
-<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
-<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
-  author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},
-  date = {2023-09-25},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 2주차 - Parametric
-Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-2/">https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</a>.
-</div></div></section></div> ]]></description>
-  <category>코드트리</category>
-  <category>코딩테스트</category>
-  <category>코딩테스트실력진단</category>
-  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</guid>
-  <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
   <title>[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP</title>
   <dc:creator>Yunho Kee</dc:creator>
   <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-3/</link>
@@ -3933,58 +4174,59 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
   <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 231034.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색</title>
+  <title>[코드트리 챌린지] 2주차 - Parametric Search</title>
   <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-1/</link>
+  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<div class="quarto-layout-panel" data-layout="[493, 507]">
+<div class="quarto-layout-panel" data-layout="[212, 788]">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 49.3%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-11 230115.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-11 230115.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
+<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
 <figcaption>실력 진단 결과</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.7%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-11 224552.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="구간 단위로 완전탐색 / 아름다운 수열 2"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-11 224552.jpg" class="img-fluid figure-img" alt="구간 단위로 완전탐색 / 아름다운 수열 2"></a></p>
-<figcaption>구간 단위로 완전탐색 / 아름다운 수열 2</figcaption>
+<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
+<figcaption>Parametric Search / 삼 오 무</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><a href="https://www.codetree.ai/cote/14/problems/beautiful-sequence-2/" class="uri">https://www.codetree.ai/cote/14/problems/beautiful-sequence-2/</a></p>
-<p>36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.</p>
-<p>시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.</p>
+<p><a href="https://www.codetree.ai/missions/8/problems/three-five-moo/" class="uri">https://www.codetree.ai/missions/8/problems/three-five-moo/</a></p>
+<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
+<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
+<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
   author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},
-  date = {2023-09-11},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-1/},
+  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},
+  date = {2023-09-25},
+  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},
   langid = {ko}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 1주차 - 구간 단위로
-완전탐색.”</span> September 11, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-1/">https://yhkee0404.github.io/posts/algorithms/codetree/week-1/</a>.
+Kee, Yunho. 2023. <span>“[코드트리 챌린지] 2주차 - Parametric
+Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-2/">https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</a>.
 </div></div></section></div> ]]></description>
   <category>코드트리</category>
   <category>코딩테스트</category>
   <category>코딩테스트실력진단</category>
-  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-1/</guid>
-  <pubDate>Mon, 11 Sep 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-11 230115.jpg" medium="image" type="image/jpeg"/>
+  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</guid>
+  <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

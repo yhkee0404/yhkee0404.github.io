@@ -1,44 +1,8 @@
 [
   {
-    "listing": "/drafts/index.html",
-    "items": [
-      "/posts/database/cv-or-resume/ko/draft/index.html",
-      "/posts/algorithms/java-comparable-comparator/draft/index.html",
-      "/posts/data-science/proj/draft/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/troubleshoot/index.html",
-    "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/algorithms/index.html",
-    "items": [
-      "/posts/algorithms/decimal-round-down/index.html",
-      "/posts/algorithms/negative-zero/index.html",
-      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/algorithms/codetree/week-8/index.html",
-      "/posts/algorithms/codetree/week-7/index.html",
-      "/posts/algorithms/codetree/week-6/index.html",
-      "/posts/algorithms/codetree/week-5/index.html",
-      "/posts/algorithms/codetree/week-4/index.html",
-      "/posts/algorithms/codetree/week-2/index.html",
-      "/posts/algorithms/codetree/week-3/index.html",
-      "/posts/algorithms/codetree/week-1/index.html"
-    ]
-  },
-  {
     "listing": "/posts/data-science/index.html",
     "items": [
       "/posts/data-science/pvlib-timezone/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/database/index.html",
-    "items": [
-      "/posts/database/xml/index.html"
     ]
   },
   {
@@ -52,8 +16,17 @@
     ]
   },
   {
+    "listing": "/drafts/index.html",
+    "items": [
+      "/posts/algorithms/java-comparable-comparator/draft/index.html",
+      "/posts/data-science/proj/draft/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/database/cv-or-resume/en/index.html",
+      "/posts/database/cv-or-resume/ko/index.html",
       "/posts/web/hello-interview/dropbox/index.html",
       "/posts/web/hello-interview/ticketmaster/index.html",
       "/posts/algorithms/decimal-round-down/index.html",
@@ -70,9 +43,39 @@
       "/posts/algorithms/codetree/week-6/index.html",
       "/posts/algorithms/codetree/week-5/index.html",
       "/posts/algorithms/codetree/week-4/index.html",
-      "/posts/algorithms/codetree/week-2/index.html",
       "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
       "/posts/algorithms/codetree/week-1/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/algorithms/index.html",
+    "items": [
+      "/posts/algorithms/decimal-round-down/index.html",
+      "/posts/algorithms/negative-zero/index.html",
+      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/algorithms/codetree/week-8/index.html",
+      "/posts/algorithms/codetree/week-7/index.html",
+      "/posts/algorithms/codetree/week-6/index.html",
+      "/posts/algorithms/codetree/week-5/index.html",
+      "/posts/algorithms/codetree/week-4/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-1/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/troubleshoot/index.html",
+    "items": [
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/database/index.html",
+    "items": [
+      "/posts/database/cv-or-resume/en/index.html",
+      "/posts/database/cv-or-resume/ko/index.html",
+      "/posts/database/xml/index.html"
     ]
   }
 ]
