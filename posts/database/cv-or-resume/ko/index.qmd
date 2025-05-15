@@ -74,6 +74,8 @@ format-links:
 
 👉 [웹에서 실제 이력서 예시 보기](https://yhkee0404.github.io/cv/)
 
+👉 [소스코드 보기](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd)
+
 ## 이런 분들께 추천합니다
 
 - 하나만 고쳐도 모든 포맷에 반영하고 싶은 분
@@ -86,11 +88,9 @@ format-links:
 
 ## 어떻게 시작하나요?
 
-1. [소스코드를 확인](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd)한 다음
+1. [이 저장소를 포크](https://github.com/yhkee0404/yhkee0404.github.io/fork)하고
 
-2. [이 저장소를 포크](https://github.com/yhkee0404/yhkee0404.github.io/fork)하고
-
-3. [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html#source-branch)로 배포해보세요.
+2. [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html#source-branch)로 배포해보세요.
 
 별도의 설치 없이도 [Docker Compose](https://docs.docker.com/compose/install/)만 있으면
 아래 명령어로 바로 로컬에서 <https://localhost:8888/>에 접속하거나 `_site/cv/`를 열어 확인할 수 있습니다.
