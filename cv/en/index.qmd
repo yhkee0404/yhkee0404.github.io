@@ -98,7 +98,7 @@ Fixed the algorithm with leakage, boundary errors, invalid cache, and timezone b
 
 Fulfilled **24x more frequent** requests, reducing processing time from 3 hours to 2 minutes (**90x faster**) through chunking, file compression, tensor transposition, and preprocessing (AWS Fargate, NumPy, netCDF4, SciPy)
 
-Optimized coordinate transformation by reverse engineering (**47 s &rarr; 14 &micro;s**, **float32 → float64**, **99.55% → 100%**)
+Optimized coordinate transformation by reverse engineering (**47 s &rarr; 14 &micro;s**, **float32 &rarr; float64**, **99.55% &rarr; 100%**)
 
 Polled asynchronous inputs using non-blocking read-through caching and two-pointer techniques (Apache Airflow)
 
