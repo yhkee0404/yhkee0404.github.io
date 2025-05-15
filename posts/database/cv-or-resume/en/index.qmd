@@ -125,4 +125,6 @@ Writing and maintaining your CV is easier than with [LaTeX](https://github.com/s
 
 I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.
 
+#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career
+
 **Feel free to contribute, ask questions, or share your feedback!**
