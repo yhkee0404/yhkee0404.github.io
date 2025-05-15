@@ -1,0 +1,128 @@
+---
+title: "Open-Source CV or Resume Engineering"
+author: "Yunho Kee"
+date: "2025-05-15"
+categories:
+  - database
+  - cv
+  - resume
+  - consistency
+  - "cross-platform"
+  - "platform independence"
+  - references
+  - anomalies
+  - eager
+  - lazy
+  - isolation
+  - "on-demand"
+  - inheritance
+  - monorepo
+  - "full-text index"
+  - "inverted index"
+  - "LaTeX"
+  - "large language models"
+  - "open-source"
+  - "Bay Area K Group"
+aliases:
+  - /posts/database/cv-or-resume/draft
+image: "/_images/pdf/yhkee0404-cv-en.png"
+bibliography:
+  - king_dropbox_sharelist.bib
+  - king_ticketmaster_search.bib
+format-links:
+  - text: Korean
+    href: ../ko/
+    icon: translate
+    rel: alternate
+    # hreflang: ko-KR
+---
+
+:::::{.quarto-about-jolla}
+
+::::{.about-entity}
+
+:::{.about-links}
+
+```{=html}
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+```
+
+:::
+
+::::
+
+:::::
+
+![]({{< meta image >}}){fig-alt="A photo of a CV."}
+
+# Introduction
+
+Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume?
+This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.
+
+You can [see the live web version](https://yhkee0404.github.io/cv/en/) and [explore the source code here](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd) to try it out right away.
+
+To get started, simply [fork the repository](https://github.com/yhkee0404/yhkee0404.github.io/fork) and deploy your CV or resume online using [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html#source-branch).
+This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including `.pdf` and `.docx`.
+
+Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice.
+Just install [Docker Compose](https://docs.docker.com/compose/install/), run the commands below, and view your CV at <https://localhost:8888/> or in the `_site/cv/` directory:
+
+```sh
+git clone https://github.com/yhkee0404/yhkee0404.github.io
+cd yhkee0404.github.io
+docker compose up -d --force-recreate quarto-preview
+# docker compose down
+```
+
+This project draws inspiration from [Kyungho (Kay) Kim](https://www.linkedin.com/in/kaykim30/), founder of the [Global Coding Community (GCC)](https://lnkd.in/gf5b-e26), and [PIRATE KING](https://www.linkedin.com/in/pirateking/), whose [resume](https://www.piratekingdom.com/resume) led to offers from Google, Microsoft, and Amazon.
+I believe we can make it even better together.
+You can create your own `reference.docx` using [these instructions](https://quarto.org/docs/output-formats/ms-word-templates.html), and I've included information in my version on how I built it from scratch.
+Feel free to share your own versions, feedback, or questions!
+
+# Objectives
+
+This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes.
+Here are some key benefits and features which include my insights that I had learnt from [Bay Area K Group](https://www.linkedin.com/company/bay-area-k-group/) and [Hello Interview](https://www.youtube.com/@hello_interview):
+
+1. Consistency
+
+Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone.
+This workflow uses **references instead of copy-paste**, enabling automatic propagation of changes from a single source document to all formats via **Quarto** and **Pandoc**.
+
+Inspired by database principles:
+traditional relational database management systems (RDBMSs) address **redundancy** and **update anomalies** via **eager, static updates** (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., **"repeatable read" isolation**).
+
+Instead, this workflow like foreign key joins in databases adopts **on-demand, lazy evaluation**, dynamically resolving updates.
+Similar concepts include **reference variables**, **class inheritance**, and **monorepos**, where code is shared, not duplicated.
+
+2. Cross-Platform Support
+
+Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform.
+Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.
+
+This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles.
+You can preprocess elements within **comments**, **CSS files**, or **reference documents**, making them available for future use without permanent deletion.
+
+Support for [conditional contents](https://quarto.org/docs/authoring/conditional.html) enables precise control over what appears in each output, similar to managing file visibility [see @king_dropbox_sharelist].
+Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section.
+It helps you quickly locate relevant formats --- much like **full-text indexes** in databases or **inverted indexes** in search engines [see @king_ticketmaster_search] --- though without any rendering performance gain.
+Tools like Python Polylith also [visualize](https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html) such dependencies dynamically.
+
+Traditional relational database management systems (RDBMSs) call related issues **insertion and deletion anomalies**. While some solutions (like Notion, Confluence, or basic web converters) offer **platform independence**, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the **serializable** isolation level. Instead, this workflow leverages **nested data structures** --- including **relations**, **linked lists**, **trees**, **graphs**, **class hierarchies**, **submodules**, **polymorphism**, **dynamic loading**, and **portable executables** --- to flexibly manage platform-specific elements. Quarto's [includes feature](https://quarto.org/docs/authoring/includes.html) streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.
+
+3. Easy Comparison
+
+The workflow is compatible with Git and GitHub, as it uses **plain text files** (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.
+
+4. User-Friendly Authoring
+
+Writing and maintaining your CV is easier than with [LaTeX](https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex) or typical web development tools, since you primarily use Markdown for content creation and editing.
+
+# Future Work
+
+I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.
+
+**Feel free to contribute, ask questions, or share your feedback!**

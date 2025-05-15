@@ -29,7 +29,7 @@ services:
       - -c
     command:
       - |
-        quarto preview --port 8888 --host 0.0.0.0
-        sleep infinity
+        quarto preview --port 8888 --host 0.0.0.0 --no-browser
+        # sleep infinity
     ports:
       - "8888:8888"

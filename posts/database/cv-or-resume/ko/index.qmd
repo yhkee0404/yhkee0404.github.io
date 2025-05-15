@@ -1,0 +1,174 @@
+---
+title: "오픈소스 이력서 엔지니어링"
+author: "Yunho Kee"
+date: "2025-05-15"
+categories:
+  - database
+  - cv
+  - resume
+  - consistency
+  - "cross-platform"
+  - "platform independence"
+  - references
+  - anomalies
+  - eager
+  - lazy
+  - isolation
+  - "on-demand"
+  - inheritance
+  - monorepo
+  - "full-text index"
+  - "inverted index"
+  - "LaTeX"
+  - "large language models"
+  - "open-source"
+  - "Bay Area K Group"
+aliases:
+  - /posts/database/cv-or-resume/draft
+image: "/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png"
+bibliography:
+  - king_dropbox_sharelist.bib
+  - king_ticketmaster_search.bib
+format-links:
+  - text: English
+    href: ../en/
+    icon: translate
+    rel: alternate
+    # hreflang: en
+---
+
+:::::{.quarto-about-jolla}
+
+::::{.about-entity}
+
+:::{.about-links}
+
+```{=html}
+<a href="../en/" class="about-link" rel="alternate" hreflang="en">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to English</span>
+</a>
+```
+
+:::
+
+::::
+
+:::::
+
+:::{#fig-cv-or-resume-ko layout-ncol=3}
+![1 / 3]({{< meta image >}}){group="fig-cv-or-resume-ko" fig-alt="A photo of page 1 of 3 of the CV."}
+
+
+![2 / 3](/_images/pdf/yhkee0404-cv-ko-2025-05-12-2-3.png){group="fig-cv-or-resume-ko" fig-alt="A photo of page 2 of 3 of the CV."}
+
+
+![3 / 3](/_images/pdf/yhkee0404-cv-ko-2025-05-12-3-3.png){group="fig-cv-or-resume-ko" fig-alt="A photo of page 3 of 3 of the CV."}
+
+이력서 PDF (2025-05-12)
+:::
+
+# Introduction
+
+이력서를 한 번에 여러 포맷(PDF, DOCX, 웹)으로 관리하는 게 번거로우셨나요?
+오픈소스 프로젝트로 직접 워크플로우를 만들어봤습니다.
+
+👉 [웹에서 실제 이력서 예시 보기](https://yhkee0404.github.io/cv/)
+
+## 이런 분들께 추천합니다
+
+- 하나만 고쳐도 모든 포맷에 반영하고 싶은 분
+
+- 네이티브 기능까지 자동 적용하고 싶은 분
+
+- Git, GitHub 등 버전관리를 활용하고 싶은 분
+
+- Markdown처럼 쉽게 작성하고 싶은 분
+
+## 어떻게 시작하나요?
+
+1. [소스코드를 확인](https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd)한 다음
+
+2. [이 저장소를 포크](https://github.com/yhkee0404/yhkee0404.github.io/fork)하고
+
+3. [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html#source-branch)로 배포해보세요.
+
+별도의 설치 없이도 [Docker Compose](https://docs.docker.com/compose/install/)만 있으면
+아래 명령어로 바로 로컬에서 <https://localhost:8888/>에 접속하거나 `_site/cv/`를 열어 확인할 수 있습니다.
+
+```sh
+git clone https://github.com/yhkee0404/yhkee0404.github.io
+cd yhkee0404.github.io
+docker compose up -d --force-recreate quarto-preview
+# docker compose down
+```
+
+## 커스터마이징
+
+제가 참고한 이력서는 [Global Coding Community (GCC)](https://lnkd.in/gf5b-e26)의 [Kyungho (Kay) Kim](https://www.linkedin.com/in/kaykim30/) 님 그리고 Google, Microsoft, Amazon에 합격한 [PIRATE KING](https://www.linkedin.com/in/pirateking/) 님의 [이력서](https://www.piratekingdom.com/resume)예요.
+더 잘 만드실 분들이 많이 계실 것 같습니다.
+[이 안내를 참고](https://quarto.org/docs/output-formats/ms-word-templates.html)해 직접 `reference.docx`를 만들 수 있고,
+제 문서에도 처음부터 어떻게 만들었는지 기록해 두었습니다.
+여러분만의 버전, 피드백, 질문을 공유해 주세요!
+
+# 설계 목표
+
+[Bay Area K Group](https://www.linkedin.com/company/bay-area-k-group/)의 [Hello Interview](https://www.youtube.com/@hello_interview) 스터디에 참여하며 배운 인사이트를 가미해 설명해 봤어요.
+
+1. 정합성
+
+PDF, DOCX, 웹 등 다양한 형식의 이력서에서 일관성을 유지하는 것은 쉽지 않습니다.
+각 버전을 수동으로 업데이트하다 보면 오류가 발생하기 쉽습니다.
+이 워크플로우는 **복사/붙여넣기 대신 참조(reference)**를 사용하여, 하나의 소스 문서만 수정해도 **Quarto**와 **Pandoc**을 통해 모든 형식에 자동으로 반영됩니다.
+
+데이터베이스 원리에서 영감을 받았습니다.
+전통적인 관계형 데이터베이스(RDBMS)는 **중복(redundancy)**과 **갱신 이상(update anomaly)** 문제를
+**즉각적이고(static)**, **선처리된(eager) 업데이트**(원자적 트랜잭션, 혹은 스레드 동기화 활용) 또는
+변경을 무시하는 방식(예: **repeatable read** 격리 수준)으로 해결할 수도 있습니다.
+
+대신, 이 워크플로우는 데이터베이스의 외래키 조인처럼 **온디맨드(lazy)** 평가 방식을 채택하여,
+업데이트를 런타임에 동적으로 반영합니다.
+프로그래밍의 **참조 변수(reference variable)**, **클래스 상속(class inheritance)**,
+**모노레포(monorepo)**(코드를 중복하지 않고 공유하는 방식)와도 유사합니다.
+
+2. 크로스플랫폼 지원
+
+플랫폼별로 고유한 내용이나 스타일이 있더라도, 단순 변환 도구(converter)만으로는 재사용이 어렵습니다.
+변환된 파일을 직접 수정하면, 소스가 바뀔 때마다 수작업이 반복되고 데이터가 유실될 수 있습니다.
+
+이 워크플로우는 **고립되거나 미완성된 내용이나 스타일도 참조**할 수 있어,
+**주석**, **CSS 파일**, **reference** 문서 등에 미리 정의해 두고 필요할 때마다 쉽게 재사용할 수 있습니다.
+
+[조건부 콘텐츠](https://quarto.org/docs/authoring/conditional.html) 지원으로 각 출력물에 원하는 내용만 노출할 수 있고, 파일 가시성 제어처럼 설정할 수 있습니다 [see @king_dropbox_sharelist].
+Maven, Gradle, npm 등 기존 빌드 툴이 빌드 단위로 의존성을 정의하는 것과 달리,
+이 워크플로우는 반대로 의존성이나 문서 섹션 단위로 빌드를 선언할 수 있습니다.
+데이터베이스의 **전문 검색 인덱스(full-text index)**나 검색 엔진의 **역색인(inverted index)**처럼
+관련 포맷을 빠르게 파악할 수 있지만 [see @king_ticketmaster_search], 렌더링 성능 이점은 없습니다.
+Python Polylith는 이러한 의존성을 동적으로 [시각화](https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html)하기도 합니다.
+
+관계형 데이터베이스에서는 이런 문제를 **삽입/삭제 이상(insertion and deletion anomaly)**이라고 부릅니다.
+Notion, Confluence, 단순 웹 변환기 등은 **플랫폼 독립성(platform independence)**을 제공하지만,
+너무 단순해서 맞춤형 콘텐츠나 스타일을 수정하기 어렵고,
+이는 일종의 brute-force 방식(**Serializable** 격리 수준)과 비슷합니다.
+이 워크플로우는 대신 **관계**, **연결 리스트**, **트리**, **그래프**, **클래스 계층**, **서브모듈**, **다형성**, **동적 로딩**, **포터블 실행파일** 등
+**중첩 데이터 구조(nested data structure)**를 활용해 플랫폼별 요소를 유연하게 관리합니다.
+Quarto의 [includes 기능](https://quarto.org/docs/authoring/includes.html)은 재사용을 간편하게 해주지만,
+과도하게 사용하면 정신적 stack overflow가 올 수 있으니 주의가 필요합니다.
+
+3. 손쉬운 비교
+
+이 워크플로우는 Markdown 등 **텍스트 파일** 기반이기 때문에 Git, GitHub와 완벽하게 호환됩니다.
+따라서 표준 버전 관리 도구로 변경 이력 추적, 버전 비교, 히스토리 리뷰가 쉽습니다.
+
+4. 쉬운 작성
+
+[LaTeX](https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex)이나
+일반적인 웹 개발 도구보다, Markdown 위주로 작성할 수 있어
+이력서 작성과 유지관리가 훨씬 쉽습니다.
+
+# 기대 효과
+
+이 워크플로우가 여러분의 커리어 관리와 LLM(대형 언어 모델) 활용에도 도움이 되길 바랍니다.
+
+#OpenSource #이력서 #CV #Resume #Quarto #Markdown #GitHub #자동화 #개발자 #커리어
+
+**기여, 질문, 피드백 모두 환영합니다!**

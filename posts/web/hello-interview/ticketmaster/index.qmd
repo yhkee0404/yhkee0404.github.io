@@ -19,6 +19,8 @@ categories:
   - "server-sent events"
   - "WebSockets"
   - "change data capture"
+  - "full-text indexes"
+  - "inverted indexes"
   - "Bay Area K Group"
   - "Ticketmaster"
 bibliography:
