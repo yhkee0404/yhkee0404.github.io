@@ -85,7 +85,7 @@ Feel free to share your own versions, feedback, or questions!
 # Objectives
 
 This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes.
-Here are some key benefits and features which include my insights that I had learnt from [Bay Area K Group](https://www.linkedin.com/company/bay-area-k-group/) and [Hello Interview](https://www.youtube.com/@hello_interview):
+Here are some key benefits and features informed by insights I gained from [Bay Area K Group](https://www.linkedin.com/company/bay-area-k-group/) and [Hello Interview](https://www.youtube.com/@hello_interview):
 
 1. Consistency
 
