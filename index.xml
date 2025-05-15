@@ -195,6 +195,7 @@ Figure&nbsp;1: 이력서 PDF (2025-05-12)
 <h1>Introduction</h1>
 <p>이력서를 한 번에 여러 포맷(PDF, DOCX, 웹)으로 관리하는 게 번거로우셨나요? 오픈소스 프로젝트로 직접 워크플로우를 만들어봤습니다.</p>
 <p>👉 <a href="https://yhkee0404.github.io/cv/">웹에서 실제 이력서 예시 보기</a></p>
+<p>👉 <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd">소스코드 보기</a></p>
 <section id="이런-분들께-추천합니다" class="level2">
 <h2 class="anchored" data-anchor-id="이런-분들께-추천합니다">이런 분들께 추천합니다</h2>
 <ul>
@@ -207,7 +208,6 @@ Figure&nbsp;1: 이력서 PDF (2025-05-12)
 <section id="어떻게-시작하나요" class="level2">
 <h2 class="anchored" data-anchor-id="어떻게-시작하나요">어떻게 시작하나요?</h2>
 <ol type="1">
-<li><p><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/ko/index.qmd">소스코드를 확인</a>한 다음</p></li>
 <li><p><a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">이 저장소를 포크</a>하고</p></li>
 <li><p><a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>로 배포해보세요.</p></li>
 </ol>

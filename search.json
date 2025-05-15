@@ -634,7 +634,7 @@
     "href": "posts/database/cv-or-resume/ko/index.html#어떻게-시작하나요",
     "title": "오픈소스 이력서 엔지니어링",
     "section": "어떻게 시작하나요?",
-    "text": "어떻게 시작하나요?\n\n소스코드를 확인한 다음\n이 저장소를 포크하고\nGitHub Pages로 배포해보세요.\n\n별도의 설치 없이도 Docker Compose만 있으면 아래 명령어로 바로 로컬에서 https://localhost:8888/에 접속하거나 _site/cv/를 열어 확인할 수 있습니다.\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down"
+    "text": "어떻게 시작하나요?\n\n이 저장소를 포크하고\nGitHub Pages로 배포해보세요.\n\n별도의 설치 없이도 Docker Compose만 있으면 아래 명령어로 바로 로컬에서 https://localhost:8888/에 접속하거나 _site/cv/를 열어 확인할 수 있습니다.\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down"
   },
   {
     "objectID": "posts/database/cv-or-resume/ko/index.html#커스터마이징",
