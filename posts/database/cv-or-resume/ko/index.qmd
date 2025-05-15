@@ -24,7 +24,7 @@ categories:
   - "open-source"
   - "Bay Area K Group"
 aliases:
-  - /posts/database/cv-or-resume/draft
+  - /posts/database/cv-or-resume/
 image: "/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png"
 bibliography:
   - king_dropbox_sharelist.bib
