@@ -69,9 +69,13 @@ format:
 resource-path:
   - ../../../_bibliographies/book/
   - ../../../_bibliographies/online/
+  - ../../../_bibliographies/paper/
   - ../../../../_bibliographies/book/
   - ../../../../_bibliographies/online/
+  - ../../../../_bibliographies/paper/
   - ../../../../../_bibliographies/book/
   - ../../../../../_bibliographies/online/
+  - ../../../../../_bibliographies/paper/
   - ../../../../../../_bibliographies/book/
   - ../../../../../../_bibliographies/online/
+  - ../../../../../../_bibliographies/paper/
