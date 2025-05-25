@@ -16,7 +16,82 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Thu, 15 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 25 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Transformer에서 배울 점</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/data-science/transformer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Mohit Kumar on Unsplash"><img src="https://yhkee0404.github.io/_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" class="img-fluid figure-img" alt="A photo of a bird's eye view of a city."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@98mohitkumar?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Mohit Kumar</a> on <a href="https://unsplash.com/photos/aerial-photography-of-buildings-6M9xiVgkoN0?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
+<p>Transformer 논문에서 배울 점은 무엇일까?</p>
+<ol type="1">
+<li>RNN(Recurrent Neural Networks)과 Transformer의 비교</li>
+</ol>
+<p>RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 <strong>Encoder의 전처리</strong> 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.</p>
+<ol start="2" type="1">
+<li>GPT(Generative Pre-trained Transformer)와 Transformer의 비교</li>
+</ol>
+<p>GPT(Generative Pre-trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다.</p>
+<ol start="3" type="1">
+<li>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</li>
+</ol>
+<p>Transformer의 Encoder와 Decoder는 둘다 <img src="https://latex.codecogs.com/png.latex?N%20=%206">개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2023attentionneed">(Vaswani et al. 2023)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
+<ol start="4" type="1">
+<li>Layer Normalization과 비교</li>
+</ol>
+<p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization.bib">(see <strong>commit_im2025layer_normalization.bib?</strong> s)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>.</p>
+<p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개이다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
+<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization.bib">(see <strong>commit_im2025layer_normalization.bib?</strong> s)</span>.</p>
+<ol start="5" type="1">
+<li>Residual Connections</li>
+</ol>
+<p>Layer들의 <strong>집합</strong>이 <img src="https://latex.codecogs.com/png.latex?N">개일 때 <strong>Residual Connections</strong>를 통해 출력에 <img src="https://latex.codecogs.com/png.latex?N">개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <img src="https://latex.codecogs.com/png.latex?2%5EN">개가 기여할 수 있다.</p>
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-li2019positionalnormalization" class="csl-entry">
+Li, Boyi, Felix Wu, Kilian Q. Weinberger, and Serge Belongie. 2019. <span>“Positional Normalization.”</span> <a href="https://arxiv.org/abs/1907.04312">https://arxiv.org/abs/1907.04312</a>.
+</div>
+<div id="ref-vaswani2023attentionneed" class="csl-entry">
+Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2023. <span>“Attention Is All You Need.”</span> <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {Transformer에서 배울 점},
+  date = {2025-05-25},
+  url = {https://yhkee0404.github.io/posts/data-science/transformer/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“Transformer에서 배울 점.”</span> May 25, 2025.
+<a href="https://yhkee0404.github.io/posts/data-science/transformer/">https://yhkee0404.github.io/posts/data-science/transformer/</a>.
+</div></div></section></div> ]]></description>
+  <category>data science</category>
+  <category>transformer</category>
+  <category>rnn</category>
+  <category>gpt</category>
+  <category>encoder</category>
+  <category>decoder</category>
+  <category>stateless</category>
+  <category>auto-regressive</category>
+  <category>normalization</category>
+  <category>residual</category>
+  <guid>https://yhkee0404.github.io/posts/data-science/transformer/</guid>
+  <pubDate>Sun, 25 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Open-Source CV or Resume Engineering</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -4173,61 +4248,6 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 �
   <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-3/</guid>
   <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 231034.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>[코드트리 챌린지] 2주차 - Parametric Search</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-layout-panel" data-layout="[212, 788]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 21.2%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 78.8%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Parametric Search / 삼 오 무"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 235104.jpg" class="img-fluid figure-img" alt="Parametric Search / 삼 오 무"></a></p>
-<figcaption>Parametric Search / 삼 오 무</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p><a href="https://www.codetree.ai/missions/8/problems/three-five-moo/" class="uri">https://www.codetree.ai/missions/8/problems/three-five-moo/</a></p>
-<p>감사하게도 보충 기회를 얻어 3주차에 작성한다.</p>
-<p>실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.</p>
-<p>Search 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
-  author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},
-  date = {2023-09-25},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 2주차 - Parametric
-Search.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-2/">https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</a>.
-</div></div></section></div> ]]></description>
-  <category>코드트리</category>
-  <category>코딩테스트</category>
-  <category>코딩테스트실력진단</category>
-  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-2/</guid>
-  <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 234743.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -63,480 +63,32 @@
     "text": "Footnotes\n\n\n다운로드를 요구하지 않는 Wikipedia가 더 편해 보인다.↩︎"
   },
   {
-    "objectID": "posts/database/cv-or-resume/en/index.html",
-    "href": "posts/database/cv-or-resume/en/index.html",
-    "title": "Open-Source CV or Resume Engineering",
+    "objectID": "posts/database/cv-or-resume/ko/index.html",
+    "href": "posts/database/cv-or-resume/ko/index.html",
+    "title": "오픈소스 이력서 엔지니어링",
     "section": "",
-    "text": "Switch to Korean\n\n\n\n\n\n\nIntroduction\nAre you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.\nYou can see the live web version and explore the source code here to try it out right away.\nTo get started, simply fork the repository and deploy your CV or resume online using GitHub Pages. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including .pdf and .docx.\nAlternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install Docker Compose, run the commands below, and view your CV at https://localhost:8888/ or in the _site/cv/ directory:\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down\nThis project draws inspiration from Kyungho (Kay) Kim, founder of the Global Coding Community (GCC), and PIRATE KING, whose resume led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own reference.docx using these instructions, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!\n\n\nObjectives\nThis project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from Bay Area K Group and Hello Interview:\n\nConsistency\n\nMaintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses references instead of copy-paste, enabling automatic propagation of changes from a single source document to all formats via Quarto and Pandoc.\nInspired by database principles: traditional relational database management systems (RDBMSs) address redundancy and update anomalies via eager, static updates (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., “repeatable read” isolation).\nInstead, this workflow like foreign key joins in databases adopts on-demand, lazy evaluation, dynamically resolving updates. Similar concepts include reference variables, class inheritance, and monorepos, where code is shared, not duplicated.\n\nCross-Platform Support\n\nMaintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.\nThis workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within comments, CSS files, or reference documents, making them available for future use without permanent deletion.\nSupport for conditional contents enables precise control over what appears in each output, similar to managing file visibility (see King n.d.a). Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like full-text indexes in databases or inverted indexes in search engines (see King n.d.b) — though without any rendering performance gain. Tools like Python Polylith also visualize such dependencies dynamically.\nTraditional relational database management systems (RDBMSs) call related issues insertion and deletion anomalies. While some solutions (like Notion, Confluence, or basic web converters) offer platform independence, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the serializable isolation level. Instead, this workflow leverages nested data structures — including relations, linked lists, trees, graphs, class hierarchies, submodules, polymorphism, dynamic loading, and portable executables — to flexibly manage platform-specific elements. Quarto’s includes feature streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.\n\nEasy Comparison\n\nThe workflow is compatible with Git and GitHub, as it uses plain text files (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.\n\nUser-Friendly Authoring\n\nWriting and maintaining your CV is easier than with LaTeX or typical web development tools, since you primarily use Markdown for content creation and editing.\n\n\nFuture Work\nI hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.\n#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career\nFeel free to contribute, ask questions, or share your feedback!\n\n\n\n\n\n Back to topReferences\n\nKing, Evan. n.d.a. “Design a File Storage Service Like Dropbox.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users.\n\n\n———. n.d.b. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements.\n\nCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {Open-Source CV or Resume Engineering},\n  date = {2025-05-15},\n  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “Open-Source CV or Resume Engineering.”\nMay 15, 2025. https://yhkee0404.github.io/posts/database/cv-or-resume/en/."
+    "text": "Switch to English"
   },
   {
-    "objectID": "posts/database/xml/index.html",
-    "href": "posts/database/xml/index.html",
-    "title": "XML",
-    "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+    "objectID": "posts/database/cv-or-resume/ko/index.html#이런-분들께-추천합니다",
+    "href": "posts/database/cv-or-resume/ko/index.html#이런-분들께-추천합니다",
+    "title": "오픈소스 이력서 엔지니어링",
+    "section": "이런 분들께 추천합니다",
+    "text": "이런 분들께 추천합니다\n\n하나만 고쳐도 모든 포맷에 반영하고 싶은 분\n네이티브 기능까지 자동 적용하고 싶은 분\nGit, GitHub 등 버전관리를 활용하고 싶은 분\nMarkdown처럼 쉽게 작성하고 싶은 분"
   },
   {
-    "objectID": "posts/database/xml/index.html#semistructured-data",
-    "href": "posts/database/xml/index.html#semistructured-data",
-    "title": "XML",
-    "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+    "objectID": "posts/database/cv-or-resume/ko/index.html#어떻게-시작하나요",
+    "href": "posts/database/cv-or-resume/ko/index.html#어떻게-시작하나요",
+    "title": "오픈소스 이력서 엔지니어링",
+    "section": "어떻게 시작하나요?",
+    "text": "어떻게 시작하나요?\n\n이 저장소를 포크하고\nGitHub Pages로 배포해보세요.\n\n별도의 설치 없이도 Docker Compose만 있으면 아래 명령어로 바로 로컬에서 https://localhost:8888/에 접속하거나 _site/cv/를 열어 확인할 수 있습니다.\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down"
   },
   {
-    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
-    "href": "posts/database/xml/index.html#html과-xml의-차이",
-    "title": "XML",
-    "section": "HTML과 XML의 차이",
-    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#semantic-tags",
-    "href": "posts/database/xml/index.html#semantic-tags",
-    "title": "XML",
-    "section": "Semantic Tags",
-    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#xml-schema",
-    "href": "posts/database/xml/index.html#xml-schema",
-    "title": "XML",
-    "section": "XML Schema",
-    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#dtd의-유연성",
-    "href": "posts/database/xml/index.html#dtd의-유연성",
-    "title": "XML",
-    "section": "DTD의 유연성",
-    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Reasonable Suspicion",
-    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Google LLC",
-    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#transactions",
-    "href": "posts/web/hello-interview/dropbox/index.html#transactions",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Transactions",
-    "text": "Transactions\n\n\n\nAtomicity\n\nAll or Nothing\nSubjective Term: Internal Atomicity\nRollback 1\n\n(Consistency)\n\nDatabase Constraints 2\n\n\n\n\nIsolation\n\nSerializability\n\nNo Overlap 3\nSubjective Term: External Atomicity\n\nRepeatability ↔︎ Resumability or Parallellism\n\n\n\nUllman and Widom (2014), p. 293Ullman and Widom (2014), p. 9Ullman and Widom (2014), p. 291"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
-    "href": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Subjective Term:  Internal Atomicity",
-    "text": "Subjective Term:  Internal Atomicity\n\n\n\nTimeout\nScope\n\nNetwork-Level Status\n\nIntegrity: Pre-Signed URLs\n\nApplication-Level Status\n\n\n\n\nConsistency\n\nDirections\n\n\n(Persistent Connections)\n\nLong Polling\nServer-Sent Events\nWebSockets\n\nPush from Source\n\nNotification\n\nIntranet ↔︎ Internet\n\n(Adaptive) Cron\n\n\n\n\n\nPull from Destination or (Lazy) Resilience\n\nOn-Demand Refresh\n(Adaptive) Polling\n(Periodic) Reconciliation"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
-    "href": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "(Repeatability or Recovery)",
-    "text": "(Repeatability or Recovery)\nSubjective Term: Internal Serializability\nor Internal External Atomicity\n\n\n\nEvent Stream or Event Bus, e.g. Kafka\nChange Data Capture\nCursors\nTypes\n\nChanges\nSnapshots\n\n\n\n\nActions\n\nRollback\nRoll Forward, c.f. Replay\n\nAudit Trails\nPartitioning"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#chunks",
-    "href": "posts/web/hello-interview/dropbox/index.html#chunks",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Chunks",
-    "text": "Chunks\n\n\n\nOptions\n\nSize Upper Bound, e.g. 10 MB\n\nDirectory: Segmentation\n\nCompression Algorithms\nVersions\nLogs\n\n\n\n\nScope\n\nDatabase Entity\n\nDurability\nTime-Saving Preprocess\n\nNetwork Protocol Data Unit\n\nAdaptive Size\nReal-Time Intelligence\n\nEncapsulation\n\nExternal Blob Storage"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
-    "href": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Content Distribution Networks",
-    "text": "Content Distribution Networks\n\nCache: Benefit of Reusability\n\nStatic Data\n\nDatabase\nNetwork\n\nShared Data ↔︎ Private\n\nBenefit of Distance\n\nFar Data Centers\nNear Users"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Optional  Functional Requirements",
-    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#references",
-    "href": "posts/web/hello-interview/dropbox/index.html#references",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "References",
-    "text": "References\n\n\n\n\nKing, Evan. n.d. “System Design Interview: Design Dropbox or Google Drive w/ a Ex-Meta Staff Engineer.” Accessed April 12, 2025. https://youtu.be/_UZ1ngy-kOI?si=zeVM5kvX7o8lnk_7.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/index.html",
-    "href": "posts/web/microservice-spof/index.html",
-    "title": "Microservice와 Single Point of Failure (SPOF)",
-    "section": "",
-    "text": "웹 개발자 Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof/."
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html",
-    "href": "posts/algorithms/decimal-round-down/index.html",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "",
-    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#intro",
-    "href": "posts/algorithms/decimal-round-down/index.html#intro",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "",
-    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#정수-오차",
-    "href": "posts/algorithms/decimal-round-down/index.html#정수-오차",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "정수 오차",
-    "text": "정수 오차\n저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다."
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#실수-오차",
-    "href": "posts/algorithms/decimal-round-down/index.html#실수-오차",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "실수 오차",
-    "text": "실수 오차\n정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2\n\nprint(five, int(five))\nprint(four, int(four))\n\n5.0 5\n4.0 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2')\n\nprint(five, int(five), five.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.000000000000000000000000001 5 5\n3.999999999999999999999999998 3 3"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#오차-관리",
-    "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "오차 관리",
-    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리까지 필요하다면 그보다 작은 수를 가령 n + 1번째 자리에 1을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, ROUND_DOWN이나 ROUND_HALF_UP이 필요할 때이다. 뺄 때는 절상, 올림, ROUND_UP이나 ROUND_HALF_DOWN이 요구될 때이다.\n\n_EPSILON = 1e-2\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2 + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon))\nprint(four, int(four))\n\n5.01 5\n4.01 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\n_EPSILON = Decimal('1e-2')\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2') + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon), five_epsilon.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.010000000000000000000000001 5 5\n4.009999999999999999999999998 4 4"
-  },
-  {
-    "objectID": "posts/algorithms/decimal-round-down/index.html#언어-초월",
-    "href": "posts/algorithms/decimal-round-down/index.html#언어-초월",
-    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
-    "section": "언어 초월",
-    "text": "언어 초월\nJava의 BigDecimal은 오차를 지역적으로 관리한다. 오차 관리가 필요할 때 Runtime에 ArithmeticException을 발생시킨다. 이처럼 반강제적인 예외 처리는 Python에서 발생할 오차를 일부 예방한다. 가령 연산 과정마다 주의하며 RoundingMode 그리고 scale이나 precision 등을 일일이 명시해야 지역적 오차로 인한 비정상 종료가 방지된다.\n하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시의 printNaiveBigDecimals에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.\n그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 printEpsilonBigDecimals에서 divideRoundingMode가 RoundingMode.DOWN, RoundingMode.UP 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.\nimport java.math.BigDecimal;\nimport java.math.MathContext;\nimport java.math.RoundingMode;\n\nclass DecimalRoundDown {\n\n    public static void main(final String[] args) {\n\n        printNaivePrimitiveDoubles();\n        \n        System.out.println();\n        printNaiveBigDecimals(RoundingMode.DOWN);\n        printNaiveBigDecimals(RoundingMode.UP);\n        \n        System.out.println();\n        printEpsilonPrimitiveDoubles();\n        \n        System.out.println();\n        printEpsilonBigDecimals(RoundingMode.DOWN);\n        printEpsilonBigDecimals(RoundingMode.UP);\n\n    }\n\n    private static void printNaivePrimitiveDoubles() {\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2;\n\n        System.out.println(five + \" \" + (int) five);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printNaiveBigDecimals(final RoundingMode divideRoundingMode) {\n\n        BigDecimal five;\n        try {\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"))\n                    .multiply(new BigDecimal(\"3\"));\n        } catch (Exception e) {\n            e.printStackTrace();\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                    .multiply(new BigDecimal(\"3\"));\n        }\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"));\n\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(five + \" \" + five.intValue() + \" \" + five.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n    private static void printEpsilonPrimitiveDoubles() {\n\n        final double EPSILON = 1e-2;\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2 + EPSILON;\n\n        final double fiveEpsilon = five + EPSILON;\n        System.out.println(fiveEpsilon + \" \" + (int) fiveEpsilon);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printEpsilonBigDecimals(final RoundingMode divideRoundingMode) {\n\n        final BigDecimal EPSILON = new BigDecimal(\"1e-2\");\n\n        final BigDecimal five = new BigDecimal(\"10\")\n                .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                .multiply(new BigDecimal(\"3\"));\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"))\n                .add(EPSILON);\n\n        final BigDecimal fiveEpsilon = five.add(EPSILON);\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(fiveEpsilon + \" \" + fiveEpsilon.intValue() + \" \" + fiveEpsilon.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n}\n5.0 5\n4.0 4\n\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:12)\n4.998 4 4.9\n4.004 4 4.0\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:13)\n5.001 5 5.0\n3.998 3 3.9\n\n5.01 5\n4.01 4\n\n5.008 5 5.0\n4.014 4 4.0\n5.011 5 5.0\n4.008 4 4.0"
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-7/index.html",
-    "href": "posts/algorithms/codetree/week-7/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-7/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-7/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-5/index.html",
-    "href": "posts/algorithms/codetree/week-5/index.html",
-    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-5/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-5/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-8/index.html",
-    "href": "posts/algorithms/codetree/week-8/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-8/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-8/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-6/index.html",
-    "href": "posts/algorithms/codetree/week-6/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-6/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-6/."
-  },
-  {
-    "objectID": "cv/ko/index.html",
-    "href": "cv/ko/index.html",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "",
-    "text": "Switch to English\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy",
-    "href": "cv/ko/index.html#dummy",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-1",
-    "href": "cv/ko/index.html#dummy-1",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-2",
-    "href": "cv/ko/index.html#dummy-2",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-3",
-    "href": "cv/ko/index.html#dummy-3",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/en/index.html",
-    "href": "cv/en/index.html",
-    "title": "Yunho Kee",
-    "section": "",
-    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
-  },
-  {
-    "objectID": "cv/en/index.html#dummy",
-    "href": "cv/en/index.html#dummy",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/en/index.html#dummy-1",
-    "href": "cv/en/index.html#dummy-1",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-3/index.html",
-    "href": "posts/algorithms/codetree/week-3/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-3/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-3/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-4/index.html",
-    "href": "posts/algorithms/codetree/week-4/index.html",
-    "title": "[코드트리 챌린지] 4주차 - DFS",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-4/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-4/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-2/index.html",
-    "href": "posts/algorithms/codetree/week-2/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-2/."
-  },
-  {
-    "objectID": "posts/algorithms/codetree/week-1/index.html",
-    "href": "posts/algorithms/codetree/week-1/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-1/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-1/."
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html",
-    "href": "posts/algorithms/negative-zero/index.html",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "",
-    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#intro",
-    "href": "posts/algorithms/negative-zero/index.html#intro",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "",
-    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#abs",
-    "href": "posts/algorithms/negative-zero/index.html#abs",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Abs",
-    "text": "Abs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다."
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#min-max",
-    "href": "posts/algorithms/negative-zero/index.html#min-max",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Min, Max",
-    "text": "Min, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.\n결론적으로 max(0.0, x)는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.\n반대로 min(-0.0, x)는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.\n내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!"
-  },
-  {
-    "objectID": "posts/algorithms/negative-zero/index.html#add",
-    "href": "posts/algorithms/negative-zero/index.html#add",
-    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
-    "section": "Add",
-    "text": "Add\n0.0을 더하면 된다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html",
-    "title": "Two Pointers Speed Control",
-    "section": "",
-    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
-    "title": "Two Pointers Speed Control",
-    "section": "",
-    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers",
-    "text": "Two Pointers\nTwo Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 \\(n\\)개일 때 각 Pointer는 \\(n\\)개의 원소를 최대 1번씩 방문하다가 선형 시간 \\(O(n)\\) 안에 탐색을 마친다. 따라서 총 수행 시간 \\(T(n)\\)은 Pointer의 개수 \\(k\\)에 비례한다: \\(T(n) = O(kn)\\). 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 \\(k\\)번 반복하므로 \\(k\\)에 따라 지수적으로 증가한다: \\(O(n^k)\\). 가령, \\(k = 2\\)이면 \\(O(n^2) \\ne O(2n) = O(n)\\)이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진만 허용한다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers를 통한 Graph Cycle 검사",
-    "text": "Two Pointers를 통한 Graph Cycle 검사\nTwo Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.\nCycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 \\(1\\)이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 \\(0\\)부터 오름차순으로 \\(i_s\\)번째, 후발대는 \\(j_s\\)번째라고 하고, \\(i_s\\)와 \\(j_s\\)가 길이가 \\(m\\)인 Cycle 위에 있을 때 \\(t\\) 시간을 더 탐색하면:\n\n\\[\n\\begin{align}\n\\forall i_s, j_s \\in \\mathbb{Z}, \\forall m \\in \\mathbb{Z}^+ : \\exists t \\in \\mathbb{Z} \\text{ such that }  \\\\\n& & i_s + t         & \\equiv j_s        & \\pmod{m}\\;\\\\\n\\text{ and }\\\\\n& & 0 \\leq t        & &lt; m.\\\\\n\\therefore \\forall a \\in \\mathbb{Z} :\\\\\n& & i_s + (a + 1)t  & \\equiv j_s + at   & \\pmod{m}.\n\\end{align}\n\\]\n\n다시 말해 후발대가 \\(a\\)의 속력으로 이동할 때 선발대가 \\(a + 1\\)의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 \\(x\\) 시점에 도착하는 \\(j_x = j_s + at\\)번째 원소와 \\(i_x = i_s + (a + 1)t\\)번째 원소가 \\(x = t\\) 시점에서 처음으로 일치(\\(i_x \\equiv j_x \\pmod{m}\\))할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 \\(T_c(m) = O(m)\\)이다. 왜냐하면 \\(T_c(m) = O(t)\\)이고 \\(t = O(m)\\)이기 때문이다.\n일반적으로 원소의 개수가 \\(n\\)인 Graph를 탐색할 때 \\(i_0 = j_0 = 0\\)번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 \\(a &gt; 0\\)이면 Cycle 내 원소까지 선형 시간(\\(T_u(n) = i_s - i_0 = O(n)\\))에 가능한 한 반드시 도달한다. 또한 \\(m = O(n)\\)이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:\n\\[\n\\begin{align}\nT(n) & = T_u(n) + T_c(m)\\\\\n     & = O(n) + O(m)\\\\\n     & = O(n)\n\\end{align}\n\\]"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
-    "title": "Two Pointers Speed Control",
-    "section": "Linked List Cycle",
-    "text": "Linked List Cycle\nLeetCode 문제 Linked List Cycle은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 Follow up에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 쥐쥐 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. 다음 Python 풀이는 모든 양의 정수 a에 대해 동작한다:\n\n# Definition for singly-linked list.\nclass ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode], a = 1) -&gt; bool:\n        node_i = head\n        node_j = head\n        while node_i is not None and node_j is not None:\n            for _ in range(a + 1):\n                node_i = node_i.next\n                if node_i is None:\n                    return False\n            for _ in range(a):\n                node_j = node_j.next\n                if node_j is None:\n                    return False\n            if node_i == node_j:\n                return True\n        return False\n\n\nnodes = [ListNode(x) for x in [3,2,0,-4]]\nfor i in range(len(nodes) - 1):\n    nodes[i].next = nodes[i + 1]\nnodes[-1].next = nodes[1]\nhead = nodes[0]\n\nsol = Solution()\nall(sol.hasCycle(head, a) for a in range(1, 100))\n\nTrue"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
-    "title": "Two Pointers Speed Control",
-    "section": "Two Pointers Speed Control",
-    "text": "Two Pointers Speed Control\nTwo Pointers Cycle 검사는 속력 차가 1이어야 했다: \\(a + 1\\). 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: \\(2a\\).\n홀수 \\(n\\)개 원소가 정렬된 List의 Median은 0부터 셀 때 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 \\(O(1)\\)이 걸리니 선형 시간의 Two Pointers가 더 느리다: \\(O(n) \\ne O(1)\\).\n반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소를 찾을 때 \\(n\\)을 몰라도 된다는 장점이 있다. \\(\\forall q \\in \\mathbb{Z}^+\\)인 \\(\\lfloor \\frac n q \\rfloor\\)번째 원소라면 속력 비가 \\(q\\)이면 되는 것이다."
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
-    "title": "Two Pointers Speed Control",
-    "section": "Middle of the Linked List",
-    "text": "Middle of the Linked List\nLeetCode 문제 Middle of the Linked List는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소만 찾으면 된다. 원래는 \\(n\\)을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 백발백준 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. 다음 Kotlin 풀이는 \\(n\\)도 모르고 Index 계산도 하지 않는다:\n/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\nclass Solution {\n    fun middleNode(head: ListNode?): ListNode? {\n        var node: ListNode? = head\n        var ans: ListNode? = head\n        var odd: Boolean = false\n        while (node !== null) {\n            node = node.next\n            if (odd) {\n                ans = ans!!.next\n            }\n            odd = odd xor true\n        }\n        return ans\n    }\n}"
-  },
-  {
-    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
-    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
-    "title": "Two Pointers Speed Control",
-    "section": "아날로그 시계",
-    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html",
-    "href": "posts/web/leetcode-daily-crawling/index.html",
-    "title": "LeetCode Daily Crawling",
-    "section": "",
-    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#intro",
-    "href": "posts/web/leetcode-daily-crawling/index.html#intro",
-    "title": "LeetCode Daily Crawling",
-    "section": "",
-    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "href": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "title": "LeetCode Daily Crawling",
-    "section": "Goodbye LeetCode Click",
-    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\nLeetCode Click의 운영 중단\n\n\n\n\n\n\n연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 LeetCode Click에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.\n\n\n\n\n\n\n\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
-    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode Daily Coding Challenge Question",
-    "text": "LeetCode Daily Coding Challenge Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 Status에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 daily-question 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다."
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode GraphQL API",
-    "text": "LeetCode GraphQL API\n오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n\n\n\nListing 1: GraphQL Response\n\n\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!\n\n\n실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 dailyCodingChallengeV2라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\ncURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과8, operationName, variables 등 불필요한 항목을 지울 수 있었다.\n8 REPL-driven development"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
-    "href": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
-    "title": "LeetCode Daily Crawling",
-    "section": "GraphQL Query String",
-    "text": "GraphQL Query String\n어떤 Client는 POST Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 GET Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\nGET 성공이다. 연속된 +는 하나로 줄였다."
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "href": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "title": "LeetCode Daily Crawling",
-    "section": "Google Sheets As a Crawling App",
-    "text": "Google Sheets As a Crawling App\nListing 1 의 /problems/contiguous-array/가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. https://leetcode.com과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?\n다행히 스터디에서 사용하던 Google Sheets가 GET 요청, 문자열 연산, Hyperlink를 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID와 LEN 함수를 둘다 호출하는 데 IMPORTDATA의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#product",
-    "href": "posts/web/leetcode-daily-crawling/index.html#product",
-    "title": "LeetCode Daily Crawling",
-    "section": "Product",
-    "text": "Product\n\n\nhttps://shorturl.at/cdmsZ"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#limitations",
-    "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
-    "title": "LeetCode Daily Crawling",
-    "section": "Limitations",
-    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html",
-    "href": "posts/web/escape-xml10/index.html",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#intro",
-    "href": "posts/web/escape-xml10/index.html#intro",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
-    "href": "posts/web/escape-xml10/index.html#problem-analysis",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Problem Analysis",
-    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#solution",
-    "href": "posts/web/escape-xml10/index.html#solution",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Solution",
-    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다."
+    "objectID": "posts/database/cv-or-resume/ko/index.html#커스터마이징",
+    "href": "posts/database/cv-or-resume/ko/index.html#커스터마이징",
+    "title": "오픈소스 이력서 엔지니어링",
+    "section": "커스터마이징",
+    "text": "커스터마이징\n제가 참고한 이력서는 Global Coding Community (GCC)의 Kyungho (Kay) Kim 님 그리고 Google, Microsoft, Amazon에 합격한 PIRATE KING 님의 이력서예요. 더 잘 만드실 분들이 많이 계실 것 같습니다. 이 안내를 참고해 직접 reference.docx를 만들 수 있고, 제 문서에도 처음부터 어떻게 만들었는지 기록해 두었습니다. 여러분만의 버전, 피드백, 질문을 공유해 주세요!"
   },
   {
     "objectID": "posts/web/hello-interview/ticketmaster/index.html#기능적-시스템-요구사항-분석",
@@ -616,31 +168,486 @@
     "text": "References\n\n\n\n\nKang, Sihoo. 2024. “(데이터베이스) Lost update와 serializable.” July 14, 2024. https://mirrorofcode.tistory.com/416.\n\n\nKing, Evan. n.d. “Design a Ticket Booking Site Like Ticketmaster.” Accessed March 27, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\n\nMihalcea, Vlad. 2023. “Minimum Transaction Isolation Level to Avoid \"Lost Updates\".” October 7, 2023. https://stackoverflow.com/a/77249495.\n\n\nRinger, Craig. 2014. “Controlling Duration of PostgreSQL Lock Waits.” January 7, 2014. https://stackoverflow.com/a/20963803.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
   },
   {
-    "objectID": "posts/database/cv-or-resume/ko/index.html",
-    "href": "posts/database/cv-or-resume/ko/index.html",
-    "title": "오픈소스 이력서 엔지니어링",
+    "objectID": "posts/web/escape-xml10/index.html",
+    "href": "posts/web/escape-xml10/index.html",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
     "section": "",
-    "text": "Switch to English"
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
   },
   {
-    "objectID": "posts/database/cv-or-resume/ko/index.html#이런-분들께-추천합니다",
-    "href": "posts/database/cv-or-resume/ko/index.html#이런-분들께-추천합니다",
-    "title": "오픈소스 이력서 엔지니어링",
-    "section": "이런 분들께 추천합니다",
-    "text": "이런 분들께 추천합니다\n\n하나만 고쳐도 모든 포맷에 반영하고 싶은 분\n네이티브 기능까지 자동 적용하고 싶은 분\nGit, GitHub 등 버전관리를 활용하고 싶은 분\nMarkdown처럼 쉽게 작성하고 싶은 분"
+    "objectID": "posts/web/escape-xml10/index.html#intro",
+    "href": "posts/web/escape-xml10/index.html#intro",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
   },
   {
-    "objectID": "posts/database/cv-or-resume/ko/index.html#어떻게-시작하나요",
-    "href": "posts/database/cv-or-resume/ko/index.html#어떻게-시작하나요",
-    "title": "오픈소스 이력서 엔지니어링",
-    "section": "어떻게 시작하나요?",
-    "text": "어떻게 시작하나요?\n\n이 저장소를 포크하고\nGitHub Pages로 배포해보세요.\n\n별도의 설치 없이도 Docker Compose만 있으면 아래 명령어로 바로 로컬에서 https://localhost:8888/에 접속하거나 _site/cv/를 열어 확인할 수 있습니다.\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down"
+    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
+    "href": "posts/web/escape-xml10/index.html#problem-analysis",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Problem Analysis",
+    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
   },
   {
-    "objectID": "posts/database/cv-or-resume/ko/index.html#커스터마이징",
-    "href": "posts/database/cv-or-resume/ko/index.html#커스터마이징",
-    "title": "오픈소스 이력서 엔지니어링",
-    "section": "커스터마이징",
-    "text": "커스터마이징\n제가 참고한 이력서는 Global Coding Community (GCC)의 Kyungho (Kay) Kim 님 그리고 Google, Microsoft, Amazon에 합격한 PIRATE KING 님의 이력서예요. 더 잘 만드실 분들이 많이 계실 것 같습니다. 이 안내를 참고해 직접 reference.docx를 만들 수 있고, 제 문서에도 처음부터 어떻게 만들었는지 기록해 두었습니다. 여러분만의 버전, 피드백, 질문을 공유해 주세요!"
+    "objectID": "posts/web/escape-xml10/index.html#solution",
+    "href": "posts/web/escape-xml10/index.html#solution",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Solution",
+    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html",
+    "href": "posts/web/leetcode-daily-crawling/index.html",
+    "title": "LeetCode Daily Crawling",
+    "section": "",
+    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "href": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "title": "LeetCode Daily Crawling",
+    "section": "",
+    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "href": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "title": "LeetCode Daily Crawling",
+    "section": "Goodbye LeetCode Click",
+    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\nLeetCode Click의 운영 중단\n\n\n\n\n\n\n연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 LeetCode Click에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.\n\n\n\n\n\n\n\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode Daily Coding Challenge Question",
+    "text": "LeetCode Daily Coding Challenge Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 Status에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 daily-question 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode GraphQL API",
+    "text": "LeetCode GraphQL API\n오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n\n\n\nListing 1: GraphQL Response\n\n\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!\n\n\n실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 dailyCodingChallengeV2라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\ncURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과8, operationName, variables 등 불필요한 항목을 지울 수 있었다.\n8 REPL-driven development"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "href": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "title": "LeetCode Daily Crawling",
+    "section": "GraphQL Query String",
+    "text": "GraphQL Query String\n어떤 Client는 POST Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 GET Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\nGET 성공이다. 연속된 +는 하나로 줄였다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "href": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "title": "LeetCode Daily Crawling",
+    "section": "Google Sheets As a Crawling App",
+    "text": "Google Sheets As a Crawling App\nListing 1 의 /problems/contiguous-array/가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. https://leetcode.com과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?\n다행히 스터디에서 사용하던 Google Sheets가 GET 요청, 문자열 연산, Hyperlink를 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID와 LEN 함수를 둘다 호출하는 데 IMPORTDATA의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#product",
+    "href": "posts/web/leetcode-daily-crawling/index.html#product",
+    "title": "LeetCode Daily Crawling",
+    "section": "Product",
+    "text": "Product\n\n\nhttps://shorturl.at/cdmsZ"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "title": "LeetCode Daily Crawling",
+    "section": "Limitations",
+    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html",
+    "title": "Two Pointers Speed Control",
+    "section": "",
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#intro",
+    "title": "Two Pointers Speed Control",
+    "section": "",
+    "text": "Photo by Susan Q Yin on Unsplash\n\n\n미로에서 전진만 반복했는데 아까 왔던 곳으로 되돌아왔다. 어떻게 알았을까?\n2가지 가능성이 있다. 첫째로, 한번 지나갔다는 것을 알 수 있도록 흔적을 남겨 놓았을 수 있다. 둘째로, 선발대와 후발대로 나뉜 다음 후발대가 선발대를 놓치지 않도록 충분히 긴 줄 등으로 연결한 상태에서 선발대가 빠르게 전진했을 수도 있다; 선발대가 후발대를 뒤에서 따라잡으면 두 집단을 연결하는 줄이 Cycle을 이룬다.\nGraph에서 Cycle을 검사하는 방법도 2가지 이상 있다. 첫째, 각 원소별 방문 여부를 저장한다. 둘째, Two Pointers 알고리즘을 활용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers",
+    "text": "Two Pointers\nTwo Pointers는 자료 구조를 탐색하는 Pointer(또는 Iterator)가 같은 원소를 재방문하지 않도록 보장하면서 복수의 Pointer로 각 자료 구조를 동시에 탐색하는 알고리즘이다. 자료 구조에 있는 원소의 개수가 최대 \\(n\\)개일 때 각 Pointer는 \\(n\\)개의 원소를 최대 1번씩 방문하다가 선형 시간 \\(O(n)\\) 안에 탐색을 마친다. 따라서 총 수행 시간 \\(T(n)\\)은 Pointer의 개수 \\(k\\)에 비례한다: \\(T(n) = O(kn)\\). 이에 비해 99라는 숫자를 셀 때 0부터 9를 10번 다시 세는 것처럼 각 Pointer의 지역적 중복 방문을 허용해 모든 방문 상태를 탐색하는 시간은 Cartesian Product를 \\(k\\)번 반복하므로 \\(k\\)에 따라 지수적으로 증가한다: \\(O(n^k)\\). 가령, \\(k = 2\\)이면 \\(O(n^2) \\ne O(2n) = O(n)\\)이다. 이처럼 Two Pointers 수행 시간이 선형인 이유는 지역적인 재방문을 전역적으로 방지하기 때문이다; 한번 다녀간 원소에 처음부터 다시 와보는 등 돌이키지 못하고 오로지 전진만 허용한다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers를-통한-graph-cycle-검사",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers를 통한 Graph Cycle 검사",
+    "text": "Two Pointers를 통한 Graph Cycle 검사\nTwo Pointers 알고리즘을 통한 Cycle 검사의 장점은 방문 여부를 저장하지 않고도 중복 방문을 방지할 수 있다는 것이다. Graph에 Cycle이 없을 때는 재방문의 2가지 원인 중 첫째인 후진(Backtracking)만 안 하면 선형 탐색이 가능하다; 애초에 방문 여부나 경로 등을 전혀 저장하지 않고 후진하다가는 무한 루프에 갇히고 말 것이다. 재방문의 또다른 원인은 Cycle이다. Cycle이 있는 Graph에서는 전진 탐색은 물론이고 선발대가 후발대를 다시 만나는 즉시 Cycle로 판단해서 중단해야 한다.\nCycle 위의 Two Pointers로 Cycle 검사를 선형 시간 안에 수행하려면 선발대와 후발대의 속력 차가 \\(1\\)이면 된다. 그렇지 않으면 가령 선발대가 짝수번째 원소만 방문하고 후발대가 홀수번째만 방문할 때 경로가 겹치는 것처럼 보여도 두 집단은 영원히 만날 수 없다; 무한 루프에 갇힌다. 수학적으로는 다음과 같다: 선발대가 임의의 시점에 도착한 원소를 \\(0\\)부터 오름차순으로 \\(i_s\\)번째, 후발대는 \\(j_s\\)번째라고 하고, \\(i_s\\)와 \\(j_s\\)가 길이가 \\(m\\)인 Cycle 위에 있을 때 \\(t\\) 시간을 더 탐색하면:\n\n\\[\n\\begin{align}\n\\forall i_s, j_s \\in \\mathbb{Z}, \\forall m \\in \\mathbb{Z}^+ : \\exists t \\in \\mathbb{Z} \\text{ such that }  \\\\\n& & i_s + t         & \\equiv j_s        & \\pmod{m}\\;\\\\\n\\text{ and }\\\\\n& & 0 \\leq t        & &lt; m.\\\\\n\\therefore \\forall a \\in \\mathbb{Z} :\\\\\n& & i_s + (a + 1)t  & \\equiv j_s + at   & \\pmod{m}.\n\\end{align}\n\\]\n\n다시 말해 후발대가 \\(a\\)의 속력으로 이동할 때 선발대가 \\(a + 1\\)의 속력으로 더 빨리 전진하면서 Two Pointers 알고리즘을 진행하다가 두 집단이 \\(x\\) 시점에 도착하는 \\(j_x = j_s + at\\)번째 원소와 \\(i_x = i_s + (a + 1)t\\)번째 원소가 \\(x = t\\) 시점에서 처음으로 일치(\\(i_x \\equiv j_x \\pmod{m}\\))할 때 중단하는 Cycle 검사 알고리즘의 수행 시간은 선발대와 후발대가 이미 Cycle 위에 있을 때 \\(T_c(m) = O(m)\\)이다. 왜냐하면 \\(T_c(m) = O(t)\\)이고 \\(t = O(m)\\)이기 때문이다.\n일반적으로 원소의 개수가 \\(n\\)인 Graph를 탐색할 때 \\(i_0 = j_0 = 0\\)번째 원소가 Cycle 밖에 있더라도 정지하지 않는다면 즉 \\(a &gt; 0\\)이면 Cycle 내 원소까지 선형 시간(\\(T_u(n) = i_s - i_0 = O(n)\\))에 가능한 한 반드시 도달한다. 또한 \\(m = O(n)\\)이다. 결론적으로 Two Pointers의 Cycle 검사 시간은:\n\\[\n\\begin{align}\nT(n) & = T_u(n) + T_c(m)\\\\\n     & = O(n) + O(m)\\\\\n     & = O(n)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#linked-list-cycle",
+    "title": "Two Pointers Speed Control",
+    "section": "Linked List Cycle",
+    "text": "Linked List Cycle\nLeetCode 문제 Linked List Cycle은 Linked List에 Cycle이 있는지 확인하는 문제이다. 처음에는 방문 흔적을 남기는 풀이밖에 몰랐다. 하지만 Follow up에서 상수 공간 복잡도를 요구하는 것을 보고 나니 선형 공간 복잡도로 만족할 수 없었다. 그래서 고민하던 중 같이 알고리즘 스터디를 하고 계신 쥐쥐 님의 풀이를 본 덕분에 이 글을 쓸 수 있었다. 다음 Python 풀이는 모든 양의 정수 a에 대해 동작한다:\n\n# Definition for singly-linked list.\nclass ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode], a = 1) -&gt; bool:\n        node_i = head\n        node_j = head\n        while node_i is not None and node_j is not None:\n            for _ in range(a + 1):\n                node_i = node_i.next\n                if node_i is None:\n                    return False\n            for _ in range(a):\n                node_j = node_j.next\n                if node_j is None:\n                    return False\n            if node_i == node_j:\n                return True\n        return False\n\n\nnodes = [ListNode(x) for x in [3,2,0,-4]]\nfor i in range(len(nodes) - 1):\n    nodes[i].next = nodes[i + 1]\nnodes[-1].next = nodes[1]\nhead = nodes[0]\n\nsol = Solution()\nall(sol.hasCycle(head, a) for a in range(1, 100))\n\nTrue"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#two-pointers-speed-control",
+    "title": "Two Pointers Speed Control",
+    "section": "Two Pointers Speed Control",
+    "text": "Two Pointers Speed Control\nTwo Pointers Cycle 검사는 속력 차가 1이어야 했다: \\(a + 1\\). 정렬된 List에서 Median 찾기는 속력 비가 2이면 된다: \\(2a\\).\n홀수 \\(n\\)개 원소가 정렬된 List의 Median은 0부터 셀 때 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소이다. List가 배열이면 임의의 Index에 Random Access하는 데 상수 시간 \\(O(1)\\)이 걸리니 선형 시간의 Two Pointers가 더 느리다: \\(O(n) \\ne O(1)\\).\n반면에 Linked List에서 Two Pointers 알고리즘을 활용하면 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소를 찾을 때 \\(n\\)을 몰라도 된다는 장점이 있다. \\(\\forall q \\in \\mathbb{Z}^+\\)인 \\(\\lfloor \\frac n q \\rfloor\\)번째 원소라면 속력 비가 \\(q\\)이면 되는 것이다."
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#middle-of-the-linked-list",
+    "title": "Two Pointers Speed Control",
+    "section": "Middle of the Linked List",
+    "text": "Middle of the Linked List\nLeetCode 문제 Middle of the Linked List는 Linked List에서 가운데 원소(원소의 개수가 짝수이면 가운데 오른쪽)를 찾는 문제이다. 정렬된 List는 아니지만 Index 또는 가상의 기준으로 정렬돼 있다고 가정할 수 있다. 어차피 \\(\\lfloor \\frac n 2 \\rfloor\\)번째 원소만 찾으면 된다. 원래는 \\(n\\)을 먼저 찾고 나서 절반을 되돌아가는 풀이밖에 몰랐다. 그러다 스터디에서 백발백준 님의 풀이를 보고 Two Pointers 접근을 새로 배웠다. 다음 Kotlin 풀이는 \\(n\\)도 모르고 Index 계산도 하지 않는다:\n/**\n * Example:\n * var li = ListNode(5)\n * var v = li.`val`\n * Definition for singly-linked list.\n * class ListNode(var `val`: Int) {\n *     var next: ListNode? = null\n * }\n */\nclass Solution {\n    fun middleNode(head: ListNode?): ListNode? {\n        var node: ListNode? = head\n        var ans: ListNode? = head\n        var odd: Boolean = false\n        while (node !== null) {\n            node = node.next\n            if (odd) {\n                ans = ans!!.next\n            }\n            odd = odd xor true\n        }\n        return ans\n    }\n}"
+  },
+  {
+    "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
+    "href": "posts/algorithms/leetcode/linked-list-cycle/index.html#아날로그-시계",
+    "title": "Two Pointers Speed Control",
+    "section": "아날로그 시계",
+    "text": "아날로그 시계\n프로그래머스 문제 아날로그 시계는 초침과 분침이 겹치거나 초침과 시침이 겹치는 횟수를 세는 문제이다. 시계는 Two Pointers와 달리 0부터 다시 세는 지역적 재방문을 허용해서 앞서 얘기한 Cartesian Product를 탐색한다. 가령 초 단위 디지털 시계는 \\(12 \\times 60 \\times 60\\)개 상태를 탐색하므로 \\(12 + 60 + 60\\)개를 탐색하는 Two Pointers 접근은 불가능하다. 방문 횟수는 탐색하며 저장할 필요 없이 시간 차의 몫과 나머지를 구하면 된다.\n그런데 문제는 지역적인 중복이 아니고, 시계라는 자료 구조를 공유하는 Iterator 중 일부가 서로 같은 원소에 교차하는 횟수이다. 그리고 더 큰 문제는 아날로그 시계의 원소가 디지털 시계로 다 표현이 안 되는 실수 공간에 있다는 사실이다. 다행히 시간에 따른 각 Iterator의 탐색 공간을 좌표 평면 위의 직선으로 생각하면 직선의 교차 여부를 알 수 있다. 다만 두 직선 간 교차 횟수를 각각 구하면 세 직선이 교차할 경우에 중복 합산하게 되므로 교점의 정확한 좌표를 구해서 일치하는지 확인한다.\n\nMOD = 12 * 60 * 60\nDH = 1\nDM = 12\nDS = 12 * 60\nDSH = DS - DH\nDSM = DS - DM\n\ndef solution(h1, m1, s1, h2, m2, s2):\n    src = (h1 * 60 + m1) * 60 + s1\n    dest = (h2 * 60 + m2) * 60 + s2\n    hi = src % MOD\n    mi = (m1 * 60 + s1) * DM\n    si = s1 * DS\n5    ans = 1 if any(xi == si for xi in [hi, mi]) else 0\n    for _ in range(src, dest):\n        hj = hi + DH\n        mj = mi + DM\n        sj = si + DS\n        sh = None\n1        if hi &gt; si and hj &lt;= sj:\n2            sh = (hi - si) * DSM\n        sm = None\n3        if mi &gt; si and mj &lt;= sj:\n4            sm = (mi - si) * DSH\n6        bsh = sh is not None\n        bsm = sm is not None\n        if bsh or bsm:\n            ans += 2 if bsh and bsm and sh != sm else 1\n        hi = hj % MOD\n        mi = mj % MOD\n        si = sj % MOD\n    return ans\n\n\n1\n\n시침 직선과 초침 직선의 교차\n\n2\n\n시침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n3\n\n분침 직선과 초침 직선의 교차\n\n4\n\n분침 직선과 초침 직선이 교차하는 정확한 시각에 DSM * DSH를 곱해 정수 표현한 값\n\n5\n\n시작부터 교차하는지\n\n6\n\n직선들이 서로 다른 두 시각에 각각 교차하는지 아니면 동시에 세 직선이 교차하는지\n\n\n\n\n\ns = '''\\\n0   5   30  0   7   0   2\n12  0   0   12  0   30  1\n0   6   1   0   6   6   0\n11  59  30  12  0   0   1\n11  58  59  11  59  0   1\n1   5   5   1   5   6   2\n0   0   0   23  59  59  2852\n'''\nans = True\nfor line in s.strip().split('\\n'):\n    *args, result = map(eval, line.split('\\t'))\n    ans = ans and solution(*args) == result\nans\n\nTrue"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html",
+    "href": "posts/algorithms/negative-zero/index.html",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "",
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#intro",
+    "href": "posts/algorithms/negative-zero/index.html#intro",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "",
+    "text": "-0.0을 출력하면 보이는 음의 부호를 지우고 싶다.\n컴퓨터의 일반적인 실수 표현은 -0.0과 0.0을 구분한다. 딱히 구분할 이유는 생각 나지 않는다 — 아시는 분께서는 댓글 부탁 드려요!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#abs",
+    "href": "posts/algorithms/negative-zero/index.html#abs",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Abs",
+    "text": "Abs\n언어별로 절댓값을 구하는 함수를 제공한다. 하지만 0.0 이외의 음수를 보존하려면 또는 후술할 min, max와 같은 경우에는 절댓값을 적용할 수 없다."
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#min-max",
+    "href": "posts/algorithms/negative-zero/index.html#min-max",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Min, Max",
+    "text": "Min, Max\nC++, Java, Javascript에서 max(-0.0, 0.0)과 max(0.0, -0.0)은 모두 0.0을 보장한다. 반대로 내장 min 함수는 모두 -0.0을 보장한다.\n이와 달리 Python에서는 네 경우 모두에서 두 매개변수 중 전자를 반환한다. 다른 언어에서도 내장 함수를 사용하지 않고 직접 구현하면 같은 결과를 얻는다. 왜냐하면 -0.0과 0.0의 동등 비교가 참이라 대소를 비교하면 거짓이기 때문이다. 물론 실수의 동등 비교는 위험하지만, 대소 비교가 양방향 모두 거짓인 것은 사실이다.\n결론적으로 max(0.0, x)는 앞서 언급한 모든 언어에서 내장 함수를 사용하든 직접 구현하든지 x가 -0.0일 때 0.0으로의 변환을 보장한다. x가 음수여도 0.0, 양수이면 변하지 않으므로 항상 음의 부호가 없음이 보장된다.\n반대로 min(-0.0, x)는 x가 0.0일 때 -0.0을 보장한다. x가 양수여도 -0.0, 음수이면 변하지 않으므로 항상 음의 부호가 있음이 보장된다.\n내장 함수가 어떻게 구현했길래 0.0 &gt; -0.0을 보장할 수 있었던 것인지는 추가 조사가 필요하다 — 아시는 분께서는 댓글 부탁 드립니다!"
+  },
+  {
+    "objectID": "posts/algorithms/negative-zero/index.html#add",
+    "href": "posts/algorithms/negative-zero/index.html#add",
+    "title": "-0.0을 0.0으로 어떻게 바꿀까?",
+    "section": "Add",
+    "text": "Add\n0.0을 더하면 된다."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-1/index.html",
+    "href": "posts/algorithms/codetree/week-1/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-1/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-1/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-2/index.html",
+    "href": "posts/algorithms/codetree/week-2/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-2/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-4/index.html",
+    "href": "posts/algorithms/codetree/week-4/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-4/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-4/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-3/index.html",
+    "href": "posts/algorithms/codetree/week-3/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-3/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-3/."
+  },
+  {
+    "objectID": "cv/en/index.html",
+    "href": "cv/en/index.html",
+    "title": "Yunho Kee",
+    "section": "",
+    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
+  },
+  {
+    "objectID": "cv/en/index.html#dummy",
+    "href": "cv/en/index.html#dummy",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/en/index.html#dummy-1",
+    "href": "cv/en/index.html#dummy-1",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/ko/index.html",
+    "href": "cv/ko/index.html",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "",
+    "text": "Switch to English\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
+  },
+  {
+    "objectID": "cv/ko/index.html#dummy",
+    "href": "cv/ko/index.html#dummy",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/ko/index.html#dummy-1",
+    "href": "cv/ko/index.html#dummy-1",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/ko/index.html#dummy-2",
+    "href": "cv/ko/index.html#dummy-2",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/ko/index.html#dummy-3",
+    "href": "cv/ko/index.html#dummy-3",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-6/index.html",
+    "href": "posts/algorithms/codetree/week-6/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-6/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-6/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-8/index.html",
+    "href": "posts/algorithms/codetree/week-8/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-8/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-8/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-5/index.html",
+    "href": "posts/algorithms/codetree/week-5/index.html",
+    "title": "[코드트리 챌린지] 5주차 - Dijkstra",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-5/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-5/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-7/index.html",
+    "href": "posts/algorithms/codetree/week-7/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-7/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-7/."
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html",
+    "href": "posts/algorithms/decimal-round-down/index.html",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#intro",
+    "href": "posts/algorithms/decimal-round-down/index.html#intro",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "",
+    "text": "Photo by Elimende Inagella on Unsplash\n\n\n정수 아닌 실수 연산은 오차 관리가 더 힘들다. 십진수를 쓰면 문제가 없을까?"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#정수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "정수 오차",
+    "text": "정수 오차\n저장 용량에 따른 자릿수를 초과하면 이진법이나 십진법이나 오차가 있다."
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "href": "posts/algorithms/decimal-round-down/index.html#실수-오차",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "실수 오차",
+    "text": "실수 오차\n정수 아닌 실수도 마찬가지인데 소수점 이하 자릿수가 무한일 수 있다: 무한소수.\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2\n\nprint(five, int(five))\nprint(four, int(four))\n\n5.0 5\n4.0 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2')\n\nprint(five, int(five), five.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.000000000000000000000000001 5 5\n3.999999999999999999999999998 3 3"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "href": "posts/algorithms/decimal-round-down/index.html#오차-관리",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "오차 관리",
+    "text": "오차 관리\n소수점 이하 무한한 자릿수가 모두 필요할 일은 거의 없다. 가령 소수점 이하 n번째 자리까지 필요하다면 그보다 작은 수를 가령 n + 1번째 자리에 1을 더하거나 빼 주면 된다. 더할 때는 절사, 절하, 내림, ROUND_DOWN이나 ROUND_HALF_UP이 필요할 때이다. 뺄 때는 절상, 올림, ROUND_UP이나 ROUND_HALF_DOWN이 요구될 때이다.\n\n_EPSILON = 1e-2\n\nfive = 10 / 6 * 3\nfour = (7 - five) * 2 + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon))\nprint(four, int(four))\n\n5.01 5\n4.01 4\n\n\n\nfrom decimal import Decimal, ROUND_DOWN\n\n_EPSILON = Decimal('1e-2')\n\nfive = Decimal('10') / Decimal('6') * Decimal('3')\nfour = (Decimal('7') - five) * Decimal('2') + _EPSILON\n\nfive_epsilon = five + _EPSILON\nprint(five_epsilon, int(five_epsilon), five_epsilon.quantize(Decimal('0'), ROUND_DOWN))\nprint(four, int(four), four.quantize(Decimal('0'), ROUND_DOWN))\n\n5.010000000000000000000000001 5 5\n4.009999999999999999999999998 4 4"
+  },
+  {
+    "objectID": "posts/algorithms/decimal-round-down/index.html#언어-초월",
+    "href": "posts/algorithms/decimal-round-down/index.html#언어-초월",
+    "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
+    "section": "언어 초월",
+    "text": "언어 초월\nJava의 BigDecimal은 오차를 지역적으로 관리한다. 오차 관리가 필요할 때 Runtime에 ArithmeticException을 발생시킨다. 이처럼 반강제적인 예외 처리는 Python에서 발생할 오차를 일부 예방한다. 가령 연산 과정마다 주의하며 RoundingMode 그리고 scale이나 precision 등을 일일이 명시해야 지역적 오차로 인한 비정상 종료가 방지된다.\n하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시의 printNaiveBigDecimals에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.\n그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 printEpsilonBigDecimals에서 divideRoundingMode가 RoundingMode.DOWN, RoundingMode.UP 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.\nimport java.math.BigDecimal;\nimport java.math.MathContext;\nimport java.math.RoundingMode;\n\nclass DecimalRoundDown {\n\n    public static void main(final String[] args) {\n\n        printNaivePrimitiveDoubles();\n        \n        System.out.println();\n        printNaiveBigDecimals(RoundingMode.DOWN);\n        printNaiveBigDecimals(RoundingMode.UP);\n        \n        System.out.println();\n        printEpsilonPrimitiveDoubles();\n        \n        System.out.println();\n        printEpsilonBigDecimals(RoundingMode.DOWN);\n        printEpsilonBigDecimals(RoundingMode.UP);\n\n    }\n\n    private static void printNaivePrimitiveDoubles() {\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2;\n\n        System.out.println(five + \" \" + (int) five);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printNaiveBigDecimals(final RoundingMode divideRoundingMode) {\n\n        BigDecimal five;\n        try {\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"))\n                    .multiply(new BigDecimal(\"3\"));\n        } catch (Exception e) {\n            e.printStackTrace();\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                    .multiply(new BigDecimal(\"3\"));\n        }\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"));\n\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(five + \" \" + five.intValue() + \" \" + five.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n    private static void printEpsilonPrimitiveDoubles() {\n\n        final double EPSILON = 1e-2;\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2 + EPSILON;\n\n        final double fiveEpsilon = five + EPSILON;\n        System.out.println(fiveEpsilon + \" \" + (int) fiveEpsilon);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printEpsilonBigDecimals(final RoundingMode divideRoundingMode) {\n\n        final BigDecimal EPSILON = new BigDecimal(\"1e-2\");\n\n        final BigDecimal five = new BigDecimal(\"10\")\n                .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                .multiply(new BigDecimal(\"3\"));\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"))\n                .add(EPSILON);\n\n        final BigDecimal fiveEpsilon = five.add(EPSILON);\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(fiveEpsilon + \" \" + fiveEpsilon.intValue() + \" \" + fiveEpsilon.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n}\n5.0 5\n4.0 4\n\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:12)\n4.998 4 4.9\n4.004 4 4.0\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:13)\n5.001 5 5.0\n3.998 3 3.9\n\n5.01 5\n4.01 4\n\n5.008 5 5.0\n4.014 4 4.0\n5.011 5 5.0\n4.008 4 4.0"
+  },
+  {
+    "objectID": "posts/web/microservice-spof/index.html",
+    "href": "posts/web/microservice-spof/index.html",
+    "title": "Microservice와 Single Point of Failure (SPOF)",
+    "section": "",
+    "text": "웹 개발자 Rusendić (2022) 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Rusendić 2022). Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 (Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Rusendić 2022).\n그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.\n좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.\n\n\n\n\n Back to topReferences\n\nRusendić, Stanko Krtalić. 2022. “Having a Monolith Is a Single Point of Failure.” September 30, 2022. https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW.\n\nCitationBibTeX citation:@online{kee2024,\n  author = {Kee, Yunho},\n  title = {Microservice와 Single Point of Failure (SPOF)},\n  date = {2024-04-14},\n  url = {https://yhkee0404.github.io/posts/web/microservice-spof/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2024. “Microservice와 Single Point of Failure\n(SPOF).” April 14, 2024. https://yhkee0404.github.io/posts/web/microservice-spof/."
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#transactions",
+    "href": "posts/web/hello-interview/dropbox/index.html#transactions",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Transactions",
+    "text": "Transactions\n\n\n\nAtomicity\n\nAll or Nothing\nSubjective Term: Internal Atomicity\nRollback 1\n\n(Consistency)\n\nDatabase Constraints 2\n\n\n\n\nIsolation\n\nSerializability\n\nNo Overlap 3\nSubjective Term: External Atomicity\n\nRepeatability ↔︎ Resumability or Parallellism\n\n\n\nUllman and Widom (2014), p. 293Ullman and Widom (2014), p. 9Ullman and Widom (2014), p. 291"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
+    "href": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Subjective Term:  Internal Atomicity",
+    "text": "Subjective Term:  Internal Atomicity\n\n\n\nTimeout\nScope\n\nNetwork-Level Status\n\nIntegrity: Pre-Signed URLs\n\nApplication-Level Status\n\n\n\n\nConsistency\n\nDirections\n\n\n(Persistent Connections)\n\nLong Polling\nServer-Sent Events\nWebSockets\n\nPush from Source\n\nNotification\n\nIntranet ↔︎ Internet\n\n(Adaptive) Cron\n\n\n\n\n\nPull from Destination or (Lazy) Resilience\n\nOn-Demand Refresh\n(Adaptive) Polling\n(Periodic) Reconciliation"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
+    "href": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "(Repeatability or Recovery)",
+    "text": "(Repeatability or Recovery)\nSubjective Term: Internal Serializability\nor Internal External Atomicity\n\n\n\nEvent Stream or Event Bus, e.g. Kafka\nChange Data Capture\nCursors\nTypes\n\nChanges\nSnapshots\n\n\n\n\nActions\n\nRollback\nRoll Forward, c.f. Replay\n\nAudit Trails\nPartitioning"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#chunks",
+    "href": "posts/web/hello-interview/dropbox/index.html#chunks",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Chunks",
+    "text": "Chunks\n\n\n\nOptions\n\nSize Upper Bound, e.g. 10 MB\n\nDirectory: Segmentation\n\nCompression Algorithms\nVersions\nLogs\n\n\n\n\nScope\n\nDatabase Entity\n\nDurability\nTime-Saving Preprocess\n\nNetwork Protocol Data Unit\n\nAdaptive Size\nReal-Time Intelligence\n\nEncapsulation\n\nExternal Blob Storage"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
+    "href": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Content Distribution Networks",
+    "text": "Content Distribution Networks\n\nCache: Benefit of Reusability\n\nStatic Data\n\nDatabase\nNetwork\n\nShared Data ↔︎ Private\n\nBenefit of Distance\n\nFar Data Centers\nNear Users"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Optional  Functional Requirements",
+    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#references",
+    "href": "posts/web/hello-interview/dropbox/index.html#references",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "References",
+    "text": "References\n\n\n\n\nKing, Evan. n.d. “System Design Interview: Design Dropbox or Google Drive w/ a Ex-Meta Staff Engineer.” Accessed April 12, 2025. https://youtu.be/_UZ1ngy-kOI?si=zeVM5kvX7o8lnk_7.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "",
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "",
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Reasonable Suspicion",
+    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Google LLC",
+    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
+  },
+  {
+    "objectID": "posts/database/xml/index.html",
+    "href": "posts/database/xml/index.html",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semistructured-data",
+    "href": "posts/database/xml/index.html#semistructured-data",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
+    "href": "posts/database/xml/index.html#html과-xml의-차이",
+    "title": "XML",
+    "section": "HTML과 XML의 차이",
+    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semantic-tags",
+    "href": "posts/database/xml/index.html#semantic-tags",
+    "title": "XML",
+    "section": "Semantic Tags",
+    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#xml-schema",
+    "href": "posts/database/xml/index.html#xml-schema",
+    "title": "XML",
+    "section": "XML Schema",
+    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#dtd의-유연성",
+    "href": "posts/database/xml/index.html#dtd의-유연성",
+    "title": "XML",
+    "section": "DTD의 유연성",
+    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
+  },
+  {
+    "objectID": "posts/database/cv-or-resume/en/index.html",
+    "href": "posts/database/cv-or-resume/en/index.html",
+    "title": "Open-Source CV or Resume Engineering",
+    "section": "",
+    "text": "Switch to Korean\n\n\n\n\n\n\nIntroduction\nAre you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.\nYou can see the live web version and explore the source code here to try it out right away.\nTo get started, simply fork the repository and deploy your CV or resume online using GitHub Pages. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including .pdf and .docx.\nAlternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install Docker Compose, run the commands below, and view your CV at https://localhost:8888/ or in the _site/cv/ directory:\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down\nThis project draws inspiration from Kyungho (Kay) Kim, founder of the Global Coding Community (GCC), and PIRATE KING, whose resume led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own reference.docx using these instructions, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!\n\n\nObjectives\nThis project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from Bay Area K Group and Hello Interview:\n\nConsistency\n\nMaintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses references instead of copy-paste, enabling automatic propagation of changes from a single source document to all formats via Quarto and Pandoc.\nInspired by database principles: traditional relational database management systems (RDBMSs) address redundancy and update anomalies via eager, static updates (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., “repeatable read” isolation).\nInstead, this workflow like foreign key joins in databases adopts on-demand, lazy evaluation, dynamically resolving updates. Similar concepts include reference variables, class inheritance, and monorepos, where code is shared, not duplicated.\n\nCross-Platform Support\n\nMaintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.\nThis workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within comments, CSS files, or reference documents, making them available for future use without permanent deletion.\nSupport for conditional contents enables precise control over what appears in each output, similar to managing file visibility (see King n.d.a). Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like full-text indexes in databases or inverted indexes in search engines (see King n.d.b) — though without any rendering performance gain. Tools like Python Polylith also visualize such dependencies dynamically.\nTraditional relational database management systems (RDBMSs) call related issues insertion and deletion anomalies. While some solutions (like Notion, Confluence, or basic web converters) offer platform independence, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the serializable isolation level. Instead, this workflow leverages nested data structures — including relations, linked lists, trees, graphs, class hierarchies, submodules, polymorphism, dynamic loading, and portable executables — to flexibly manage platform-specific elements. Quarto’s includes feature streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.\n\nEasy Comparison\n\nThe workflow is compatible with Git and GitHub, as it uses plain text files (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.\n\nUser-Friendly Authoring\n\nWriting and maintaining your CV is easier than with LaTeX or typical web development tools, since you primarily use Markdown for content creation and editing.\n\n\nFuture Work\nI hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.\n#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career\nFeel free to contribute, ask questions, or share your feedback!\n\n\n\n\n\n Back to topReferences\n\nKing, Evan. n.d.a. “Design a File Storage Service Like Dropbox.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users.\n\n\n———. n.d.b. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements.\n\nCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {Open-Source CV or Resume Engineering},\n  date = {2025-05-15},\n  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “Open-Source CV or Resume Engineering.”\nMay 15, 2025. https://yhkee0404.github.io/posts/database/cv-or-resume/en/."
+  },
+  {
+    "objectID": "posts/data-science/transformer/index.html",
+    "href": "posts/data-science/transformer/index.html",
+    "title": "Transformer에서 배울 점",
+    "section": "",
+    "text": "Photo by Mohit Kumar on Unsplash\n\n\nTransformer 논문에서 배울 점은 무엇일까?\n\nRNN(Recurrent Neural Networks)과 Transformer의 비교\n\nRNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 Encoder의 전처리 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.\n\nGPT(Generative Pre-trained Transformer)와 Transformer의 비교\n\nGPT(Generative Pre-trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-trained Transformer)와 달리 입력에 Encoder의 출력으로서 Auto-Regressive하지 않은 입력도 포함한다.\n\nTransformer의 Encoder와 Decoder의 시간 복잡도 차이\n\nTransformer의 Encoder와 Decoder는 둘다 \\(N = 6\\)개의 Layer의 Stack으로 구성된다 (Vaswani et al. 2023). 그러나 Encoder는 입력 길이 전체에 대해 1번만 전처리하는 반면에 Decoder는 Auto-Regressive하므로 출력 길이만큼 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 병렬 처리가 가능하다.\n\nLayer Normalization과 비교\n\nNormalization이란 표준화를 의미한다 (see commit_im2025layer_normalization.bib? s). Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 Batch Normalization과 Instance Normalization은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 Channel 단위로 표준화한다 (see Li et al. 2019). Layer Normalization과 Group Normalization, Positional Normalization은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 Channel과 공간적인 Position을 구분하지 않고 표준화하고, 나머지 둘은 Channel을 구분하지 않으면서도 전자는 Channel의 Group 단위로, 후자는 공간적인 Position 단위로 표준화한다 (see Li et al. 2019).\nTransformer의 입력은 시간적인 Position과 그 하위 차원으로 나눌 수 있다. 그리고 Transformer의 Layer Normalization은 시간적인 Position 단위로 표준화하므로 반대로 구분하지 않아야 할 Channel이나 공간적인 Position은 시간적인 Position과 별개이다. 이때 하위 차원을 Channel로 볼 수 있는 2가지 근거가 있다. 첫째는, Fully-Connected Feed-Forward Networks를 Kernel Size가 1인 2개의 Convolutions로 이해하려면 하위 차원이 Channel이어야 하기 때문이다. 그리고 Convolution의 Softmax가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 Softmax도 Query 행렬의 시간적인 Position마다 하위 차원인 Key 행렬의 시간적인 Position, 또는 Value 행렬의 시간적인 Position에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 공간적인 Position은 없거나 1개라고 생각할 수 있다.\n만일 Transformer의 Layer Normalization에서 구분하지 않는 하위 차원을 공간적인 Position이라고 생각해 보면 반대로 공간적인 Position을 구분하는 Positional Normalization이라고는 설명할 수 없다. 대신에 시간적인 Position을 공간적인 Position으로 간주하면 Positional Normalization이라고 생각할 수도 있고, 하위 차원은 Channel이라고 볼 수 있다. 그러면 반대로 공간적인 Position 단위로 표준화하지 않는 Layer Normalization이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 (see commit_im2025layer_normalization.bib? s).\n\nResidual Connections\n\nLayer들의 집합이 \\(N\\)개일 때 Residual Connections를 통해 출력에 \\(N\\)개의 집합 1개 대신 그 집합의 모든 부분집합 \\(2^N\\)개가 기여할 수 있다.\n\n\n\n\n Back to topReferences\n\nLi, Boyi, Felix Wu, Kilian Q. Weinberger, and Serge Belongie. 2019. “Positional Normalization.” https://arxiv.org/abs/1907.04312.\n\n\nVaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2023. “Attention Is All You Need.” https://arxiv.org/abs/1706.03762.\n\nCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {Transformer에서 배울 점},\n  date = {2025-05-25},\n  url = {https://yhkee0404.github.io/posts/data-science/transformer/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “Transformer에서 배울 점.” May 25, 2025.\nhttps://yhkee0404.github.io/posts/data-science/transformer/."
   }
 ]
