@@ -31,10 +31,11 @@ Transformer 논문에서 배울 점은 무엇일까?
   그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다.
   또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.
 
-2. GPT(Generative Pre-trained Transformer)와 Transformer의 비교
+2. GPT(Generative Pre-Trained Transformer)와 Transformer의 비교
 
-  GPT(Generative Pre-trained Transformer)의 입력은 출력에 Auto-Regressive하다.
-  반면에 Transformer의 Decoder는 GPT(Generative Pre-trained Transformer)와 달리 입력에 Encoder의 출력으로서 **Auto-Regressive하지 않은 입력**도 포함한다.
+  GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다.
+  반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 **Auto-Regressive하지 않은 입력**도 포함한다.
+  바꿔 말하면 Self-Attention과 Cross-Attention의 차이이다.
 
 3. Transformer의 Encoder와 Decoder의 시간 복잡도 차이
 
@@ -53,3 +54,5 @@ Transformer 논문에서 배울 점은 무엇일까?
 5. Residual Connections
 
   Layer들의 **집합**이 $N$개일 때 **Residual Connections**를 통해 출력에 $N$개의 **집합** 1개 대신 그 집합의 **모든 부분집합** $2^N$개가 기여할 수 있다.
+
+6. [한글](https://blog.naver.com/hj5864/223436934579)에 비할 바는 못 된다.
