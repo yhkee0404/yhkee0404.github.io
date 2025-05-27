@@ -42,7 +42,7 @@
 <ol start="3" type="1">
 <li>GPT(Generative Pre-Trained Transformer)와 Transformer의 비교</li>
 </ol>
-<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 Self-Attention과 Cross-Attention, 또는 Encoder-Decoder Attention의<sup>2</sup> 차이이다.</p>
+<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 <strong>Self-Attention</strong>과 <strong>Cross-Attention</strong>, 또는 <strong>Encoder-Decoder Attention</strong>의<sup>2</sup> 차이이다.</p>
 <ol start="4" type="1">
 <li>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</li>
 </ol>
@@ -60,8 +60,8 @@
 <ol start="7" type="1">
 <li>Scale의 기능</li>
 </ol>
-<p>Softmax의 입력을 1보다 큰 Scale로 나누는 것은 Softmax Temperature로서 예측 불확실성을 높인다 <span class="citation" data-cites="boonstra2024prompt">(see Boonstra 2024)</span>. 그리고 Drop-Out처럼 학습 대상을 늘릴 수 있을 것 같다. <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017, sec. 3.2.1, p.&nbsp;4)</span>에서는 기울기가 너무 작아질까봐 늘려주기 위해서라고 한다.</p>
-<p>한편 Attention 내부가 아니라 모델 전체의 출력 직전에 수행하는 Softmax는 Scale하지 않는다. 다만 모델 출력 직전 Softmax의 입력과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 같은 가중치 행렬을 공유하며 선형 변환을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 즉 줄이지 않고 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.4, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 같은 가중치 행렬을 공유한다는 말은 두 입력이 같은 어휘 집합을 공유한다는 말이다.</p>
+<p>Softmax의 입력을 1보다 큰 Scale로 나누는 것은 <strong>Softmax Temperature</strong>로서 예측 불확실성을 높인다 <span class="citation" data-cites="boonstra2024prompt">(see Boonstra 2024)</span>. 그리고 <strong>Drop-Out</strong>처럼 학습 대상을 늘릴 수 있을 것 같다. <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017, sec. 3.2.1, p.&nbsp;4)</span>에서는 학습량이 너무 작아질까봐 늘려주기 위해서라고 한다.</p>
+<p>한편 <strong>Attention</strong> 내부가 아니라 모델 전체의 출력 직전에 수행하는 <strong>Softmax</strong>는 Scale하지 않는다. 다만 모델 출력 직전 Softmax의 입력과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 <strong>같은 가중치 행렬을 공유</strong>하며 <strong>선형 변환</strong>을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 즉 줄이지 않고 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.4, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 <strong>같은 가중치 행렬을 공유</strong>한다는 말은 두 입력이 <strong>같은 어휘 집합을 공유</strong>한다는 말이다.</p>
 
 
 
