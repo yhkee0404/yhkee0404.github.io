@@ -28,7 +28,7 @@ aliases:
 image: "/_images/pdf/yhkee0404-cv-en.png"
 bibliography:
   - king_dropbox_sharelist.bib
-  - king_ticketmaster_search.bib
+  - king_ticketmaster.bib
 format-links:
   - text: Korean
     href: ../ko/
@@ -108,7 +108,7 @@ You can preprocess elements within **comments**, **CSS files**, or **reference d
 
 Support for [conditional contents](https://quarto.org/docs/authoring/conditional.html) enables precise control over what appears in each output, similar to managing file visibility [see @king_dropbox_sharelist].
 Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section.
-It helps you quickly locate relevant formats --- much like **full-text indexes** in databases or **inverted indexes** in search engines [see @king_ticketmaster_search] --- though without any rendering performance gain.
+It helps you quickly locate relevant formats --- much like **full-text indexes** in databases or **inverted indexes** in search engines [see @king_ticketmaster, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?] --- though without any rendering performance gain.
 Tools like Python Polylith also [visualize](https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html) such dependencies dynamically.
 
 Traditional relational database management systems (RDBMSs) call related issues **insertion and deletion anomalies**. While some solutions (like Notion, Confluence, or basic web converters) offer **platform independence**, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the **serializable** isolation level. Instead, this workflow leverages **nested data structures** --- including **relations**, **linked lists**, **trees**, **graphs**, **class hierarchies**, **submodules**, **polymorphism**, **dynamic loading**, and **portable executables** --- to flexibly manage platform-specific elements. Quarto's [includes feature](https://quarto.org/docs/authoring/includes.html) streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.

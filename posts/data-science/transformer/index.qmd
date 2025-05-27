@@ -2,6 +2,7 @@
 title: "Transformer에서 배울 점"
 author: "Yunho Kee"
 date: "2025-05-25"
+date-modified: "2025-05-27"
 categories:
   - "data science"
   - transformer
@@ -13,46 +14,62 @@ categories:
   - "auto-regressive"
   - normalization
   - residual
+  - temperature
+  - attention
 image: /_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg
 bibliography: 
-  - vaswani2023attentionneed.bib
+  - hj5864_2024hangul.bib
+  - vaswani2017attentionneed.bib
   - li2019positionalnormalization.bib
   - commit_im2025layer_normalization.bib
+  - lee2021bert_gpt.bibtex
+  - boonstra2024prompt.bib
 ---
 
 ![Photo by <a href="https://unsplash.com/@98mohitkumar?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Mohit Kumar</a> on <a href="https://unsplash.com/photos/aerial-photography-of-buildings-6M9xiVgkoN0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of a bird's eye view of a city."}
 
-Transformer 논문에서 배울 점은 무엇일까?
+Transformer 논문에서^[@vaswani2017attentionneed] 배울 점은 무엇일까?
 
-1. RNN(Recurrent Neural Networks)과 Transformer의 비교
+1. 한글에 비할 바는 못 된다 [see @hj5864_2024hangul].
+
+2. RNN(Recurrent Neural Networks)과 Transformer의 비교
 
   RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다.
   반면에 Transformer는 **Encoder의 전처리** 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다.
   그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다.
   또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.
 
-2. GPT(Generative Pre-Trained Transformer)와 Transformer의 비교
+3. GPT(Generative Pre-Trained Transformer)와 Transformer의 비교
 
   GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다.
   반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 **Auto-Regressive하지 않은 입력**도 포함한다.
-  바꿔 말하면 Self-Attention과 Cross-Attention의 차이이다.
+  바꿔 말하면 Self-Attention과 Cross-Attention, 또는 Encoder-Decoder Attention의^[see @vaswani2017attentionneed, Section 3.2.3, p. 5] 차이이다.
+  
 
-3. Transformer의 Encoder와 Decoder의 시간 복잡도 차이
+4. Transformer의 Encoder와 Decoder의 시간 복잡도 차이
 
-  Transformer의 Encoder와 Decoder는 둘다 $N = 6$개의 Layer의 Stack으로 구성된다 [@vaswani2023attentionneed].
+  Transformer의 Encoder와 Decoder는 둘다 $N = 6$개의 Layer의 Stack으로 구성된다 [see @vaswani2017attentionneed, Section 3.1, p. 3].
   그러나 Encoder는 입력 길이 전체에 대해 **1번만 전처리**하는 반면에 Decoder는 Auto-Regressive하므로 **출력 길이만큼** 수행해야 한다.
   다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 **병렬 처리**가 가능하다.
 
-4. Layer Normalization과 비교
+5. Layer Normalization의 의미
 
-  Normalization이란 표준화를 의미한다 [see @commit_im2025layer_normalization, 48 s]. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 **Batch Normalization**과 **Instance Normalization**은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 **Channel 단위**로 표준화한다 [see @li2019positionalnormalization]. **Layer Normalization**과 **Group Normalization**, **Positional Normalization**은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 **Channel**과 **공간적인 Position**을 구분하지 않고 표준화하고, 나머지 둘은 **Channel**을 구분하지 않으면서도 전자는 Channel의 **Group** 단위로, 후자는 **공간적인 Position** 단위로 표준화한다 [see @li2019positionalnormalization].
+  Normalization이란 표준화를 의미한다 [see @commit_im2025layer_normalization, 0:48]. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 **Batch Normalization**과 **Instance Normalization**은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 **Channel 단위**로 표준화한다 [see @li2019positionalnormalization]. **Layer Normalization**과 **Group Normalization**, **Positional Normalization**은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 **Channel**과 **공간적인 Position**을 구분하지 않고 표준화하고, 나머지 둘은 **Channel**을 구분하지 않으면서도 전자는 Channel의 **Group** 단위로, 후자는 **공간적인 Position** 단위로 표준화한다 [see @li2019positionalnormalization].
   
-  Transformer의 입력은 **시간적인 Position**과 그 **하위 차원**으로 나눌 수 있다. 그리고 Transformer의 **Layer Normalization**은 **시간적인 Position** 단위로 표준화하므로 반대로 구분하지 않아야 할 **Channel**이나 **공간적인 Position**은 **시간적인 Position**과 별개이다. 이때 **하위 차원**을 **Channel**로 볼 수 있는 2가지 근거가 있다. 첫째는, **Fully-Connected Feed-Forward Networks**를 Kernel Size가 1인 2개의 **Convolutions**로 이해하려면 하위 차원이 **Channel**이어야 하기 때문이다. 그리고 **Convolution**의 **Softmax**가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 **Softmax**도 Query 행렬의 **시간적인 Position**마다 **하위 차원**인 Key 행렬의 **시간적인 Position**, 또는 Value 행렬의 **시간적인 Position**에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 **공간적인 Position**은 없거나 1개라고 생각할 수 있다.
+  Transformer의 입력은 **시간적인 Position**과 그 **하위 차원**으로 나눌 수 있다. 그리고 Transformer의 **Layer Normalization**은 **시간적인 Position** 단위로 표준화하므로 반대로 구분하지 않아야 할 **Channel**이나 **공간적인 Position**은 **시간적인 Position**과 별개여야 한다. 이때 **하위 차원**을 **Channel**로 볼 수 있는 2가지 근거가 있다. 첫째는, **Fully-Connected Feed-Forward Networks**를 Kernel Size가 1인 2개의 **Convolutions**로 이해하려면 하위 차원이 **Channel**이어야 하기 때문이다. 그리고 **Convolution**의 **Softmax**가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 **Softmax**도 Query 행렬의 **시간적인 Position**마다 **하위 차원**인 Key 행렬의 **시간적인 Position**, 또는 Value 행렬의 **시간적인 Position**에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 **공간적인 Position**은 없거나 1개라고 생각할 수 있다.
   
-  만일 Transformer의 **Layer Normalization**에서 구분하지 않는 **하위 차원**을 **공간적인 Position**이라고 생각해 보면 반대로 **공간적인 Position**을 구분하는 **Positional Normalization**이라고는 설명할 수 없다. 대신에 **시간적인 Position**을 **공간적인 Position**으로 간주하면 **Positional Normalization**이라고 생각할 수도 있고, **하위 차원**은 **Channel**이라고 볼 수 있다. 그러면 반대로 **공간적인 Position** 단위로 표준화하지 않는 **Layer Normalization**이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 [see @commit_im2025layer_normalization, 48 s].
+  만일 Transformer의 **Layer Normalization**에서 구분하지 않는 **하위 차원**을 **공간적인 Position**이라고 생각해 보면 반대로 **공간적인 Position**을 구분하는 **Positional Normalization**이라고는 설명할 수 없다. 대신에 **시간적인 Position**을 **공간적인 Position**으로 간주하면 **Positional Normalization**이라고 생각할 수도 있고, **하위 차원**은 **Channel**이라고 볼 수 있다. 그러면 반대로 **공간적인 Position** 단위로 표준화하지 않는 **Layer Normalization**이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 [see @commit_im2025layer_normalization].
 
-5. Residual Connections
+6. Residual Connections의 기능
 
-  Layer들의 **집합**이 $N$개일 때 **Residual Connections**를 통해 출력에 $N$개의 **집합** 1개 대신 그 집합의 **모든 부분집합** $2^N$개가 기여할 수 있다.
+  Layer들의 **집합**이 $N$개일 때 **Residual Connections**를 통해 출력에 $N$개의 **집합** 1개 대신 그 집합의 **모든 부분집합** $2^N$개가 기여할 수 있다 [see @lee2021bert_gpt, Chap. 3, Section 3-4, p. 107].
 
-6. [한글](https://blog.naver.com/hj5864/223436934579)에 비할 바는 못 된다.
+7. Scale의 기능
+
+  Softmax의 입력을 1보다 큰 Scale로 나누는 것은 Softmax Temperature^[see @boonstra2024prompt]로서 예측 불확실성을 높인다.
+  그리고 Drop-Out처럼 학습 대상을 늘릴 수 있을 것 같다.
+  @vaswani2017attentionneed [Section 3.2.1, p. 4]에서는 기울기가 너무 작아질까봐 늘려주기 위해서라고 한다.
+  
+  한편 Attention 내부가 아니라 모델 전체의 출력 직전에 수행하는 Softmax는 Scale하지 않는다.
+  다만 모델 출력의 Softmax 직전과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 같은 가중치 행렬을 공유하며 선형 변환을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 반대로 후자의 두 경우에서 Scale을 늘린다 [see @vaswani2017attentionneed, Section 3.4, p. 5].
+  이때 Encoder의 입력과 Decoder의 입력이 같은 가중치 행렬을 공유한다는 말은 두 입력이 같은 어휘 집합을 공유한다는 말이다.
