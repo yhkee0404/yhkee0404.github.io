@@ -62,7 +62,7 @@ format-links:
 ![2 / 3](/_images/pdf/yhkee0404-cv-ko-2025-05-12-2-3.png){group="fig-cv-or-resume-ko" fig-alt="A photo of page 2 of 3 of the CV."}
 
 
-![3 / 3](/_images/pdf/yhkee0404-cv-ko-2025-05-12-3-3.png){group="fig-cv-or-resume-ko" fig-alt="A photo of page 3 of 3 of the CV."}
+![3 / 3](/_images/pdf/yhkee0404-cv-ko-2025-05-12-3-3.png){style="margin-right:20px;" group="fig-cv-or-resume-ko" fig-alt="A photo of page 3 of 3 of the CV."}
 
 이력서 PDF (2025-05-12)
 :::
