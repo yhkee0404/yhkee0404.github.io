@@ -415,6 +415,8 @@ window.Quarto = {
     <div class="quarto-category">auto-regressive</div>
     <div class="quarto-category">normalization</div>
     <div class="quarto-category">residual</div>
+    <div class="quarto-category">temperature</div>
+    <div class="quarto-category">attention</div>
   </div>
   </div>
 
@@ -436,6 +438,12 @@ window.Quarto = {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 27, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -450,44 +458,67 @@ window.Quarto = {
 <figcaption>Photo by <a href="https://unsplash.com/@98mohitkumar?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Mohit Kumar</a> on <a href="https://unsplash.com/photos/aerial-photography-of-buildings-6M9xiVgkoN0?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
-<p>Transformer 논문에서 배울 점은 무엇일까?</p>
+<p>Transformer 논문에서<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 배울 점은 무엇일까?</p>
 <ol type="1">
-<li>RNN(Recurrent Neural Networks)과 Transformer의 비교</li>
+<li><p>한글에 비할 바는 못 된다 <span class="citation" data-cites="hj5864_2024hangul">(see <a href="#ref-hj5864_2024hangul" role="doc-biblioref">잇츠룸장 2024</a>)</span>.</p></li>
+<li><p>RNN(Recurrent Neural Networks)과 Transformer의 비교</p></li>
 </ol>
 <p>RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 <strong>Encoder의 전처리</strong> 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.</p>
-<ol start="2" type="1">
-<li>GPT(Generative Pre-trained Transformer)와 Transformer의 비교</li>
-</ol>
-<p>GPT(Generative Pre-trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다.</p>
 <ol start="3" type="1">
+<li>GPT(Generative Pre-Trained Transformer)와 Transformer의 비교</li>
+</ol>
+<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 Self-Attention과 Cross-Attention, 또는 Encoder-Decoder Attention의<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 차이이다.</p>
+<ol start="4" type="1">
 <li>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</li>
 </ol>
-<p>Transformer의 Encoder와 Decoder는 둘다 <span class="math inline">\(N = 6\)</span>개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2023attentionneed">(<a href="#ref-vaswani2023attentionneed" role="doc-biblioref">Vaswani et al. 2023</a>)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
-<ol start="4" type="1">
-<li>Layer Normalization과 비교</li>
-</ol>
-<p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization">(see <a href="#ref-commit_im2025layer_normalization" role="doc-biblioref">commit.im n.d., 48</a> s)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see <a href="#ref-li2019positionalnormalization" role="doc-biblioref">Li et al. 2019</a>)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see <a href="#ref-li2019positionalnormalization" role="doc-biblioref">Li et al. 2019</a>)</span>.</p>
-<p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개이다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
-<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see <a href="#ref-commit_im2025layer_normalization" role="doc-biblioref">commit.im n.d., 48</a> s)</span>.</p>
+<p>Transformer의 Encoder와 Decoder는 둘다 <span class="math inline">\(N = 6\)</span>개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2017attentionneed">(see <a href="#ref-vaswani2017attentionneed" role="doc-biblioref">Vaswani et al. 2017, sec. 3.1</a>, p.&nbsp;3)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
 <ol start="5" type="1">
-<li>Residual Connections</li>
+<li>Layer Normalization의 의미</li>
 </ol>
-<p>Layer들의 <strong>집합</strong>이 <span class="math inline">\(N\)</span>개일 때 <strong>Residual Connections</strong>를 통해 출력에 <span class="math inline">\(N\)</span>개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <span class="math inline">\(2^N\)</span>개가 기여할 수 있다.</p>
+<p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization">(see <a href="#ref-commit_im2025layer_normalization" role="doc-biblioref">commit.im 2025, 0:48</a>)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see <a href="#ref-li2019positionalnormalization" role="doc-biblioref">Li et al. 2019</a>)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see <a href="#ref-li2019positionalnormalization" role="doc-biblioref">Li et al. 2019</a>)</span>.</p>
+<p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개여야 한다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
+<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see <a href="#ref-commit_im2025layer_normalization" role="doc-biblioref">commit.im 2025</a>)</span>.</p>
+<ol start="6" type="1">
+<li>Residual Connections의 기능</li>
+</ol>
+<p>Layer들의 <strong>집합</strong>이 <span class="math inline">\(N\)</span>개일 때 <strong>Residual Connections</strong>를 통해 출력에 <span class="math inline">\(N\)</span>개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <span class="math inline">\(2^N\)</span>개가 기여할 수 있다 <span class="citation" data-cites="lee2021bert_gpt">(see <a href="#ref-lee2021bert_gpt" role="doc-biblioref">Lee 2021, chap. 3</a>, Section 3-4, p.&nbsp;107)</span>.</p>
+<ol start="7" type="1">
+<li>Scale의 기능</li>
+</ol>
+<p>Softmax의 입력을 1보다 큰 Scale로 나누는 것은 Softmax Temperature<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>로서 예측 불확실성을 높인다. 그리고 Drop-Out처럼 학습 대상을 늘릴 수 있을 것 같다. <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (<a href="#ref-vaswani2017attentionneed" role="doc-biblioref">2017, sec. 3.2.1</a>, p.&nbsp;4)</span>에서는 기울기가 너무 작아질까봐 늘려주기 위해서라고 한다.</p>
+<p>한편 Attention 내부가 아니라 모델 전체의 출력 직전에 수행하는 Softmax는 Scale하지 않는다. 다만 모델 출력의 Softmax 직전과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 같은 가중치 행렬을 공유하며 선형 변환을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see <a href="#ref-vaswani2017attentionneed" role="doc-biblioref">Vaswani et al. 2017, sec. 3.4</a>, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 같은 가중치 행렬을 공유한다는 말은 두 입력이 같은 어휘 집합을 공유한다는 말이다.</p>
+
 
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-boonstra2024prompt" class="csl-entry" role="listitem">
+Boonstra, Lee. 2024. <span>“Prompt Engineering.”</span> Google Cloud. <a href="https://www.kaggle.com/whitepaper-prompt-engineering">https://www.kaggle.com/whitepaper-prompt-engineering</a>.
+</div>
 <div id="ref-commit_im2025layer_normalization" class="csl-entry" role="listitem">
-commit.im. n.d. <span>“이렇게 이해하면 안되는 이유.”</span> Accessed April 12, 2025. <a href="https://www.youtube.com/watch?v=r7DRvHmHcNU">https://www.youtube.com/watch?v=r7DRvHmHcNU</a>.
+commit.im. 2025. <span>“이렇게 이해하면 안되는 이유.”</span> April 12, 2025. <a href="https://www.youtube.com/watch?v=r7DRvHmHcNU">https://www.youtube.com/watch?v=r7DRvHmHcNU</a>.
+</div>
+<div id="ref-lee2021bert_gpt" class="csl-entry" role="listitem">
+Lee, Gichang. 2021. <em><span class="nocase">Do it! BERT와 GPT로 배우는 자연어 처리: 트랜스포머 핵심 원리와 허깅페이스 패키지 활용법</span></em>. 이지스퍼블리싱 (주). <a href="https://books.google.co.kr/books?id=1W9UEAAAQBAJ">https://books.google.co.kr/books?id=1W9UEAAAQBAJ</a>.
 </div>
 <div id="ref-li2019positionalnormalization" class="csl-entry" role="listitem">
 Li, Boyi, Felix Wu, Kilian Q. Weinberger, and Serge Belongie. 2019. <span>“Positional Normalization.”</span> <a href="https://arxiv.org/abs/1907.04312">https://arxiv.org/abs/1907.04312</a>.
 </div>
-<div id="ref-vaswani2023attentionneed" class="csl-entry" role="listitem">
-Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2023. <span>“Attention Is All You Need.”</span> <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.
+<div id="ref-vaswani2017attentionneed" class="csl-entry" role="listitem">
+Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. <span>“Attention Is All You Need.”</span> <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+<div id="ref-hj5864_2024hangul" class="csl-entry" role="listitem">
+잇츠룸장. 2024. <span>“한글은 공학박사 김태민의 운명이자 사명! 한글은 문화와 논리, 과학의 결정체로 인공지능 시대에 더욱 빛나는 자연법칙이다.”</span> May 5, 2024. <a href="https://blog.naver.com/hj5864/223436934579">https://blog.naver.com/hj5864/223436934579</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (<a href="#ref-vaswani2017attentionneed" role="doc-biblioref">2017</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>see <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (<a href="#ref-vaswani2017attentionneed" role="doc-biblioref">2017</a>)</span>, Section 3.2.3, p.&nbsp;5<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>see <span class="citation" data-cites="boonstra2024prompt">Boonstra (<a href="#ref-boonstra2024prompt" role="doc-biblioref">2024</a>)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
   title = {Transformer에서 배울 점},
   date = {2025-05-25},

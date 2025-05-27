@@ -33,44 +33,67 @@
 <figcaption>Photo by <a href="https://unsplash.com/@98mohitkumar?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Mohit Kumar</a> on <a href="https://unsplash.com/photos/aerial-photography-of-buildings-6M9xiVgkoN0?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 </div>
-<p>Transformer 논문에서 배울 점은 무엇일까?</p>
+<p>Transformer 논문에서<sup>1</sup> 배울 점은 무엇일까?</p>
 <ol type="1">
-<li>RNN(Recurrent Neural Networks)과 Transformer의 비교</li>
+<li><p>한글에 비할 바는 못 된다 <span class="citation" data-cites="hj5864_2024hangul">(see 잇츠룸장 2024)</span>.</p></li>
+<li><p>RNN(Recurrent Neural Networks)과 Transformer의 비교</p></li>
 </ol>
 <p>RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 <strong>Encoder의 전처리</strong> 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.</p>
-<ol start="2" type="1">
-<li>GPT(Generative Pre-trained Transformer)와 Transformer의 비교</li>
-</ol>
-<p>GPT(Generative Pre-trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다.</p>
 <ol start="3" type="1">
+<li>GPT(Generative Pre-Trained Transformer)와 Transformer의 비교</li>
+</ol>
+<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 Self-Attention과 Cross-Attention, 또는 Encoder-Decoder Attention의<sup>2</sup> 차이이다.</p>
+<ol start="4" type="1">
 <li>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</li>
 </ol>
-<p>Transformer의 Encoder와 Decoder는 둘다 <img src="https://latex.codecogs.com/png.latex?N%20=%206">개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2023attentionneed">(Vaswani et al. 2023)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
-<ol start="4" type="1">
-<li>Layer Normalization과 비교</li>
-</ol>
-<p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im n.d., 48 s)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>.</p>
-<p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개이다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
-<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im n.d., 48 s)</span>.</p>
+<p>Transformer의 Encoder와 Decoder는 둘다 <img src="https://latex.codecogs.com/png.latex?N%20=%206">개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.1, p.&nbsp;3)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
 <ol start="5" type="1">
-<li>Residual Connections</li>
+<li>Layer Normalization의 의미</li>
 </ol>
-<p>Layer들의 <strong>집합</strong>이 <img src="https://latex.codecogs.com/png.latex?N">개일 때 <strong>Residual Connections</strong>를 통해 출력에 <img src="https://latex.codecogs.com/png.latex?N">개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <img src="https://latex.codecogs.com/png.latex?2%5EN">개가 기여할 수 있다.</p>
+<p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im 2025, 0:48)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>.</p>
+<p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개여야 한다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
+<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im 2025)</span>.</p>
+<ol start="6" type="1">
+<li>Residual Connections의 기능</li>
+</ol>
+<p>Layer들의 <strong>집합</strong>이 <img src="https://latex.codecogs.com/png.latex?N">개일 때 <strong>Residual Connections</strong>를 통해 출력에 <img src="https://latex.codecogs.com/png.latex?N">개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <img src="https://latex.codecogs.com/png.latex?2%5EN">개가 기여할 수 있다 <span class="citation" data-cites="lee2021bert_gpt">(see Lee 2021, chap. 3, Section 3-4, p.&nbsp;107)</span>.</p>
+<ol start="7" type="1">
+<li>Scale의 기능</li>
+</ol>
+<p>Softmax의 입력을 1보다 큰 Scale로 나누는 것은 Softmax Temperature<sup>3</sup>로서 예측 불확실성을 높인다. 그리고 Drop-Out처럼 학습 대상을 늘릴 수 있을 것 같다. <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017, sec. 3.2.1, p.&nbsp;4)</span>에서는 기울기가 너무 작아질까봐 늘려주기 위해서라고 한다.</p>
+<p>한편 Attention 내부가 아니라 모델 전체의 출력 직전에 수행하는 Softmax는 Scale하지 않는다. 다만 모델 출력의 Softmax 직전과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 같은 가중치 행렬을 공유하며 선형 변환을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.4, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 같은 가중치 행렬을 공유한다는 말은 두 입력이 같은 어휘 집합을 공유한다는 말이다.</p>
+
 
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-boonstra2024prompt" class="csl-entry">
+Boonstra, Lee. 2024. <span>“Prompt Engineering.”</span> Google Cloud. <a href="https://www.kaggle.com/whitepaper-prompt-engineering">https://www.kaggle.com/whitepaper-prompt-engineering</a>.
+</div>
 <div id="ref-commit_im2025layer_normalization" class="csl-entry">
-commit.im. n.d. <span>“이렇게 이해하면 안되는 이유.”</span> Accessed April 12, 2025. <a href="https://www.youtube.com/watch?v=r7DRvHmHcNU">https://www.youtube.com/watch?v=r7DRvHmHcNU</a>.
+commit.im. 2025. <span>“이렇게 이해하면 안되는 이유.”</span> April 12, 2025. <a href="https://www.youtube.com/watch?v=r7DRvHmHcNU">https://www.youtube.com/watch?v=r7DRvHmHcNU</a>.
+</div>
+<div id="ref-lee2021bert_gpt" class="csl-entry">
+Lee, Gichang. 2021. <em><span class="nocase">Do it! BERT와 GPT로 배우는 자연어 처리: 트랜스포머 핵심 원리와 허깅페이스 패키지 활용법</span></em>. 이지스퍼블리싱 (주). <a href="https://books.google.co.kr/books?id=1W9UEAAAQBAJ">https://books.google.co.kr/books?id=1W9UEAAAQBAJ</a>.
 </div>
 <div id="ref-li2019positionalnormalization" class="csl-entry">
 Li, Boyi, Felix Wu, Kilian Q. Weinberger, and Serge Belongie. 2019. <span>“Positional Normalization.”</span> <a href="https://arxiv.org/abs/1907.04312">https://arxiv.org/abs/1907.04312</a>.
 </div>
-<div id="ref-vaswani2023attentionneed" class="csl-entry">
-Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2023. <span>“Attention Is All You Need.”</span> <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.
+<div id="ref-vaswani2017attentionneed" class="csl-entry">
+Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. <span>“Attention Is All You Need.”</span> <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+<div id="ref-hj5864_2024hangul" class="csl-entry">
+잇츠룸장. 2024. <span>“한글은 공학박사 김태민의 운명이자 사명! 한글은 문화와 논리, 과학의 결정체로 인공지능 시대에 더욱 빛나는 자연법칙이다.”</span> May 5, 2024. <a href="https://blog.naver.com/hj5864/223436934579">https://blog.naver.com/hj5864/223436934579</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017)</span>↩︎</p></li>
+<li id="fn2"><p>see <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017)</span>, Section 3.2.3, p.&nbsp;5↩︎</p></li>
+<li id="fn3"><p>see <span class="citation" data-cites="boonstra2024prompt">Boonstra (2024)</span>↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
   title = {Transformer에서 배울 점},
   date = {2025-05-25},
@@ -91,6 +114,8 @@ Kee, Yunho. 2025. <span>“Transformer에서 배울 점.”</span> May 25, 2025.
   <category>auto-regressive</category>
   <category>normalization</category>
   <category>residual</category>
+  <category>temperature</category>
+  <category>attention</category>
   <guid>https://yhkee0404.github.io/posts/data-science/transformer/</guid>
   <pubDate>Sun, 25 May 2025 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" medium="image" type="image/jpeg"/>
@@ -153,7 +178,7 @@ font-style: inherit;"># docker compose down</span></span></code></pre></div>
 </ol>
 <p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
 <p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
-<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster_search">(see King n.d.b)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
+<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
 <p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
 <ol start="3" type="1">
 <li>Easy Comparison</li>
@@ -178,8 +203,8 @@ font-style: inherit;"># docker compose down</span></span></code></pre></div>
 <div id="ref-king_dropbox_sharelist" class="csl-entry">
 King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
 </div>
-<div id="ref-king_ticketmaster_search" class="csl-entry">
-———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements</a>.
+<div id="ref-king_ticketmaster" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
@@ -327,7 +352,7 @@ font-style: inherit;"># docker compose down</span></span></code></pre></div>
 </ol>
 <p>플랫폼별로 고유한 내용이나 스타일이 있더라도, 단순 변환 도구(converter)만으로는 재사용이 어렵습니다. 변환된 파일을 직접 수정하면, 소스가 바뀔 때마다 수작업이 반복되고 데이터가 유실될 수 있습니다.</p>
 <p>이 워크플로우는 <strong>고립되거나 미완성된 내용이나 스타일도 참조</strong>할 수 있어, <strong>주석</strong>, <strong>CSS 파일</strong>, <strong>reference</strong> 문서 등에 미리 정의해 두고 필요할 때마다 쉽게 재사용할 수 있습니다.</p>
-<p><a href="https://quarto.org/docs/authoring/conditional.html">조건부 콘텐츠</a> 지원으로 각 출력물에 원하는 내용만 노출할 수 있고, 파일 가시성 제어처럼 설정할 수 있습니다 <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Maven, Gradle, npm 등 기존 빌드 툴이 빌드 단위로 의존성을 정의하는 것과 달리, 이 워크플로우는 반대로 의존성이나 문서 섹션 단위로 빌드를 선언할 수 있습니다. 데이터베이스의 <strong>전문 검색 인덱스(full-text index)</strong>나 검색 엔진의 <strong>역색인(inverted index)</strong>처럼 관련 포맷을 빠르게 파악할 수 있지만 <span class="citation" data-cites="king_ticketmaster_search">(see King n.d.b)</span>, 렌더링 성능 이점은 없습니다. Python Polylith는 이러한 의존성을 동적으로 <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">시각화</a>하기도 합니다.</p>
+<p><a href="https://quarto.org/docs/authoring/conditional.html">조건부 콘텐츠</a> 지원으로 각 출력물에 원하는 내용만 노출할 수 있고, 파일 가시성 제어처럼 설정할 수 있습니다 <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Maven, Gradle, npm 등 기존 빌드 툴이 빌드 단위로 의존성을 정의하는 것과 달리, 이 워크플로우는 반대로 의존성이나 문서 섹션 단위로 빌드를 선언할 수 있습니다. 데이터베이스의 <strong>전문 검색 인덱스(full-text index)</strong>나 검색 엔진의 <strong>역색인(inverted index)</strong>처럼 관련 포맷을 빠르게 파악할 수 있지만 <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span>, 렌더링 성능 이점은 없습니다. Python Polylith는 이러한 의존성을 동적으로 <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">시각화</a>하기도 합니다.</p>
 <p>관계형 데이터베이스에서는 이런 문제를 <strong>삽입/삭제 이상(insertion and deletion anomaly)</strong>이라고 부릅니다. Notion, Confluence, 단순 웹 변환기 등은 <strong>플랫폼 독립성(platform independence)</strong>을 제공하지만, 너무 단순해서 맞춤형 콘텐츠나 스타일을 수정하기 어렵고, 이는 일종의 brute-force 방식(<strong>Serializable</strong> 격리 수준)과 비슷합니다. 이 워크플로우는 대신 <strong>관계</strong>, <strong>연결 리스트</strong>, <strong>트리</strong>, <strong>그래프</strong>, <strong>클래스 계층</strong>, <strong>서브모듈</strong>, <strong>다형성</strong>, <strong>동적 로딩</strong>, <strong>포터블 실행파일</strong> 등 <strong>중첩 데이터 구조(nested data structure)</strong>를 활용해 플랫폼별 요소를 유연하게 관리합니다. Quarto의 <a href="https://quarto.org/docs/authoring/includes.html">includes 기능</a>은 재사용을 간편하게 해주지만, 과도하게 사용하면 정신적 stack overflow가 올 수 있으니 주의가 필요합니다.</p>
 <ol start="3" type="1">
 <li>손쉬운 비교</li>
@@ -352,8 +377,8 @@ font-style: inherit;"># docker compose down</span></span></code></pre></div>
 <div id="ref-king_dropbox_sharelist" class="csl-entry">
 King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
 </div>
-<div id="ref-king_ticketmaster_search" class="csl-entry">
-———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster#4-how-can-you-improve-search-to-ensure-we-meet-our-low-latency-requirements</a>.
+<div id="ref-king_ticketmaster" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
@@ -2354,8 +2379,8 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 
 
 
-<p>웹 개발자 <span class="citation" data-cites="rusendic2022single">Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.</p>
-<p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="rusendic2022single">(Rusendić 2022)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="rusendic2022single">(Rusendić 2022)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="rusendic2022single">(Rusendić 2022)</span>.</p>
+<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.</p>
+<p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
 <p><del>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</del></p>
 <p>좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.</p>
 
@@ -2363,8 +2388,8 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-rusendic2022single" class="csl-entry">
-Rusendić, Stanko Krtalić. 2022. <span>“Having a Monolith Is a Single Point of Failure.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
+<div id="ref-stanko2022single" class="csl-entry">
+Krtalić Rusendić, Stanko. 2022. <span>“<span>"Having a Monolith Is a Single Point of Failure"</span>.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
