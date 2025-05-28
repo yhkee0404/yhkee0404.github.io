@@ -57,7 +57,15 @@ Netflix가 **Microservice**로 유명하며, [Chaos Monkey](https://github.com/n
 ### 그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점
 
 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)은 **SPOF**(**Single Point of Failure**)를 제거해 가용성을 확대할 수 있는 전략이다.
-그런데 @stanko2022single 는 @fig-microservice-spof-missing-microservice 과 같이 **Microservice**의 2가지 정상 동작 상태를 누락해 가용성을 $50\%$로 잘못 계산했고, **Monolith**의 가용성 $75\%$도 **소스코드** 내 의존성을 무시해서 잘못 비교했다.
+그런데 @stanko2022single 는 @fig-microservice-spof-missing-microservice 과 같은 **Microservice**의 2가지 정상 동작 상태를 누락해 가용성을 $50\%$로 잘못 계산했고, **Monolith**의 가용성 $75\%$도 **소스코드** 내 의존성을 무시해서 잘못 비교했다.
+
+:::{#fig-microservice-spof-missing-microservice layout-ncol=2}
+![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
+
+![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="margin-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
+
+**수평 확장**(**Horizontal Scaling**, **Scale-Out**) 시 **Microservice**의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태
+:::
 
 예시 **소스코드**의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 $\frac 1 4 = 25\%$를 계산한 것처럼,
 
@@ -66,14 +74,6 @@ $$2^2 = 4$$
 4개의 **소스코드** 동작 여부에 따라서는, @stanko2022single 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:
 
 $$2^4 = 16$$
-
-:::{#fig-microservice-spof-missing-microservice layout-ncol=2}
-![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
-
-![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
-
-**수평 확장**(**Horizontal Scaling**, **Scale-Out**) 시 **Microservice**의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태
-:::
 
 2개의 **소스코드**를 각각 2배로 늘리면 기존에 2개였던 **SPOF**(**Single Point of Failure**)가 제거되어, 가용성은 기존 **소스코드** 2개의 $\frac 1 4 = 25\%$에서
 

@@ -1,0 +1,26 @@
+---
+title: "CORS, CSRF, XSS는 서버에서 막으면 그만일까?"
+author: "Yunho Kee"
+date: "2025-05-28"
+categories:
+  - web
+  - "cross-origin resource sharing"
+  - "cross-site request forgery"
+  - "cross-site scripting"
+image: /_images/thumbnails/kelly-sikkema-3sudMpZegzw-unsplash.jpg
+---
+
+![Photo by <a href="https://unsplash.com/@kellysikkema?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/black-and-red-letter-b-3sudMpZegzw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>]({{< meta image >}}){fig-alt="A photo of xoxo."}
+
+* CORS(Cross-Origin Resource Sharing)^[<https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS>]을 제한적으로만 허용하기 위해(Authorization), 서버는 요청의 `Origin` Header(Authentication)에 의존한다.
+  그래서 브라우저는 [`Origin` Header의 변조를(Integrity) 막아야 한다](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header).
+
+* CSRF(Cross-Site Request Forgery)^[<https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF>]를 막으려고, 서버는 여러가지 방법 중 직접 발급한 Token이 일치하는(Integrity) 요청에만 대응할 수 있다.
+  특히 일치하는(Integrity) Token이라도 직접 응답받지(Confidentiality, Privacy) 않은 제3의 사이트가 사용하지 못하도록(Authorization) 서버는 응답의 `Set-Cookie` Header에 `SameSite` 정책을 설정할 수 있다.
+  그러면 브라우저가 요청을 보낼 때 `Cookie` Header에서 Token을 제외할지를(Authorization) [`SameSite`(Authentication) 정책에 따라 결정해 줄 것이라고](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) 서버는 기대한다.
+
+* XSS(Cross-Site Scripting)^[<https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS>]를 차단하기 위해, 서버는 여러가지 방법 중 직접 발급한 Token이 일치하는(Integrity) 요청에만 대응할 수 있다.
+  특히 Token을 포함한 개인 정보를 제3자가 조회하지 못하게(Confidentiality, Privacy) 서버는 응답의 `Set-Cookie` Header에 `HttpOnly`를 설정할 수 있다.
+  그러면 브라우저는 [스크립트를 통한(Authorization) `Cookie` 조회를 제한할(Confidentiality, Privacy) 것이라고](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#httponly) 서버는 기대한다.
+
+다시 말해 서버의 기대와 달리 안전하지 않은(Integrity) 브라우저가 보낸 또는 안전하지 않은(Integrity) 경로로부터 받은 요청에 서버는 여전히 취약하다.
