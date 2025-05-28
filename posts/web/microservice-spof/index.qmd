@@ -1,8 +1,8 @@
 ---
-title: "Microservice와 Single Point of Failure (SPOF)"
+title: "Microservice를 통한 SPOF(Single Point of Failure) 문제 해결과 그 비용"
 author: "Yunho Kee"
 date: "2024-04-14"
-date-modified: "2024-05-06"
+date-modified: "2025-05-28"
 categories:
   - web
   - microservice
@@ -10,14 +10,135 @@ categories:
   - "single point of failure"
   - netflix
   - "chaos monkey"
+  - scale
+  - "nand flash"
+image: /_images/diagrams/microservice-spof-scale-out-monolith.gif
 bibliography:
   - stanko2022single.bib
+  - lee2025nand.bib
+  - sil2016grid.bib
 ---
 
-웹 개발자 @stanko2022single 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.
+## 예시를 통한 Monolith와 Microservice의 비교
 
-Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 [@stanko2022single]. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 [@stanko2022single]. Netflix가 Microservice로 유명하며, [Chaos Monkey](https://github.com/netflix/chaosmonkey)라는 Test 도구도 개발했다 [@stanko2022single].
+### **소스코드** 예시로 이해하는 Monolith와 Microservice의 유사성
 
-~~그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.~~
+웹 개발자 @stanko2022single 에 따르면, 프로그램 하나를 개발하면 **Monolith**(**Monolithic** Architecture), 여러 프로그램으로 구현하면 **MSA**(**Microservice** Architecture)이다.
 
-좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.
+**Monolith** 프로그램을 구성하는 것은 **Class**와 **Method**, 또는 **Module**과 **Function**이다 [@stanko2022single].
+**Class**와 **Method**를 **Microservice** 프로그램으로 구현하면 **Service**와 **API**이다 [@stanko2022single].
+Netflix가 **Microservice**로 유명하며, [Chaos Monkey](https://github.com/netflix/chaosmonkey)라는 Test 도구도 개발했다 [@stanko2022single].
+
+그러나 프로그램의 가용성이 **Monolith**로 구현하면 $50\%$, **Microservice**는 $25\%$라는 @stanko2022single 의 주장은 설득력이 떨어진다.
+**소스코드** 내 결함으로 인한 장애는, **Monolith** 프로그램 1개로 배포하든 **Microservice** 프로그램 2개로 배포하든 배포 방식과는 무관하게 $25\%$가 되어야 한다.
+예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 **소스코드**를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 **Monolith**이든 **Microservice**이든 출력의 가용성은 $25\%$로 같다.
+이 프로그램에서 출력의 **SPOF**(**Single Point of Failure**)는 **Microservice**로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 **Monolith**로 배포해도 **소스코드** 내에서 2개이다.
+
+### **소스코드** 예시로 이해하는 Microservice의 부분적 이점
+
+**Microservice**로 설계하고 나면 배포 방식이 **Microservice**가 아니라 **Monolith**로 배포하더라도 유리할 수 있다.
+앞서 언급한 **소스코드**에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 $50\%$이다.
+이 출력의 **SPOF**(**Single Point of Failure**)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 $25\%$로 줄일 필요가 없다.
+이처럼 부분 가용성(**Resilience**)은 **Microservice**를 감안해서 설계해야, **Monolith**로 배포하더라도 **SPOF**(**Single Point of Failure**)를 불필요하게 늘리지 않을 수 있다.
+
+### **낸드플래시**(**NAND Flash**) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용
+
+**소스코드** 외적으로, **Monolith** 대비 **Microservice**의 비용이 있는 것은 사실이다 [see @stanko2022single].
+예시 **소스코드** 2개가 의존하는 **하드웨어**가 1개일 때 **소스코드** 외적인 가용성이 $50\%$라면, **소스코드** 1개에 **하드웨어** 1개씩 총 2개의 **하드웨어**에 의존할 때 가용성은 **하드웨어**의 개별적인 동작 때문에 $25\%$로 줄어든다고 볼 수도 있다.
+
+그러나 **Microservice** 대비 **Monolith**의 비용도 간과해서는 안 된다.
+2개의 **소스코드**가 **하드웨어** 1개씩 총 2개에 의존할 때 **소스코드** 외적인 가용성이 $25\%$였다면, 이번에는 역으로 다시 총 1개의 **하드웨어**에 의존할 때 가용성은 한정된 자원에 대한 **경합**(**Contention**) 때문에 $12.5\%$로 더 줄어들 위험도 있다.
+예를 들어 **낸드플래시**(**NAND Flash**) 반도체 메모리도 마찬가지로  **SLC**(**Single Level Cell**), **MLC**(**Multi Level Cell**), **TLC**(**Triple Level Cell**), **QLC**(**Quadruple Level Cell**)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 [see @lee2025nand].
+일반적으로 **SLC**(**Single Level Cell**)가 **QLC**(**Quadruple Level Cell**)보다 비싸고 좋다.
+즉 **Monolith**가 오히려 **QLC**(**Quadruple Level Cell**) 같은 단점이 있다.
+
+이하 내용에서는 **소스코드** 내적인 관점에서만 가용성을 비교한다.
+
+### 그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점
+
+**수평 확장**(**Horizontal Scaling**, **Scale-Out**)은 **SPOF**(**Single Point of Failure**)를 제거해 가용성을 확대할 수 있는 전략이다.
+그런데 @stanko2022single 는 @fig-microservice-spof-missing-microservice 과 같이 **Microservice**의 2가지 정상 동작 상태를 누락해 가용성을 $50\%$로 잘못 계산했고, **Monolith**의 가용성 $75\%$도 **소스코드** 내 의존성을 무시해서 잘못 비교했다.
+
+예시 **소스코드**의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 $\frac 1 4 = 25\%$를 계산한 것처럼,
+
+$$2^2 = 4$$
+
+4개의 **소스코드** 동작 여부에 따라서는, @stanko2022single 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:
+
+$$2^4 = 16$$
+
+:::{#fig-microservice-spof-missing-microservice layout-ncol=2}
+![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
+
+![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
+
+**수평 확장**(**Horizontal Scaling**, **Scale-Out**) 시 **Microservice**의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태
+:::
+
+2개의 **소스코드**를 각각 2배로 늘리면 기존에 2개였던 **SPOF**(**Single Point of Failure**)가 제거되어, 가용성은 기존 **소스코드** 2개의 $\frac 1 4 = 25\%$에서
+
+$$\frac 9 {16} = 56.25\%$$
+
+으로 증가한다.
+@stanko2022single 가 말한 $\frac 7 {14} = 50\%$가 아니라 $56.25\%$이다.
+
+반면 **Monolith** 프로그램 1개의 **SPOF**(**Single Point of Failure**)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 **소스코드** 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다.
+그래서 @fig-microservice-spof-missing-microservice 의 중앙에 보이던 노란 화살표 2개가 @fig-microservice-spof-scale-out-monolith 에는 없다.
+그러면 @fig-microservice-spof-missing-microservice 의 2가지 정상 동작 상태가 @fig-microservice-spof-scale-out-monolith 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 $\frac 1 4 = 25\%$에서
+
+![**수평 확장**(**Horizontal Scaling**, **Scale-Out**) 시 **Monolith**의 16가지 상태]({{< meta image >}}){#fig-microservice-spof-scale-out-monolith}
+
+$$\frac 7 {16} = 43.75\%$$
+
+으로 증가한다.
+@stanko2022single 가 말한 $\frac 3 4 = 75\%$가 아니라 $43.75\%$이다.
+왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 **소스코드** 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.
+
+정리하면 **소스코드** 내적인 관점에서는 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)한 **Monolith**의 가용성 $43.75\%$가 기존의 $25\%$보다 나아지기는 해도 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)한 **Microservice**의 가용성 $56.25\%$보다 오히려 더 못하다는 사실이 @stanko2022single 의 해석과 다른 점이다.
+
+## 수식을 통한 Monolith와 Microservice의 비교
+
+### **소스코드**의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성
+
+일반적으로 **소스코드** 외적인 요인이 없을 때 $0 \leq p \leq 1$의 가용성을 독립적으로 갖는 **Microservice** $n$개가 서로 **Fully Connected**되어 의존하는 결과는 $n$개의 **SPOF**(**Single Point of Failure**)를 갖기 때문에 그 가용성은 **Microservice**로 배포하거나 **Monolith**로 배포하거나
+
+$$p^n$$
+
+으로 동일하다.
+$0 \leq p \leq 1$이므로 $n$이 커질수록 단조적으로 감소(**Monotonically Decreasing**)한다.
+
+반면에 서로 의존하지 않는 $n$개는 **SPOF**(**Single Point of Failure**)가 없고 그 가용성은 **Microservice**로 배포하거나 **Monolith**로 배포하거나
+
+$$1 - (1 - p)^n$$
+
+으로 동일하다.
+반대로 $n$이 커지면 단조적으로 증가(**Monotonically Increasing**)한다.
+왜냐하면 $0 \leq  1 - p \leq 1$에서 $(1- p)^n$이 단조적으로 감소(**Monotonically Decreasing**)하기 때문이다.
+
+### 수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성
+
+**소스코드** 외적인 요인이 없을 때 $0 \leq p \leq 1$의 가용성을 독립적으로 갖는 **Microservice** $n$개 각각을 $m$배 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)하면 각 $m$개는 서로 의존하지 않아 **SPOF**(**Single Point of Failure**)를 제거하므로 그 가용성은 $1 - (1 - p)^m$이다.
+$m$개씩의 $n$개가 서로 **Fully Connected**되어 $n$개의 **SPOF**(**Single Point of Failure**)로서 의존하는 결과의 가용성은
+
+$$a_{n,m} = (1 - (1 - p)^m)^n$$
+
+이다.
+
+### 수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성
+
+**소스코드** 외적인 요인이 없을 때 $0 \leq p \leq 1$의 가용성을 독립적으로 갖고 서로 **Fully Connected**되어 $n$개의 **SPOF**(**Single Point of Failure**)로서 의존하는 **Microservice** $n$개를 **Monolith**로 배포하면 그 결과의 가용성은 $p^n$이다.
+$n$개를 서로 의존하지 않게 $m$배 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)하면 **SPOF**(**Single Point of Failure**)를 제거하므로 그 가용성은
+
+$$b_{n,m} = 1 - (1 - p^n)^m$$
+
+이다.
+
+### 수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
+
+$(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1$ 임을 증명할 수 있다 [@sil2016grid]. 따라서
+
+$$a_{n,m} \geq b_{n,m}$$
+
+결론적으로 **소스코드** 외적인 요인이 없을 때 $m$배의 일괄적인 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)을 가정하면 **Microservice**를 통해 **SPOF**(**Single Point of Failure**)를 내부적으로 제거하는 것이 **Monolith**를 통해 외부적으로 제거하는 것보다 결합적인 가용성이 더 좋다.
+이때 미리 **Microservice**로 설계하는 경우 나중에 **Monolith**로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다.
+다만 **소스코드** 외적으로는 **Monolith** 배포에서 한정된 자원에 대한 **경합**(**Contention**) 문제와 **Microservice** 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다.
