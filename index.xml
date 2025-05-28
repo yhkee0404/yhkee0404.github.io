@@ -2369,7 +2369,7 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
   <media:content url="https://yhkee0404.github.io/_images/thumbnails/its-leviosa-not-leviosa-harry-potter-magic-spell-vector.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
-  <title>Microservice와 Single Point of Failure (SPOF)</title>
+  <title>Microservice를 통한 SPOF(Single Point of Failure) 문제 해결과 그 비용</title>
   <dc:creator>Yunho Kee</dc:creator>
   <link>https://yhkee0404.github.io/posts/web/microservice-spof/</link>
   <description><![CDATA[ 
@@ -2378,28 +2378,122 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 
 
 
-<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, Program 하나를 개발하면 Monolith(Monolithic Architecture), 여러 Program으로 구현하면 MSA(Microservice Architecture)이다.</p>
-<p>Monolith Program을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Class와 Method를 Microservice Program으로 구현하면 Service와 API이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix가 Microservice로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
-<p><del>그러나 서비스의 정상 가동률이 Monolith로 구현하면 50%, Microservice는 25%라는 주장은 이상하다. 오히려 앞서 언급한 전제에 따르면 두 확률은 같아야 한다. 게다가 개별 Service가 정상 동작할 확률은 오히려 장애를 공유하는 Monolith가 더 낮을 것이다. 그래서 Single Point of Failure (SPOF)라는 말이 있는데 원문은 이에 대한 반박을 시도했으므로 정말 그렇게 생각하는지 저자에게 질문할 예정이다.</del></p>
-<p>좋은 이론이 떠올라 곧 보완할 예정이다. 저자의 처음 50% 설명은 맞았다. 다만 틀린 것은 Scale-out Animation에서 가능한 16가지 경우 중 2개가 누락되고 14개만 남았다는 점이다.</p>
+<section id="예시를-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="예시를-통한-monolith와-microservice의-비교">예시를 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드-예시로-이해하는-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-monolith와-microservice의-유사성"><strong>소스코드</strong> 예시로 이해하는 Monolith와 Microservice의 유사성</h3>
+<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.</p>
+<p><strong>Monolith</strong> 프로그램을 구성하는 것은 <strong>Class</strong>와 <strong>Method</strong>, 또는 <strong>Module</strong>과 <strong>Function</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. <strong>Class</strong>와 <strong>Method</strong>를 <strong>Microservice</strong> 프로그램으로 구현하면 <strong>Service</strong>와 <strong>API</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix가 <strong>Microservice</strong>로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
+<p>그러나 프로그램의 가용성이 <strong>Monolith</strong>로 구현하면 <img src="https://latex.codecogs.com/png.latex?50%5C%25">, <strong>Microservice</strong>는 <img src="https://latex.codecogs.com/png.latex?25%5C%25">라는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 주장은 설득력이 떨어진다. <strong>소스코드</strong> 내 결함으로 인한 장애는, <strong>Monolith</strong> 프로그램 1개로 배포하든 <strong>Microservice</strong> 프로그램 2개로 배포하든 배포 방식과는 무관하게 <img src="https://latex.codecogs.com/png.latex?25%5C%25">가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 <strong>소스코드</strong>를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 <strong>Monolith</strong>이든 <strong>Microservice</strong>이든 출력의 가용성은 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 같다. 이 프로그램에서 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 <strong>Microservice</strong>로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 <strong>Monolith</strong>로 배포해도 <strong>소스코드</strong> 내에서 2개이다.</p>
+</section>
+<section id="소스코드-예시로-이해하는-microservice의-부분적-이점" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-microservice의-부분적-이점"><strong>소스코드</strong> 예시로 이해하는 Microservice의 부분적 이점</h3>
+<p><strong>Microservice</strong>로 설계하고 나면 배포 방식이 <strong>Microservice</strong>가 아니라 <strong>Monolith</strong>로 배포하더라도 유리할 수 있다. 앞서 언급한 <strong>소스코드</strong>에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 <img src="https://latex.codecogs.com/png.latex?50%5C%25">이다. 이 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄일 필요가 없다. 이처럼 부분 가용성(<strong>Resilience</strong>)은 <strong>Microservice</strong>를 감안해서 설계해야, <strong>Monolith</strong>로 배포하더라도 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 불필요하게 늘리지 않을 수 있다.</p>
+</section>
+<section id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용" class="level3">
+<h3 class="anchored" data-anchor-id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용"><strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용</h3>
+<p><strong>소스코드</strong> 외적으로, <strong>Monolith</strong> 대비 <strong>Microservice</strong>의 비용이 있는 것은 사실이다 <span class="citation" data-cites="stanko2022single">(see Krtalić Rusendić 2022)</span>. 예시 <strong>소스코드</strong> 2개가 의존하는 <strong>하드웨어</strong>가 1개일 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?50%5C%25">라면, <strong>소스코드</strong> 1개에 <strong>하드웨어</strong> 1개씩 총 2개의 <strong>하드웨어</strong>에 의존할 때 가용성은 <strong>하드웨어</strong>의 개별적인 동작 때문에 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄어든다고 볼 수도 있다.</p>
+<p>그러나 <strong>Microservice</strong> 대비 <strong>Monolith</strong>의 비용도 간과해서는 안 된다. 2개의 <strong>소스코드</strong>가 <strong>하드웨어</strong> 1개씩 총 2개에 의존할 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?25%5C%25">였다면, 이번에는 역으로 다시 총 1개의 <strong>하드웨어</strong>에 의존할 때 가용성은 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 때문에 <img src="https://latex.codecogs.com/png.latex?12.5%5C%25">로 더 줄어들 위험도 있다. 예를 들어 <strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리도 마찬가지로 <strong>SLC</strong>(<strong>Single Level Cell</strong>), <strong>MLC</strong>(<strong>Multi Level Cell</strong>), <strong>TLC</strong>(<strong>Triple Level Cell</strong>), <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 <span class="citation" data-cites="lee2025nand">(see Lee 2018)</span>. 일반적으로 <strong>SLC</strong>(<strong>Single Level Cell</strong>)가 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)보다 비싸고 좋다. 즉 <strong>Monolith</strong>가 오히려 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>) 같은 단점이 있다.</p>
+<p>이하 내용에서는 <strong>소스코드</strong> 내적인 관점에서만 가용성을 비교한다.</p>
+</section>
+<section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. 그런데 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 는 Figure&nbsp;1 과 같이 <strong>Microservice</strong>의 2가지 정상 동작 상태를 누락해 가용성을 <img src="https://latex.codecogs.com/png.latex?50%5C%25">로 잘못 계산했고, <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?75%5C%25">도 <strong>소스코드</strong> 내 의존성을 무시해서 잘못 비교했다.</p>
+<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">를 계산한 것처럼,</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204"></p>
+<p>4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016"></p>
+<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Microservice</strong>의 16가지 상태 중 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 누락한 2가지 정상 동작 상태
+</figcaption>
+</figure>
+</div>
+<p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"></p>
+<p>으로 증가한다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 말한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">가 아니라 <img src="https://latex.codecogs.com/png.latex?56.25%5C%25">이다.</p>
+<p>반면 <strong>Monolith</strong> 프로그램 1개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 <strong>소스코드</strong> 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 Figure&nbsp;1 의 중앙에 보이던 노란 화살표 2개가 Figure&nbsp;2 에는 없다. 그러면 Figure&nbsp;1 의 2가지 정상 동작 상태가 Figure&nbsp;2 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
+<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Monolith</strong>의 16가지 상태
+</figcaption>
+</figure>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25"></p>
+<p>으로 증가한다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 말한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%203%204%20=%2075%5C%25">가 아니라 <img src="https://latex.codecogs.com/png.latex?43.75%5C%25">이다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 <strong>소스코드</strong> 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.</p>
+<p>정리하면 <strong>소스코드</strong> 내적인 관점에서는 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?43.75%5C%25">가 기존의 <img src="https://latex.codecogs.com/png.latex?25%5C%25">보다 나아지기는 해도 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Microservice</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?56.25%5C%25">보다 오히려 더 못하다는 사실이 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 해석과 다른 점이다.</p>
+</section>
+</section>
+<section id="수식을-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="수식을-통한-monolith와-microservice의-비교">수식을 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성"><strong>소스코드</strong>의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성</h3>
+<p>일반적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 의존하는 결과는 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 갖기 때문에 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><img src="https://latex.codecogs.com/png.latex?p%5En"></p>
+<p>으로 동일하다. <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">이므로 <img src="https://latex.codecogs.com/png.latex?n">이 커질수록 단조적으로 감소(<strong>Monotonically Decreasing</strong>)한다.</p>
+<p>반면에 서로 의존하지 않는 <img src="https://latex.codecogs.com/png.latex?n">개는 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 없고 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><img src="https://latex.codecogs.com/png.latex?1%20-%20(1%20-%20p)%5En"></p>
+<p>으로 동일하다. 반대로 <img src="https://latex.codecogs.com/png.latex?n">이 커지면 단조적으로 증가(<strong>Monotonically Increasing</strong>)한다. 왜냐하면 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20%201%20-%20p%20%5Cleq%201">에서 <img src="https://latex.codecogs.com/png.latex?(1-%20p)%5En">이 단조적으로 감소(<strong>Monotonically Decreasing</strong>)하기 때문이다.</p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개 각각을 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 각 <img src="https://latex.codecogs.com/png.latex?m">개는 서로 의존하지 않아 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은 <img src="https://latex.codecogs.com/png.latex?1%20-%20(1%20-%20p)%5Em">이다. <img src="https://latex.codecogs.com/png.latex?m">개씩의 <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 결과의 가용성은</p>
+<p><img src="https://latex.codecogs.com/png.latex?a_%7Bn,m%7D%20=%20(1%20-%20(1%20-%20p)%5Em)%5En"></p>
+<p>이다.</p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖고 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개를 <strong>Monolith</strong>로 배포하면 그 결과의 가용성은 <img src="https://latex.codecogs.com/png.latex?p%5En">이다. <img src="https://latex.codecogs.com/png.latex?n">개를 서로 의존하지 않게 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은</p>
+<p><img src="https://latex.codecogs.com/png.latex?b_%7Bn,m%7D%20=%201%20-%20(1%20-%20p%5En)%5Em"></p>
+<p>이다.</p>
+</section>
+<section id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-monolith의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-monolith의-이점">수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점</h3>
+<p><img src="https://latex.codecogs.com/png.latex?(1%20-%20(1%20-%20p)%5Em)%5En%20+%20(1%20-%20p%5En)%5Em%20%5Cgeq%201"> 임을 증명할 수 있다 <span class="citation" data-cites="sil2016grid">(Sil 2016)</span>. 따라서</p>
+<p><img src="https://latex.codecogs.com/png.latex?a_%7Bn,m%7D%20%5Cgeq%20b_%7Bn,m%7D"></p>
+<p>결론적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?m">배의 일괄적인 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)을 가정하면 <strong>Microservice</strong>를 통해 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 내부적으로 제거하는 것이 <strong>Monolith</strong>를 통해 외부적으로 제거하는 것보다 결합적인 가용성이 더 좋다. 이때 미리 <strong>Microservice</strong>로 설계하는 경우 나중에 <strong>Monolith</strong>로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다. 다만 <strong>소스코드</strong> 외적으로는 <strong>Monolith</strong> 배포에서 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 문제와 <strong>Microservice</strong> 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다.</p>
 
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-stanko2022single" class="csl-entry">
 Krtalić Rusendić, Stanko. 2022. <span>“<span>"Having a Monolith Is a Single Point of Failure"</span>.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
 </div>
+<div id="ref-lee2025nand" class="csl-entry">
+Lee, Heeyeol. 2018. <span>“[궁금한 반도체 WHY] 낸드플래시 메모리의 데이터 저장방식, 어떻게 다를까? SLC/MLC/TLC/QLC.”</span> December 26, 2018. <a href="https://news.skhynix.co.kr/data-in-nand-flash-memory/">https://news.skhynix.co.kr/data-in-nand-flash-memory/</a>.
+</div>
+<div id="ref-sil2016grid" class="csl-entry">
+Sil. 2016. <span>“If <img src="https://latex.codecogs.com/png.latex?p%20+%20q%20=%201"> Prove That for Any Natural <img src="https://latex.codecogs.com/png.latex?n,%20m"> Following Is True: <img src="https://latex.codecogs.com/png.latex?(1%20-%20p%5En)%5Em%20+%20(1%20-%20q%5Em)%5En%20%5Cge%201">.”</span> December 8, 2016. <a href="https://math.stackexchange.com/a/2049972">https://math.stackexchange.com/a/2049972</a>.
+</div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
   author = {Kee, Yunho},
-  title = {Microservice와 Single Point of Failure (SPOF)},
+  title = {Microservice를 통한 SPOF(Single Point of Failure) 문제 해결과
+    그 비용},
   date = {2024-04-14},
   url = {https://yhkee0404.github.io/posts/web/microservice-spof/},
   langid = {ko}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2024. <span>“Microservice와 Single Point of Failure
-(SPOF).”</span> April 14, 2024. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/">https://yhkee0404.github.io/posts/web/microservice-spof/</a>.
+Kee, Yunho. 2024. <span>“Microservice를 통한 SPOF(Single Point of
+Failure) 문제 해결과 그 비용.”</span> April 14, 2024. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/">https://yhkee0404.github.io/posts/web/microservice-spof/</a>.
 </div></div></section></div> ]]></description>
   <category>web</category>
   <category>microservice</category>
@@ -2407,9 +2501,11 @@ Kee, Yunho. 2024. <span>“Microservice와 Single Point of Failure
   <category>single point of failure</category>
   <category>netflix</category>
   <category>chaos monkey</category>
+  <category>scale</category>
+  <category>nand flash</category>
   <guid>https://yhkee0404.github.io/posts/web/microservice-spof/</guid>
   <pubDate>Sun, 14 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/thumbnails/handshake-6674572_640.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.</title>
