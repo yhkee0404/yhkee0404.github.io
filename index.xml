@@ -88,32 +88,22 @@ Kee, Yunho. 2025. <span>“CORS, CSRF, XSS는 서버에서 막으면
 <p>Transformer 논문에서<sup>1</sup> 배울 점은 무엇일까?</p>
 <ol type="1">
 <li><p>한글에 비할 바는 못 된다 <span class="citation" data-cites="hj5864_2024hangul">(see 잇츠룸장 2024)</span>.</p></li>
-<li><p>RNN(Recurrent Neural Networks)과 Transformer의 비교</p></li>
-</ol>
-<p>RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 <strong>Encoder의 전처리</strong> 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.</p>
-<ol start="3" type="1">
-<li>GPT(Generative Pre-Trained Transformer)와 Transformer의 비교</li>
-</ol>
-<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 <strong>Self-Attention</strong>과 <strong>Cross-Attention</strong>, 또는 <strong>Encoder-Decoder Attention</strong>의<sup>2</sup> 차이이다.</p>
-<ol start="4" type="1">
-<li>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</li>
-</ol>
-<p>Transformer의 Encoder와 Decoder는 둘다 <img src="https://latex.codecogs.com/png.latex?N%20=%206">개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.1, p.&nbsp;3)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p>
-<ol start="5" type="1">
-<li>Layer Normalization의 의미</li>
-</ol>
+<li><p>RNN(Recurrent Neural Networks)과 Transformer의 비교</p>
+<p>RNN(Recurrent Neural Networks)은 입력뿐 아니라 입력의 앞부분에 대해 생성한 상태에 의존해 출력한다. 반면에 Transformer는 <strong>Encoder의 전처리</strong> 덕분에 RNN(Recurrent Neural Networks)과 달리 그리고 마치 HTTP처럼 Stateless하다. 그래서 학습을 마치고 추론할 때도 RNN(Recurrent Neural Networks)과 달리 입력의 앞부분에 대한 상태 생성을 건너뛸 수 있다. 또한 Encoder 덕분에 Decoder의 각 출력에 대해 RNN(Recurrent Neural Networks)처럼 직렬 학습하는 대신 병렬 학습이 가능하다.</p></li>
+<li><p>GPT(Generative Pre-Trained Transformer)와 Transformer의 비교</p>
+<p>GPT(Generative Pre-Trained Transformer)의 입력은 출력에 Auto-Regressive하다. 반면에 Transformer의 Decoder는 GPT(Generative Pre-Trained Transformer)와 달리 입력에 Encoder의 출력으로서 <strong>Auto-Regressive하지 않은 입력</strong>도 포함한다. 바꿔 말하면 <strong>Self-Attention</strong>과 <strong>Cross-Attention</strong>, 또는 <strong>Encoder-Decoder Attention</strong>의<sup>2</sup> 차이이다.</p></li>
+<li><p>Transformer의 Encoder와 Decoder의 시간 복잡도 차이</p>
+<p>Transformer의 Encoder와 Decoder는 둘다 <img src="https://latex.codecogs.com/png.latex?N%20=%206">개의 Layer의 Stack으로 구성된다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.1, p.&nbsp;3)</span>. 그러나 Encoder는 입력 길이 전체에 대해 <strong>1번만 전처리</strong>하는 반면에 Decoder는 Auto-Regressive하므로 <strong>출력 길이만큼</strong> 수행해야 한다. 다만 Decoder의 학습은 학습을 마치고 추론할 때와 달리 <strong>병렬 처리</strong>가 가능하다.</p></li>
+<li><p>Layer Normalization의 의미</p>
 <p>Normalization이란 표준화를 의미한다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im 2025, 0:48)</span>. Data의 Sample 또는 Instance는 Batch라는 더 큰 단위를 이루거나 또는 반대로 Channel 단위로 나뉠 수도 있다. Channel 단위로 나눈다면 <strong>Batch Normalization</strong>과 <strong>Instance Normalization</strong>은 각각 Batch 단위와 Instance 단위로 계산하면서도 내부적으로는 <strong>Channel 단위</strong>로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>. <strong>Layer Normalization</strong>과 <strong>Group Normalization</strong>, <strong>Positional Normalization</strong>은 모두 Instance 단위로 계산하면서도 각각 내부적으로는 Layer에서 <strong>Channel</strong>과 <strong>공간적인 Position</strong>을 구분하지 않고 표준화하고, 나머지 둘은 <strong>Channel</strong>을 구분하지 않으면서도 전자는 Channel의 <strong>Group</strong> 단위로, 후자는 <strong>공간적인 Position</strong> 단위로 표준화한다 <span class="citation" data-cites="li2019positionalnormalization">(see Li et al. 2019)</span>.</p>
 <p>Transformer의 입력은 <strong>시간적인 Position</strong>과 그 <strong>하위 차원</strong>으로 나눌 수 있다. 그리고 Transformer의 <strong>Layer Normalization</strong>은 <strong>시간적인 Position</strong> 단위로 표준화하므로 반대로 구분하지 않아야 할 <strong>Channel</strong>이나 <strong>공간적인 Position</strong>은 <strong>시간적인 Position</strong>과 별개여야 한다. 이때 <strong>하위 차원</strong>을 <strong>Channel</strong>로 볼 수 있는 2가지 근거가 있다. 첫째는, <strong>Fully-Connected Feed-Forward Networks</strong>를 Kernel Size가 1인 2개의 <strong>Convolutions</strong>로 이해하려면 하위 차원이 <strong>Channel</strong>이어야 하기 때문이다. 그리고 <strong>Convolution</strong>의 <strong>Softmax</strong>가 Channel 간 가중 평균 확률을 구할 때처럼 Transformer의 <strong>Softmax</strong>도 Query 행렬의 <strong>시간적인 Position</strong>마다 <strong>하위 차원</strong>인 Key 행렬의 <strong>시간적인 Position</strong>, 또는 Value 행렬의 <strong>시간적인 Position</strong>에 대해 계산하기 때문이다. 그러면 Transformer의 입력에서 <strong>공간적인 Position</strong>은 없거나 1개라고 생각할 수 있다.</p>
-<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im 2025)</span>.</p>
-<ol start="6" type="1">
-<li>Residual Connections의 기능</li>
-</ol>
-<p>Layer들의 <strong>집합</strong>이 <img src="https://latex.codecogs.com/png.latex?N">개일 때 <strong>Residual Connections</strong>를 통해 출력에 <img src="https://latex.codecogs.com/png.latex?N">개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <img src="https://latex.codecogs.com/png.latex?2%5EN">개가 기여할 수 있다 <span class="citation" data-cites="lee2021bert_gpt">(see Lee 2021, chap. 3, Section 3-4, p.&nbsp;107)</span>.</p>
-<ol start="7" type="1">
-<li>Scale의 기능</li>
-</ol>
+<p>만일 Transformer의 <strong>Layer Normalization</strong>에서 구분하지 않는 <strong>하위 차원</strong>을 <strong>공간적인 Position</strong>이라고 생각해 보면 반대로 <strong>공간적인 Position</strong>을 구분하는 <strong>Positional Normalization</strong>이라고는 설명할 수 없다. 대신에 <strong>시간적인 Position</strong>을 <strong>공간적인 Position</strong>으로 간주하면 <strong>Positional Normalization</strong>이라고 생각할 수도 있고, <strong>하위 차원</strong>은 <strong>Channel</strong>이라고 볼 수 있다. 그러면 반대로 <strong>공간적인 Position</strong> 단위로 표준화하지 않는 <strong>Layer Normalization</strong>이라고는 더 이상 설명하지 못하게 된다는 문제가 있다 <span class="citation" data-cites="commit_im2025layer_normalization">(see commit.im 2025)</span>.</p></li>
+<li><p>Residual Connections의 기능</p>
+<p>Layer들의 <strong>집합</strong>이 <img src="https://latex.codecogs.com/png.latex?N">개일 때 <strong>Residual Connections</strong>를 통해 출력에 <img src="https://latex.codecogs.com/png.latex?N">개의 <strong>집합</strong> 1개 대신 그 집합의 <strong>모든 부분집합</strong> <img src="https://latex.codecogs.com/png.latex?2%5EN">개가 기여할 수 있다 <span class="citation" data-cites="lee2021bert_gpt">(see Lee 2021, chap. 3, Section 3-4, p.&nbsp;107)</span>.</p></li>
+<li><p>Scale의 기능</p>
 <p>Softmax의 입력을 1보다 큰 Scale로 나누는 것은 <strong>Softmax Temperature</strong>로서 예측 불확실성을 높인다 <span class="citation" data-cites="boonstra2024prompt">(see Boonstra 2024)</span>. 그리고 <strong>Drop-Out</strong>처럼 학습 대상을 늘릴 수 있을 것 같다. <span class="citation" data-cites="vaswani2017attentionneed">Vaswani et al. (2017, sec. 3.2.1, p.&nbsp;4)</span>에서는 학습량이 너무 작아질까봐 늘려주기 위해서라고 한다.</p>
-<p>한편 <strong>Attention</strong> 내부가 아니라 모델 전체의 출력 직전에 수행하는 <strong>Softmax</strong>는 Scale하지 않는다. 다만 모델 출력 직전 Softmax의 입력과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 <strong>같은 가중치 행렬을 공유</strong>하며 <strong>선형 변환</strong>을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 즉 줄이지 않고 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.4, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 <strong>같은 가중치 행렬을 공유</strong>한다는 말은 두 입력이 <strong>같은 어휘 집합을 공유</strong>한다는 말이다.</p>
+<p>한편 <strong>Attention</strong> 내부가 아니라 모델 전체의 출력 직전에 수행하는 <strong>Softmax</strong>는 Scale하지 않는다. 다만 모델 출력 직전 Softmax의 입력과, 출력을 다시 Decoder에 입력할 때, 그리고 Encoder의 입력을 만들 때의 세 경우에는 모두 <strong>같은 가중치 행렬을 공유</strong>하며 <strong>선형 변환</strong>을 수행하면서도, 이번에는 Softmax 입력의 Scale을 줄이는 대신에 즉 줄이지 않고 반대로 후자의 두 경우에서 Scale을 늘린다 <span class="citation" data-cites="vaswani2017attentionneed">(see Vaswani et al. 2017, sec. 3.4, p.&nbsp;5)</span>. 이때 Encoder의 입력과 Decoder의 입력이 <strong>같은 가중치 행렬을 공유</strong>한다는 말은 두 입력이 <strong>같은 어휘 집합을 공유</strong>한다는 말이다.</p></li>
+</ol>
 
 
 
@@ -170,127 +160,6 @@ Kee, Yunho. 2025. <span>“Transformer에서 배울 점.”</span> May 25, 2025.
   <guid>https://yhkee0404.github.io/posts/data-science/transformer/</guid>
   <pubDate>Sun, 25 May 2025 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Open-Source CV or Resume Engineering</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-about-jolla">
-<div class="about-entity">
-<div class="about-links">
-<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
-  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
-</a>
-</div>
-</div>
-</div>
-<p><a href="../../../../_images/pdf/yhkee0404-cv-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" class="img-fluid" alt="A photo of a CV."></a></p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.</p>
-<p>You can <a href="https://yhkee0404.github.io/cv/en/">see the live web version</a> and <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd">explore the source code here</a> to try it out right away.</p>
-<p>To get started, simply <a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">fork the repository</a> and deploy your CV or resume online using <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including <code>.pdf</code> and <code>.docx</code>.</p>
-<p>Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>, run the commands below, and view your CV at <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a> or in the <code>_site/cv/</code> directory:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
-<span id="cb1-2"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">cd</span> yhkee0404.github.io</span>
-<span id="cb1-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-d</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--force-recreate</span> quarto-preview</span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># docker compose down</span></span></code></pre></div>
-<p>This project draws inspiration from <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a>, founder of the <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>, and <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a>, whose <a href="https://www.piratekingdom.com/resume">resume</a> led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own <code>reference.docx</code> using <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">these instructions</a>, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!</p>
-</section>
-<section id="objectives" class="level1">
-<h1>Objectives</h1>
-<p>This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from <a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a> and <a href="https://www.youtube.com/@hello_interview">Hello Interview</a>:</p>
-<ol type="1">
-<li>Consistency</li>
-</ol>
-<p>Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses <strong>references instead of copy-paste</strong>, enabling automatic propagation of changes from a single source document to all formats via <strong>Quarto</strong> and <strong>Pandoc</strong>.</p>
-<p>Inspired by database principles: traditional relational database management systems (RDBMSs) address <strong>redundancy</strong> and <strong>update anomalies</strong> via <strong>eager, static updates</strong> (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., <strong>“repeatable read” isolation</strong>).</p>
-<p>Instead, this workflow like foreign key joins in databases adopts <strong>on-demand, lazy evaluation</strong>, dynamically resolving updates. Similar concepts include <strong>reference variables</strong>, <strong>class inheritance</strong>, and <strong>monorepos</strong>, where code is shared, not duplicated.</p>
-<ol start="2" type="1">
-<li>Cross-Platform Support</li>
-</ol>
-<p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
-<p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
-<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
-<p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
-<ol start="3" type="1">
-<li>Easy Comparison</li>
-</ol>
-<p>The workflow is compatible with Git and GitHub, as it uses <strong>plain text files</strong> (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.</p>
-<ol start="4" type="1">
-<li>User-Friendly Authoring</li>
-</ol>
-<p>Writing and maintaining your CV is easier than with <a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a> or typical web development tools, since you primarily use Markdown for content creation and editing.</p>
-</section>
-<section id="future-work" class="level1">
-<h1>Future Work</h1>
-<p>I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.</p>
-<p>#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career</p>
-<p><strong>Feel free to contribute, ask questions, or share your feedback!</strong></p>
-
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-king_dropbox_sharelist" class="csl-entry">
-King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
-</div>
-<div id="ref-king_ticketmaster" class="csl-entry">
-———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
-  author = {Kee, Yunho},
-  title = {Open-Source CV or Resume Engineering},
-  date = {2025-05-15},
-  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2025. <span>“Open-Source CV or Resume Engineering.”</span>
-May 15, 2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/en/">https://yhkee0404.github.io/posts/database/cv-or-resume/en/</a>.
-</div></div></section></div> ]]></description>
-  <category>database</category>
-  <category>cv</category>
-  <category>resume</category>
-  <category>consistency</category>
-  <category>cross-platform</category>
-  <category>platform independence</category>
-  <category>references</category>
-  <category>anomalies</category>
-  <category>eager</category>
-  <category>lazy</category>
-  <category>isolation</category>
-  <category>on-demand</category>
-  <category>inheritance</category>
-  <category>monorepo</category>
-  <category>full-text index</category>
-  <category>inverted index</category>
-  <category>LaTeX</category>
-  <category>large language models</category>
-  <category>open-source</category>
-  <category>Bay Area K Group</category>
-  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</guid>
-  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" medium="image" type="image/png" height="186" width="144"/>
 </item>
 <item>
   <title>오픈소스 이력서 엔지니어링</title>
@@ -465,6 +334,127 @@ Kee, Yunho. 2025. <span>“오픈소스 이력서 엔지니어링.”</span> May
   <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</guid>
   <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>Open-Source CV or Resume Engineering</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-about-jolla">
+<div class="about-entity">
+<div class="about-links">
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+</div>
+</div>
+</div>
+<p><a href="../../../../_images/pdf/yhkee0404-cv-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" class="img-fluid" alt="A photo of a CV."></a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.</p>
+<p>You can <a href="https://yhkee0404.github.io/cv/en/">see the live web version</a> and <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd">explore the source code here</a> to try it out right away.</p>
+<p>To get started, simply <a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">fork the repository</a> and deploy your CV or resume online using <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including <code>.pdf</code> and <code>.docx</code>.</p>
+<p>Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>, run the commands below, and view your CV at <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a> or in the <code>_site/cv/</code> directory:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> yhkee0404.github.io</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force-recreate</span> quarto-preview</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># docker compose down</span></span></code></pre></div>
+<p>This project draws inspiration from <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a>, founder of the <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>, and <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a>, whose <a href="https://www.piratekingdom.com/resume">resume</a> led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own <code>reference.docx</code> using <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">these instructions</a>, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!</p>
+</section>
+<section id="objectives" class="level1">
+<h1>Objectives</h1>
+<p>This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from <a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a> and <a href="https://www.youtube.com/@hello_interview">Hello Interview</a>:</p>
+<ol type="1">
+<li>Consistency</li>
+</ol>
+<p>Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses <strong>references instead of copy-paste</strong>, enabling automatic propagation of changes from a single source document to all formats via <strong>Quarto</strong> and <strong>Pandoc</strong>.</p>
+<p>Inspired by database principles: traditional relational database management systems (RDBMSs) address <strong>redundancy</strong> and <strong>update anomalies</strong> via <strong>eager, static updates</strong> (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., <strong>“repeatable read” isolation</strong>).</p>
+<p>Instead, this workflow like foreign key joins in databases adopts <strong>on-demand, lazy evaluation</strong>, dynamically resolving updates. Similar concepts include <strong>reference variables</strong>, <strong>class inheritance</strong>, and <strong>monorepos</strong>, where code is shared, not duplicated.</p>
+<ol start="2" type="1">
+<li>Cross-Platform Support</li>
+</ol>
+<p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
+<p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
+<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
+<p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
+<ol start="3" type="1">
+<li>Easy Comparison</li>
+</ol>
+<p>The workflow is compatible with Git and GitHub, as it uses <strong>plain text files</strong> (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.</p>
+<ol start="4" type="1">
+<li>User-Friendly Authoring</li>
+</ol>
+<p>Writing and maintaining your CV is easier than with <a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a> or typical web development tools, since you primarily use Markdown for content creation and editing.</p>
+</section>
+<section id="future-work" class="level1">
+<h1>Future Work</h1>
+<p>I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.</p>
+<p>#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career</p>
+<p><strong>Feel free to contribute, ask questions, or share your feedback!</strong></p>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-king_dropbox_sharelist" class="csl-entry">
+King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+</div>
+<div id="ref-king_ticketmaster" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {Open-Source CV or Resume Engineering},
+  date = {2025-05-15},
+  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“Open-Source CV or Resume Engineering.”</span>
+May 15, 2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/en/">https://yhkee0404.github.io/posts/database/cv-or-resume/en/</a>.
+</div></div></section></div> ]]></description>
+  <category>database</category>
+  <category>cv</category>
+  <category>resume</category>
+  <category>consistency</category>
+  <category>cross-platform</category>
+  <category>platform independence</category>
+  <category>references</category>
+  <category>anomalies</category>
+  <category>eager</category>
+  <category>lazy</category>
+  <category>isolation</category>
+  <category>on-demand</category>
+  <category>inheritance</category>
+  <category>monorepo</category>
+  <category>full-text index</category>
+  <category>inverted index</category>
+  <category>LaTeX</category>
+  <category>large language models</category>
+  <category>open-source</category>
+  <category>Bay Area K Group</category>
+  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</guid>
+  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" medium="image" type="image/png" height="186" width="144"/>
 </item>
 <item>
   <title></title>
