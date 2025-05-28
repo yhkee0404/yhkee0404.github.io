@@ -16,7 +16,59 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 25 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 28 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>CORS, CSRF, XSS는 서버에서 막으면 그만일까?</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/web/cors-csrf-xss/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../../../_images/thumbnails/kelly-sikkema-3sudMpZegzw-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Photo by Kelly Sikkema on Unsplash"><img src="https://yhkee0404.github.io/_images/thumbnails/kelly-sikkema-3sudMpZegzw-unsplash.jpg" class="img-fluid figure-img" alt="A photo of xoxo."></a></p>
+<figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/black-and-red-letter-b-3sudMpZegzw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+</div>
+<ul>
+<li><p>CORS(Cross-Origin Resource Sharing)<sup>1</sup>을 제한적으로만 허용하기 위해(Authorization), 서버는 요청의 <code>Origin</code> Header(Authentication)에 의존한다. 그래서 브라우저는 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header"><code>Origin</code> Header의 변조를(Integrity) 막아야 한다</a>.</p></li>
+<li><p>CSRF(Cross-Site Request Forgery)<sup>2</sup>를 막으려고, 서버는 여러가지 방법 중 직접 발급한 Token이 일치하는(Integrity) 요청에만 대응할 수 있다. 특히 일치하는(Integrity) Token이라도 직접 응답받지(Confidentiality, Privacy) 않은 제3의 사이트가 사용하지 못하도록(Authorization) 서버는 응답의 <code>Set-Cookie</code> Header에 <code>SameSite</code> 정책을 설정할 수 있다. 그러면 브라우저가 요청을 보낼 때 <code>Cookie</code> Header에서 Token을 제외할지를(Authorization) <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value"><code>SameSite</code>(Authentication) 정책에 따라 결정해 줄 것이라고</a> 서버는 기대한다.</p></li>
+<li><p>XSS(Cross-Site Scripting)<sup>3</sup>를 차단하기 위해, 서버는 여러가지 방법 중 직접 발급한 Token이 일치하는(Integrity) 요청에만 대응할 수 있다. 특히 Token을 포함한 개인 정보를 제3자가 조회하지 못하게(Confidentiality, Privacy) 서버는 응답의 <code>Set-Cookie</code> Header에 <code>HttpOnly</code>를 설정할 수 있다. 그러면 브라우저는 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#httponly">스크립트를 통한(Authorization) <code>Cookie</code> 조회를 제한할(Confidentiality, Privacy) 것이라고</a> 서버는 기대한다.</p></li>
+</ul>
+<p>다시 말해 서버의 기대와 달리 안전하지 않은(Integrity) 브라우저가 보낸 또는 안전하지 않은(Integrity) 경로로부터 받은 요청에 서버는 여전히 취약하다.</p>
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS</a>↩︎</p></li>
+<li id="fn2"><p><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF" class="uri">https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF</a>↩︎</p></li>
+<li id="fn3"><p><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS" class="uri">https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS</a>↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {CORS, CSRF, XSS는 서버에서 막으면 그만일까?},
+  date = {2025-05-28},
+  url = {https://yhkee0404.github.io/posts/web/cors-csrf-xss/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“CORS, CSRF, XSS는 서버에서 막으면
+그만일까?”</span> May 28, 2025. <a href="https://yhkee0404.github.io/posts/web/cors-csrf-xss/">https://yhkee0404.github.io/posts/web/cors-csrf-xss/</a>.
+</div></div></section></div> ]]></description>
+  <category>web</category>
+  <category>cross-origin resource sharing</category>
+  <category>cross-site request forgery</category>
+  <category>cross-site scripting</category>
+  <guid>https://yhkee0404.github.io/posts/web/cors-csrf-xss/</guid>
+  <pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/thumbnails/kelly-sikkema-3sudMpZegzw-unsplash.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Transformer에서 배울 점</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -2398,11 +2450,7 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 </section>
 <section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
 <h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. 그런데 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 는 Figure&nbsp;1 과 같이 <strong>Microservice</strong>의 2가지 정상 동작 상태를 누락해 가용성을 <img src="https://latex.codecogs.com/png.latex?50%5C%25">로 잘못 계산했고, <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?75%5C%25">도 <strong>소스코드</strong> 내 의존성을 무시해서 잘못 비교했다.</p>
-<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">를 계산한 것처럼,</p>
-<p><img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204"></p>
-<p>4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
-<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016"></p>
+<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. 그런데 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 는 Figure&nbsp;1 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 누락해 가용성을 <img src="https://latex.codecogs.com/png.latex?50%5C%25">로 잘못 계산했고, <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?75%5C%25">도 <strong>소스코드</strong> 내 의존성을 무시해서 잘못 비교했다.</p>
 <div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2411,7 +2459,7 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 <p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
 </div>
 </div>
 </div>
@@ -2420,6 +2468,10 @@ Figure&nbsp;1: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong
 </figcaption>
 </figure>
 </div>
+<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">를 계산한 것처럼,</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204"></p>
+<p>4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016"></p>
 <p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"></p>
 <p>으로 증가한다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 말한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">가 아니라 <img src="https://latex.codecogs.com/png.latex?56.25%5C%25">이다.</p>
@@ -4313,64 +4365,6 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 4주차 - DFS.”</span> Oct
   <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-4/</guid>
   <pubDate>Mon, 02 Oct 2023 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/codetree/report_2023-10-02.png" medium="image" type="image/png" height="68" width="144"/>
-</item>
-<item>
-  <title>[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-3/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-layout-panel" data-layout="[257, 743]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 25.7%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 231034.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 231034.jpg" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 74.3%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-09-25 225150.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 225150.jpg" class="img-fluid figure-img" alt="격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열"></a></p>
-<figcaption>격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p><a href="https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/" class="uri">https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/</a></p>
-<p>DP라는 취약점을 재발견했다.</p>
-<p>격자를 회전하는 등 변형하는 것도 미숙한 것 같다.</p>
-<p>DP 개념 설명과 해설이 역시 매우 좋았다.</p>
-<p>그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.</p>
-<p>문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
-  author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는
-    DP},
-  date = {2023-09-25},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-3/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩
-전진하는 DP.”</span> September 25, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-3/">https://yhkee0404.github.io/posts/algorithms/codetree/week-3/</a>.
-</div></div></section></div> ]]></description>
-  <category>코드트리</category>
-  <category>코딩테스트</category>
-  <category>코딩테스트실력진단</category>
-  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-3/</guid>
-  <pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-09-25 231034.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -21,24 +21,27 @@
     ]
   },
   {
-    "listing": "/posts/algorithms/index.html",
+    "listing": "/posts/web/index.html",
     "items": [
-      "/posts/algorithms/decimal-round-down/index.html",
-      "/posts/algorithms/negative-zero/index.html",
-      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
-      "/posts/algorithms/codetree/week-8/index.html",
-      "/posts/algorithms/codetree/week-7/index.html",
-      "/posts/algorithms/codetree/week-6/index.html",
-      "/posts/algorithms/codetree/week-5/index.html",
-      "/posts/algorithms/codetree/week-4/index.html",
-      "/posts/algorithms/codetree/week-3/index.html",
-      "/posts/algorithms/codetree/week-2/index.html",
-      "/posts/algorithms/codetree/week-1/index.html"
+      "/posts/web/cors-csrf-xss/index.html",
+      "/posts/web/hello-interview/dropbox/index.html",
+      "/posts/web/hello-interview/ticketmaster/index.html",
+      "/posts/web/escape-xml10/index.html",
+      "/posts/web/microservice-spof/index.html",
+      "/posts/web/leetcode-daily-crawling/index.html"
+    ]
+  },
+  {
+    "listing": "/drafts/index.html",
+    "items": [
+      "/posts/algorithms/java-comparable-comparator/draft/index.html",
+      "/posts/data-science/proj/draft/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/web/cors-csrf-xss/index.html",
       "/posts/data-science/transformer/index.html",
       "/posts/database/cv-or-resume/en/index.html",
       "/posts/database/cv-or-resume/ko/index.html",
@@ -64,20 +67,19 @@
     ]
   },
   {
-    "listing": "/drafts/index.html",
+    "listing": "/posts/algorithms/index.html",
     "items": [
-      "/posts/algorithms/java-comparable-comparator/draft/index.html",
-      "/posts/data-science/proj/draft/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/web/index.html",
-    "items": [
-      "/posts/web/hello-interview/dropbox/index.html",
-      "/posts/web/hello-interview/ticketmaster/index.html",
-      "/posts/web/escape-xml10/index.html",
-      "/posts/web/microservice-spof/index.html",
-      "/posts/web/leetcode-daily-crawling/index.html"
+      "/posts/algorithms/decimal-round-down/index.html",
+      "/posts/algorithms/negative-zero/index.html",
+      "/posts/algorithms/leetcode/linked-list-cycle/index.html",
+      "/posts/algorithms/codetree/week-8/index.html",
+      "/posts/algorithms/codetree/week-7/index.html",
+      "/posts/algorithms/codetree/week-6/index.html",
+      "/posts/algorithms/codetree/week-5/index.html",
+      "/posts/algorithms/codetree/week-4/index.html",
+      "/posts/algorithms/codetree/week-3/index.html",
+      "/posts/algorithms/codetree/week-2/index.html",
+      "/posts/algorithms/codetree/week-1/index.html"
     ]
   }
 ]

@@ -486,11 +486,7 @@ window.Quarto = {
 </section>
 <section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
 <h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. 그런데 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 는 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 과 같이 <strong>Microservice</strong>의 2가지 정상 동작 상태를 누락해 가용성을 <span class="math inline">\(50\%\)</span>로 잘못 계산했고, <strong>Monolith</strong>의 가용성 <span class="math inline">\(75\%\)</span>도 <strong>소스코드</strong> 내 의존성을 무시해서 잘못 비교했다.</p>
-<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <span class="math inline">\(\frac 1 4 = 25\%\)</span>를 계산한 것처럼,</p>
-<p><span class="math display">\[2^2 = 4\]</span></p>
-<p>4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
-<p><span class="math display">\[2^4 = 16\]</span></p>
+<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. 그런데 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 는 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 누락해 가용성을 <span class="math inline">\(50\%\)</span>로 잘못 계산했고, <strong>Monolith</strong>의 가용성 <span class="math inline">\(75\%\)</span>도 <strong>소스코드</strong> 내 의존성을 무시해서 잘못 비교했다.</p>
 <div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -499,7 +495,7 @@ window.Quarto = {
 <p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+<p><a href="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
 </div>
 </div>
 </div>
@@ -508,6 +504,10 @@ Figure&nbsp;1: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong
 </figcaption>
 </figure>
 </div>
+<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <span class="math inline">\(\frac 1 4 = 25\%\)</span>를 계산한 것처럼,</p>
+<p><span class="math display">\[2^2 = 4\]</span></p>
+<p>4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
+<p><span class="math display">\[2^4 = 16\]</span></p>
 <p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <span class="math inline">\(\frac 1 4 = 25\%\)</span>에서</p>
 <p><span class="math display">\[\frac 9 {16} = 56.25\%\]</span></p>
 <p>으로 증가한다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 말한 <span class="math inline">\(\frac 7 {14} = 50\%\)</span>가 아니라 <span class="math inline">\(56.25\%\)</span>이다.</p>
