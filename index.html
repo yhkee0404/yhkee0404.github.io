@@ -292,7 +292,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = true;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
@@ -303,6 +304,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -391,7 +400,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(23)</span></div><div class="category" data-category="YWJz">abs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRk">add <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxnb3JpdGhtcw==">algorithms <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5vbWFsaWVz">anomalies <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QXBhY2hlJTIwQ29tbW9ucw==">Apache Commons <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXRvbWljaXR5">atomicity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXR0ZW50aW9u">attention <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0by1yZWdyZXNzaXZl">auto-regressive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXdhcmU=">aware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmFja2dyb3VuZA==">background <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmF5JTIwQXJlYSUyMEslMjBHcm91cA==">Bay Area K Group <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QmlnRGVjaW1hbA==">BigDecimal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmxvYg==">blob <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Yw==">c <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YyUyQiUyQg==">c++ <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hhbmdlJTIwZGF0YSUyMGNhcHR1cmU=">change data capture <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hhb3MlMjBtb25rZXk=">chaos monkey <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hyb21lJTIwZGV2dG9vbHM=">chrome devtools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hyb21lJTIwcmVtb3RlJTIwZGVza3RvcA==">chrome remote desktop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2h1bmtz">chunks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xvY2s=">clock <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xvdWQ=">cloud <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uc2lzdGVuY3k=">consistency <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29udGVudCUyMGRpc3RyaWJ1dGlvbiUyMG5ldHdvcmtz">content distribution networks <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3Jhd2xpbmc=">crawling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3Mtb3JpZ2luJTIwcmVzb3VyY2UlMjBzaGFyaW5n">cross-origin resource sharing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3MtcGxhdGZvcm0=">cross-platform <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3Jvc3Mtc2l0ZSUyMHJlcXVlc3QlMjBmb3JnZXJ5">cross-site request forgery <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3Mtc2l0ZSUyMHNjcmlwdGluZw==">cross-site scripting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Y=">cv <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3ljbGU=">cycle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHNjaWVuY2U=">data science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGF0YWJhc2U=">database <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGVjaW1hbA==">decimal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVjb2Rlcg==">decoder <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzY29yZA==">discord <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGphbmdv">django <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGphbmdvJTIwcmVzdCUyMGZyYW1ld29yaw==">django rest framework <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZG91Ymxl">double <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHJvcGJveA==">Dropbox <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWFnZXI=">eager <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZWxhc3RpY3NlYXJjaA==">elasticsearch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZW5jb2Rlcg==">encoder <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXNjYXBlWG1sMTA=">escapeXml10 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZlbnQlMjBidXM=">event bus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZlbnQlMjBzdHJlYW0=">event stream <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmxvYXQ=">float <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVsbC10ZXh0JTIwaW5kZXg=">full-text index <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnVsbC10ZXh0JTIwaW5kZXhlcw==">full-text indexes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3B0">gpt <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JhcGhxbA==">graphql <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHRtbA==">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aWFuYQ==">iana <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5oZXJpdGFuY2U=">inheritance <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW52ZXJ0ZWQlMjBpbmRleA==">inverted index <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW52ZXJ0ZWQlMjBpbmRleGVz">inverted indexes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbGF0aW9u">isolation <span class="quarto-category-count">(4)</span></div><div class="category" data-category="amF2YQ==">java <span class="quarto-category-count">(2)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2Fma2E=">kafka <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFyZ2UlMjBsYW5ndWFnZSUyMG1vZGVscw==">large language models <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TGFUZVg=">LaTeX <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGF6eQ==">lazy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVldGNvZGU=">leetcode <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGlua2VkJTIwbGlzdA==">linked list <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naW4lMjBpdGVtcw==">login items <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9uZyUyMHBvbGxpbmc=">long polling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9zdCUyMHVwZGF0ZQ==">lost update <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjT1M=">macOS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF4">max <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWFu">median <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWljcm9zZXJ2aWNl">microservice <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlncmF0aW9uJTIwYXNzaXN0YW50">migration assistant <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlu">min <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9ub2xpdGg=">monolith <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9ub3JlcG8=">monorepo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmFpdmU=">naive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmFuZCUyMGZsYXNo">nand flash <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmVnYXRpdmUlMjB6ZXJv">negative zero <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV0ZmxpeA==">netflix <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm9ybWFsaXphdGlvbg==">normalization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b24tZGVtYW5k">on-demand <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3Blbi1zb3VyY2U=">open-source <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cGxhdGZvcm0lMjBpbmRlcGVuZGVuY2U=">platform independence <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHJvZ3JhbW1lcnM=">programmers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHZsaWI=">pvlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVlcnklMjBzdHJpbmc=">query string <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVjb25jaWxpYXRpb24=">reconciliation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVkaXM=">redis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVkTG9jaw==">RedLock <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVmZXJlbmNlcw==">references <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVxdWVzdCUyMG1ldGhvZA==">request method <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzaWR1YWw=">residual <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzdW1hYmlsaXR5">resumability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzdW1l">resume <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cm5u">rnn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NhbGU=">scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VtYW50aWMlMjB0YWc=">semantic tag <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VtaXN0cnVjdHVyZWQlMjBkYXRh">semistructured data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VyaWFsaXplcg==">serializer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VydmVyLXNlbnQlMjBldmVudHM=">server-sent events <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2luZ2xlJTIwcG9pbnQlMjBvZiUyMGZhaWx1cmU=">single point of failure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3BlZWQ=">speed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3ByZWFkc2hlZXQ=">spreadsheet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3ByaW5n">spring <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RhdGVsZXNz">stateless <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RyaW5nRXNjYXBlVXRpbHM=">StringEscapeUtils <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVtJTIwZGVzaWdu">system design <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVtcGVyYXR1cmU=">temperature <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGlja2V0bWFzdGVy">Ticketmaster <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZXpvbmU=">timezone <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNmb3JtZXI=">transformer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJvdWJsZXNob290">troubleshoot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHdvJTIwcG9pbnRlcnM=">two pointers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5lc2NhcGVYbWw=">unescapeXml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2Vi">web <span class="quarto-category-count">(6)</span></div><div class="category" data-category="V2ViU29ja2V0cw==">WebSockets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eG1s">xml <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JUVCJUIwJUIxJUVCJUIwJTlDJUVCJUIwJUIxJUVDJUE0JTgw">백발백준 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUVDJUE1JTkwJUVDJUE1JTkw">쥐쥐 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFD">코드트리 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4">코딩테스트 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4">코딩테스트실력진단 <span class="quarto-category-count">(8)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(24)</span></div><div class="category" data-category="YWJz">abs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWRk">add <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxnb3JpdGhtcw==">algorithms <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5vbWFsaWVz">anomalies <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QXBhY2hlJTIwQ29tbW9ucw==">Apache Commons <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXRvbWljaXR5">atomicity <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXR0ZW50aW9u">attention <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXV0by1yZWdyZXNzaXZl">auto-regressive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXdhcmU=">aware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmFja2dyb3VuZA==">background <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmF5JTIwQXJlYSUyMEslMjBHcm91cA==">Bay Area K Group <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QmlnRGVjaW1hbA==">BigDecimal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmxvYg==">blob <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Yw==">c <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YyUyQiUyQg==">c++ <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hhbmdlJTIwZGF0YSUyMGNhcHR1cmU=">change data capture <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hhb3MlMjBtb25rZXk=">chaos monkey <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y2hyb21lJTIwZGV2dG9vbHM=">chrome devtools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hyb21lJTIwcmVtb3RlJTIwZGVza3RvcA==">chrome remote desktop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2h1bmtz">chunks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xvY2s=">clock <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2xvdWQ=">cloud <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29uc2lzdGVuY3k=">consistency <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29udGVudCUyMGRpc3RyaWJ1dGlvbiUyMG5ldHdvcmtz">content distribution networks <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3Jhd2xpbmc=">crawling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3Mtb3JpZ2luJTIwcmVzb3VyY2UlMjBzaGFyaW5n">cross-origin resource sharing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3MtcGxhdGZvcm0=">cross-platform <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3Jvc3Mtc2l0ZSUyMHJlcXVlc3QlMjBmb3JnZXJ5">cross-site request forgery <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Jvc3Mtc2l0ZSUyMHNjcmlwdGluZw==">cross-site scripting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3Y=">cv <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y3ljbGU=">cycle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHNjaWVuY2U=">data science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGF0YWJhc2U=">database <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGVjaW1hbA==">decimal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVjb2Rlcg==">decoder <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzY29yZA==">discord <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGphbmdv">django <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGphbmdvJTIwcmVzdCUyMGZyYW1ld29yaw==">django rest framework <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZG91Ymxl">double <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHJvcGJveA==">Dropbox <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWFnZXI=">eager <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZWxhc3RpY3NlYXJjaA==">elasticsearch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZW5jb2Rlcg==">encoder <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXNjYXBlWG1sMTA=">escapeXml10 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZlbnQlMjBidXM=">event bus <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXZlbnQlMjBzdHJlYW0=">event stream <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmxvYXQ=">float <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVsbC10ZXh0JTIwaW5kZXg=">full-text index <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnVsbC10ZXh0JTIwaW5kZXhlcw==">full-text indexes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3B0">gpt <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JhcGhxbA==">graphql <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHRtbA==">html <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aWFuYQ==">iana <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW5oZXJpdGFuY2U=">inheritance <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW52ZXJ0ZWQlMjBpbmRleA==">inverted index <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW52ZXJ0ZWQlMjBpbmRleGVz">inverted indexes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aXNvbGF0aW9u">isolation <span class="quarto-category-count">(4)</span></div><div class="category" data-category="amF2YQ==">java <span class="quarto-category-count">(2)</span></div><div class="category" data-category="amF2YXNjcmlwdA==">javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2Fma2E=">kafka <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFyZ2UlMjBsYW5ndWFnZSUyMG1vZGVscw==">large language models <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TGFUZVg=">LaTeX <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGF6eQ==">lazy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVldGNvZGU=">leetcode <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGlua2VkJTIwbGlzdA==">linked list <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naW4lMjBpdGVtcw==">login items <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9uZyUyMHBvbGxpbmc=">long polling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9zdCUyMHVwZGF0ZQ==">lost update <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjT1M=">macOS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWF4">max <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWVkaWFu">median <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWljcm9zZXJ2aWNl">microservice <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bWlncmF0aW9uJTIwYXNzaXN0YW50">migration assistant <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWlu">min <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9ub2xpdGg=">monolith <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bW9ub3JlcG8=">monorepo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmFpdmU=">naive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmFuZCUyMGZsYXNo">nand flash <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmVnYXRpdmUlMjB6ZXJv">negative zero <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV0ZmxpeA==">netflix <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bm9ybWFsaXphdGlvbg==">normalization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b2JzZXJ2YWJsZQ==">observable <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b24tZGVtYW5k">on-demand <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3Blbi1zb3VyY2U=">open-source <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cGxhdGZvcm0lMjBpbmRlcGVuZGVuY2U=">platform independence <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHJvZ3JhbW1lcnM=">programmers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHZsaWI=">pvlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVlcnklMjBzdHJpbmc=">query string <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVjb25jaWxpYXRpb24=">reconciliation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVkaXM=">redis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVkTG9jaw==">RedLock <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVmZXJlbmNlcw==">references <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVxdWVzdCUyMG1ldGhvZA==">request method <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzaWR1YWw=">residual <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzdW1hYmlsaXR5">resumability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzdW1l">resume <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cm5u">rnn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NhbGU=">scale <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c2VtYW50aWMlMjB0YWc=">semantic tag <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VtaXN0cnVjdHVyZWQlMjBkYXRh">semistructured data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VyaWFsaXplcg==">serializer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VydmVyLXNlbnQlMjBldmVudHM=">server-sent events <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2luZ2xlJTIwcG9pbnQlMjBvZiUyMGZhaWx1cmU=">single point of failure <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3BlZWQ=">speed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3ByZWFkc2hlZXQ=">spreadsheet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3ByaW5n">spring <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3RhdGVsZXNz">stateless <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RyaW5nRXNjYXBlVXRpbHM=">StringEscapeUtils <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3lzdGVtJTIwZGVzaWdu">system design <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGVtcGVyYXR1cmU=">temperature <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGlja2V0bWFzdGVy">Ticketmaster <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZXpvbmU=">timezone <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNmb3JtZXI=">transformer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJvdWJsZXNob290">troubleshoot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHdvJTIwcG9pbnRlcnM=">two pointers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5lc2NhcGVYbWw=">unescapeXml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2Vi">web <span class="quarto-category-count">(7)</span></div><div class="category" data-category="V2ViU29ja2V0cw==">WebSockets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eG1s">xml <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JUVCJUIwJUIxJUVCJUIwJTlDJUVCJUIwJUIxJUVDJUE0JTgw">백발백준 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUVDJUE1JTkwJUVDJUE1JTkw">쥐쥐 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFD">코드트리 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4">코딩테스트 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="JUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4">코딩테스트실력진단 <span class="quarto-category-count">(8)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -421,7 +430,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="d2ViJTJDY3Jvc3Mtb3JpZ2luJTIwcmVzb3VyY2UlMjBzaGFyaW5nJTJDY3Jvc3Mtc2l0ZSUyMHJlcXVlc3QlMjBmb3JnZXJ5JTJDY3Jvc3Mtc2l0ZSUyMHNjcmlwdGluZw==" data-listing-date-sort="1748390400000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="151">
+<div class="g-col-1" data-index="0" data-categories="d2ViJTJDY3Jvc3Mtb3JpZ2luJTIwcmVzb3VyY2UlMjBzaGFyaW5nJTJDY3Jvc3Mtc2l0ZSUyMHJlcXVlc3QlMjBmb3JnZXJ5JTJDY3Jvc3Mtc2l0ZSUyMHNjcmlwdGluZw==" data-listing-date-sort="1748390400000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="151">
 <a href="./posts/web/cors-csrf-xss/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -457,7 +466,7 @@ May 28, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="ZGF0YSUyMHNjaWVuY2UlMkN0cmFuc2Zvcm1lciUyQ3JubiUyQ2dwdCUyQ2VuY29kZXIlMkNkZWNvZGVyJTJDc3RhdGVsZXNzJTJDYXV0by1yZWdyZXNzaXZlJTJDbm9ybWFsaXphdGlvbiUyQ3Jlc2lkdWFsJTJDdGVtcGVyYXR1cmUlMkNhdHRlbnRpb24=" data-listing-date-sort="1748131200000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="1748304000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="599">
+<div class="g-col-1" data-index="1" data-categories="ZGF0YSUyMHNjaWVuY2UlMkN0cmFuc2Zvcm1lciUyQ3JubiUyQ2dwdCUyQ2VuY29kZXIlMkNkZWNvZGVyJTJDc3RhdGVsZXNzJTJDYXV0by1yZWdyZXNzaXZlJTJDbm9ybWFsaXphdGlvbiUyQ3Jlc2lkdWFsJTJDdGVtcGVyYXR1cmUlMkNhdHRlbnRpb24=" data-listing-date-sort="1748131200000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="1748304000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="599">
 <a href="./posts/data-science/transformer/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -509,7 +518,7 @@ May 25, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="ZGF0YWJhc2UlMkNjdiUyQ3Jlc3VtZSUyQ2NvbnNpc3RlbmN5JTJDY3Jvc3MtcGxhdGZvcm0lMkNwbGF0Zm9ybSUyMGluZGVwZW5kZW5jZSUyQ3JlZmVyZW5jZXMlMkNhbm9tYWxpZXMlMkNlYWdlciUyQ2xhenklMkNpc29sYXRpb24lMkNvbi1kZW1hbmQlMkNpbmhlcml0YW5jZSUyQ21vbm9yZXBvJTJDZnVsbC10ZXh0JTIwaW5kZXglMkNpbnZlcnRlZCUyMGluZGV4JTJDTGFUZVglMkNsYXJnZSUyMGxhbmd1YWdlJTIwbW9kZWxzJTJDb3Blbi1zb3VyY2UlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3Vw" data-listing-date-sort="1747267200000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542">
+<div class="g-col-1" data-index="2" data-categories="ZGF0YWJhc2UlMkNjdiUyQ3Jlc3VtZSUyQ2NvbnNpc3RlbmN5JTJDY3Jvc3MtcGxhdGZvcm0lMkNwbGF0Zm9ybSUyMGluZGVwZW5kZW5jZSUyQ3JlZmVyZW5jZXMlMkNhbm9tYWxpZXMlMkNlYWdlciUyQ2xhenklMkNpc29sYXRpb24lMkNvbi1kZW1hbmQlMkNpbmhlcml0YW5jZSUyQ21vbm9yZXBvJTJDZnVsbC10ZXh0JTIwaW5kZXglMkNpbnZlcnRlZCUyMGluZGV4JTJDTGFUZVglMkNsYXJnZSUyMGxhbmd1YWdlJTIwbW9kZWxzJTJDb3Blbi1zb3VyY2UlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3Vw" data-listing-date-sort="1747267200000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542">
 <a href="./posts/database/cv-or-resume/ko/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -577,7 +586,7 @@ May 15, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="ZGF0YWJhc2UlMkNjdiUyQ3Jlc3VtZSUyQ2NvbnNpc3RlbmN5JTJDY3Jvc3MtcGxhdGZvcm0lMkNwbGF0Zm9ybSUyMGluZGVwZW5kZW5jZSUyQ3JlZmVyZW5jZXMlMkNhbm9tYWxpZXMlMkNlYWdlciUyQ2xhenklMkNpc29sYXRpb24lMkNvbi1kZW1hbmQlMkNpbmhlcml0YW5jZSUyQ21vbm9yZXBvJTJDZnVsbC10ZXh0JTIwaW5kZXglMkNpbnZlcnRlZCUyMGluZGV4JTJDTGFUZVglMkNsYXJnZSUyMGxhbmd1YWdlJTIwbW9kZWxzJTJDb3Blbi1zb3VyY2UlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3Vw" data-listing-date-sort="1747267200000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="733">
+<div class="g-col-1" data-index="3" data-categories="ZGF0YWJhc2UlMkNjdiUyQ3Jlc3VtZSUyQ2NvbnNpc3RlbmN5JTJDY3Jvc3MtcGxhdGZvcm0lMkNwbGF0Zm9ybSUyMGluZGVwZW5kZW5jZSUyQ3JlZmVyZW5jZXMlMkNhbm9tYWxpZXMlMkNlYWdlciUyQ2xhenklMkNpc29sYXRpb24lMkNvbi1kZW1hbmQlMkNpbmhlcml0YW5jZSUyQ21vbm9yZXBvJTJDZnVsbC10ZXh0JTIwaW5kZXglMkNpbnZlcnRlZCUyMGluZGV4JTJDTGFUZVglMkNsYXJnZSUyMGxhbmd1YWdlJTIwbW9kZWxzJTJDb3Blbi1zb3VyY2UlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3Vw" data-listing-date-sort="1747267200000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="733">
 <a href="./posts/database/cv-or-resume/en/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -645,7 +654,7 @@ May 15, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="d2ViJTJDc3lzdGVtJTIwZGVzaWduJTJDYXRvbWljaXR5JTJDY29uc2lzdGVuY3klMkNpc29sYXRpb24lMkNyZXN1bWFiaWxpdHklMkNyZWNvbmNpbGlhdGlvbiUyQ2NodW5rcyUyQ2Jsb2IlMkNldmVudCUyMHN0cmVhbSUyQ2V2ZW50JTIwYnVzJTJDa2Fma2ElMkNjb250ZW50JTIwZGlzdHJpYnV0aW9uJTIwbmV0d29ya3MlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3VwJTJDRHJvcGJveA==" data-listing-date-sort="1744416000000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="379">
+<div class="g-col-1" data-index="4" data-categories="d2ViJTJDc3lzdGVtJTIwZGVzaWduJTJDYXRvbWljaXR5JTJDY29uc2lzdGVuY3klMkNpc29sYXRpb24lMkNyZXN1bWFiaWxpdHklMkNyZWNvbmNpbGlhdGlvbiUyQ2NodW5rcyUyQ2Jsb2IlMkNldmVudCUyMHN0cmVhbSUyQ2V2ZW50JTIwYnVzJTJDa2Fma2ElMkNjb250ZW50JTIwZGlzdHJpYnV0aW9uJTIwbmV0d29ya3MlMkNCYXklMjBBcmVhJTIwSyUyMEdyb3VwJTJDRHJvcGJveA==" data-listing-date-sort="1744416000000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="379">
 <a href="./posts/web/hello-interview/dropbox/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -706,7 +715,7 @@ Apr 12, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="d2ViJTJDc3lzdGVtJTIwZGVzaWduJTJDbG9zdCUyMHVwZGF0ZSUyQ2lzb2xhdGlvbiUyQ3JlZGlzJTJDUmVkTG9jayUyQ2VsYXN0aWNzZWFyY2glMkNjb250ZW50JTIwZGlzdHJpYnV0aW9uJTIwbmV0d29ya3MlMkNsb25nJTIwcG9sbGluZyUyQ3NlcnZlci1zZW50JTIwZXZlbnRzJTJDV2ViU29ja2V0cyUyQ2NoYW5nZSUyMGRhdGElMjBjYXB0dXJlJTJDZnVsbC10ZXh0JTIwaW5kZXhlcyUyQ2ludmVydGVkJTIwaW5kZXhlcyUyQ0JheSUyMEFyZWElMjBLJTIwR3JvdXAlMkNUaWNrZXRtYXN0ZXI=" data-listing-date-sort="1743206400000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="1743379200000" data-listing-reading-time-sort="4" data-listing-word-count-sort="663">
+<div class="g-col-1" data-index="5" data-categories="d2ViJTJDc3lzdGVtJTIwZGVzaWduJTJDbG9zdCUyMHVwZGF0ZSUyQ2lzb2xhdGlvbiUyQ3JlZGlzJTJDUmVkTG9jayUyQ2VsYXN0aWNzZWFyY2glMkNjb250ZW50JTIwZGlzdHJpYnV0aW9uJTIwbmV0d29ya3MlMkNsb25nJTIwcG9sbGluZyUyQ3NlcnZlci1zZW50JTIwZXZlbnRzJTJDV2ViU29ja2V0cyUyQ2NoYW5nZSUyMGRhdGElMjBjYXB0dXJlJTJDZnVsbC10ZXh0JTIwaW5kZXhlcyUyQ2ludmVydGVkJTIwaW5kZXhlcyUyQ0JheSUyMEFyZWElMjBLJTIwR3JvdXAlMkNUaWNrZXRtYXN0ZXI=" data-listing-date-sort="1743206400000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="1743379200000" data-listing-reading-time-sort="4" data-listing-word-count-sort="663">
 <a href="./posts/web/hello-interview/ticketmaster/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -769,7 +778,7 @@ Mar 29, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="YWxnb3JpdGhtcyUyQ2Zsb2F0JTJDZGVjaW1hbCUyQ2RvdWJsZSUyQ0JpZ0RlY2ltYWwlMkNweXRob24lMkNqYXZh" data-listing-date-sort="1716681600000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="1724630400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
+<div class="g-col-1" data-index="6" data-categories="YWxnb3JpdGhtcyUyQ2Zsb2F0JTJDZGVjaW1hbCUyQ2RvdWJsZSUyQ0JpZ0RlY2ltYWwlMkNweXRob24lMkNqYXZh" data-listing-date-sort="1716681600000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="1724630400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
 <a href="./posts/algorithms/decimal-round-down/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -811,7 +820,7 @@ May 26, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNwdmxpYiUyQ29wZW4tc291cmNlJTJDdGltZXpvbmUlMkNuYWl2ZSUyQ2F3YXJlJTJDc2VyaWFsaXplciUyQ2lhbmElMkNkamFuZ28lMkNkamFuZ28lMjByZXN0JTIwZnJhbWV3b3Jr" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="258">
+<div class="g-col-1" data-index="7" data-categories="ZGF0YSUyMHNjaWVuY2UlMkNwdmxpYiUyQ29wZW4tc291cmNlJTJDdGltZXpvbmUlMkNuYWl2ZSUyQ2F3YXJlJTJDc2VyaWFsaXplciUyQ2lhbmElMkNkamFuZ28lMkNkamFuZ28lMjByZXN0JTIwZnJhbWV3b3Jr" data-listing-date-sort="1716076800000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="258">
 <a href="./posts/data-science/pvlib-timezone/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -859,7 +868,7 @@ May 19, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="YWxnb3JpdGhtcyUyQ2FicyUyQ25lZ2F0aXZlJTIwemVybyUyQ21pbiUyQ21heCUyQ2FkZCUyQ2MlMkNjJTJCJTJCJTJDamF2YSUyQ2phdmFzY3JpcHQ=" data-listing-date-sort="1715472000000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
+<div class="g-col-1" data-index="8" data-categories="YWxnb3JpdGhtcyUyQ2FicyUyQ25lZ2F0aXZlJTIwemVybyUyQ21pbiUyQ21heCUyQ2FkZCUyQ2MlMkNjJTJCJTJCJTJDamF2YSUyQ2phdmFzY3JpcHQ=" data-listing-date-sort="1715472000000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
 <a href="./posts/algorithms/negative-zero/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -907,7 +916,7 @@ May 12, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="d2ViJTJDeG1sJTJDZXNjYXBlWG1sMTAlMkN1bmVzY2FwZVhtbCUyQ3NwcmluZyUyQ1N0cmluZ0VzY2FwZVV0aWxzJTJDQXBhY2hlJTIwQ29tbW9ucw==" data-listing-date-sort="1714867200000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="166">
+<div class="g-col-1" data-index="9" data-categories="d2ViJTJDeG1sJTJDZXNjYXBlWG1sMTAlMkN1bmVzY2FwZVhtbCUyQ3NwcmluZyUyQ1N0cmluZ0VzY2FwZVV0aWxzJTJDQXBhY2hlJTIwQ29tbW9ucw==" data-listing-date-sort="1714867200000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="166">
 <a href="./posts/web/escape-xml10/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -952,7 +961,7 @@ May 5, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="eG1sJTJDZGF0YWJhc2UlMkNodG1sJTJDc2VtaXN0cnVjdHVyZWQlMjBkYXRhJTJDc2VtYW50aWMlMjB0YWc=" data-listing-date-sort="1714262400000" data-listing-file-modified-sort="1748447259257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="42">
+<div class="g-col-1" data-index="10" data-categories="eG1sJTJDZGF0YWJhc2UlMkNodG1sJTJDc2VtaXN0cnVjdHVyZWQlMjBkYXRhJTJDc2VtYW50aWMlMjB0YWc=" data-listing-date-sort="1714262400000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="42">
 <a href="./posts/database/xml/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -990,17 +999,17 @@ Apr 28, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="d2ViJTJDbWljcm9zZXJ2aWNlJTJDbW9ub2xpdGglMkNzaW5nbGUlMjBwb2ludCUyMG9mJTIwZmFpbHVyZSUyQ25ldGZsaXglMkNjaGFvcyUyMG1vbmtleSUyQ3NjYWxlJTJDbmFuZCUyMGZsYXNo" data-listing-date-sort="1713052800000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="1748390400000" data-listing-reading-time-sort="5" data-listing-word-count-sort="944">
-<a href="./posts/web/microservice-spof/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="11" data-categories="d2ViJTJDbWljcm9zZXJ2aWNlJTJDbW9ub2xpdGglMkNzaW5nbGUlMjBwb2ludCUyMG9mJTIwZmFpbHVyZSUyQ25ldGZsaXglMkNjaGFvcyUyMG1vbmtleSUyQ3NjYWxlJTJDbmFuZCUyMGZsYXNoJTJDb2JzZXJ2YWJsZQ==" data-listing-date-sort="1713052800000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="1748563200000" data-listing-reading-time-sort="12" data-listing-word-count-sort="2367">
+<a href="./posts/web/microservice-spof/ko/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="./_images/diagrams/microservice-spof-scale-out-monolith.gif" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Microservice를 통한 SPOF(Single Point of Failure) 문제 해결과 그 비용
+그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용
 </h5>
-<div class="listing-reading-time card-text text-muted">5 min</div>
+<div class="listing-reading-time card-text text-muted">12 min</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('d2Vi'); return false;">web</div>
@@ -1019,6 +1028,8 @@ Microservice를 통한 SPOF(Single Point of Failure) 문제 해결과 그 비용
 
 <div class="listing-category" onclick="window.quartoListingCategory('bmFuZCUyMGZsYXNo'); return false;">nand flash</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('b2JzZXJ2YWJsZQ=='); return false;">observable</div>
+
 </div>
 <div class="card-text listing-description delink">
 웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.
@@ -1034,7 +1045,53 @@ Apr 14, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="dHJvdWJsZXNob290JTJDY2hyb21lJTIwcmVtb3RlJTIwZGVza3RvcCUyQ21hY09TJTJDbWlncmF0aW9uJTIwYXNzaXN0YW50JTJDYmFja2dyb3VuZCUyQ2xvZ2luJTIwaXRlbXM=" data-listing-date-sort="1712188800000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="1712534400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
+<div class="g-col-1" data-index="12" data-categories="d2ViJTJDbWljcm9zZXJ2aWNlJTJDbW9ub2xpdGglMkNzaW5nbGUlMjBwb2ludCUyMG9mJTIwZmFpbHVyZSUyQ25ldGZsaXglMkNjaGFvcyUyMG1vbmtleSUyQ3NjYWxlJTJDbmFuZCUyMGZsYXNoJTJDb2JzZXJ2YWJsZQ==" data-listing-date-sort="1713052800000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="1748563200000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2868">
+<a href="./posts/web/microservice-spof/en/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./_images/diagrams/microservice-spof-scale-out-monolith.gif" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Visualized Microservices As an Upperbounds of Monoliths
+</h5>
+<div class="listing-reading-time card-text text-muted">15 min</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2Vi'); return false;">web</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWljcm9zZXJ2aWNl'); return false;">microservice</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9ub2xpdGg='); return false;">monolith</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2luZ2xlJTIwcG9pbnQlMjBvZiUyMGZhaWx1cmU='); return false;">single point of failure</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bmV0ZmxpeA=='); return false;">netflix</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2hhb3MlMjBtb25rZXk='); return false;">chaos monkey</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2NhbGU='); return false;">scale</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bmFuZCUyMGZsYXNo'); return false;">nand flash</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('b2JzZXJ2YWJsZQ=='); return false;">observable</div>
+
+</div>
+<div class="card-text listing-description delink">
+According to web developer <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>, a single program is considered a <strong>monolith</strong> architecture, while implementing the same program as multiple programs is called <strong>…</strong><strong></strong>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Yunho Kee
+</div>
+<div class="listing-date">
+Apr 14, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="dHJvdWJsZXNob290JTJDY2hyb21lJTIwcmVtb3RlJTIwZGVza3RvcCUyQ21hY09TJTJDbWlncmF0aW9uJTIwYXNzaXN0YW50JTJDYmFja2dyb3VuZCUyQ2xvZ2luJTIwaXRlbXM=" data-listing-date-sort="1712188800000" data-listing-file-modified-sort="1748592706361" data-listing-date-modified-sort="1712534400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
 <a href="./posts/troubleshoot/chrome-remote-desktop/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1077,7 +1134,7 @@ Apr 4, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="d2ViJTJDY3Jhd2xpbmclMkNncmFwaHFsJTJDY2xvdWQlMkNzcHJlYWRzaGVldCUyQ3JlcXVlc3QlMjBtZXRob2QlMkNxdWVyeSUyMHN0cmluZyUyQ2Nocm9tZSUyMGRldnRvb2xzJTJDbGVldGNvZGUlMkNkaXNjb3Jk" data-listing-date-sort="1710633600000" data-listing-file-modified-sort="1748447259258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1272">
+<div class="g-col-1" data-index="14" data-categories="d2ViJTJDY3Jhd2xpbmclMkNncmFwaHFsJTJDY2xvdWQlMkNzcHJlYWRzaGVldCUyQ3JlcXVlc3QlMjBtZXRob2QlMkNxdWVyeSUyMHN0cmluZyUyQ2Nocm9tZSUyMGRldnRvb2xzJTJDbGVldGNvZGUlMkNkaXNjb3Jk" data-listing-date-sort="1710633600000" data-listing-file-modified-sort="1748592706362" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1272">
 <a href="./posts/web/leetcode-daily-crawling/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1128,7 +1185,7 @@ Mar 17, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="YWxnb3JpdGhtcyUyQ2xlZXRjb2RlJTJDcHJvZ3JhbW1lcnMlMkN0d28lMjBwb2ludGVycyUyQ2xpbmtlZCUyMGxpc3QlMkNjeWNsZSUyQ21lZGlhbiUyQ2Nsb2NrJTJDc3BlZWQlMkMlRUMlQTUlOTAlRUMlQTUlOTAlMkMlRUIlQjAlQjElRUIlQjAlOUMlRUIlQjAlQjElRUMlQTQlODA=" data-listing-date-sort="1710374400000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1843">
+<div class="g-col-1" data-index="15" data-categories="YWxnb3JpdGhtcyUyQ2xlZXRjb2RlJTJDcHJvZ3JhbW1lcnMlMkN0d28lMjBwb2ludGVycyUyQ2xpbmtlZCUyMGxpc3QlMkNjeWNsZSUyQ21lZGlhbiUyQ2Nsb2NrJTJDc3BlZWQlMkMlRUMlQTUlOTAlRUMlQTUlOTAlMkMlRUIlQjAlQjElRUIlQjAlOUMlRUIlQjAlQjElRUMlQTQlODA=" data-listing-date-sort="1710374400000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1843">
 <a href="./posts/algorithms/leetcode/linked-list-cycle/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1181,7 +1238,7 @@ Mar 14, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="15" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1698624000000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="g-col-1" data-index="16" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1698624000000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
 <a href="./posts/algorithms/codetree/week-8/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1215,7 +1272,7 @@ Oct 30, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="16" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<div class="g-col-1" data-index="17" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1698019200000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
 <a href="./posts/algorithms/codetree/week-7/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1249,11 +1306,11 @@ Oct 23, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="17" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1697414400000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="34">
+<div class="g-col-1" data-index="18" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1697414400000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="34">
 <a href="./posts/algorithms/codetree/week-6/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./_images/codetree/report_2023-10-16.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="./_images/codetree/report_2023-10-16.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1283,7 +1340,7 @@ Oct 16, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="18" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="80">
+<div class="g-col-1" data-index="19" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1696809600000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="80">
 <a href="./posts/algorithms/codetree/week-5/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1317,7 +1374,7 @@ Oct 9, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="19" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1696204800000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
+<div class="g-col-1" data-index="20" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1696204800000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
 <a href="./posts/algorithms/codetree/week-4/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1351,7 +1408,7 @@ Oct 2, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="20" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40">
+<div class="g-col-1" data-index="21" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1748592706359" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40">
 <a href="./posts/algorithms/codetree/week-2/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1385,7 +1442,7 @@ Sep 25, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="21" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
+<div class="g-col-1" data-index="22" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1695600000000" data-listing-file-modified-sort="1748592706360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
 <a href="./posts/algorithms/codetree/week-3/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1419,7 +1476,7 @@ Sep 25, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="22" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1694390400000" data-listing-file-modified-sort="1748447259256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="36">
+<div class="g-col-1" data-index="23" data-categories="JUVDJUJEJTk0JUVCJTkzJTlDJUVEJThBJUI4JUVCJUE2JUFDJTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JTJDJUVDJUJEJTk0JUVCJTk0JUE5JUVEJTg1JThDJUVDJThBJUE0JUVEJThBJUI4JUVDJThCJUE0JUVCJUEwJUE1JUVDJUE3JTg0JUVCJThCJUE4" data-listing-date-sort="1694390400000" data-listing-file-modified-sort="1748592706359" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="36">
 <a href="./posts/algorithms/codetree/week-1/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

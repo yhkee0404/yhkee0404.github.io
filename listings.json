@@ -16,17 +16,10 @@
     ]
   },
   {
-    "listing": "/posts/database/index.html",
+    "listing": "/drafts/index.html",
     "items": [
-      "/posts/database/cv-or-resume/ko/index.html",
-      "/posts/database/cv-or-resume/en/index.html",
-      "/posts/database/xml/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/troubleshoot/index.html",
-    "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+      "/posts/algorithms/java-comparable-comparator/draft/index.html",
+      "/posts/data-science/proj/draft/index.html"
     ]
   },
   {
@@ -43,7 +36,8 @@
       "/posts/algorithms/negative-zero/index.html",
       "/posts/web/escape-xml10/index.html",
       "/posts/database/xml/index.html",
-      "/posts/web/microservice-spof/index.html",
+      "/posts/web/microservice-spof/ko/index.html",
+      "/posts/web/microservice-spof/en/index.html",
       "/posts/troubleshoot/chrome-remote-desktop/index.html",
       "/posts/web/leetcode-daily-crawling/index.html",
       "/posts/algorithms/leetcode/linked-list-cycle/index.html",
@@ -58,10 +52,17 @@
     ]
   },
   {
-    "listing": "/drafts/index.html",
+    "listing": "/posts/troubleshoot/index.html",
     "items": [
-      "/posts/algorithms/java-comparable-comparator/draft/index.html",
-      "/posts/data-science/proj/draft/index.html"
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/database/index.html",
+    "items": [
+      "/posts/database/cv-or-resume/ko/index.html",
+      "/posts/database/cv-or-resume/en/index.html",
+      "/posts/database/xml/index.html"
     ]
   },
   {
@@ -71,7 +72,8 @@
       "/posts/web/hello-interview/dropbox/index.html",
       "/posts/web/hello-interview/ticketmaster/index.html",
       "/posts/web/escape-xml10/index.html",
-      "/posts/web/microservice-spof/index.html",
+      "/posts/web/microservice-spof/ko/index.html",
+      "/posts/web/microservice-spof/en/index.html",
       "/posts/web/leetcode-daily-crawling/index.html"
     ]
   },
