@@ -18,7 +18,7 @@
 <generator>quarto-1.7.31</generator>
 <lastBuildDate>Fri, 30 May 2025 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Visualized Microservices As an Upperbounds of Monoliths</title>
+  <title>Visualized: Microservices as the Upper Bound for Monolith Availability</title>
   <dc:creator>Yunho Kee</dc:creator>
   <link>https://yhkee0404.github.io/posts/web/microservice-spof/en/</link>
   <description><![CDATA[ 
@@ -824,14 +824,15 @@ Sil. 2016. <span>“If <img src="https://latex.codecogs.com/png.latex?p%20+%20q%
 </div>
 </div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
-  title = {Visualized Microservices As an Upperbounds of Monoliths},
+  title = {Visualized: Microservices as the Upper Bound for Monolith
+    Availability},
   date = {2025-05-30},
   url = {https://yhkee0404.github.io/posts/web/microservice-spof/en/},
   langid = {ko}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2025. <span>“Visualized Microservices As an Upperbounds of
-Monoliths.”</span> May 30, 2025. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
+Kee, Yunho. 2025. <span>“Visualized: Microservices as the Upper Bound
+for Monolith Availability.”</span> May 30, 2025. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
 </div></div></section></div> ]]></description>
   <category>web</category>
   <category>microservice</category>
