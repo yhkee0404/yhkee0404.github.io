@@ -20,12 +20,12 @@ bibliography:
   - sil2016grid.bib
 alias:
   - /posts/web/microservice-spof
-format-links:
-  - text: English
-    href: ../en/
-    icon: translate
-    rel: alternate
-    # hreflang: en
+# format-links:
+#   - text: English
+#     href: ../en/
+#     icon: translate
+#     rel: alternate
+#     # hreflang: en
 ---
 
 :::::{.quarto-about-jolla}
@@ -45,6 +45,67 @@ format-links:
 ::::
 
 :::::
+
+```{ojs}
+//| echo: false
+
+viewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: "p"});
+viewof n = Inputs.range([1, 100], {step: 1, value: 5, label: "n"});
+```
+
+```{ojs}
+//| code-fold: true
+
+function join(p, n) {
+  return Math.pow(p, n);
+}
+function split(p, m) {
+  return 1 - Math.pow(1 - p, m);
+}
+
+y1s = (() => {
+  const ys = [];
+  for (let i = 1; i <= 100; i++) {
+    ys.push({
+      m: i,
+      y: join(split(p, i), n),
+      label: "ScaleOutMicroservice",
+    });
+  }
+  return ys;
+})();
+
+y2s = (() => {
+  const ys = [];
+  for (let i = 1; i <= 100; i++) {
+    ys.push({
+      m: i,
+      y: split(join(p, n), i),
+      label: "ScaleOutMonolith",
+    });
+  }
+  return ys;
+})();
+```
+
+```{ojs}
+//| label: fig-microservice-spof-scale-out-visualization
+//| fig-cap: "그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점"
+//| echo: false
+
+Plot.plot({
+  grid: true,
+  color: {legend: true, scheme: "BuRd"},
+  x: {label: "m"},
+  y: {domain: [0, 1]},
+  marks: [
+    Plot.areaY(y1s.concat(y2s), {y1: "y", x: "m", fill: "label", fillOpacity: 0.5}),
+    Plot.tip(y1s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
+    Plot.tip(y2s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
+  ],
+  style: "background: inherit;",
+});
+```
 
 ## 예시를 통한 Monolith와 Microservice의 비교
 
@@ -101,7 +162,7 @@ $$2^2 = 4$$
 
 이므로, 4개의 **소스코드** 동작 여부에 따라서는, @stanko2022single 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:
 
-$$2^4 = 16$$
+$$2^4 = 16.$$
 
 2개의 **소스코드**를 각각 2배로 늘리면 기존에 2개였던 **SPOF**(**Single Point of Failure**)가 제거되어, 가용성은 기존 **소스코드** 2개의 $\frac 1 4 = 25\%$에서
 
@@ -169,7 +230,7 @@ $$
                                                        & = \text{Join}(\frac 3 4, 2)\\
                                                        & = (\frac 3 4)^2\\
                                                        & = \frac 9 {16}\\
-                                                       & = 56.25\%
+                                                       & = 56.25\%.
 \end{align}
 $$
 
@@ -199,7 +260,7 @@ $$
                                                    & = 1 - (\frac 3 4)^2\\
                                                    & = 1 - \frac 9 {16}\\
                                                    & = \frac 7 {16}\\
-                                                   & = 43.75\%
+                                                   & = 43.75\%.
 \end{align}
 $$
 
@@ -207,7 +268,7 @@ $$
 
 다음을 증명할 수 있다 [@sil2016grid]:
 
-$$(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1$$ {#eq-microservice-spof-sil-2016-grid}
+$$(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1.$$ {#eq-microservice-spof-sil-2016-grid}
 
 따라서,
 
@@ -216,74 +277,13 @@ $$
 (1 - (1 - p)^m)^n & \geq 1 - (1 - p^n)^m\\
 \text{Join}(\text{Split}(p, m), n) & \geq \text{Split}(\text{Join}(p, n), m)\\
 \\
-\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) & \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m)
+\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) & \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m).
 \end{align}
 $$ {#eq-microservice-spof-scale-out-inequality}
 
 ### 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점
 
 @eq-microservice-spof-scale-out-inequality 의 성질뿐 아니라 @fig-microservice-spof-scale-out-visualization 의 시각화를 통해 $\text{ScaleOut}_{\text{Microservice}}(p, n, m)$과 $\text{ScaleOut}_{\text{Monolith}}(p, n, m)$의 격차가 **수평 확장**(**Horizontal Scaling**, **Scale-Out**)의 배수 $m$의 확대에도 불구하고 $p$의 감소 또는 $n$의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다.
-
-```{ojs}
-//| echo: false
-
-viewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: "p"});
-viewof n = Inputs.range([1, 100], {step: 1, value: 5, label: "n"});
-```
-
-```{ojs}
-//| code-fold: true
-
-function join(p, n) {
-  return Math.pow(p, n);
-}
-function split(p, m) {
-  return 1 - Math.pow(1 - p, m);
-}
-
-y1s = (() => {
-  const ys = [];
-  for (let i = 1; i <= 100; i++) {
-    ys.push({
-      m: i,
-      y: join(split(p, i), n),
-      label: "ScaleOutMicroservice",
-    });
-  }
-  return ys;
-})();
-
-y2s = (() => {
-  const ys = [];
-  for (let i = 1; i <= 100; i++) {
-    ys.push({
-      m: i,
-      y: split(join(p, n), i),
-      label: "ScaleOutMonolith",
-    });
-  }
-  return ys;
-})();
-```
-
-```{ojs}
-//| label: fig-microservice-spof-scale-out-visualization
-//| fig-cap: "그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점"
-//| echo: false
-
-Plot.plot({
-  grid: true,
-  color: {legend: true, scheme: "BuRd"},
-  x: {label: "m"},
-  y: {domain: [0, 1]},
-  marks: [
-    Plot.areaY(y1s.concat(y2s), {y1: "y", x: "m", fill: "label", fillOpacity: 0.5}),
-    Plot.tip(y1s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
-    Plot.tip(y2s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
-  ],
-  style: "background: inherit;",
-});
-```
 
 ## 결론
 
