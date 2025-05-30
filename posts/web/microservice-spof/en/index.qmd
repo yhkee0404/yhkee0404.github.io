@@ -1,5 +1,5 @@
 ---
-title: "Visualized Microservices As an Upperbounds of Monoliths"
+title: "Visualized: Microservices as the Upper Bound for Monolith Availability"
 author: "Yunho Kee"
 date: "2025-05-30"
 categories:
