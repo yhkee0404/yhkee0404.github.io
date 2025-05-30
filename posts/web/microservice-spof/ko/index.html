@@ -525,148 +525,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="예시를-통한-monolith와-microservice의-비교" class="level2">
-<h2 class="anchored" data-anchor-id="예시를-통한-monolith와-microservice의-비교">예시를 통한 Monolith와 Microservice의 비교</h2>
-<section id="소스코드-예시로-이해하는-monolith와-microservice의-유사성" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-monolith와-microservice의-유사성"><strong>소스코드</strong> 예시로 이해하는 Monolith와 Microservice의 유사성</h3>
-<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.</p>
-<p><strong>Monolith</strong> 프로그램을 구성하는 것은 <strong>Class</strong>와 <strong>Method</strong>, 또는 <strong>Module</strong>과 <strong>Function</strong>이다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. <strong>Class</strong>와 <strong>Method</strong>를 <strong>Microservice</strong> 프로그램으로 구현하면 <strong>Service</strong>와 <strong>API</strong>이다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. Netflix가 <strong>Microservice</strong>로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>.</p>
-<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 는 <strong>Monolith</strong>와 <strong>Microservice</strong>의 차이를 알기 쉽게 시각화한다. 그러나 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 제시한 예시 프로그램의 가용성이 <strong>Monolith</strong>로 구현하면 <span class="math inline">\(50\%\)</span>, <strong>Microservice</strong>는 <span class="math inline">\(25\%\)</span>라는 그의 주장은 설득력이 떨어진다. <strong>소스코드</strong> 내 결함으로 인한 장애는, <strong>Monolith</strong> 프로그램 1개로 배포하든 <strong>Microservice</strong> 프로그램 2개로 배포하든 배포 방식과는 무관하게 <span class="math inline">\(25\%\)</span>가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 <strong>소스코드</strong>를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 <strong>Monolith</strong>이든 <strong>Microservice</strong>이든 출력의 가용성은 <span class="math inline">\(25\%\)</span>로 같다. 이 프로그램에서 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 <strong>Microservice</strong>로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 <strong>Monolith</strong>로 배포해도 <strong>소스코드</strong> 내에서 2개이다.</p>
-</section>
-<section id="소스코드-예시로-이해하는-microservice의-부분적-이점" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-microservice의-부분적-이점"><strong>소스코드</strong> 예시로 이해하는 Microservice의 부분적 이점</h3>
-<p><strong>Microservice</strong>로 설계하고 나면 배포 방식이 <strong>Microservice</strong>가 아니라 <strong>Monolith</strong>로 배포하더라도 유리할 수 있다. 앞서 언급한 <strong>소스코드</strong>에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 <span class="math inline">\(50\%\)</span>이다. 이 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 <span class="math inline">\(25\%\)</span>로 줄일 필요가 없다. 이처럼 부분 가용성(<strong>Resilience</strong>)은 <strong>Microservice</strong>를 감안해서 설계해야, <strong>Monolith</strong>로 배포하더라도 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 불필요하게 늘리지 않을 수 있다.</p>
-</section>
-<section id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용" class="level3">
-<h3 class="anchored" data-anchor-id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용"><strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용</h3>
-<p><strong>소스코드</strong> 외적으로, <strong>Monolith</strong> 대비 <strong>Microservice</strong>의 비용이 있는 것은 사실이다 <span class="citation" data-cites="stanko2022single">(see <a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. 예시 <strong>소스코드</strong> 2개가 의존하는 <strong>하드웨어</strong>가 1개일 때 <strong>소스코드</strong> 외적인 가용성이 <span class="math inline">\(50\%\)</span>라면, <strong>소스코드</strong> 1개에 <strong>하드웨어</strong> 1개씩 총 2개의 <strong>하드웨어</strong>에 의존할 때 가용성은 <strong>하드웨어</strong>의 개별적인 동작 때문에 <span class="math inline">\(25\%\)</span>로 줄어든다고 볼 수도 있다.</p>
-<p>그러나 <strong>Microservice</strong> 대비 <strong>Monolith</strong>의 비용도 간과해서는 안 된다. 2개의 <strong>소스코드</strong>가 <strong>하드웨어</strong> 1개씩 총 2개에 의존할 때 <strong>소스코드</strong> 외적인 가용성이 <span class="math inline">\(25\%\)</span>였다면, 이번에는 역으로 다시 총 1개의 <strong>하드웨어</strong>에 의존할 때 가용성은 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 때문에 <span class="math inline">\(12.5\%\)</span>로 더 줄어들 위험도 있다. 예를 들어 <strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리도 마찬가지로 <strong>SLC</strong>(<strong>Single Level Cell</strong>), <strong>MLC</strong>(<strong>Multi Level Cell</strong>), <strong>TLC</strong>(<strong>Triple Level Cell</strong>), <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 <span class="citation" data-cites="lee2025nand">(see <a href="#ref-lee2025nand" role="doc-biblioref">Lee 2018</a>)</span>. 일반적으로 <strong>SLC</strong>(<strong>Single Level Cell</strong>)가 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)보다 비싸고 좋다. 즉 <strong>Monolith</strong>가 오히려 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>) 같은 단점이 있다.</p>
-<p>이하 내용에서는 <strong>소스코드</strong> 내적인 관점에서만 가용성을 비교한다.</p>
-</section>
-<section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 의 설명을 보면, <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 <span class="math inline">\(\frac 7 {14} = 50\%\)</span>로 계산하는 사소한 실수가 있었고, <strong>Monolith</strong>의 가용성 <span class="math inline">\(75\%\)</span>도 <strong>소스코드</strong> 내 의존성을 고려하면 더 정확하게 이해할 수 있다.</p>
-<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Microservice</strong>의 16가지 상태 중 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 누락한 2가지 정상 동작 상태
-</figcaption>
-</figure>
-</div>
-<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <span class="math inline">\(\frac 1 4 = 25\%\)</span>를 계산한 것처럼</p>
-<p><span class="math display">\[2^2 = 4\]</span></p>
-<p>이므로, 4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
-<p><span class="math display">\[2^4 = 16\]</span></p>
-<p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <span class="math inline">\(\frac 1 4 = 25\%\)</span>에서</p>
-<p><span class="math display">\[\frac 9 {16} = 56.25\%\]</span></p>
-<p>으로 증가한다. <span class="math inline">\(\frac 9 {16} = 56.25\%\)</span>는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 계산한 <span class="math inline">\(\frac 7 {14} = 50\%\)</span>와는 다소 차이가 있다.</p>
-<p>반면 <strong>Monolith</strong> 프로그램 1개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 <strong>소스코드</strong> 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 의 중앙에 보이던 노란 화살표 2개가 <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a> 에는 없다. 그러면 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 의 2가지 정상 동작 상태가 <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a> 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 <span class="math inline">\(\frac 1 4 = 25\%\)</span>에서</p>
-<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태"><img src="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Monolith</strong>의 16가지 상태
-</figcaption>
-</figure>
-</div>
-<p><span class="math display">\[\frac 7 {16} = 43.75\%\]</span></p>
-<p>으로 증가한다. <span class="math inline">\(\frac 7 {16} = 43.75\%\)</span>는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 계산한 <span class="math inline">\(\frac 3 4 = 75\%\)</span>와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 <strong>소스코드</strong> 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.</p>
-<p>정리하면 <strong>소스코드</strong> 내적인 관점에서는 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Monolith</strong>의 가용성 <span class="math inline">\(43.75\%\)</span>가 기존의 <span class="math inline">\(25\%\)</span>보다 나아지기는 해도 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Microservice</strong>의 가용성 <span class="math inline">\(56.25\%\)</span>보다 오히려 더 못하다는 사실이 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 의 해석과 다른 점이다.</p>
-</section>
-</section>
-<section id="수식을-통한-monolith와-microservice의-비교" class="level2">
-<h2 class="anchored" data-anchor-id="수식을-통한-monolith와-microservice의-비교">수식을 통한 Monolith와 Microservice의 비교</h2>
-<section id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성"><strong>소스코드</strong>의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성</h3>
-<p>일반적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개가 서로 <strong>Fully Connected</strong>되어 의존하는 결과는 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 갖기 때문에 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
-<p><span id="eq-microservice-spof-join"><span class="math display">\[\text{Join}(p, n) = p^n \tag{1}\]</span></span></p>
-<p>으로 동일하다. <span class="math inline">\(0 \leq p \leq 1\)</span>이므로 <span class="math inline">\(n\)</span>이 커질수록 단조적으로 감소(<strong>Monotonically Decreasing</strong>)한다.</p>
-<p>반면에 서로 의존하지 않는 <span class="math inline">\(m\)</span>개는 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 없고 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
-<p><span id="eq-microservice-spof-split"><span class="math display">\[\text{Split}(p, m) = 1 - (1 - p)^m \tag{2}\]</span></span></p>
-<p>으로 동일하다. 반대로 <span class="math inline">\(m\)</span>이 커지면 단조적으로 증가(<strong>Monotonically Increasing</strong>)한다. 왜냐하면 <span class="math inline">\(0 \leq  1 - p \leq 1\)</span>에서 <span class="math inline">\((1- p)^m\)</span>이 단조적으로 감소(<strong>Monotonically Decreasing</strong>)하기 때문이다.</p>
-</section>
-<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성</h3>
-<p><strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개 각각을 <span class="math inline">\(m\)</span>배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 각 <span class="math inline">\(m\)</span>개는 서로 의존하지 않아 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은 <span class="math inline">\(\text{Split}(p, m) = 1 - (1 - p)^m\)</span>이다. <span class="math inline">\(m\)</span>개씩의 <span class="math inline">\(n\)</span>개가 서로 <strong>Fully Connected</strong>되어 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 결과의 가용성은</p>
-<p><span id="eq-microservice-spof-scale-out-microservice"><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; = \text{Join}(\text{Split}(p, m), n)\\
-                                               &amp; = \text{Join}(1 - (1 - p)^m, n)\\
-                                               &amp; = (1 - (1 - p)^m)^n
-\end{align}
-\tag{3}\]</span></span></p>
-<p>이다.</p>
-<p><a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> 의 가용성과 일치함을 알 수 있다:</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Microservice}}(\frac 1 2, 2, 2) &amp; = \text{Join}(\text{Split}(\frac 1 2, 2), 2)\\
-                                                       &amp; = \text{Join}(1 - (1 - \frac 1 2)^2, 2)\\
-                                                       &amp; = \text{Join}(1 - (\frac 1 2)^2, 2)\\
-                                                       &amp; = \text{Join}(1 - \frac 1 4, 2)\\
-                                                       &amp; = \text{Join}(\frac 3 4, 2)\\
-                                                       &amp; = (\frac 3 4)^2\\
-                                                       &amp; = \frac 9 {16}\\
-                                                       &amp; = 56.25\%
-\end{align}
-\]</span></p>
-</section>
-<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성</h3>
-<p><strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖고 서로 <strong>Fully Connected</strong>되어 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개를 <strong>Monolith</strong>로 배포하면 그 결과의 가용성은 <span class="math inline">\(\text{Join}(p, n) = p^n\)</span>이다. <span class="math inline">\(n\)</span>개를 서로 의존하지 않게 <span class="math inline">\(m\)</span>배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은</p>
-<p><span id="eq-microservice-spof-scale-out-monolith"><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Monolith}}(p, n, m) &amp; = \text{Split}(\text{Join}(p, n), m)\\
-                                           &amp; = \text{Split}(p^n, m)\\
-                                           &amp; = 1 - (1 - p^n)^m
-\end{align}
-\tag{4}\]</span></span></p>
-<p>이다.</p>
-<p><a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a> 의 가용성과 일치함을 알 수 있다:</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Monolith}}(\frac 1 2, 2, 2) &amp; = \text{Split}(\text{Join}(\frac 1 2, 2), 2)\\
-                                                   &amp; = \text{Split}((\frac 1 2)^2, 2)\\
-                                                   &amp; = \text{Split}(\frac 1 4, 2)\\
-                                                   &amp; = 1 - (1 - \frac 1 4)^2\\
-                                                   &amp; = 1 - (\frac 3 4)^2\\
-                                                   &amp; = 1 - \frac 9 {16}\\
-                                                   &amp; = \frac 7 {16}\\
-                                                   &amp; = 43.75\%
-\end{align}
-\]</span></p>
-</section>
-<section id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p>다음을 증명할 수 있다 <span class="citation" data-cites="sil2016grid">(<a href="#ref-sil2016grid" role="doc-biblioref">Sil 2016</a>)</span>:</p>
-<p><span id="eq-microservice-spof-sil-2016-grid"><span class="math display">\[(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1 \tag{5}\]</span></span></p>
-<p>따라서,</p>
-<p><span id="eq-microservice-spof-scale-out-inequality"><span class="math display">\[
-\begin{align}
-(1 - (1 - p)^m)^n &amp; \geq 1 - (1 - p^n)^m\\
-\text{Join}(\text{Split}(p, m), n) &amp; \geq \text{Split}(\text{Join}(p, n), m)\\
-\\
-\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m)
-\end{align}
-\tag{6}\]</span></span></p>
-</section>
-<section id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p><a href="#eq-microservice-spof-scale-out-inequality" class="quarto-xref">Equation&nbsp;6</a> 의 성질뿐 아니라 <a href="#fig-microservice-spof-scale-out-visualization" class="quarto-xref">Figure&nbsp;3</a> 의 시각화를 통해 <span class="math inline">\(\text{ScaleOut}_{\text{Microservice}}(p, n, m)\)</span>과 <span class="math inline">\(\text{ScaleOut}_{\text{Monolith}}(p, n, m)\)</span>의 격차가 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)의 배수 <span class="math inline">\(m\)</span>의 확대에도 불구하고 <span class="math inline">\(p\)</span>의 감소 또는 <span class="math inline">\(n\)</span>의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="230" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 229;"><span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>viewof p <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.99</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"p"</span>})<span class="op">;</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>viewof n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"n"</span>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="52" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 51;"><span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>viewof p <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.99</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"p"</span>})<span class="op">;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>viewof n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"n"</span>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -685,36 +546,36 @@ Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="237" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 236;"><span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">join</span>(p<span class="op">,</span> n) {</span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(p<span class="op">,</span> n)<span class="op">;</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">split</span>(p<span class="op">,</span> m) {</span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> p<span class="op">,</span> m)<span class="op">;</span></span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>y1s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">join</span>(<span class="fu">split</span>(p<span class="op">,</span> i)<span class="op">,</span> n)<span class="op">,</span></span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMicroservice"</span><span class="op">,</span></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>y2s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">split</span>(<span class="fu">join</span>(p<span class="op">,</span> n)<span class="op">,</span> i)<span class="op">,</span></span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMonolith"</span><span class="op">,</span></span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="59" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 58;"><span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">join</span>(p<span class="op">,</span> n) {</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(p<span class="op">,</span> n)<span class="op">;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">split</span>(p<span class="op">,</span> m) {</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> p<span class="op">,</span> m)<span class="op">;</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>y1s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">join</span>(<span class="fu">split</span>(p<span class="op">,</span> i)<span class="op">,</span> n)<span class="op">,</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMicroservice"</span><span class="op">,</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>y2s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">split</span>(<span class="fu">join</span>(p<span class="op">,</span> n)<span class="op">,</span> i)<span class="op">,</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMonolith"</span><span class="op">,</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -746,18 +607,18 @@ Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="272" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 271;"><span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuRd"</span>}<span class="op">,</span></span>
-<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"m"</span>}<span class="op">,</span></span>
-<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
-<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(y1s<span class="op">.</span><span class="fu">concat</span>(y2s)<span class="op">,</span> {<span class="dt">y1</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
-<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y1s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
-<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y2s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
-<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"background: inherit;"</span><span class="op">,</span></span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="94" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 93;"><span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuRd"</span>}<span class="op">,</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"m"</span>}<span class="op">,</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(y1s<span class="op">.</span><span class="fu">concat</span>(y2s)<span class="op">,</span> {<span class="dt">y1</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y1s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y2s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"background: inherit;"</span><span class="op">,</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-microservice-spof-scale-out-visualization" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -766,11 +627,150 @@ Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
+Figure&nbsp;1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
 </figcaption>
 </figure>
 </div>
 </div>
+<section id="예시를-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="예시를-통한-monolith와-microservice의-비교">예시를 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드-예시로-이해하는-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-monolith와-microservice의-유사성"><strong>소스코드</strong> 예시로 이해하는 Monolith와 Microservice의 유사성</h3>
+<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.</p>
+<p><strong>Monolith</strong> 프로그램을 구성하는 것은 <strong>Class</strong>와 <strong>Method</strong>, 또는 <strong>Module</strong>과 <strong>Function</strong>이다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. <strong>Class</strong>와 <strong>Method</strong>를 <strong>Microservice</strong> 프로그램으로 구현하면 <strong>Service</strong>와 <strong>API</strong>이다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. Netflix가 <strong>Microservice</strong>로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>.</p>
+<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 는 <strong>Monolith</strong>와 <strong>Microservice</strong>의 차이를 알기 쉽게 시각화한다. 그러나 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 제시한 예시 프로그램의 가용성이 <strong>Monolith</strong>로 구현하면 <span class="math inline">\(50\%\)</span>, <strong>Microservice</strong>는 <span class="math inline">\(25\%\)</span>라는 그의 주장은 설득력이 떨어진다. <strong>소스코드</strong> 내 결함으로 인한 장애는, <strong>Monolith</strong> 프로그램 1개로 배포하든 <strong>Microservice</strong> 프로그램 2개로 배포하든 배포 방식과는 무관하게 <span class="math inline">\(25\%\)</span>가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 <strong>소스코드</strong>를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 <strong>Monolith</strong>이든 <strong>Microservice</strong>이든 출력의 가용성은 <span class="math inline">\(25\%\)</span>로 같다. 이 프로그램에서 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 <strong>Microservice</strong>로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 <strong>Monolith</strong>로 배포해도 <strong>소스코드</strong> 내에서 2개이다.</p>
+</section>
+<section id="소스코드-예시로-이해하는-microservice의-부분적-이점" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-microservice의-부분적-이점"><strong>소스코드</strong> 예시로 이해하는 Microservice의 부분적 이점</h3>
+<p><strong>Microservice</strong>로 설계하고 나면 배포 방식이 <strong>Microservice</strong>가 아니라 <strong>Monolith</strong>로 배포하더라도 유리할 수 있다. 앞서 언급한 <strong>소스코드</strong>에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 <span class="math inline">\(50\%\)</span>이다. 이 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 <span class="math inline">\(25\%\)</span>로 줄일 필요가 없다. 이처럼 부분 가용성(<strong>Resilience</strong>)은 <strong>Microservice</strong>를 감안해서 설계해야, <strong>Monolith</strong>로 배포하더라도 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 불필요하게 늘리지 않을 수 있다.</p>
+</section>
+<section id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용" class="level3">
+<h3 class="anchored" data-anchor-id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용"><strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용</h3>
+<p><strong>소스코드</strong> 외적으로, <strong>Monolith</strong> 대비 <strong>Microservice</strong>의 비용이 있는 것은 사실이다 <span class="citation" data-cites="stanko2022single">(see <a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. 예시 <strong>소스코드</strong> 2개가 의존하는 <strong>하드웨어</strong>가 1개일 때 <strong>소스코드</strong> 외적인 가용성이 <span class="math inline">\(50\%\)</span>라면, <strong>소스코드</strong> 1개에 <strong>하드웨어</strong> 1개씩 총 2개의 <strong>하드웨어</strong>에 의존할 때 가용성은 <strong>하드웨어</strong>의 개별적인 동작 때문에 <span class="math inline">\(25\%\)</span>로 줄어든다고 볼 수도 있다.</p>
+<p>그러나 <strong>Microservice</strong> 대비 <strong>Monolith</strong>의 비용도 간과해서는 안 된다. 2개의 <strong>소스코드</strong>가 <strong>하드웨어</strong> 1개씩 총 2개에 의존할 때 <strong>소스코드</strong> 외적인 가용성이 <span class="math inline">\(25\%\)</span>였다면, 이번에는 역으로 다시 총 1개의 <strong>하드웨어</strong>에 의존할 때 가용성은 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 때문에 <span class="math inline">\(12.5\%\)</span>로 더 줄어들 위험도 있다. 예를 들어 <strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리도 마찬가지로 <strong>SLC</strong>(<strong>Single Level Cell</strong>), <strong>MLC</strong>(<strong>Multi Level Cell</strong>), <strong>TLC</strong>(<strong>Triple Level Cell</strong>), <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 <span class="citation" data-cites="lee2025nand">(see <a href="#ref-lee2025nand" role="doc-biblioref">Lee 2018</a>)</span>. 일반적으로 <strong>SLC</strong>(<strong>Single Level Cell</strong>)가 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)보다 비싸고 좋다. 즉 <strong>Monolith</strong>가 오히려 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>) 같은 단점이 있다.</p>
+<p>이하 내용에서는 <strong>소스코드</strong> 내적인 관점에서만 가용성을 비교한다.</p>
+</section>
+<section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 의 설명을 보면, <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 <span class="math inline">\(\frac 7 {14} = 50\%\)</span>로 계산하는 사소한 실수가 있었고, <strong>Monolith</strong>의 가용성 <span class="math inline">\(75\%\)</span>도 <strong>소스코드</strong> 내 의존성을 고려하면 더 정확하게 이해할 수 있다.</p>
+<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Microservice</strong>의 16가지 상태 중 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 누락한 2가지 정상 동작 상태
+</figcaption>
+</figure>
+</div>
+<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <span class="math inline">\(\frac 1 4 = 25\%\)</span>를 계산한 것처럼</p>
+<p><span class="math display">\[2^2 = 4\]</span></p>
+<p>이므로, 4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
+<p><span class="math display">\[2^4 = 16.\]</span></p>
+<p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <span class="math inline">\(\frac 1 4 = 25\%\)</span>에서</p>
+<p><span class="math display">\[\frac 9 {16} = 56.25\%\]</span></p>
+<p>으로 증가한다. <span class="math inline">\(\frac 9 {16} = 56.25\%\)</span>는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 계산한 <span class="math inline">\(\frac 7 {14} = 50\%\)</span>와는 다소 차이가 있다.</p>
+<p>반면 <strong>Monolith</strong> 프로그램 1개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 <strong>소스코드</strong> 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> 의 중앙에 보이던 노란 화살표 2개가 <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a> 에는 없다. 그러면 <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> 의 2가지 정상 동작 상태가 <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a> 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 <span class="math inline">\(\frac 1 4 = 25\%\)</span>에서</p>
+<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태"><img src="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Monolith</strong>의 16가지 상태
+</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\frac 7 {16} = 43.75\%\]</span></p>
+<p>으로 증가한다. <span class="math inline">\(\frac 7 {16} = 43.75\%\)</span>는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 가 계산한 <span class="math inline">\(\frac 3 4 = 75\%\)</span>와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 <strong>소스코드</strong> 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.</p>
+<p>정리하면 <strong>소스코드</strong> 내적인 관점에서는 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Monolith</strong>의 가용성 <span class="math inline">\(43.75\%\)</span>가 기존의 <span class="math inline">\(25\%\)</span>보다 나아지기는 해도 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Microservice</strong>의 가용성 <span class="math inline">\(56.25\%\)</span>보다 오히려 더 못하다는 사실이 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> 의 해석과 다른 점이다.</p>
+</section>
+</section>
+<section id="수식을-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="수식을-통한-monolith와-microservice의-비교">수식을 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성"><strong>소스코드</strong>의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성</h3>
+<p>일반적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개가 서로 <strong>Fully Connected</strong>되어 의존하는 결과는 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 갖기 때문에 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><span id="eq-microservice-spof-join"><span class="math display">\[\text{Join}(p, n) = p^n \tag{1}\]</span></span></p>
+<p>으로 동일하다. <span class="math inline">\(0 \leq p \leq 1\)</span>이므로 <span class="math inline">\(n\)</span>이 커질수록 단조적으로 감소(<strong>Monotonically Decreasing</strong>)한다.</p>
+<p>반면에 서로 의존하지 않는 <span class="math inline">\(m\)</span>개는 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 없고 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><span id="eq-microservice-spof-split"><span class="math display">\[\text{Split}(p, m) = 1 - (1 - p)^m \tag{2}\]</span></span></p>
+<p>으로 동일하다. 반대로 <span class="math inline">\(m\)</span>이 커지면 단조적으로 증가(<strong>Monotonically Increasing</strong>)한다. 왜냐하면 <span class="math inline">\(0 \leq  1 - p \leq 1\)</span>에서 <span class="math inline">\((1- p)^m\)</span>이 단조적으로 감소(<strong>Monotonically Decreasing</strong>)하기 때문이다.</p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개 각각을 <span class="math inline">\(m\)</span>배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 각 <span class="math inline">\(m\)</span>개는 서로 의존하지 않아 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은 <span class="math inline">\(\text{Split}(p, m) = 1 - (1 - p)^m\)</span>이다. <span class="math inline">\(m\)</span>개씩의 <span class="math inline">\(n\)</span>개가 서로 <strong>Fully Connected</strong>되어 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 결과의 가용성은</p>
+<p><span id="eq-microservice-spof-scale-out-microservice"><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; = \text{Join}(\text{Split}(p, m), n)\\
+                                               &amp; = \text{Join}(1 - (1 - p)^m, n)\\
+                                               &amp; = (1 - (1 - p)^m)^n
+\end{align}
+\tag{3}\]</span></span></p>
+<p>이다.</p>
+<p><a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> 의 가용성과 일치함을 알 수 있다:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(\frac 1 2, 2, 2) &amp; = \text{Join}(\text{Split}(\frac 1 2, 2), 2)\\
+                                                       &amp; = \text{Join}(1 - (1 - \frac 1 2)^2, 2)\\
+                                                       &amp; = \text{Join}(1 - (\frac 1 2)^2, 2)\\
+                                                       &amp; = \text{Join}(1 - \frac 1 4, 2)\\
+                                                       &amp; = \text{Join}(\frac 3 4, 2)\\
+                                                       &amp; = (\frac 3 4)^2\\
+                                                       &amp; = \frac 9 {16}\\
+                                                       &amp; = 56.25\%.
+\end{align}
+\]</span></p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <span class="math inline">\(0 \leq p \leq 1\)</span>의 가용성을 독립적으로 갖고 서로 <strong>Fully Connected</strong>되어 <span class="math inline">\(n\)</span>개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 <strong>Microservice</strong> <span class="math inline">\(n\)</span>개를 <strong>Monolith</strong>로 배포하면 그 결과의 가용성은 <span class="math inline">\(\text{Join}(p, n) = p^n\)</span>이다. <span class="math inline">\(n\)</span>개를 서로 의존하지 않게 <span class="math inline">\(m\)</span>배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은</p>
+<p><span id="eq-microservice-spof-scale-out-monolith"><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(p, n, m) &amp; = \text{Split}(\text{Join}(p, n), m)\\
+                                           &amp; = \text{Split}(p^n, m)\\
+                                           &amp; = 1 - (1 - p^n)^m
+\end{align}
+\tag{4}\]</span></span></p>
+<p>이다.</p>
+<p><a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a> 의 가용성과 일치함을 알 수 있다:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(\frac 1 2, 2, 2) &amp; = \text{Split}(\text{Join}(\frac 1 2, 2), 2)\\
+                                                   &amp; = \text{Split}((\frac 1 2)^2, 2)\\
+                                                   &amp; = \text{Split}(\frac 1 4, 2)\\
+                                                   &amp; = 1 - (1 - \frac 1 4)^2\\
+                                                   &amp; = 1 - (\frac 3 4)^2\\
+                                                   &amp; = 1 - \frac 9 {16}\\
+                                                   &amp; = \frac 7 {16}\\
+                                                   &amp; = 43.75\%.
+\end{align}
+\]</span></p>
+</section>
+<section id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p>다음을 증명할 수 있다 <span class="citation" data-cites="sil2016grid">(<a href="#ref-sil2016grid" role="doc-biblioref">Sil 2016</a>)</span>:</p>
+<p><span id="eq-microservice-spof-sil-2016-grid"><span class="math display">\[(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1. \tag{5}\]</span></span></p>
+<p>따라서,</p>
+<p><span id="eq-microservice-spof-scale-out-inequality"><span class="math display">\[
+\begin{align}
+(1 - (1 - p)^m)^n &amp; \geq 1 - (1 - p^n)^m\\
+\text{Join}(\text{Split}(p, m), n) &amp; \geq \text{Split}(\text{Join}(p, n), m)\\
+\\
+\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m).
+\end{align}
+\tag{6}\]</span></span></p>
+</section>
+<section id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p><a href="#eq-microservice-spof-scale-out-inequality" class="quarto-xref">Equation&nbsp;6</a> 의 성질뿐 아니라 <a href="#fig-microservice-spof-scale-out-visualization" class="quarto-xref">Figure&nbsp;1</a> 의 시각화를 통해 <span class="math inline">\(\text{ScaleOut}_{\text{Microservice}}(p, n, m)\)</span>과 <span class="math inline">\(\text{ScaleOut}_{\text{Monolith}}(p, n, m)\)</span>의 격차가 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)의 배수 <span class="math inline">\(m\)</span>의 확대에도 불구하고 <span class="math inline">\(p\)</span>의 감소 또는 <span class="math inline">\(n\)</span>의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다.</p>
 </section>
 </section>
 <section id="결론" class="level2">

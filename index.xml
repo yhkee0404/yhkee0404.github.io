@@ -16,7 +16,836 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Wed, 28 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 30 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Visualized Microservices As an Upperbounds of Monoliths</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/web/microservice-spof/en/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-about-jolla">
+<div class="about-entity">
+<div class="about-links">
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="49" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 48;"><span id="cb1-49">viewof p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">range</span>([<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.99</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">step</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">value</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p"</span>})<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-50">viewof n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">range</span>([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">step</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">value</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>})<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="56" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 55;"><span id="cb2-56"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">join</span>(p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> n) {</span>
+<span id="cb2-57">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pow</span>(p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-58">}</span>
+<span id="cb2-59"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">split</span>(p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> m) {</span>
+<span id="cb2-60">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pow</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> m)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-61">}</span>
+<span id="cb2-62"></span>
+<span id="cb2-63">y1s <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> {</span>
+<span id="cb2-64">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-65">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span>) {</span>
+<span id="cb2-66">    ys<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>({</span>
+<span id="cb2-67">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-68">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">join</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">split</span>(p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> i)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-69">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ScaleOutMicroservice"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-70">    })<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-71">  }</span>
+<span id="cb2-72">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-73">})()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-74"></span>
+<span id="cb2-75">y2s <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> {</span>
+<span id="cb2-76">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-77">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span>) {</span>
+<span id="cb2-78">    ys<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>({</span>
+<span id="cb2-79">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-80">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">split</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">join</span>(p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> i)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-81">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ScaleOutMonolith"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb2-82">    })<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-83">  }</span>
+<span id="cb2-84">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-85">})()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="91" data-source-offset="0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 90;"><span id="cb3-91">Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>({</span>
+<span id="cb3-92">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">grid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-93">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">color</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">legend</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">scheme</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"BuRd"</span>}<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-94">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span>}<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-95">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">domain</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]}<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-96">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">marks</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> [</span>
+<span id="cb3-97">    Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">areaY</span>(y1s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">concat</span>(y2s)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"label"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">fillOpacity</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>})<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-98">    Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tip</span>(y1s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pointerX</span>({<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"darkgray"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">title</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> (d) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">m</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-99">    Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tip</span>(y2s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pointerX</span>({<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"darkgray"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">title</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> (d) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">m</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n${</span>d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-100">  ]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-101">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">style</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"background: inherit;"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-102">})<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div>
+<div id="fig-microservice-spof-scale-out-visualization" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="comparisons-through-examples-of-monoliths-and-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-through-examples-of-monoliths-and-microservices">Comparisons Through Examples of Monoliths and Microservices</h2>
+<section id="shared-source-code-of-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="shared-source-code-of-monoliths-and-microservices">Shared Source Code of Monoliths and Microservices</h3>
+<p>According to web developer <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>, a single program is considered a <strong>monolith</strong> architecture, while implementing the same program as multiple programs is called <strong>microservice architecture</strong>, or <strong>MSA</strong>.</p>
+<p>A <strong>monolith</strong> program is composed of <strong>classes</strong> and <strong>methods</strong>, or <strong>modules</strong> and <strong>functions</strong> <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. If <strong>classes</strong> and <strong>methods</strong> are implemented as a <strong>microservice</strong> program, they become <strong>services</strong> and <strong>APIs</strong> <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix is well-known for its use of <strong>microservices</strong>, and they have also developed a testing tool called Chaos Monkey <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
+<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> presents an engaging visualization of the differences between <strong>monoliths</strong> and <strong>microservices</strong>. However, the claim by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> that the availability of the program he came up with is <img src="https://latex.codecogs.com/png.latex?50%5C%25"> for <strong>monolith</strong> and <img src="https://latex.codecogs.com/png.latex?25%5C%25"> for <strong>microservice</strong> is not convincing. Failures caused by defects in the <strong>source code</strong> should result in a <img src="https://latex.codecogs.com/png.latex?25%5C%25"> availability regardless of whether the deployment is <strong>monolith</strong> (one program) or <strong>microservice</strong> (two or more programs). For example, if you run a <strong>source code</strong> that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is <img src="https://latex.codecogs.com/png.latex?25%5C%25"> whether the random generation is sequential or parallel, or whether the deployment is <strong>monolith</strong> or <strong>microservice</strong>. When deploying this program as <strong>microservice</strong> instead of a <strong>monolith</strong>, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is not increased to two; even in a <strong>monolith</strong>, there are two <strong>single points of failure</strong> (<strong>SPOFs</strong>) due to dependencies between results.</p>
+</section>
+</section>
+<section id="partial-benefits-of-source-code-of-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="partial-benefits-of-source-code-of-microservices">Partial Benefits of Source Code of Microservices</h2>
+<p>Designing a system as a <strong>microservice</strong> can be advantageous even if it is deployed later as a <strong>monolith</strong>. In the aforementioned <strong>source code</strong>, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes <img src="https://latex.codecogs.com/png.latex?50%5C%25"> because the output is independent of the second result. In this case, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the <strong>single point of failure</strong> (<strong>SPOF</strong>) to two, ending up with the reduced availability of <img src="https://latex.codecogs.com/png.latex?25%5C%25">. Thus, considering <strong>partial availability</strong> or <strong>resilience</strong> in the design stage keeps the number of <strong>single points of failure</strong> (<strong>SPOFs</strong>) being not unnecessarily increased, even if deployed as a <strong>monolith</strong>.</p>
+<section id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices">An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices</h3>
+<p>Beyond the <strong>source code</strong>, it is probable that <strong>microservices</strong> have more costs compared to <strong>monoliths</strong> <span class="citation" data-cites="stanko2022single">(see Krtalić Rusendić 2022)</span>. If the <strong>hardware</strong> on which the two units of example <strong>source code</strong> depend is a single unit, and the availability external to <strong>source code</strong> is presumably <img src="https://latex.codecogs.com/png.latex?50%5C%25">, then if each <strong>source code</strong> depends on a different <strong>hardware</strong> unit, the availability could virtually drop to <img src="https://latex.codecogs.com/png.latex?25%5C%25"> due to the asynchronous operations of independent <strong>hardwares</strong>.</p>
+<p>However, the significant costs of <strong>monoliths</strong> compared to <strong>microservices</strong> should not be overlooked, either. If two units of example <strong>source code</strong> depend on two <strong>hardware</strong> units in total, and the availability independent of <strong>source code</strong> is given <img src="https://latex.codecogs.com/png.latex?25%5C%25">, then consolidating them to depend on a single <strong>hardware</strong> component may reduce availability further to <img src="https://latex.codecogs.com/png.latex?12.5%5C%25"> due to <strong>resource contention</strong>. For example, <strong>NAND Flash memory</strong> faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is <strong>single-level cell</strong> (<strong>SLC</strong>), <strong>multi-level cell</strong> (<strong>MLC</strong>), <strong>triple-level cell</strong> (<strong>TLC</strong>), or <strong>quad-level cell</strong> (<strong>QLC</strong>) <span class="citation" data-cites="lee2025nand">(see Lee 2018)</span>. Generally, <strong>single-level cell</strong> (<strong>SLC</strong>) flash is more expensive and performs better than <strong>quad-level cell</strong> (<strong>QLC</strong>) flash. In other words, <strong>monoliths</strong> may suffer from disadvantages similar to those of <strong>quad-level cell</strong> (<strong>QLC</strong>) flash.</p>
+<p>In the following paragraphs, we will compare availability only from the perspective of the <strong>source code</strong>.</p>
+</section>
+<section id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices">The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p><strong>Horizontal scaling</strong> (<strong>scale-out</strong>) is a strategy to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) and increase availability. In reviewing the analysis of <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>, it appears that two available states of <strong>microservices</strong> displayed in Figure&nbsp;2 have been omitted out of 16 possible states, leading to slight miscalculations of the availability as <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">, and the availability of <strong>monoliths</strong> <img src="https://latex.codecogs.com/png.latex?75%5C%25"> could benefit from further consideration of internal dependencies in the <strong>source code</strong>.</p>
+<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The Two Available States of <strong>Microservices</strong> in <strong>Horizontal Scaling</strong> (<strong>Scale-Out</strong>) <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> Omitted
+</figcaption>
+</figure>
+</div>
+<p>Just as the example <strong>source code</strong> can have four states based on two operations and calculates availability as <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">, since <img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204,"></p>
+<p>for four <strong>source code</strong> operations, there are not 14 states in total as listed by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> but 16 states when including the two omitted ones:</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016."></p>
+<p>If each of the two units of <strong>source code</strong> is <strong>scaled out</strong> by a factor of two, the original two <strong>single points of failure</strong> (<strong>SPOFs</strong>) are removed, and availability increases from the original <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25"> (for two units of <strong>source code</strong>) to</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25."></p>
+<p>The <img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"> differs somewhat from the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25"> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>.</p>
+<p>On the other hand, if the <strong>single points of failure</strong> (<strong>SPOFs</strong>) of a single <strong>monolith</strong> program is removed by <strong>scaling out</strong> the original program by a factor of two, the internal dependency between the two units of <strong>source code</strong> in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of Figure&nbsp;2 are absent in Figure&nbsp;3. Therefore, the two available states in Figure&nbsp;2 become failure states in Figure&nbsp;3, and the availability increases from <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25"> for a single program to</p>
+<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Horizontal scaling (scale-out) of Monoliths: 16 states"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) of <strong>Monoliths</strong>: 16 states
+</figcaption>
+</figure>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25."></p>
+<p>The <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25"> differs somewhat from the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%203%204%20=%2075%5C%25"> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>. This is because, instead of <strong>scaling out</strong> a single program by a factor of four (to four instances), <strong>scaling out</strong> by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the <strong>source code</strong>.</p>
+<p>To summarize, from the perspective of the <strong>source code</strong>, the availability of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>monolith</strong> (<img src="https://latex.codecogs.com/png.latex?43.75%5C%25">) is better than the original <img src="https://latex.codecogs.com/png.latex?25%5C%25">, but it is still worse than that of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>microservice</strong> (<img src="https://latex.codecogs.com/png.latex?56.25%5C%25">). This represents a notable divergence from the interpretation offered by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>.</p>
+</section>
+</section>
+<section id="comparisons-through-formulae-between-monoliths-and-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-through-formulae-between-monoliths-and-microservices">Comparisons Through Formulae Between Monoliths and Microservices</h2>
+<section id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices">Two Special Formulae Representing Shared Source Code of Monoliths and Microservices</h3>
+<p>Generally, when there are no external factors except <strong>source code</strong>, if <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> are <strong>fully connected</strong> and depend on each other, they have <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>). Therefore, their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
+<p><span id="eq-microservice-spof-join"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En.%20%5Ctag%7B1%7D"></span></p>
+<p>Since <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">, this value <strong>decreases monotonically</strong> as <img src="https://latex.codecogs.com/png.latex?n"> increases.</p>
+<p>On the other hand, if <img src="https://latex.codecogs.com/png.latex?m"> components are independent, they have no <strong>single points of failure</strong> (<strong>SPOFs</strong>), and their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
+<p><span id="eq-microservice-spof-split"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em.%20%5Ctag%7B2%7D"></span></p>
+<p>This value <strong>increases monotonically</strong> as <img src="https://latex.codecogs.com/png.latex?m"> increases, because <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20%201%20-%20p%20%5Cleq%201"> leads to <img src="https://latex.codecogs.com/png.latex?(1-%20p)%5Em"> <strong>decreasing monotonically</strong>.</p>
+</section>
+</section>
+<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices</h2>
+<p>When there are no external factors other than <strong>source code</strong>, if each of <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> is <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <img src="https://latex.codecogs.com/png.latex?m">, each group of <img src="https://latex.codecogs.com/png.latex?m"> has no <strong>single points of failure</strong> (<strong>SPOFs</strong>) and its availability is <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em">. If <img src="https://latex.codecogs.com/png.latex?n"> groups of <img src="https://latex.codecogs.com/png.latex?m"> are <strong>fully connected</strong> and depend on each other as <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>), the combined availability is</p>
+<p><span id="eq-microservice-spof-scale-out-microservice"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20p)%5Em,%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(1%20-%20(1%20-%20p)%5Em)%5En.%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
+<p>This matches the availability in Figure&nbsp;2:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Cfrac%203%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2056.25%5C%25.%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths" class="level2">
+<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths</h2>
+<p>When there are no external factors, if <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> are <strong>fully connected</strong> and depend on each other as <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>), their availability when deployed as a <strong>monolith</strong> is <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En">. If the <img src="https://latex.codecogs.com/png.latex?n"> components are <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <img src="https://latex.codecogs.com/png.latex?m"> to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), the availability is</p>
+<p><span id="eq-microservice-spof-scale-out-monolith"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(p%5En,%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20p%5En)%5Em.%0A%5Cend%7Balign%7D%0A%5Ctag%7B4%7D"></span></p>
+<p>This matches the availability in Figure&nbsp;3:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D((%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20%5Cfrac%201%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%207%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2043.75%5C%25.%0A%5Cend%7Balign%7D%0A"></p>
+<section id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices">The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p>The following can be proven <span class="citation" data-cites="sil2016grid">(Sil 2016)</span>:</p>
+<p><span id="eq-microservice-spof-sil-2016-grid"><img src="https://latex.codecogs.com/png.latex?(1%20-%20(1%20-%20p)%5Em)%5En%20+%20(1%20-%20p%5En)%5Em%20%5Cgeq%201.%20%5Ctag%7B5%7D"></span></p>
+<p>Therefore,</p>
+<p><span id="eq-microservice-spof-scale-out-inequality"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A(1%20-%20(1%20-%20p)%5Em)%5En%20&amp;%20%5Cgeq%201%20-%20(1%20-%20p%5En)%5Em%5C%5C%0A%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%20&amp;%20%5Cgeq%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%5C%5C%0A%5Ctherefore%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20%5Cgeq%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m).%0A%5Cend%7Balign%7D%0A%5Ctag%7B6%7D"></span></p>
+</section>
+<section id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices">The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p>In addition to the inequality of Equation&nbsp;6, but the visualization in Figure&nbsp;1 also demonstrates that the gap between <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)"> and <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)"> widens rapidly as <img src="https://latex.codecogs.com/png.latex?p"> decreases or <img src="https://latex.codecogs.com/png.latex?n"> increases, even as the factor of <strong>horizontally scaling</strong> (<strong>scale-out</strong>) <img src="https://latex.codecogs.com/png.latex?m"> grows.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, when there are no external factors besides <strong>source code</strong>, uniformly applying <img src="https://latex.codecogs.com/png.latex?m">-fold <strong>horizontal scaling (scale-out)</strong> allows <strong>microservices</strong> to internally remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), resulting in higher combined availability than <strong>monoliths</strong>, which remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) externally. Designing a system as a <strong>microservice</strong> in advance also offers the advantage of partial availability or resilience even when later deployed as a <strong>monolith</strong>. However, apart from <strong>source code</strong>, both <strong>resource contention</strong> in <strong>monoliths</strong> and the increased dependency of <strong>microservices</strong> on diverse resources must be carefully weighed and balanced.</p>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-stanko2022single" class="csl-entry">
+Krtalić Rusendić, Stanko. 2022. <span>“<span>"Having a Monolith Is a Single Point of Failure"</span>.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
+</div>
+<div id="ref-lee2025nand" class="csl-entry">
+Lee, Heeyeol. 2018. <span>“[궁금한 반도체 WHY] 낸드플래시 메모리의 데이터 저장방식, 어떻게 다를까? SLC/MLC/TLC/QLC.”</span> December 26, 2018. <a href="https://news.skhynix.co.kr/data-in-nand-flash-memory/">https://news.skhynix.co.kr/data-in-nand-flash-memory/</a>.
+</div>
+<div id="ref-sil2016grid" class="csl-entry">
+Sil. 2016. <span>“If <img src="https://latex.codecogs.com/png.latex?p%20+%20q%20=%201"> Prove That for Any Natural <img src="https://latex.codecogs.com/png.latex?n,%20m"> Following Is True: <img src="https://latex.codecogs.com/png.latex?(1%20-%20p%5En)%5Em%20+%20(1%20-%20q%5Em)%5En%20%5Cge%201">.”</span> December 8, 2016. <a href="https://math.stackexchange.com/a/2049972">https://math.stackexchange.com/a/2049972</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {Visualized Microservices As an Upperbounds of Monoliths},
+  date = {2025-05-30},
+  url = {https://yhkee0404.github.io/posts/web/microservice-spof/en/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“Visualized Microservices As an Upperbounds of
+Monoliths.”</span> May 30, 2025. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
+</div></div></section></div> ]]></description>
+  <category>web</category>
+  <category>microservice</category>
+  <category>monolith</category>
+  <category>single point of failure</category>
+  <category>netflix</category>
+  <category>chaos monkey</category>
+  <category>scale</category>
+  <category>nand flash</category>
+  <category>observable</category>
+  <guid>https://yhkee0404.github.io/posts/web/microservice-spof/en/</guid>
+  <pubDate>Fri, 30 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" medium="image" type="image/gif"/>
+</item>
 <item>
   <title>CORS, CSRF, XSS는 서버에서 막으면 그만일까?</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -2429,106 +3258,8 @@ Kee, Yunho. 2024. <span>“XML.”</span> April 28, 2024. <a href="https://yhkee
 </div>
 </div>
 </div>
-<section id="예시를-통한-monolith와-microservice의-비교" class="level2">
-<h2 class="anchored" data-anchor-id="예시를-통한-monolith와-microservice의-비교">예시를 통한 Monolith와 Microservice의 비교</h2>
-<section id="소스코드-예시로-이해하는-monolith와-microservice의-유사성" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-monolith와-microservice의-유사성"><strong>소스코드</strong> 예시로 이해하는 Monolith와 Microservice의 유사성</h3>
-<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.</p>
-<p><strong>Monolith</strong> 프로그램을 구성하는 것은 <strong>Class</strong>와 <strong>Method</strong>, 또는 <strong>Module</strong>과 <strong>Function</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. <strong>Class</strong>와 <strong>Method</strong>를 <strong>Microservice</strong> 프로그램으로 구현하면 <strong>Service</strong>와 <strong>API</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix가 <strong>Microservice</strong>로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
-<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 는 <strong>Monolith</strong>와 <strong>Microservice</strong>의 차이를 알기 쉽게 시각화한다. 그러나 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 제시한 예시 프로그램의 가용성이 <strong>Monolith</strong>로 구현하면 <img src="https://latex.codecogs.com/png.latex?50%5C%25">, <strong>Microservice</strong>는 <img src="https://latex.codecogs.com/png.latex?25%5C%25">라는 그의 주장은 설득력이 떨어진다. <strong>소스코드</strong> 내 결함으로 인한 장애는, <strong>Monolith</strong> 프로그램 1개로 배포하든 <strong>Microservice</strong> 프로그램 2개로 배포하든 배포 방식과는 무관하게 <img src="https://latex.codecogs.com/png.latex?25%5C%25">가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 <strong>소스코드</strong>를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 <strong>Monolith</strong>이든 <strong>Microservice</strong>이든 출력의 가용성은 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 같다. 이 프로그램에서 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 <strong>Microservice</strong>로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 <strong>Monolith</strong>로 배포해도 <strong>소스코드</strong> 내에서 2개이다.</p>
-</section>
-<section id="소스코드-예시로-이해하는-microservice의-부분적-이점" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-microservice의-부분적-이점"><strong>소스코드</strong> 예시로 이해하는 Microservice의 부분적 이점</h3>
-<p><strong>Microservice</strong>로 설계하고 나면 배포 방식이 <strong>Microservice</strong>가 아니라 <strong>Monolith</strong>로 배포하더라도 유리할 수 있다. 앞서 언급한 <strong>소스코드</strong>에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 <img src="https://latex.codecogs.com/png.latex?50%5C%25">이다. 이 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄일 필요가 없다. 이처럼 부분 가용성(<strong>Resilience</strong>)은 <strong>Microservice</strong>를 감안해서 설계해야, <strong>Monolith</strong>로 배포하더라도 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 불필요하게 늘리지 않을 수 있다.</p>
-</section>
-<section id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용" class="level3">
-<h3 class="anchored" data-anchor-id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용"><strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용</h3>
-<p><strong>소스코드</strong> 외적으로, <strong>Monolith</strong> 대비 <strong>Microservice</strong>의 비용이 있는 것은 사실이다 <span class="citation" data-cites="stanko2022single">(see Krtalić Rusendić 2022)</span>. 예시 <strong>소스코드</strong> 2개가 의존하는 <strong>하드웨어</strong>가 1개일 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?50%5C%25">라면, <strong>소스코드</strong> 1개에 <strong>하드웨어</strong> 1개씩 총 2개의 <strong>하드웨어</strong>에 의존할 때 가용성은 <strong>하드웨어</strong>의 개별적인 동작 때문에 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄어든다고 볼 수도 있다.</p>
-<p>그러나 <strong>Microservice</strong> 대비 <strong>Monolith</strong>의 비용도 간과해서는 안 된다. 2개의 <strong>소스코드</strong>가 <strong>하드웨어</strong> 1개씩 총 2개에 의존할 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?25%5C%25">였다면, 이번에는 역으로 다시 총 1개의 <strong>하드웨어</strong>에 의존할 때 가용성은 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 때문에 <img src="https://latex.codecogs.com/png.latex?12.5%5C%25">로 더 줄어들 위험도 있다. 예를 들어 <strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리도 마찬가지로 <strong>SLC</strong>(<strong>Single Level Cell</strong>), <strong>MLC</strong>(<strong>Multi Level Cell</strong>), <strong>TLC</strong>(<strong>Triple Level Cell</strong>), <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 <span class="citation" data-cites="lee2025nand">(see Lee 2018)</span>. 일반적으로 <strong>SLC</strong>(<strong>Single Level Cell</strong>)가 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)보다 비싸고 좋다. 즉 <strong>Monolith</strong>가 오히려 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>) 같은 단점이 있다.</p>
-<p>이하 내용에서는 <strong>소스코드</strong> 내적인 관점에서만 가용성을 비교한다.</p>
-</section>
-<section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 설명을 보면, Figure&nbsp;1 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">로 계산하는 사소한 실수가 있었고, <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?75%5C%25">도 <strong>소스코드</strong> 내 의존성을 고려하면 더 정확하게 이해할 수 있다.</p>
-<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Microservice</strong>의 16가지 상태 중 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 누락한 2가지 정상 동작 상태
-</figcaption>
-</figure>
-</div>
-<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">를 계산한 것처럼</p>
-<p><img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204"></p>
-<p>이므로, 4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
-<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016"></p>
-<p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"></p>
-<p>으로 증가한다. <img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25">는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 계산한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">와는 다소 차이가 있다.</p>
-<p>반면 <strong>Monolith</strong> 프로그램 1개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 <strong>소스코드</strong> 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 Figure&nbsp;1 의 중앙에 보이던 노란 화살표 2개가 Figure&nbsp;2 에는 없다. 그러면 Figure&nbsp;1 의 2가지 정상 동작 상태가 Figure&nbsp;2 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
-<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Monolith</strong>의 16가지 상태
-</figcaption>
-</figure>
-</div>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25"></p>
-<p>으로 증가한다. <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25">는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 계산한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%203%204%20=%2075%5C%25">와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 <strong>소스코드</strong> 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.</p>
-<p>정리하면 <strong>소스코드</strong> 내적인 관점에서는 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?43.75%5C%25">가 기존의 <img src="https://latex.codecogs.com/png.latex?25%5C%25">보다 나아지기는 해도 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Microservice</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?56.25%5C%25">보다 오히려 더 못하다는 사실이 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 해석과 다른 점이다.</p>
-</section>
-</section>
-<section id="수식을-통한-monolith와-microservice의-비교" class="level2">
-<h2 class="anchored" data-anchor-id="수식을-통한-monolith와-microservice의-비교">수식을 통한 Monolith와 Microservice의 비교</h2>
-<section id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성" class="level3">
-<h3 class="anchored" data-anchor-id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성"><strong>소스코드</strong>의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성</h3>
-<p>일반적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 의존하는 결과는 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 갖기 때문에 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
-<p><span id="eq-microservice-spof-join"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En%20%5Ctag%7B1%7D"></span></p>
-<p>으로 동일하다. <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">이므로 <img src="https://latex.codecogs.com/png.latex?n">이 커질수록 단조적으로 감소(<strong>Monotonically Decreasing</strong>)한다.</p>
-<p>반면에 서로 의존하지 않는 <img src="https://latex.codecogs.com/png.latex?m">개는 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 없고 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
-<p><span id="eq-microservice-spof-split"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em%20%5Ctag%7B2%7D"></span></p>
-<p>으로 동일하다. 반대로 <img src="https://latex.codecogs.com/png.latex?m">이 커지면 단조적으로 증가(<strong>Monotonically Increasing</strong>)한다. 왜냐하면 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20%201%20-%20p%20%5Cleq%201">에서 <img src="https://latex.codecogs.com/png.latex?(1-%20p)%5Em">이 단조적으로 감소(<strong>Monotonically Decreasing</strong>)하기 때문이다.</p>
-</section>
-<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성</h3>
-<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개 각각을 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 각 <img src="https://latex.codecogs.com/png.latex?m">개는 서로 의존하지 않아 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em">이다. <img src="https://latex.codecogs.com/png.latex?m">개씩의 <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 결과의 가용성은</p>
-<p><span id="eq-microservice-spof-scale-out-microservice"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20p)%5Em,%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(1%20-%20(1%20-%20p)%5Em)%5En%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
-<p>이다.</p>
-<p>Figure&nbsp;1 의 가용성과 일치함을 알 수 있다:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Cfrac%203%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2056.25%5C%25%0A%5Cend%7Balign%7D%0A"></p>
-</section>
-<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성</h3>
-<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖고 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개를 <strong>Monolith</strong>로 배포하면 그 결과의 가용성은 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En">이다. <img src="https://latex.codecogs.com/png.latex?n">개를 서로 의존하지 않게 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은</p>
-<p><span id="eq-microservice-spof-scale-out-monolith"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(p%5En,%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20p%5En)%5Em%0A%5Cend%7Balign%7D%0A%5Ctag%7B4%7D"></span></p>
-<p>이다.</p>
-<p>Figure&nbsp;2 의 가용성과 일치함을 알 수 있다:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D((%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20%5Cfrac%201%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%207%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2043.75%5C%25%0A%5Cend%7Balign%7D%0A"></p>
-</section>
-<section id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p>다음을 증명할 수 있다 <span class="citation" data-cites="sil2016grid">(Sil 2016)</span>:</p>
-<p><span id="eq-microservice-spof-sil-2016-grid"><img src="https://latex.codecogs.com/png.latex?(1%20-%20(1%20-%20p)%5Em)%5En%20+%20(1%20-%20p%5En)%5Em%20%5Cgeq%201%20%5Ctag%7B5%7D"></span></p>
-<p>따라서,</p>
-<p><span id="eq-microservice-spof-scale-out-inequality"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A(1%20-%20(1%20-%20p)%5Em)%5En%20&amp;%20%5Cgeq%201%20-%20(1%20-%20p%5En)%5Em%5C%5C%0A%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%20&amp;%20%5Cgeq%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%5C%5C%0A%5Ctherefore%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20%5Cgeq%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%0A%5Cend%7Balign%7D%0A%5Ctag%7B6%7D"></span></p>
-</section>
-<section id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
-<h3 class="anchored" data-anchor-id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
-<p>Equation&nbsp;6 의 성질뿐 아니라 Figure&nbsp;3 의 시각화를 통해 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)">과 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)">의 격차가 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)의 배수 <img src="https://latex.codecogs.com/png.latex?m">의 확대에도 불구하고 <img src="https://latex.codecogs.com/png.latex?p">의 감소 또는 <img src="https://latex.codecogs.com/png.latex?n">의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="230" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 229;"><span id="cb1-230">viewof p <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="52" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 51;"><span id="cb1-52">viewof p <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2567,7 +3298,7 @@ background-color: null;
 font-style: inherit;">"p"</span>})<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb1-231">viewof n <span class="op" style="color: #5E5E5E;
+<span id="cb1-53">viewof n <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2624,7 +3355,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="237" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 236;"><span id="cb2-237"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb2" data-startfrom="59" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 58;"><span id="cb2-59"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
@@ -2632,7 +3363,7 @@ background-color: null;
 font-style: inherit;">join</span>(p<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> n) {</span>
-<span id="cb2-238">  <span class="cf" style="color: #003B4F;
+<span id="cb2-60">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="bu" style="color: null;
@@ -2646,8 +3377,8 @@ background-color: null;
 font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-239">}</span>
-<span id="cb2-240"><span class="kw" style="color: #003B4F;
+<span id="cb2-61">}</span>
+<span id="cb2-62"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
@@ -2655,7 +3386,7 @@ background-color: null;
 font-style: inherit;">split</span>(p<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> m) {</span>
-<span id="cb2-241">  <span class="cf" style="color: #003B4F;
+<span id="cb2-63">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
@@ -2677,15 +3408,15 @@ background-color: null;
 font-style: inherit;">,</span> m)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-242">}</span>
-<span id="cb2-243"></span>
-<span id="cb2-244">y1s <span class="op" style="color: #5E5E5E;
+<span id="cb2-64">}</span>
+<span id="cb2-65"></span>
+<span id="cb2-66">y1s <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">=&gt;</span> {</span>
-<span id="cb2-245">  <span class="kw" style="color: #003B4F;
+<span id="cb2-67">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
@@ -2693,7 +3424,7 @@ background-color: null;
 font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-246">  <span class="cf" style="color: #003B4F;
+<span id="cb2-68">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
@@ -2714,19 +3445,19 @@ background-color: null;
 font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">++</span>) {</span>
-<span id="cb2-247">    ys<span class="op" style="color: #5E5E5E;
+<span id="cb2-69">    ys<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">push</span>({</span>
-<span id="cb2-248">      <span class="dt" style="color: #AD0000;
+<span id="cb2-70">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-249">      <span class="dt" style="color: #AD0000;
+<span id="cb2-71">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2741,7 +3472,7 @@ background-color: null;
 font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-250">      <span class="dt" style="color: #AD0000;
+<span id="cb2-72">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2750,27 +3481,27 @@ background-color: null;
 font-style: inherit;">"ScaleOutMicroservice"</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-251">    })<span class="op" style="color: #5E5E5E;
+<span id="cb2-73">    })<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-252">  }</span>
-<span id="cb2-253">  <span class="cf" style="color: #003B4F;
+<span id="cb2-74">  }</span>
+<span id="cb2-75">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-254">})()<span class="op" style="color: #5E5E5E;
+<span id="cb2-76">})()<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-255"></span>
-<span id="cb2-256">y2s <span class="op" style="color: #5E5E5E;
+<span id="cb2-77"></span>
+<span id="cb2-78">y2s <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">=&gt;</span> {</span>
-<span id="cb2-257">  <span class="kw" style="color: #003B4F;
+<span id="cb2-79">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
@@ -2778,7 +3509,7 @@ background-color: null;
 font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-258">  <span class="cf" style="color: #003B4F;
+<span id="cb2-80">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
@@ -2799,19 +3530,19 @@ background-color: null;
 font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">++</span>) {</span>
-<span id="cb2-259">    ys<span class="op" style="color: #5E5E5E;
+<span id="cb2-81">    ys<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">push</span>({</span>
-<span id="cb2-260">      <span class="dt" style="color: #AD0000;
+<span id="cb2-82">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-261">      <span class="dt" style="color: #AD0000;
+<span id="cb2-83">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2826,7 +3557,7 @@ background-color: null;
 font-style: inherit;">,</span> i)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-262">      <span class="dt" style="color: #AD0000;
+<span id="cb2-84">      <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2835,17 +3566,17 @@ background-color: null;
 font-style: inherit;">"ScaleOutMonolith"</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb2-263">    })<span class="op" style="color: #5E5E5E;
+<span id="cb2-85">    })<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-264">  }</span>
-<span id="cb2-265">  <span class="cf" style="color: #003B4F;
+<span id="cb2-86">  }</span>
+<span id="cb2-87">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb2-266">})()<span class="op" style="color: #5E5E5E;
+<span id="cb2-88">})()<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
 </details>
@@ -2879,12 +3610,12 @@ font-style: inherit;">;</span></span></code></pre></div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="272" data-source-offset="0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 271;"><span id="cb3-272">Plot<span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="94" data-source-offset="0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 93;"><span id="cb3-94">Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>({</span>
-<span id="cb3-273">  <span class="dt" style="color: #AD0000;
+<span id="cb3-95">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">grid</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2894,7 +3625,7 @@ font-weight: bold;
 font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-274">  <span class="dt" style="color: #AD0000;
+<span id="cb3-96">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">color</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2916,7 +3647,7 @@ background-color: null;
 font-style: inherit;">"BuRd"</span>}<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-275">  <span class="dt" style="color: #AD0000;
+<span id="cb3-97">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2929,7 +3660,7 @@ background-color: null;
 font-style: inherit;">"m"</span>}<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-276">  <span class="dt" style="color: #AD0000;
+<span id="cb3-98">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2946,12 +3677,12 @@ background-color: null;
 font-style: inherit;">1</span>]}<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-277">  <span class="dt" style="color: #AD0000;
+<span id="cb3-99">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">marks</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> [</span>
-<span id="cb3-278">    Plot<span class="op" style="color: #5E5E5E;
+<span id="cb3-100">    Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2994,7 +3725,7 @@ background-color: null;
 font-style: inherit;">0.5</span>})<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-279">    Plot<span class="op" style="color: #5E5E5E;
+<span id="cb3-101">    Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3082,7 +3813,7 @@ background-color: null;
 font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-280">    Plot<span class="op" style="color: #5E5E5E;
+<span id="cb3-102">    Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3170,10 +3901,10 @@ background-color: null;
 font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-281">  ]<span class="op" style="color: #5E5E5E;
+<span id="cb3-103">  ]<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-282">  <span class="dt" style="color: #AD0000;
+<span id="cb3-104">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">style</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3182,7 +3913,7 @@ background-color: null;
 font-style: inherit;">"background: inherit;"</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span></span>
-<span id="cb3-283">})<span class="op" style="color: #5E5E5E;
+<span id="cb3-105">})<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
 <div id="fig-microservice-spof-scale-out-visualization" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
@@ -3193,11 +3924,109 @@ font-style: inherit;">;</span></span></code></pre></div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
+Figure&nbsp;1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
 </figcaption>
 </figure>
 </div>
 </div>
+<section id="예시를-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="예시를-통한-monolith와-microservice의-비교">예시를 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드-예시로-이해하는-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-monolith와-microservice의-유사성"><strong>소스코드</strong> 예시로 이해하는 Monolith와 Microservice의 유사성</h3>
+<p>웹 개발자 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 에 따르면, 프로그램 하나를 개발하면 <strong>Monolith</strong>(<strong>Monolithic</strong> Architecture), 여러 프로그램으로 구현하면 <strong>MSA</strong>(<strong>Microservice</strong> Architecture)이다.</p>
+<p><strong>Monolith</strong> 프로그램을 구성하는 것은 <strong>Class</strong>와 <strong>Method</strong>, 또는 <strong>Module</strong>과 <strong>Function</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. <strong>Class</strong>와 <strong>Method</strong>를 <strong>Microservice</strong> 프로그램으로 구현하면 <strong>Service</strong>와 <strong>API</strong>이다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix가 <strong>Microservice</strong>로 유명하며, <a href="https://github.com/netflix/chaosmonkey">Chaos Monkey</a>라는 Test 도구도 개발했다 <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
+<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 는 <strong>Monolith</strong>와 <strong>Microservice</strong>의 차이를 알기 쉽게 시각화한다. 그러나 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 제시한 예시 프로그램의 가용성이 <strong>Monolith</strong>로 구현하면 <img src="https://latex.codecogs.com/png.latex?50%5C%25">, <strong>Microservice</strong>는 <img src="https://latex.codecogs.com/png.latex?25%5C%25">라는 그의 주장은 설득력이 떨어진다. <strong>소스코드</strong> 내 결함으로 인한 장애는, <strong>Monolith</strong> 프로그램 1개로 배포하든 <strong>Microservice</strong> 프로그램 2개로 배포하든 배포 방식과는 무관하게 <img src="https://latex.codecogs.com/png.latex?25%5C%25">가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 <strong>소스코드</strong>를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 <strong>Monolith</strong>이든 <strong>Microservice</strong>이든 출력의 가용성은 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 같다. 이 프로그램에서 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 <strong>Microservice</strong>로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 <strong>Monolith</strong>로 배포해도 <strong>소스코드</strong> 내에서 2개이다.</p>
+</section>
+<section id="소스코드-예시로-이해하는-microservice의-부분적-이점" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드-예시로-이해하는-microservice의-부분적-이점"><strong>소스코드</strong> 예시로 이해하는 Microservice의 부분적 이점</h3>
+<p><strong>Microservice</strong>로 설계하고 나면 배포 방식이 <strong>Microservice</strong>가 아니라 <strong>Monolith</strong>로 배포하더라도 유리할 수 있다. 앞서 언급한 <strong>소스코드</strong>에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 <img src="https://latex.codecogs.com/png.latex?50%5C%25">이다. 이 출력의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄일 필요가 없다. 이처럼 부분 가용성(<strong>Resilience</strong>)은 <strong>Microservice</strong>를 감안해서 설계해야, <strong>Monolith</strong>로 배포하더라도 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 불필요하게 늘리지 않을 수 있다.</p>
+</section>
+<section id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용" class="level3">
+<h3 class="anchored" data-anchor-id="낸드플래시nand-flash-반도체-메모리로-이해하는-monolith와-microservice-간-기회비용"><strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용</h3>
+<p><strong>소스코드</strong> 외적으로, <strong>Monolith</strong> 대비 <strong>Microservice</strong>의 비용이 있는 것은 사실이다 <span class="citation" data-cites="stanko2022single">(see Krtalić Rusendić 2022)</span>. 예시 <strong>소스코드</strong> 2개가 의존하는 <strong>하드웨어</strong>가 1개일 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?50%5C%25">라면, <strong>소스코드</strong> 1개에 <strong>하드웨어</strong> 1개씩 총 2개의 <strong>하드웨어</strong>에 의존할 때 가용성은 <strong>하드웨어</strong>의 개별적인 동작 때문에 <img src="https://latex.codecogs.com/png.latex?25%5C%25">로 줄어든다고 볼 수도 있다.</p>
+<p>그러나 <strong>Microservice</strong> 대비 <strong>Monolith</strong>의 비용도 간과해서는 안 된다. 2개의 <strong>소스코드</strong>가 <strong>하드웨어</strong> 1개씩 총 2개에 의존할 때 <strong>소스코드</strong> 외적인 가용성이 <img src="https://latex.codecogs.com/png.latex?25%5C%25">였다면, 이번에는 역으로 다시 총 1개의 <strong>하드웨어</strong>에 의존할 때 가용성은 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 때문에 <img src="https://latex.codecogs.com/png.latex?12.5%5C%25">로 더 줄어들 위험도 있다. 예를 들어 <strong>낸드플래시</strong>(<strong>NAND Flash</strong>) 반도체 메모리도 마찬가지로 <strong>SLC</strong>(<strong>Single Level Cell</strong>), <strong>MLC</strong>(<strong>Multi Level Cell</strong>), <strong>TLC</strong>(<strong>Triple Level Cell</strong>), <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 <span class="citation" data-cites="lee2025nand">(see Lee 2018)</span>. 일반적으로 <strong>SLC</strong>(<strong>Single Level Cell</strong>)가 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>)보다 비싸고 좋다. 즉 <strong>Monolith</strong>가 오히려 <strong>QLC</strong>(<strong>Quadruple Level Cell</strong>) 같은 단점이 있다.</p>
+<p>이하 내용에서는 <strong>소스코드</strong> 내적인 관점에서만 가용성을 비교한다.</p>
+</section>
+<section id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="그림과-함께-이해하는-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p><strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)은 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거해 가용성을 확대할 수 있는 전략이다. <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 설명을 보면, Figure&nbsp;2 과 같은 <strong>Microservice</strong>의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">로 계산하는 사소한 실수가 있었고, <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?75%5C%25">도 <strong>소스코드</strong> 내 의존성을 고려하면 더 정확하게 이해할 수 있다.</p>
+<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Microservice</strong>의 16가지 상태 중 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 누락한 2가지 정상 동작 상태
+</figcaption>
+</figure>
+</div>
+<p>예시 <strong>소스코드</strong>의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">를 계산한 것처럼</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204"></p>
+<p>이므로, 4개의 <strong>소스코드</strong> 동작 여부에 따라서는, <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:</p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016."></p>
+<p>2개의 <strong>소스코드</strong>를 각각 2배로 늘리면 기존에 2개였던 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 제거되어, 가용성은 기존 <strong>소스코드</strong> 2개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"></p>
+<p>으로 증가한다. <img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25">는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 계산한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">와는 다소 차이가 있다.</p>
+<p>반면 <strong>Monolith</strong> 프로그램 1개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 <strong>소스코드</strong> 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 Figure&nbsp;2 의 중앙에 보이던 노란 화살표 2개가 Figure&nbsp;3 에는 없다. 그러면 Figure&nbsp;2 의 2가지 정상 동작 상태가 Figure&nbsp;3 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">에서</p>
+<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>) 시 <strong>Monolith</strong>의 16가지 상태
+</figcaption>
+</figure>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25"></p>
+<p>으로 증가한다. <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25">는 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 가 계산한 <img src="https://latex.codecogs.com/png.latex?%5Cfrac%203%204%20=%2075%5C%25">와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 <strong>소스코드</strong> 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.</p>
+<p>정리하면 <strong>소스코드</strong> 내적인 관점에서는 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Monolith</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?43.75%5C%25">가 기존의 <img src="https://latex.codecogs.com/png.latex?25%5C%25">보다 나아지기는 해도 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)한 <strong>Microservice</strong>의 가용성 <img src="https://latex.codecogs.com/png.latex?56.25%5C%25">보다 오히려 더 못하다는 사실이 <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> 의 해석과 다른 점이다.</p>
+</section>
+</section>
+<section id="수식을-통한-monolith와-microservice의-비교" class="level2">
+<h2 class="anchored" data-anchor-id="수식을-통한-monolith와-microservice의-비교">수식을 통한 Monolith와 Microservice의 비교</h2>
+<section id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성" class="level3">
+<h3 class="anchored" data-anchor-id="소스코드의-관점에서-수식으로-표현한-monolith와-microservice의-유사성"><strong>소스코드</strong>의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성</h3>
+<p>일반적으로 <strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 의존하는 결과는 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 갖기 때문에 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><span id="eq-microservice-spof-join"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En%20%5Ctag%7B1%7D"></span></p>
+<p>으로 동일하다. <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">이므로 <img src="https://latex.codecogs.com/png.latex?n">이 커질수록 단조적으로 감소(<strong>Monotonically Decreasing</strong>)한다.</p>
+<p>반면에 서로 의존하지 않는 <img src="https://latex.codecogs.com/png.latex?m">개는 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)가 없고 그 가용성은 <strong>Microservice</strong>로 배포하거나 <strong>Monolith</strong>로 배포하거나</p>
+<p><span id="eq-microservice-spof-split"><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em%20%5Ctag%7B2%7D"></span></p>
+<p>으로 동일하다. 반대로 <img src="https://latex.codecogs.com/png.latex?m">이 커지면 단조적으로 증가(<strong>Monotonically Increasing</strong>)한다. 왜냐하면 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20%201%20-%20p%20%5Cleq%201">에서 <img src="https://latex.codecogs.com/png.latex?(1-%20p)%5Em">이 단조적으로 감소(<strong>Monotonically Decreasing</strong>)하기 때문이다.</p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-microservice의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개 각각을 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 각 <img src="https://latex.codecogs.com/png.latex?m">개는 서로 의존하지 않아 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em">이다. <img src="https://latex.codecogs.com/png.latex?m">개씩의 <img src="https://latex.codecogs.com/png.latex?n">개가 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 결과의 가용성은</p>
+<p><span id="eq-microservice-spof-scale-out-microservice"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20p)%5Em,%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(1%20-%20(1%20-%20p)%5Em)%5En%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
+<p>이다.</p>
+<p>Figure&nbsp;2 의 가용성과 일치함을 알 수 있다:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Cfrac%203%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2056.25%5C%25.%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-표현한-수평-확장horizontal-scaling-scale-out-시-monolith의-결합-가용성">수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성</h3>
+<p><strong>소스코드</strong> 외적인 요인이 없을 때 <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">의 가용성을 독립적으로 갖고 서로 <strong>Fully Connected</strong>되어 <img src="https://latex.codecogs.com/png.latex?n">개의 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)로서 의존하는 <strong>Microservice</strong> <img src="https://latex.codecogs.com/png.latex?n">개를 <strong>Monolith</strong>로 배포하면 그 결과의 가용성은 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En">이다. <img src="https://latex.codecogs.com/png.latex?n">개를 서로 의존하지 않게 <img src="https://latex.codecogs.com/png.latex?m">배 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)하면 <strong>SPOF</strong>(<strong>Single Point of Failure</strong>)를 제거하므로 그 가용성은</p>
+<p><span id="eq-microservice-spof-scale-out-monolith"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(p%5En,%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20p%5En)%5Em%0A%5Cend%7Balign%7D%0A%5Ctag%7B4%7D"></span></p>
+<p>이다.</p>
+<p>Figure&nbsp;3 의 가용성과 일치함을 알 수 있다:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D((%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20%5Cfrac%201%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%207%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2043.75%5C%25.%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="수식으로-정리한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p>다음을 증명할 수 있다 <span class="citation" data-cites="sil2016grid">(Sil 2016)</span>:</p>
+<p><span id="eq-microservice-spof-sil-2016-grid"><img src="https://latex.codecogs.com/png.latex?(1%20-%20(1%20-%20p)%5Em)%5En%20+%20(1%20-%20p%5En)%5Em%20%5Cgeq%201.%20%5Ctag%7B5%7D"></span></p>
+<p>따라서,</p>
+<p><span id="eq-microservice-spof-scale-out-inequality"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A(1%20-%20(1%20-%20p)%5Em)%5En%20&amp;%20%5Cgeq%201%20-%20(1%20-%20p%5En)%5Em%5C%5C%0A%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%20&amp;%20%5Cgeq%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%5C%5C%0A%5Ctherefore%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20%5Cgeq%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m).%0A%5Cend%7Balign%7D%0A%5Ctag%7B6%7D"></span></p>
+</section>
+<section id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점" class="level3">
+<h3 class="anchored" data-anchor-id="그래프로-시각화한-수평-확장horizontal-scaling-scale-out-시-microservice의-이점">그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점</h3>
+<p>Equation&nbsp;6 의 성질뿐 아니라 Figure&nbsp;1 의 시각화를 통해 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)">과 <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)">의 격차가 <strong>수평 확장</strong>(<strong>Horizontal Scaling</strong>, <strong>Scale-Out</strong>)의 배수 <img src="https://latex.codecogs.com/png.latex?m">의 확대에도 불구하고 <img src="https://latex.codecogs.com/png.latex?p">의 감소 또는 <img src="https://latex.codecogs.com/png.latex?n">의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다.</p>
 </section>
 </section>
 <section id="결론" class="level2">
@@ -3240,839 +4069,6 @@ of Failure) 문제 해결과 그 비용.”</span> April 14, 2024. <a href="http
   <category>nand flash</category>
   <category>observable</category>
   <guid>https://yhkee0404.github.io/posts/web/microservice-spof/ko/</guid>
-  <pubDate>Sun, 14 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" medium="image" type="image/gif"/>
-</item>
-<item>
-  <title>Visualized Microservices As an Upperbounds of Monoliths</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/web/microservice-spof/en/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-about-jolla">
-<div class="about-entity">
-<div class="about-links">
-<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
-  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
-</a>
-</div>
-</div>
-</div>
-<section id="comparisions-through-examples-of-monoliths-and-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="comparisions-through-examples-of-monoliths-and-microservices">Comparisions Through Examples of Monoliths and Microservices</h2>
-<section id="shared-source-code-of-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="shared-source-code-of-monoliths-and-microservices">Shared Source Code of Monoliths and Microservices</h3>
-<p>According to web developer <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>, a single program is considered a <strong>monolith</strong> architecture, while implementing the same program as multiple programs is called <strong>microservice architecture</strong>, or <strong>MSA</strong>.</p>
-<p>A <strong>monolith</strong> program is composed of <strong>classes</strong> and <strong>methods</strong>, or <strong>modules</strong> and <strong>functions</strong> <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. If <strong>classes</strong> and <strong>methods</strong> are implemented as a <strong>microservice</strong> program, they become <strong>services</strong> and <strong>APIs</strong> <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>. Netflix is well-known for its use of <strong>microservices</strong>, and they have also developed a testing tool called Chaos Monkey <span class="citation" data-cites="stanko2022single">(Krtalić Rusendić 2022)</span>.</p>
-<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> presents an engaging visualization of the differences between <strong>monoliths</strong> and <strong>microservices</strong>. However, the claim by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> that the availability of the program he came up with is <img src="https://latex.codecogs.com/png.latex?50%5C%25"> for <strong>monolith</strong> and <img src="https://latex.codecogs.com/png.latex?25%5C%25"> for <strong>microservice</strong> is not convincing. Failures caused by defects in the <strong>source code</strong> should result in a <img src="https://latex.codecogs.com/png.latex?25%5C%25"> availability regardless of whether the deployment is <strong>monolith</strong> (one program) or <strong>microservice</strong> (two or more programs). For example, if you run a <strong>source code</strong> that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is <img src="https://latex.codecogs.com/png.latex?25%5C%25"> whether the random generation is sequential or parallel, or whether the deployment is <strong>monolith</strong> or <strong>microservice</strong>. When deploying this program as <strong>microservice</strong> instead of a <strong>monolith</strong>, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is not increased to two; even in a <strong>monolith</strong>, there are two <strong>single points of failure</strong> (<strong>SPOFs</strong>) due to dependencies between results.</p>
-</section>
-</section>
-<section id="partial-benefits-of-source-code-of-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="partial-benefits-of-source-code-of-microservices">Partial Benefits of Source Code of Microservices</h2>
-<p>Designing a system as a <strong>microservice</strong> can be advantageous even if it is deployed later as a <strong>monolith</strong>. In the aforementioned <strong>source code</strong>, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes <img src="https://latex.codecogs.com/png.latex?50%5C%25"> because the output is independent of the second result. In this case, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the <strong>single point of failure</strong> (<strong>SPOF</strong>) to two, ending up with the reduced availability of <img src="https://latex.codecogs.com/png.latex?25%5C%25">. Thus, considering <strong>partial availability</strong> or <strong>resilience</strong> in the design stage keeps the number of <strong>single points of failure</strong> (<strong>SPOFs</strong>) being not unnecessarily increased, even if deployed as a <strong>monolith</strong>.</p>
-<section id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices">An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices</h3>
-<p>Beyond the <strong>source code</strong>, it is probable that <strong>microservices</strong> have more costs compared to <strong>monoliths</strong> <span class="citation" data-cites="stanko2022single">(see Krtalić Rusendić 2022)</span>. If the <strong>hardware</strong> on which the two units of example <strong>source code</strong> depend is a single unit, and the availability external to <strong>source code</strong> is presumably <img src="https://latex.codecogs.com/png.latex?50%5C%25">, then if each <strong>source code</strong> depends on a different <strong>hardware</strong> unit, the availability could virtually drop to <img src="https://latex.codecogs.com/png.latex?25%5C%25"> due to the asynchronous operations of independent <strong>hardwares</strong>.</p>
-<p>However, the significant costs of <strong>monoliths</strong> compared to <strong>microservices</strong> should not be overlooked, either. If two units of example <strong>source code</strong> depend on two <strong>hardware</strong> units in total, and the availability independent of <strong>source code</strong> is given <img src="https://latex.codecogs.com/png.latex?25%5C%25">, then consolidating them to depend on a single <strong>hardware</strong> component may reduce availability further to <img src="https://latex.codecogs.com/png.latex?12.5%5C%25"> due to <strong>resource contention</strong>. For example, <strong>NAND Flash memory</strong> faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is <strong>single-level cell</strong> (<strong>SLC</strong>), <strong>multi-level cell</strong> (<strong>MLC</strong>), <strong>triple-level cell</strong> (<strong>TLC</strong>), or <strong>quad-level cell</strong> (<strong>QLC</strong>) <span class="citation" data-cites="lee2025nand">(see Lee 2018)</span>. Generally, <strong>single-level cell</strong> (<strong>SLC</strong>) flash is more expensive and performs better than <strong>quad-level cell</strong> (<strong>QLC</strong>) flash. In other words, <strong>monoliths</strong> may suffer from disadvantages similar to those of <strong>quad-level cell</strong> (<strong>QLC</strong>) flash.</p>
-<p>In the following paragraphs, we will compare availability only from the perspective of the <strong>source code</strong>.</p>
-</section>
-<section id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices">The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p><strong>Horizontal scaling</strong> (<strong>scale-out</strong>) is a strategy to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) and increase availability. In reviewing the analysis of <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>, it appears that two available states of <strong>microservices</strong> displayed in Figure&nbsp;1 have been omitted out of 16 possible states, leading to slight miscalculations of the availability as <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25">, and the availability of <strong>monoliths</strong> <img src="https://latex.codecogs.com/png.latex?75%5C%25"> could benefit from further consideration of internal dependencies in the <strong>source code</strong>.</p>
-<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The Two Available States of <strong>Microservices</strong> in <strong>Horizontal Scaling</strong> (<strong>Scale-Out</strong>) <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> Omitted
-</figcaption>
-</figure>
-</div>
-<p>Just as the example <strong>source code</strong> can have four states based on two operations and calculates availability as <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25">, since <img src="https://latex.codecogs.com/png.latex?2%5E2%20=%204">,</p>
-<p>for four <strong>source code</strong> operations, there are not 14 states in total as listed by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span> but 16 states when including the two omitted ones:</p>
-<p><img src="https://latex.codecogs.com/png.latex?2%5E4%20=%2016">.</p>
-<p>If each of the two units of <strong>source code</strong> is <strong>scaled out</strong> by a factor of two, the original two <strong>single points of failure</strong> (<strong>SPOFs</strong>) are removed, and availability increases from the original <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25"> (for two units of <strong>source code</strong>) to</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25">.</p>
-<p>The <img src="https://latex.codecogs.com/png.latex?%5Cfrac%209%20%7B16%7D%20=%2056.25%5C%25"> differs somewhat from the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B14%7D%20=%2050%5C%25"> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>.</p>
-<p>On the other hand, if the <strong>single points of failure</strong> (<strong>SPOFs</strong>) of a single <strong>monolith</strong> program is removed by <strong>scaling out</strong> the original program by a factor of two, the internal dependency between the two units of <strong>source code</strong> in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of Figure&nbsp;1 are absent in Figure&nbsp;2. Therefore, the two available states in Figure&nbsp;1 become failure states in Figure&nbsp;2, and the availability increases from <img src="https://latex.codecogs.com/png.latex?%5Cfrac%201%204%20=%2025%5C%25"> for a single program to</p>
-<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: Horizontal scaling (scale-out) of Monoliths: 16 states"><img src="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) of <strong>Monoliths</strong>: 16 states
-</figcaption>
-</figure>
-</div>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25">.</p>
-<p>The <img src="https://latex.codecogs.com/png.latex?%5Cfrac%207%20%7B16%7D%20=%2043.75%5C%25"> differs somewhat from the <img src="https://latex.codecogs.com/png.latex?%5Cfrac%203%204%20=%2075%5C%25"> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>. This is because, instead of <strong>scaling out</strong> a single program by a factor of four (to four instances), <strong>scaling out</strong> by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the <strong>source code</strong>.</p>
-<p>To summarize, from the perspective of the <strong>source code</strong>, the availability of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>monolith</strong> (<img src="https://latex.codecogs.com/png.latex?43.75%5C%25">) is better than the original <img src="https://latex.codecogs.com/png.latex?25%5C%25">, but it is still worse than that of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>microservice</strong> (<img src="https://latex.codecogs.com/png.latex?56.25%5C%25">). This represents a notable divergence from the interpretation offered by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (2022)</span>.</p>
-</section>
-</section>
-<section id="comparisions-through-formulae-between-monoliths-and-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="comparisions-through-formulae-between-monoliths-and-microservices">Comparisions Through Formulae Between Monoliths and Microservices</h2>
-<section id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices">Two Special Formulae Representing Shared Source Code of Monoliths and Microservices</h3>
-<p>Generally, when there are no external factors except <strong>source code</strong>, if <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> are <strong>fully connected</strong> and depend on each other, they have <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>). Therefore, their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En"> {#eq-microservice-spof-join}.</p>
-<p>Since <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201">, this value <strong>decreases monotonically</strong> as <img src="https://latex.codecogs.com/png.latex?n"> increases.</p>
-<p>On the other hand, if <img src="https://latex.codecogs.com/png.latex?m"> components are independent, they have no <strong>single points of failure</strong> (<strong>SPOFs</strong>), and their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em"> {#eq-microservice-spof-split}.</p>
-<p>This value <strong>increases monotonically</strong> as <img src="https://latex.codecogs.com/png.latex?m"> increases, because <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20%201%20-%20p%20%5Cleq%201"> leads to <img src="https://latex.codecogs.com/png.latex?(1-%20p)%5Em"> <strong>decreasing monotonically</strong>.</p>
-</section>
-</section>
-<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices</h2>
-<p>When there are no external factors other than <strong>source code</strong>, if each of <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> is <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <img src="https://latex.codecogs.com/png.latex?m">, each group of <img src="https://latex.codecogs.com/png.latex?m"> has no <strong>single points of failure</strong> (<strong>SPOFs</strong>) and its availability is <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSplit%7D(p,%20m)%20=%201%20-%20(1%20-%20p)%5Em">. If <img src="https://latex.codecogs.com/png.latex?n"> groups of <img src="https://latex.codecogs.com/png.latex?m"> are <strong>fully connected</strong> and depend on each other as <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>), the combined availability is</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20p)%5Em,%20n)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(1%20-%20(1%20-%20p)%5Em)%5En%0A%5Cend%7Balign%7D%0A"> {#eq-microservice-spof-scale-out-microservice}.</p>
-<p>This matches the availability in Figure&nbsp;1:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(1%20-%20%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20(%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(1%20-%20%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BJoin%7D(%5Cfrac%203%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2056.25%5C%25%0A%5Cend%7Balign%7D%0A">.</p>
-</section>
-<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths" class="level2">
-<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths</h2>
-<p>When there are no external factors, if <img src="https://latex.codecogs.com/png.latex?n"> <strong>microservices</strong> with independent availability <img src="https://latex.codecogs.com/png.latex?0%20%5Cleq%20p%20%5Cleq%201"> are <strong>fully connected</strong> and depend on each other as <img src="https://latex.codecogs.com/png.latex?n"> <strong>single points of failure</strong> (<strong>SPOFs</strong>), their availability when deployed as a <strong>monolith</strong> is <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BJoin%7D(p,%20n)%20=%20p%5En">. If the <img src="https://latex.codecogs.com/png.latex?n"> components are <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <img src="https://latex.codecogs.com/png.latex?m"> to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), the availability is</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(p%5En,%20m)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20p%5En)%5Em%0A%5Cend%7Balign%7D%0A"> {#eq-microservice-spof-scale-out-monolith}.</p>
-<p>This matches the availability in Figure&nbsp;2:</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(%5Cfrac%201%202,%202,%202)%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(%5Cfrac%201%202,%202),%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D((%5Cfrac%201%202)%5E2,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Ctext%7BSplit%7D(%5Cfrac%201%204,%202)%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(1%20-%20%5Cfrac%201%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20(%5Cfrac%203%204)%5E2%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%201%20-%20%5Cfrac%209%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%20%5Cfrac%207%20%7B16%7D%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20=%2043.75%5C%25%0A%5Cend%7Balign%7D%0A">.</p>
-<section id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices">The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p>The following can be proven <span class="citation" data-cites="sil2016grid">(Sil 2016)</span>:</p>
-<p><img src="https://latex.codecogs.com/png.latex?(1%20-%20(1%20-%20p)%5Em)%5En%20+%20(1%20-%20p%5En)%5Em%20%5Cgeq%201"> {#eq-microservice-spof-sil-2016-grid}.</p>
-<p>Therefore,</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A(1%20-%20(1%20-%20p)%5Em)%5En%20&amp;%20%5Cgeq%201%20-%20(1%20-%20p%5En)%5Em%5C%5C%0A%5Ctext%7BJoin%7D(%5Ctext%7BSplit%7D(p,%20m),%20n)%20&amp;%20%5Cgeq%20%5Ctext%7BSplit%7D(%5Ctext%7BJoin%7D(p,%20n),%20m)%5C%5C%0A%5C%5C%0A%5Ctherefore%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)%20&amp;%20%5Cgeq%20%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)%0A%5Cend%7Balign%7D%0A"> {#eq-microservice-spof-scale-out-inequality}.</p>
-</section>
-<section id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices">The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p>In addition to the inequality of <strong>?@eq-microservice-spof-scale-out-inequality</strong>, but the visualization in Figure&nbsp;3 also demonstrates that the gap between <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMicroservice%7D%7D(p,%20n,%20m)"> and <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BScaleOut%7D_%7B%5Ctext%7BMonolith%7D%7D(p,%20n,%20m)"> widens rapidly as <img src="https://latex.codecogs.com/png.latex?p"> decreases or <img src="https://latex.codecogs.com/png.latex?n"> increases, even as the factor of <strong>horizontally scaling</strong> (<strong>scale-out</strong>) <img src="https://latex.codecogs.com/png.latex?m"> grows.</p>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="220" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 219;"><span id="cb1-220">viewof p <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">range</span>([<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.01</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.99</span>]<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">step</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.01</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">value</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"p"</span>})<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb1-221">viewof n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> Inputs<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">range</span>([<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span>]<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">step</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">value</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"n"</span>})<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="227" data-source-offset="-1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 226;"><span id="cb2-227"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">join</span>(p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> n) {</span>
-<span id="cb2-228">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pow</span>(p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-229">}</span>
-<span id="cb2-230"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">split</span>(p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> m) {</span>
-<span id="cb2-231">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pow</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> m)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-232">}</span>
-<span id="cb2-233"></span>
-<span id="cb2-234">y1s <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">=&gt;</span> {</span>
-<span id="cb2-235">  <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-236">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">let</span> i <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">++</span>) {</span>
-<span id="cb2-237">    ys<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">push</span>({</span>
-<span id="cb2-238">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-239">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">join</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">split</span>(p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> i)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-240">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ScaleOutMicroservice"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-241">    })<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-242">  }</span>
-<span id="cb2-243">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-244">})()<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-245"></span>
-<span id="cb2-246">y2s <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> (() <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">=&gt;</span> {</span>
-<span id="cb2-247">  <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">const</span> ys <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> []<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-248">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> (<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">let</span> i <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">++</span>) {</span>
-<span id="cb2-249">    ys<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">push</span>({</span>
-<span id="cb2-250">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">m</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> i<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-251">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">split</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">join</span>(p<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> n)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> i)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-252">      <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"ScaleOutMonolith"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb2-253">    })<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-254">  }</span>
-<span id="cb2-255">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> ys<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span>
-<span id="cb2-256">})()<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span></code></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="262" data-source-offset="0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 261;"><span id="cb3-262">Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plot</span>({</span>
-<span id="cb3-263">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">grid</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-264">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">color</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">legend</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">scheme</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"BuRd"</span>}<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-265">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">label</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"m"</span>}<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-266">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">domain</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>]}<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-267">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">marks</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> [</span>
-<span id="cb3-268">    Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">areaY</span>(y1s<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">concat</span>(y2s)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> {<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"label"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">fillOpacity</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>})<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-269">    Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tip</span>(y1s<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pointerX</span>({<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"darkgray"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">title</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> (d) <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">=&gt;</span> <span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>p<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">m</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>n<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\n${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-270">    Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tip</span>(y2s<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> Plot<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pointerX</span>({<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"m"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"y"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">fill</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"darkgray"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">title</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> (d) <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">=&gt;</span> <span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>p<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">m</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">${</span>n<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\n${</span>d<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="vs" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span>}))<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-271">  ]<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-272">  <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">style</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"background: inherit;"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb3-273">})<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span></code></pre></div>
-<div id="fig-microservice-spof-scale-out-visualization" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-3" data-nodetype="expression">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices
-</figcaption>
-</figure>
-</div>
-</div>
-</section>
-</section>
-<section id="결론" class="level2">
-<h2 class="anchored" data-anchor-id="결론">결론</h2>
-<p>이때 미리 <strong>Microservice</strong>로 설계하는 경우 나중에 <strong>Monolith</strong>로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다. 다만 <strong>소스코드</strong> 외적으로는 <strong>Monolith</strong> 배포에서 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 문제와 <strong>Microservice</strong> 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In conclusion, when there are no external factors besides <strong>source code</strong>, uniformly applying <img src="https://latex.codecogs.com/png.latex?m">-fold <strong>horizontal scaling (scale-out)</strong> allows <strong>microservices</strong> to internally remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), resulting in higher combined availability than <strong>monoliths</strong>, which remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) externally. Designing a system as a <strong>microservice</strong> in advance also offers the advantage of partial availability or resilience even when later deployed as a <strong>monolith</strong>. However, apart from <strong>source code</strong>, both <strong>resource contention</strong> in <strong>monoliths</strong> and the increased dependency of <strong>microservices</strong> on diverse resources must be carefully weighed and balanced.</p>
-
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-stanko2022single" class="csl-entry">
-Krtalić Rusendić, Stanko. 2022. <span>“<span>"Having a Monolith Is a Single Point of Failure"</span>.”</span> September 30, 2022. <a href="https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW">https://stanko.io/having-a-monolith-is-a-single-point-of-failure-3cYdY3KZ7qHW</a>.
-</div>
-<div id="ref-lee2025nand" class="csl-entry">
-Lee, Heeyeol. 2018. <span>“[궁금한 반도체 WHY] 낸드플래시 메모리의 데이터 저장방식, 어떻게 다를까? SLC/MLC/TLC/QLC.”</span> December 26, 2018. <a href="https://news.skhynix.co.kr/data-in-nand-flash-memory/">https://news.skhynix.co.kr/data-in-nand-flash-memory/</a>.
-</div>
-<div id="ref-sil2016grid" class="csl-entry">
-Sil. 2016. <span>“If <img src="https://latex.codecogs.com/png.latex?p%20+%20q%20=%201"> Prove That for Any Natural <img src="https://latex.codecogs.com/png.latex?n,%20m"> Following Is True: <img src="https://latex.codecogs.com/png.latex?(1%20-%20p%5En)%5Em%20+%20(1%20-%20q%5Em)%5En%20%5Cge%201">.”</span> December 8, 2016. <a href="https://math.stackexchange.com/a/2049972">https://math.stackexchange.com/a/2049972</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
-  author = {Kee, Yunho},
-  title = {Visualized Microservices As an Upperbounds of Monoliths},
-  date = {2024-04-14},
-  url = {https://yhkee0404.github.io/posts/web/microservice-spof/en/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2024. <span>“Visualized Microservices As an Upperbounds of
-Monoliths.”</span> April 14, 2024. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
-</div></div></section></div> ]]></description>
-  <category>web</category>
-  <category>microservice</category>
-  <category>monolith</category>
-  <category>single point of failure</category>
-  <category>netflix</category>
-  <category>chaos monkey</category>
-  <category>scale</category>
-  <category>nand flash</category>
-  <category>observable</category>
-  <guid>https://yhkee0404.github.io/posts/web/microservice-spof/en/</guid>
   <pubDate>Sun, 14 Apr 2024 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/diagrams/microservice-spof-scale-out-monolith.gif" medium="image" type="image/gif"/>
 </item>

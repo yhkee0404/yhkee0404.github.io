@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yunho Kee">
-<meta name="dcterms.date" content="2024-04-14">
+<meta name="dcterms.date" content="2025-05-30">
 
 <title>Visualized Microservices As an Upperbounds of Monoliths – Source Thoughts in a Monorepo</title>
 <style>
@@ -445,7 +445,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#comparisions-through-examples-of-monoliths-and-microservices" id="toc-comparisions-through-examples-of-monoliths-and-microservices" class="nav-link active" data-scroll-target="#comparisions-through-examples-of-monoliths-and-microservices">Comparisions Through Examples of Monoliths and Microservices</a>
+  <li><a href="#comparisons-through-examples-of-monoliths-and-microservices" id="toc-comparisons-through-examples-of-monoliths-and-microservices" class="nav-link active" data-scroll-target="#comparisons-through-examples-of-monoliths-and-microservices">Comparisons Through Examples of Monoliths and Microservices</a>
   <ul class="collapse">
   <li><a href="#shared-source-code-of-monoliths-and-microservices" id="toc-shared-source-code-of-monoliths-and-microservices" class="nav-link" data-scroll-target="#shared-source-code-of-monoliths-and-microservices">Shared Source Code of Monoliths and Microservices</a></li>
   </ul></li>
@@ -454,7 +454,7 @@ window.Quarto = {
   <li><a href="#an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" id="toc-an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" class="nav-link" data-scroll-target="#an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices">An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices</a></li>
   <li><a href="#the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" id="toc-the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" class="nav-link" data-scroll-target="#the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices">The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices</a></li>
   </ul></li>
-  <li><a href="#comparisions-through-formulae-between-monoliths-and-microservices" id="toc-comparisions-through-formulae-between-monoliths-and-microservices" class="nav-link" data-scroll-target="#comparisions-through-formulae-between-monoliths-and-microservices">Comparisions Through Formulae Between Monoliths and Microservices</a>
+  <li><a href="#comparisons-through-formulae-between-monoliths-and-microservices" id="toc-comparisons-through-formulae-between-monoliths-and-microservices" class="nav-link" data-scroll-target="#comparisons-through-formulae-between-monoliths-and-microservices">Comparisons Through Formulae Between Monoliths and Microservices</a>
   <ul class="collapse">
   <li><a href="#two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" id="toc-two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" class="nav-link" data-scroll-target="#two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices">Two Special Formulae Representing Shared Source Code of Monoliths and Microservices</a></li>
   </ul></li>
@@ -464,7 +464,6 @@ window.Quarto = {
   <li><a href="#the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" id="toc-the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" class="nav-link" data-scroll-target="#the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices">The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices</a></li>
   <li><a href="#the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" id="toc-the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" class="nav-link" data-scroll-target="#the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices">The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices</a></li>
   </ul></li>
-  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론">결론</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/posts/web/microservice-spof/en/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -503,16 +502,10 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 14, 2024</p>
+      <p class="date">May 30, 2025</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 30, 2025</p>
-    </div>
-  </div>
     
   </div>
   
@@ -530,145 +523,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="comparisions-through-examples-of-monoliths-and-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="comparisions-through-examples-of-monoliths-and-microservices">Comparisions Through Examples of Monoliths and Microservices</h2>
-<section id="shared-source-code-of-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="shared-source-code-of-monoliths-and-microservices">Shared Source Code of Monoliths and Microservices</h3>
-<p>According to web developer <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>, a single program is considered a <strong>monolith</strong> architecture, while implementing the same program as multiple programs is called <strong>microservice architecture</strong>, or <strong>MSA</strong>.</p>
-<p>A <strong>monolith</strong> program is composed of <strong>classes</strong> and <strong>methods</strong>, or <strong>modules</strong> and <strong>functions</strong> <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. If <strong>classes</strong> and <strong>methods</strong> are implemented as a <strong>microservice</strong> program, they become <strong>services</strong> and <strong>APIs</strong> <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. Netflix is well-known for its use of <strong>microservices</strong>, and they have also developed a testing tool called Chaos Monkey <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>.</p>
-<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> presents an engaging visualization of the differences between <strong>monoliths</strong> and <strong>microservices</strong>. However, the claim by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> that the availability of the program he came up with is <span class="math inline">\(50\%\)</span> for <strong>monolith</strong> and <span class="math inline">\(25\%\)</span> for <strong>microservice</strong> is not convincing. Failures caused by defects in the <strong>source code</strong> should result in a <span class="math inline">\(25\%\)</span> availability regardless of whether the deployment is <strong>monolith</strong> (one program) or <strong>microservice</strong> (two or more programs). For example, if you run a <strong>source code</strong> that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is <span class="math inline">\(25\%\)</span> whether the random generation is sequential or parallel, or whether the deployment is <strong>monolith</strong> or <strong>microservice</strong>. When deploying this program as <strong>microservice</strong> instead of a <strong>monolith</strong>, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is not increased to two; even in a <strong>monolith</strong>, there are two <strong>single points of failure</strong> (<strong>SPOFs</strong>) due to dependencies between results.</p>
-</section>
-</section>
-<section id="partial-benefits-of-source-code-of-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="partial-benefits-of-source-code-of-microservices">Partial Benefits of Source Code of Microservices</h2>
-<p>Designing a system as a <strong>microservice</strong> can be advantageous even if it is deployed later as a <strong>monolith</strong>. In the aforementioned <strong>source code</strong>, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes <span class="math inline">\(50\%\)</span> because the output is independent of the second result. In this case, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the <strong>single point of failure</strong> (<strong>SPOF</strong>) to two, ending up with the reduced availability of <span class="math inline">\(25\%\)</span>. Thus, considering <strong>partial availability</strong> or <strong>resilience</strong> in the design stage keeps the number of <strong>single points of failure</strong> (<strong>SPOFs</strong>) being not unnecessarily increased, even if deployed as a <strong>monolith</strong>.</p>
-<section id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices">An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices</h3>
-<p>Beyond the <strong>source code</strong>, it is probable that <strong>microservices</strong> have more costs compared to <strong>monoliths</strong> <span class="citation" data-cites="stanko2022single">(see <a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. If the <strong>hardware</strong> on which the two units of example <strong>source code</strong> depend is a single unit, and the availability external to <strong>source code</strong> is presumably <span class="math inline">\(50\%\)</span>, then if each <strong>source code</strong> depends on a different <strong>hardware</strong> unit, the availability could virtually drop to <span class="math inline">\(25\%\)</span> due to the asynchronous operations of independent <strong>hardwares</strong>.</p>
-<p>However, the significant costs of <strong>monoliths</strong> compared to <strong>microservices</strong> should not be overlooked, either. If two units of example <strong>source code</strong> depend on two <strong>hardware</strong> units in total, and the availability independent of <strong>source code</strong> is given <span class="math inline">\(25\%\)</span>, then consolidating them to depend on a single <strong>hardware</strong> component may reduce availability further to <span class="math inline">\(12.5\%\)</span> due to <strong>resource contention</strong>. For example, <strong>NAND Flash memory</strong> faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is <strong>single-level cell</strong> (<strong>SLC</strong>), <strong>multi-level cell</strong> (<strong>MLC</strong>), <strong>triple-level cell</strong> (<strong>TLC</strong>), or <strong>quad-level cell</strong> (<strong>QLC</strong>) <span class="citation" data-cites="lee2025nand">(see <a href="#ref-lee2025nand" role="doc-biblioref">Lee 2018</a>)</span>. Generally, <strong>single-level cell</strong> (<strong>SLC</strong>) flash is more expensive and performs better than <strong>quad-level cell</strong> (<strong>QLC</strong>) flash. In other words, <strong>monoliths</strong> may suffer from disadvantages similar to those of <strong>quad-level cell</strong> (<strong>QLC</strong>) flash.</p>
-<p>In the following paragraphs, we will compare availability only from the perspective of the <strong>source code</strong>.</p>
-</section>
-<section id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices">The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p><strong>Horizontal scaling</strong> (<strong>scale-out</strong>) is a strategy to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) and increase availability. In reviewing the analysis of <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>, it appears that two available states of <strong>microservices</strong> displayed in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> have been omitted out of 16 possible states, leading to slight miscalculations of the availability as <span class="math inline">\(\frac 7 {14} = 50\%\)</span>, and the availability of <strong>monoliths</strong> <span class="math inline">\(75\%\)</span> could benefit from further consideration of internal dependencies in the <strong>source code</strong>.</p>
-<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;1: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The Two Available States of <strong>Microservices</strong> in <strong>Horizontal Scaling</strong> (<strong>Scale-Out</strong>) <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> Omitted
-</figcaption>
-</figure>
-</div>
-<p>Just as the example <strong>source code</strong> can have four states based on two operations and calculates availability as <span class="math inline">\(\frac 1 4 = 25\%\)</span>, since <span class="math display">\[2^2 = 4\]</span>,</p>
-<p>for four <strong>source code</strong> operations, there are not 14 states in total as listed by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> but 16 states when including the two omitted ones:</p>
-<p><span class="math display">\[2^4 = 16\]</span>.</p>
-<p>If each of the two units of <strong>source code</strong> is <strong>scaled out</strong> by a factor of two, the original two <strong>single points of failure</strong> (<strong>SPOFs</strong>) are removed, and availability increases from the original <span class="math inline">\(\frac 1 4 = 25\%\)</span> (for two units of <strong>source code</strong>) to</p>
-<p><span class="math display">\[\frac 9 {16} = 56.25\%\]</span>.</p>
-<p>The <span class="math inline">\(\frac 9 {16} = 56.25\%\)</span> differs somewhat from the <span class="math inline">\(\frac 7 {14} = 50\%\)</span> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>.</p>
-<p>On the other hand, if the <strong>single points of failure</strong> (<strong>SPOFs</strong>) of a single <strong>monolith</strong> program is removed by <strong>scaling out</strong> the original program by a factor of two, the internal dependency between the two units of <strong>source code</strong> in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> are absent in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a>. Therefore, the two available states in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a> become failure states in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a>, and the availability increases from <span class="math inline">\(\frac 1 4 = 25\%\)</span> for a single program to</p>
-<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2: Horizontal scaling (scale-out) of Monoliths: 16 states"><img src="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) of <strong>Monoliths</strong>: 16 states
-</figcaption>
-</figure>
-</div>
-<p><span class="math display">\[\frac 7 {16} = 43.75\%\]</span>.</p>
-<p>The <span class="math inline">\(\frac 7 {16} = 43.75\%\)</span> differs somewhat from the <span class="math inline">\(\frac 3 4 = 75\%\)</span> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>. This is because, instead of <strong>scaling out</strong> a single program by a factor of four (to four instances), <strong>scaling out</strong> by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the <strong>source code</strong>.</p>
-<p>To summarize, from the perspective of the <strong>source code</strong>, the availability of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>monolith</strong> (<span class="math inline">\(43.75\%\)</span>) is better than the original <span class="math inline">\(25\%\)</span>, but it is still worse than that of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>microservice</strong> (<span class="math inline">\(56.25\%\)</span>). This represents a notable divergence from the interpretation offered by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>.</p>
-</section>
-</section>
-<section id="comparisions-through-formulae-between-monoliths-and-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="comparisions-through-formulae-between-monoliths-and-microservices">Comparisions Through Formulae Between Monoliths and Microservices</h2>
-<section id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices">Two Special Formulae Representing Shared Source Code of Monoliths and Microservices</h3>
-<p>Generally, when there are no external factors except <strong>source code</strong>, if <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> are <strong>fully connected</strong> and depend on each other, they have <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>). Therefore, their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
-<p><span class="math display">\[\text{Join}(p, n) = p^n\]</span> {#eq-microservice-spof-join}.</p>
-<p>Since <span class="math inline">\(0 \leq p \leq 1\)</span>, this value <strong>decreases monotonically</strong> as <span class="math inline">\(n\)</span> increases.</p>
-<p>On the other hand, if <span class="math inline">\(m\)</span> components are independent, they have no <strong>single points of failure</strong> (<strong>SPOFs</strong>), and their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
-<p><span class="math display">\[\text{Split}(p, m) = 1 - (1 - p)^m\]</span> {#eq-microservice-spof-split}.</p>
-<p>This value <strong>increases monotonically</strong> as <span class="math inline">\(m\)</span> increases, because <span class="math inline">\(0 \leq  1 - p \leq 1\)</span> leads to <span class="math inline">\((1- p)^m\)</span> <strong>decreasing monotonically</strong>.</p>
-</section>
-</section>
-<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices" class="level2">
-<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices</h2>
-<p>When there are no external factors other than <strong>source code</strong>, if each of <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> is <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <span class="math inline">\(m\)</span>, each group of <span class="math inline">\(m\)</span> has no <strong>single points of failure</strong> (<strong>SPOFs</strong>) and its availability is <span class="math inline">\(\text{Split}(p, m) = 1 - (1 - p)^m\)</span>. If <span class="math inline">\(n\)</span> groups of <span class="math inline">\(m\)</span> are <strong>fully connected</strong> and depend on each other as <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>), the combined availability is</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; = \text{Join}(\text{Split}(p, m), n)\\
-                                               &amp; = \text{Join}(1 - (1 - p)^m, n)\\
-                                               &amp; = (1 - (1 - p)^m)^n
-\end{align}
-\]</span> {#eq-microservice-spof-scale-out-microservice}.</p>
-<p>This matches the availability in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;1</a>:</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Microservice}}(\frac 1 2, 2, 2) &amp; = \text{Join}(\text{Split}(\frac 1 2, 2), 2)\\
-                                                       &amp; = \text{Join}(1 - (1 - \frac 1 2)^2, 2)\\
-                                                       &amp; = \text{Join}(1 - (\frac 1 2)^2, 2)\\
-                                                       &amp; = \text{Join}(1 - \frac 1 4, 2)\\
-                                                       &amp; = \text{Join}(\frac 3 4, 2)\\
-                                                       &amp; = (\frac 3 4)^2\\
-                                                       &amp; = \frac 9 {16}\\
-                                                       &amp; = 56.25\%
-\end{align}
-\]</span>.</p>
-</section>
-<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths" class="level2">
-<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths</h2>
-<p>When there are no external factors, if <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> are <strong>fully connected</strong> and depend on each other as <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>), their availability when deployed as a <strong>monolith</strong> is <span class="math inline">\(\text{Join}(p, n) = p^n\)</span>. If the <span class="math inline">\(n\)</span> components are <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <span class="math inline">\(m\)</span> to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), the availability is</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Monolith}}(p, n, m) &amp; = \text{Split}(\text{Join}(p, n), m)\\
-                                           &amp; = \text{Split}(p^n, m)\\
-                                           &amp; = 1 - (1 - p^n)^m
-\end{align}
-\]</span> {#eq-microservice-spof-scale-out-monolith}.</p>
-<p>This matches the availability in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;2</a>:</p>
-<p><span class="math display">\[
-\begin{align}
-\text{ScaleOut}_{\text{Monolith}}(\frac 1 2, 2, 2) &amp; = \text{Split}(\text{Join}(\frac 1 2, 2), 2)\\
-                                                   &amp; = \text{Split}((\frac 1 2)^2, 2)\\
-                                                   &amp; = \text{Split}(\frac 1 4, 2)\\
-                                                   &amp; = 1 - (1 - \frac 1 4)^2\\
-                                                   &amp; = 1 - (\frac 3 4)^2\\
-                                                   &amp; = 1 - \frac 9 {16}\\
-                                                   &amp; = \frac 7 {16}\\
-                                                   &amp; = 43.75\%
-\end{align}
-\]</span>.</p>
-<section id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices">The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p>The following can be proven <span class="citation" data-cites="sil2016grid">(<a href="#ref-sil2016grid" role="doc-biblioref">Sil 2016</a>)</span>:</p>
-<p><span class="math display">\[(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1\]</span> {#eq-microservice-spof-sil-2016-grid}.</p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\begin{align}
-(1 - (1 - p)^m)^n &amp; \geq 1 - (1 - p^n)^m\\
-\text{Join}(\text{Split}(p, m), n) &amp; \geq \text{Split}(\text{Join}(p, n), m)\\
-\\
-\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m)
-\end{align}
-\]</span> {#eq-microservice-spof-scale-out-inequality}.</p>
-</section>
-<section id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
-<h3 class="anchored" data-anchor-id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices">The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
-<p>In addition to the inequality of <strong>?@eq-microservice-spof-scale-out-inequality</strong>, but the visualization in <a href="#fig-microservice-spof-scale-out-visualization" class="quarto-xref">Figure&nbsp;3</a> also demonstrates that the gap between <span class="math inline">\(\text{ScaleOut}_{\text{Microservice}}(p, n, m)\)</span> and <span class="math inline">\(\text{ScaleOut}_{\text{Monolith}}(p, n, m)\)</span> widens rapidly as <span class="math inline">\(p\)</span> decreases or <span class="math inline">\(n\)</span> increases, even as the factor of <strong>horizontally scaling</strong> (<strong>scale-out</strong>) <span class="math inline">\(m\)</span> grows.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="220" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 219;"><span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>viewof p <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.99</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"p"</span>})<span class="op">;</span></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>viewof n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"n"</span>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="49" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 48;"><span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>viewof p <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.99</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"p"</span>})<span class="op">;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>viewof n <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"n"</span>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -687,36 +544,36 @@ Figure&nbsp;2: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) 
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="227" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 226;"><span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">join</span>(p<span class="op">,</span> n) {</span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(p<span class="op">,</span> n)<span class="op">;</span></span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">split</span>(p<span class="op">,</span> m) {</span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> p<span class="op">,</span> m)<span class="op">;</span></span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>y1s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">join</span>(<span class="fu">split</span>(p<span class="op">,</span> i)<span class="op">,</span> n)<span class="op">,</span></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMicroservice"</span><span class="op">,</span></span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>y2s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">split</span>(<span class="fu">join</span>(p<span class="op">,</span> n)<span class="op">,</span> i)<span class="op">,</span></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMonolith"</span><span class="op">,</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="56" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 55;"><span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">join</span>(p<span class="op">,</span> n) {</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(p<span class="op">,</span> n)<span class="op">;</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">split</span>(p<span class="op">,</span> m) {</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span>(<span class="dv">1</span> <span class="op">-</span> p<span class="op">,</span> m)<span class="op">;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>y1s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">join</span>(<span class="fu">split</span>(p<span class="op">,</span> i)<span class="op">,</span> n)<span class="op">,</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMicroservice"</span><span class="op">,</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>y2s <span class="op">=</span> (() <span class="kw">=&gt;</span> {</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ys <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    ys<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      <span class="dt">m</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="fu">split</span>(<span class="fu">join</span>(p<span class="op">,</span> n)<span class="op">,</span> i)<span class="op">,</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"ScaleOutMonolith"</span><span class="op">,</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ys<span class="op">;</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>})()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -748,18 +605,18 @@ Figure&nbsp;2: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="262" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 261;"><span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuRd"</span>}<span class="op">,</span></span>
-<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"m"</span>}<span class="op">,</span></span>
-<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
-<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(y1s<span class="op">.</span><span class="fu">concat</span>(y2s)<span class="op">,</span> {<span class="dt">y1</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
-<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y1s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
-<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y2s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
-<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"background: inherit;"</span><span class="op">,</span></span>
-<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="91" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 90;"><span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">scheme</span><span class="op">:</span> <span class="st">"BuRd"</span>}<span class="op">,</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"m"</span>}<span class="op">,</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]}<span class="op">,</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">areaY</span>(y1s<span class="op">.</span><span class="fu">concat</span>(y2s)<span class="op">,</span> {<span class="dt">y1</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"label"</span><span class="op">,</span> <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span>})<span class="op">,</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y1s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">tip</span>(y2s<span class="op">,</span> Plot<span class="op">.</span><span class="fu">pointerX</span>({<span class="dt">x</span><span class="op">:</span> <span class="st">"m"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"darkgray"</span><span class="op">,</span> <span class="dt">title</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">label</span><span class="sc">}</span><span class="vs">(</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>d<span class="op">.</span><span class="at">m</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs">)</span><span class="sc">\n${</span>d<span class="op">.</span><span class="at">y</span><span class="sc">}</span><span class="vs">`</span>}))<span class="op">,</span></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> <span class="st">"background: inherit;"</span><span class="op">,</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-microservice-spof-scale-out-visualization" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -768,16 +625,148 @@ Figure&nbsp;2: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices
+Figure&nbsp;1: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices
 </figcaption>
 </figure>
 </div>
 </div>
+<section id="comparisons-through-examples-of-monoliths-and-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-through-examples-of-monoliths-and-microservices">Comparisons Through Examples of Monoliths and Microservices</h2>
+<section id="shared-source-code-of-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="shared-source-code-of-monoliths-and-microservices">Shared Source Code of Monoliths and Microservices</h3>
+<p>According to web developer <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>, a single program is considered a <strong>monolith</strong> architecture, while implementing the same program as multiple programs is called <strong>microservice architecture</strong>, or <strong>MSA</strong>.</p>
+<p>A <strong>monolith</strong> program is composed of <strong>classes</strong> and <strong>methods</strong>, or <strong>modules</strong> and <strong>functions</strong> <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. If <strong>classes</strong> and <strong>methods</strong> are implemented as a <strong>microservice</strong> program, they become <strong>services</strong> and <strong>APIs</strong> <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. Netflix is well-known for its use of <strong>microservices</strong>, and they have also developed a testing tool called Chaos Monkey <span class="citation" data-cites="stanko2022single">(<a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>.</p>
+<p><span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> presents an engaging visualization of the differences between <strong>monoliths</strong> and <strong>microservices</strong>. However, the claim by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> that the availability of the program he came up with is <span class="math inline">\(50\%\)</span> for <strong>monolith</strong> and <span class="math inline">\(25\%\)</span> for <strong>microservice</strong> is not convincing. Failures caused by defects in the <strong>source code</strong> should result in a <span class="math inline">\(25\%\)</span> availability regardless of whether the deployment is <strong>monolith</strong> (one program) or <strong>microservice</strong> (two or more programs). For example, if you run a <strong>source code</strong> that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is <span class="math inline">\(25\%\)</span> whether the random generation is sequential or parallel, or whether the deployment is <strong>monolith</strong> or <strong>microservice</strong>. When deploying this program as <strong>microservice</strong> instead of a <strong>monolith</strong>, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is not increased to two; even in a <strong>monolith</strong>, there are two <strong>single points of failure</strong> (<strong>SPOFs</strong>) due to dependencies between results.</p>
 </section>
 </section>
-<section id="결론" class="level2">
-<h2 class="anchored" data-anchor-id="결론">결론</h2>
-<p>이때 미리 <strong>Microservice</strong>로 설계하는 경우 나중에 <strong>Monolith</strong>로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다. 다만 <strong>소스코드</strong> 외적으로는 <strong>Monolith</strong> 배포에서 한정된 자원에 대한 <strong>경합</strong>(<strong>Contention</strong>) 문제와 <strong>Microservice</strong> 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다.</p>
+<section id="partial-benefits-of-source-code-of-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="partial-benefits-of-source-code-of-microservices">Partial Benefits of Source Code of Microservices</h2>
+<p>Designing a system as a <strong>microservice</strong> can be advantageous even if it is deployed later as a <strong>monolith</strong>. In the aforementioned <strong>source code</strong>, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes <span class="math inline">\(50\%\)</span> because the output is independent of the second result. In this case, the <strong>single point of failure</strong> (<strong>SPOF</strong>) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the <strong>single point of failure</strong> (<strong>SPOF</strong>) to two, ending up with the reduced availability of <span class="math inline">\(25\%\)</span>. Thus, considering <strong>partial availability</strong> or <strong>resilience</strong> in the design stage keeps the number of <strong>single points of failure</strong> (<strong>SPOFs</strong>) being not unnecessarily increased, even if deployed as a <strong>monolith</strong>.</p>
+<section id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="an-analogy-of-nand-flash-memory-to-understand-trade-offs-between-monoliths-and-microservices">An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices</h3>
+<p>Beyond the <strong>source code</strong>, it is probable that <strong>microservices</strong> have more costs compared to <strong>monoliths</strong> <span class="citation" data-cites="stanko2022single">(see <a href="#ref-stanko2022single" role="doc-biblioref">Krtalić Rusendić 2022</a>)</span>. If the <strong>hardware</strong> on which the two units of example <strong>source code</strong> depend is a single unit, and the availability external to <strong>source code</strong> is presumably <span class="math inline">\(50\%\)</span>, then if each <strong>source code</strong> depends on a different <strong>hardware</strong> unit, the availability could virtually drop to <span class="math inline">\(25\%\)</span> due to the asynchronous operations of independent <strong>hardwares</strong>.</p>
+<p>However, the significant costs of <strong>monoliths</strong> compared to <strong>microservices</strong> should not be overlooked, either. If two units of example <strong>source code</strong> depend on two <strong>hardware</strong> units in total, and the availability independent of <strong>source code</strong> is given <span class="math inline">\(25\%\)</span>, then consolidating them to depend on a single <strong>hardware</strong> component may reduce availability further to <span class="math inline">\(12.5\%\)</span> due to <strong>resource contention</strong>. For example, <strong>NAND Flash memory</strong> faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is <strong>single-level cell</strong> (<strong>SLC</strong>), <strong>multi-level cell</strong> (<strong>MLC</strong>), <strong>triple-level cell</strong> (<strong>TLC</strong>), or <strong>quad-level cell</strong> (<strong>QLC</strong>) <span class="citation" data-cites="lee2025nand">(see <a href="#ref-lee2025nand" role="doc-biblioref">Lee 2018</a>)</span>. Generally, <strong>single-level cell</strong> (<strong>SLC</strong>) flash is more expensive and performs better than <strong>quad-level cell</strong> (<strong>QLC</strong>) flash. In other words, <strong>monoliths</strong> may suffer from disadvantages similar to those of <strong>quad-level cell</strong> (<strong>QLC</strong>) flash.</p>
+<p>In the following paragraphs, we will compare availability only from the perspective of the <strong>source code</strong>.</p>
+</section>
+<section id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-visualized-benefits-of-horizontal-scaling-scale-out-of-microservices">The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p><strong>Horizontal scaling</strong> (<strong>scale-out</strong>) is a strategy to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>) and increase availability. In reviewing the analysis of <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>, it appears that two available states of <strong>microservices</strong> displayed in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> have been omitted out of 16 possible states, leading to slight miscalculations of the availability as <span class="math inline">\(\frac 7 {14} = 50\%\)</span>, and the availability of <strong>monoliths</strong> <span class="math inline">\(75\%\)</span> could benefit from further consideration of internal dependencies in the <strong>source code</strong>.</p>
+<div id="fig-microservice-spof-missing-microservice" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-15.jpg" class="img-fluid figure-img" alt="A missing photo in stanko's gif animation of system up."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="lightbox" data-gallery="fig-microservice-spof-missing-microservice" title="Figure&nbsp;2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) @stanko2022single Omitted"><img src="../../../../_images/diagrams/microservice-spof-missing-microservice-16.jpg" class="img-fluid figure-img" style="margin-right:20px;" alt="Another missing photo in stanko's gif animation of system up."></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-missing-microservice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The Two Available States of <strong>Microservices</strong> in <strong>Horizontal Scaling</strong> (<strong>Scale-Out</strong>) <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> Omitted
+</figcaption>
+</figure>
+</div>
+<p>Just as the example <strong>source code</strong> can have four states based on two operations and calculates availability as <span class="math inline">\(\frac 1 4 = 25\%\)</span>, since <span class="math display">\[2^2 = 4,\]</span></p>
+<p>for four <strong>source code</strong> operations, there are not 14 states in total as listed by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span> but 16 states when including the two omitted ones:</p>
+<p><span class="math display">\[2^4 = 16.\]</span></p>
+<p>If each of the two units of <strong>source code</strong> is <strong>scaled out</strong> by a factor of two, the original two <strong>single points of failure</strong> (<strong>SPOFs</strong>) are removed, and availability increases from the original <span class="math inline">\(\frac 1 4 = 25\%\)</span> (for two units of <strong>source code</strong>) to</p>
+<p><span class="math display">\[\frac 9 {16} = 56.25\%.\]</span></p>
+<p>The <span class="math inline">\(\frac 9 {16} = 56.25\%\)</span> differs somewhat from the <span class="math inline">\(\frac 7 {14} = 50\%\)</span> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>.</p>
+<p>On the other hand, if the <strong>single points of failure</strong> (<strong>SPOFs</strong>) of a single <strong>monolith</strong> program is removed by <strong>scaling out</strong> the original program by a factor of two, the internal dependency between the two units of <strong>source code</strong> in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> are absent in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a>. Therefore, the two available states in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a> become failure states in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a>, and the availability increases from <span class="math inline">\(\frac 1 4 = 25\%\)</span> for a single program to</p>
+<div id="fig-microservice-spof-scale-out-monolith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Horizontal scaling (scale-out) of Monoliths: 16 states"><img src="../../../../_images/diagrams/microservice-spof-scale-out-monolith.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-monolith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>Horizontal scaling</strong> (<strong>scale-out</strong>) of <strong>Monoliths</strong>: 16 states
+</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\frac 7 {16} = 43.75\%.\]</span></p>
+<p>The <span class="math inline">\(\frac 7 {16} = 43.75\%\)</span> differs somewhat from the <span class="math inline">\(\frac 3 4 = 75\%\)</span> calculated by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>. This is because, instead of <strong>scaling out</strong> a single program by a factor of four (to four instances), <strong>scaling out</strong> by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the <strong>source code</strong>.</p>
+<p>To summarize, from the perspective of the <strong>source code</strong>, the availability of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>monolith</strong> (<span class="math inline">\(43.75\%\)</span>) is better than the original <span class="math inline">\(25\%\)</span>, but it is still worse than that of a <strong>horizontally scaled</strong> (<strong>scaled-out</strong>) <strong>microservice</strong> (<span class="math inline">\(56.25\%\)</span>). This represents a notable divergence from the interpretation offered by <span class="citation" data-cites="stanko2022single">Krtalić Rusendić (<a href="#ref-stanko2022single" role="doc-biblioref">2022</a>)</span>.</p>
+</section>
+</section>
+<section id="comparisons-through-formulae-between-monoliths-and-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-through-formulae-between-monoliths-and-microservices">Comparisons Through Formulae Between Monoliths and Microservices</h2>
+<section id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="two-special-formulae-representing-shared-source-code-of-monoliths-and-microservices">Two Special Formulae Representing Shared Source Code of Monoliths and Microservices</h3>
+<p>Generally, when there are no external factors except <strong>source code</strong>, if <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> are <strong>fully connected</strong> and depend on each other, they have <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>). Therefore, their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
+<p><span id="eq-microservice-spof-join"><span class="math display">\[\text{Join}(p, n) = p^n. \tag{1}\]</span></span></p>
+<p>Since <span class="math inline">\(0 \leq p \leq 1\)</span>, this value <strong>decreases monotonically</strong> as <span class="math inline">\(n\)</span> increases.</p>
+<p>On the other hand, if <span class="math inline">\(m\)</span> components are independent, they have no <strong>single points of failure</strong> (<strong>SPOFs</strong>), and their availability is the same whether deployed as <strong>microservices</strong> or <strong>monoliths</strong>:</p>
+<p><span id="eq-microservice-spof-split"><span class="math display">\[\text{Split}(p, m) = 1 - (1 - p)^m. \tag{2}\]</span></span></p>
+<p>This value <strong>increases monotonically</strong> as <span class="math inline">\(m\)</span> increases, because <span class="math inline">\(0 \leq  1 - p \leq 1\)</span> leads to <span class="math inline">\((1- p)^m\)</span> <strong>decreasing monotonically</strong>.</p>
+</section>
+</section>
+<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices" class="level2">
+<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-microservices">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices</h2>
+<p>When there are no external factors other than <strong>source code</strong>, if each of <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> is <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <span class="math inline">\(m\)</span>, each group of <span class="math inline">\(m\)</span> has no <strong>single points of failure</strong> (<strong>SPOFs</strong>) and its availability is <span class="math inline">\(\text{Split}(p, m) = 1 - (1 - p)^m\)</span>. If <span class="math inline">\(n\)</span> groups of <span class="math inline">\(m\)</span> are <strong>fully connected</strong> and depend on each other as <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>), the combined availability is</p>
+<p><span id="eq-microservice-spof-scale-out-microservice"><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; = \text{Join}(\text{Split}(p, m), n)\\
+                                               &amp; = \text{Join}(1 - (1 - p)^m, n)\\
+                                               &amp; = (1 - (1 - p)^m)^n.
+\end{align}
+\tag{3}\]</span></span></p>
+<p>This matches the availability in <a href="#fig-microservice-spof-missing-microservice" class="quarto-xref">Figure&nbsp;2</a>:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(\frac 1 2, 2, 2) &amp; = \text{Join}(\text{Split}(\frac 1 2, 2), 2)\\
+                                                       &amp; = \text{Join}(1 - (1 - \frac 1 2)^2, 2)\\
+                                                       &amp; = \text{Join}(1 - (\frac 1 2)^2, 2)\\
+                                                       &amp; = \text{Join}(1 - \frac 1 4, 2)\\
+                                                       &amp; = \text{Join}(\frac 3 4, 2)\\
+                                                       &amp; = (\frac 3 4)^2\\
+                                                       &amp; = \frac 9 {16}\\
+                                                       &amp; = 56.25\%.
+\end{align}
+\]</span></p>
+</section>
+<section id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths" class="level2">
+<h2 class="anchored" data-anchor-id="a-formula-representing-combined-availability-of-horizontal-scaling-scale-out-of-monoliths">A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths</h2>
+<p>When there are no external factors, if <span class="math inline">\(n\)</span> <strong>microservices</strong> with independent availability <span class="math inline">\(0 \leq p \leq 1\)</span> are <strong>fully connected</strong> and depend on each other as <span class="math inline">\(n\)</span> <strong>single points of failure</strong> (<strong>SPOFs</strong>), their availability when deployed as a <strong>monolith</strong> is <span class="math inline">\(\text{Join}(p, n) = p^n\)</span>. If the <span class="math inline">\(n\)</span> components are <strong>scaled out</strong> <strong>horizontally</strong> by a factor of <span class="math inline">\(m\)</span> to remove <strong>single points of failure</strong> (<strong>SPOFs</strong>), the availability is</p>
+<p><span id="eq-microservice-spof-scale-out-monolith"><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(p, n, m) &amp; = \text{Split}(\text{Join}(p, n), m)\\
+                                           &amp; = \text{Split}(p^n, m)\\
+                                           &amp; = 1 - (1 - p^n)^m.
+\end{align}
+\tag{4}\]</span></span></p>
+<p>This matches the availability in <a href="#fig-microservice-spof-scale-out-monolith" class="quarto-xref">Figure&nbsp;3</a>:</p>
+<p><span class="math display">\[
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(\frac 1 2, 2, 2) &amp; = \text{Split}(\text{Join}(\frac 1 2, 2), 2)\\
+                                                   &amp; = \text{Split}((\frac 1 2)^2, 2)\\
+                                                   &amp; = \text{Split}(\frac 1 4, 2)\\
+                                                   &amp; = 1 - (1 - \frac 1 4)^2\\
+                                                   &amp; = 1 - (\frac 3 4)^2\\
+                                                   &amp; = 1 - \frac 9 {16}\\
+                                                   &amp; = \frac 7 {16}\\
+                                                   &amp; = 43.75\%.
+\end{align}
+\]</span></p>
+<section id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-inequality-representing-the-benefits-of-horizontal-scaling-scale-out-of-microservices">The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p>The following can be proven <span class="citation" data-cites="sil2016grid">(<a href="#ref-sil2016grid" role="doc-biblioref">Sil 2016</a>)</span>:</p>
+<p><span id="eq-microservice-spof-sil-2016-grid"><span class="math display">\[(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1. \tag{5}\]</span></span></p>
+<p>Therefore,</p>
+<p><span id="eq-microservice-spof-scale-out-inequality"><span class="math display">\[
+\begin{align}
+(1 - (1 - p)^m)^n &amp; \geq 1 - (1 - p^n)^m\\
+\text{Join}(\text{Split}(p, m), n) &amp; \geq \text{Split}(\text{Join}(p, n), m)\\
+\\
+\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) &amp; \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m).
+\end{align}
+\tag{6}\]</span></span></p>
+</section>
+<section id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices" class="level3">
+<h3 class="anchored" data-anchor-id="the-observable-benefits-of-horizontal-scaling-scale-out-of-microservices">The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices</h3>
+<p>In addition to the inequality of <a href="#eq-microservice-spof-scale-out-inequality" class="quarto-xref">Equation&nbsp;6</a>, but the visualization in <a href="#fig-microservice-spof-scale-out-visualization" class="quarto-xref">Figure&nbsp;1</a> also demonstrates that the gap between <span class="math inline">\(\text{ScaleOut}_{\text{Microservice}}(p, n, m)\)</span> and <span class="math inline">\(\text{ScaleOut}_{\text{Monolith}}(p, n, m)\)</span> widens rapidly as <span class="math inline">\(p\)</span> decreases or <span class="math inline">\(n\)</span> increases, even as the factor of <strong>horizontally scaling</strong> (<strong>scale-out</strong>) <span class="math inline">\(m\)</span> grows.</p>
+</section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
@@ -797,16 +786,16 @@ Lee, Heeyeol. 2018. <span>“[궁금한 반도체 WHY] 낸드플래시 메모리
 <div id="ref-sil2016grid" class="csl-entry" role="listitem">
 Sil. 2016. <span>“If <span class="math inline">\(p + q = 1\)</span> Prove That for Any Natural <span class="math inline">\(n, m\)</span> Following Is True: <span class="math inline">\((1 - p^n)^m + (1 - q^m)^n \ge 1\)</span>.”</span> December 8, 2016. <a href="https://math.stackexchange.com/a/2049972">https://math.stackexchange.com/a/2049972</a>.
 </div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2024,
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
   author = {Kee, Yunho},
   title = {Visualized Microservices As an Upperbounds of Monoliths},
-  date = {2024-04-14},
+  date = {2025-05-30},
   url = {https://yhkee0404.github.io/posts/web/microservice-spof/en/},
   langid = {ko}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Kee, Yunho. 2024. <span>“Visualized Microservices As an Upperbounds of
-Monoliths.”</span> April 14, 2024. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Kee, Yunho. 2025. <span>“Visualized Microservices As an Upperbounds of
+Monoliths.”</span> May 30, 2025. <a href="https://yhkee0404.github.io/posts/web/microservice-spof/en/">https://yhkee0404.github.io/posts/web/microservice-spof/en/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script type="ojs-module-contents">
 eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxudmlld29mIHAgPSBJbnB1dHMucmFuZ2UoWzAuMDEsIDAuOTldLCB7c3RlcDogMC4wMSwgdmFsdWU6IDAuNSwgbGFiZWw6IFwicFwifSk7XG52aWV3b2YgbiA9IElucHV0cy5yYW5nZShbMSwgMTAwXSwge3N0ZXA6IDEsIHZhbHVlOiA1LCBsYWJlbDogXCJuXCJ9KTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuZnVuY3Rpb24gam9pbihwLCBuKSB7XG4gIHJldHVybiBNYXRoLnBvdyhwLCBuKTtcbn1cbmZ1bmN0aW9uIHNwbGl0KHAsIG0pIHtcbiAgcmV0dXJuIDEgLSBNYXRoLnBvdygxIC0gcCwgbSk7XG59XG5cbnkxcyA9ICgoKSA9PiB7XG4gIGNvbnN0IHlzID0gW107XG4gIGZvciAobGV0IGkgPSAxOyBpIDw9IDEwMDsgaSsrKSB7XG4gICAgeXMucHVzaCh7XG4gICAgICBtOiBpLFxuICAgICAgeTogam9pbihzcGxpdChwLCBpKSwgbiksXG4gICAgICBsYWJlbDogXCJTY2FsZU91dE1pY3Jvc2VydmljZVwiLFxuICAgIH0pO1xuICB9XG4gIHJldHVybiB5cztcbn0pKCk7XG5cbnkycyA9ICgoKSA9PiB7XG4gIGNvbnN0IHlzID0gW107XG4gIGZvciAobGV0IGkgPSAxOyBpIDw9IDEwMDsgaSsrKSB7XG4gICAgeXMucHVzaCh7XG4gICAgICBtOiBpLFxuICAgICAgeTogc3BsaXQoam9pbihwLCBuKSwgaSksXG4gICAgICBsYWJlbDogXCJTY2FsZU91dE1vbm9saXRoXCIsXG4gICAgfSk7XG4gIH1cbiAgcmV0dXJuIHlzO1xufSkoKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuUGxvdC5wbG90KHtcbiAgZ3JpZDogdHJ1ZSxcbiAgY29sb3I6IHtsZWdlbmQ6IHRydWUsIHNjaGVtZTogXCJCdVJkXCJ9LFxuICB4OiB7bGFiZWw6IFwibVwifSxcbiAgeToge2RvbWFpbjogWzAsIDFdfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmFyZWFZKHkxcy5jb25jYXQoeTJzKSwge3kxOiBcInlcIiwgeDogXCJtXCIsIGZpbGw6IFwibGFiZWxcIiwgZmlsbE9wYWNpdHk6IDAuNX0pLFxuICAgIFBsb3QudGlwKHkxcywgUGxvdC5wb2ludGVyWCh7eDogXCJtXCIsIHk6IFwieVwiLCBmaWxsOiBcImRhcmtncmF5XCIsIHRpdGxlOiAoZCkgPT4gYCR7ZC5sYWJlbH0oJHtwfSwgJHtkLm19LCAke259KVxcbiR7ZC55fWB9KSksXG4gICAgUGxvdC50aXAoeTJzLCBQbG90LnBvaW50ZXJYKHt4OiBcIm1cIiwgeTogXCJ5XCIsIGZpbGw6IFwiZGFya2dyYXlcIiwgdGl0bGU6IChkKSA9PiBgJHtkLmxhYmVsfSgke3B9LCAke2QubX0sICR7bn0pXFxuJHtkLnl9YH0pKSxcbiAgXSxcbiAgc3R5bGU6IFwiYmFja2dyb3VuZDogaW5oZXJpdDtcIixcbn0pO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdwJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ24nKSJ9XX0=
