@@ -125,7 +125,7 @@ When deploying this program as **microservice** instead of a **monolith**, the *
 Designing a system as a **microservice** can be advantageous even if it is deployed later as a **monolith**.
 In the aforementioned **source code**, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes $50\%$ because the output is independent of the second result.
 In this case, the **single point of failure** (**SPOF**) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the **single point of failure** (**SPOF**) to two, ending up with the reduced availability of $25\%$.
-Thus, considering **partial availability** or **resilience** in the design stage keeps the number of **single points of failure** (**SPOFs**) being not unnecessarily increased, even if deployed as a **monolith**.
+Thus, considering **partial availability** or **resilience** in the design stage keeps the number of **single points of failure** (**SPOFs**) from being unnecessarily increased, even if deployed as a **monolith**.
 
 ### An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices
 
@@ -166,7 +166,7 @@ $$\frac 9 {16} = 56.25\%.$$
 
 The $\frac 9 {16} = 56.25\%$ differs somewhat from the $\frac 7 {14} = 50\%$ calculated by @stanko2022single.
 
-On the other hand, if the **single points of failure** (**SPOFs**) of a single **monolith** program is removed by **scaling out** the original program by a factor of two, the internal dependency between the two units of **source code** in the single program is maintained, but there is no external dependency between the two programs.
+On the other hand, if the **single points of failure** (**SPOFs**) of a single **monolith** program are removed by **scaling out** the original program by a factor of two, the internal dependency between the two units of **source code** in the single program is maintained, but there is no external dependency between the two programs.
 Thus, the two yellow arrows in the center of @fig-microservice-spof-missing-microservice are absent in @fig-microservice-spof-scale-out-monolith.
 Therefore, the two available states in @fig-microservice-spof-missing-microservice become failure states in @fig-microservice-spof-scale-out-monolith, and the availability increases from $\frac 1 4 = 25\%$ for a single program to
 
