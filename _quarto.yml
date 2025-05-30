@@ -54,6 +54,7 @@ format:
     theme:
       dark: darkly
       light: flatly
+    respect-user-color-scheme: true
     highlight-style: github
     toc: true
     # toc-location: right-body
