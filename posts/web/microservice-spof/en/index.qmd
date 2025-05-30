@@ -148,7 +148,7 @@ In reviewing the analysis of @stanko2022single, it appears that two available st
 :::{#fig-microservice-spof-missing-microservice layout-ncol=2}
 ![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
 
-![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="margin-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
+![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="padding-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
 
 The Two Available States of **Microservices** in **Horizontal Scaling** (**Scale-Out**) @stanko2022single Omitted
 :::

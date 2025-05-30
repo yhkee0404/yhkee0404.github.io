@@ -151,7 +151,7 @@ Netflix가 **Microservice**로 유명하며, [Chaos Monkey](https://github.com/n
 :::{#fig-microservice-spof-missing-microservice layout-ncol=2}
 ![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
 
-![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="margin-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
+![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="padding-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
 
 **수평 확장**(**Horizontal Scaling**, **Scale-Out**) 시 **Microservice**의 16가지 상태 중 @stanko2022single 가 누락한 2가지 정상 동작 상태
 :::
