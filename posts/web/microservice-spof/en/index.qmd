@@ -110,7 +110,7 @@ Plot.plot({
 
 According to web developer @stanko2022single, a single program is considered a **monolithic** architecture, while implementing the same program as multiple programs is called **microservice architecture**, or **MSA**.
 
-A **monolith** program is composed of **classes** and **methods**, or **modules** and **functions** [@stanko2022single].
+A **monolithic** program is composed of **classes** and **methods**, or **modules** and **functions** [@stanko2022single].
 If **classes** and **methods** are implemented as a **microservice** program, they become **services** and **APIs** [@stanko2022single].
 Netflix is well-known for its use of **microservices**, and they have also developed a testing tool called Chaos Monkey [@stanko2022single].
 
