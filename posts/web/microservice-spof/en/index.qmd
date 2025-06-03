@@ -94,7 +94,7 @@ Plot.plot({
   grid: true,
   color: {legend: true, scheme: "BuRd"},
   x: {label: "m"},
-  y: {domain: [0, 1]},
+  y: {label: "Combined Availability", domain: [0, 1]},
   marks: [
     Plot.areaY(y1s.concat(y2s), {y1: "y", x: "m", fill: "label", fillOpacity: 0.5}),
     Plot.tip(y1s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
@@ -108,7 +108,7 @@ Plot.plot({
 
 ### Shared Source Code of Monoliths and Microservices
 
-According to web developer @stanko2022single, a single program is considered a **monolith** architecture, while implementing the same program as multiple programs is called **microservice architecture**, or **MSA**.
+According to web developer @stanko2022single, a single program is considered a **monolithic** architecture, while implementing the same program as multiple programs is called **microservice architecture**, or **MSA**.
 
 A **monolith** program is composed of **classes** and **methods**, or **modules** and **functions** [@stanko2022single].
 If **classes** and **methods** are implemented as a **microservice** program, they become **services** and **APIs** [@stanko2022single].
