@@ -97,7 +97,7 @@ Plot.plot({
   grid: true,
   color: {legend: true, scheme: "BuRd"},
   x: {label: "m"},
-  y: {domain: [0, 1]},
+  y: {label: "Combined Availability", domain: [0, 1]},
   marks: [
     Plot.areaY(y1s.concat(y2s), {y1: "y", x: "m", fill: "label", fillOpacity: 0.5}),
     Plot.tip(y1s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
