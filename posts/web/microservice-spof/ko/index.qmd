@@ -90,7 +90,7 @@ y2s = (() => {
 
 ```{ojs}
 //| label: fig-microservice-spof-scale-out-visualization
-//| fig-cap: "그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점"
+//| fig-cap: "그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점"
 //| echo: false
 
 Plot.plot({
