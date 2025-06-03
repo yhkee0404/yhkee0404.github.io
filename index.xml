@@ -3925,7 +3925,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-microservice-spof-scale-out-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 이점
+Figure&nbsp;1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점
 </figcaption>
 </figure>
 </div>
