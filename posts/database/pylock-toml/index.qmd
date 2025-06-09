@@ -1,0 +1,137 @@
+---
+title: "PEP 751: Python pylock.toml의 requirements.txt 대체"
+author: "Yunho Kee"
+date: "2025-06-09"
+categories:
+  - database
+  - "lock files"
+  - standard
+  - "PEP"
+  - reproducibility
+  - hash
+  - painless
+  - build
+  - sdist
+  - version
+  - "backward compatibility"
+  - auditability
+  - "cross-platform"
+  - "typing-extensions"
+  - anaconda
+  - "WheelNext"
+  - graph
+  - json
+  - nosql
+  - workspace
+  - rust
+  - monorepo
+  - scm
+  - sbom
+  - standalone
+  - pip
+  - distutils
+  - setuptools
+  - "Python Steering Council"
+  - "Python Core Developer"
+  - "PyPA"
+  - "PyPI"
+  - "Brett Cannon"
+  - uranusjr
+  - "Paul Moore"
+  - "Seth Michael Larson"
+  - "Donald Stufft"
+  - "Frost Ming"
+  - "Charlie Marsh"
+  - "Randy Döring"
+description: " "
+image: "/_images/thumbnails/pylock-toml-real-python-youtube-hqdefault.avif"
+---
+
+{{< video https://youtu.be/xVlH-8aE0HM?si=V23Qbc9ZJmXkw08s >}}
+
+0. 2019년 2월 (약 6년 전) `requirements.txt`의 Version 2 표준화에 대해 비공식적 논의
+   - 기존에는 표준이 아니라 `pip` 명령 매개변수에 불과했음
+     - 한 줄씩 매개변수 추가하는 셈
+     - 그래서 여러 파일 입력 가능
+     - 기존 소프트웨어들이 Reverse Engineering
+   - 기존 소프트웨어들이 출력은 하지만 굳이 입력하지 않는 파일
+     - `pip`와 `setuptools`로부터 표준화해봤자 기존 소프트웨어 따라잡기 어려울 듯 (Bottom Up)
+   - 통용하기 쉬운 표준 입력 파일 구상
+     - 반대로 기존 소프트웨어들의 기능을 참고해서 표준화하는 전략 선택 (Top Down)
+   - 고민 자체는 이전부터
+   - Twitter에서 Tzu-ping Chung(uranusjr)과 논의
+1. 2020년 6월 [PEP 621](https://peps.python.org/pep-0621/): `setup.py` &rarr; `pyproject.toml`
+   - Project Metadata
+     - 기존에는 `distutils`의 `setup.py`를 `setuptools`도 따라 썼었음
+   - Format 자체의 Version은 논외
+     - 사람이 작성하므로
+2. 2021년 7월 [PEP 665](https://peps.python.org/pep-0665/): `.whl` (Wheel) 파일 설치를 위한 Lock이지만 반려
+   - Reproducibility는 기본
+   - 보안을 위한 Hash cf. [pip-tools](https://pypi.org/project/pip-tools/)의 pip-compile
+   - Painless
+     - `.whl` (Wheel) 파일은 Binaries라 설치는 Copy & Paste 수준
+     - `sdist` (Source Distributions) 지원을 위한 수요 때문에 반려
+       - 어차피 대부분 `.whl` (Wheel) 파일 Build하니까 미리 Build하면 되는데 Painful하다는 반대에 부딪힘
+3. 2024년 7월 [PEP 751](https://peps.python.org/pep-0751/): `sdist` (Source Distributions) 지원 Lock
+   - `sdist` (Source Distributions) 일부 지원
+     - 엄격한 지원은 기존 반대와 달리 복잡해졌다는 새로운 반대 때문에 필요없어짐
+     - 논의 자체는 이전부터 Draft PEP 등에서
+   - 최초로 무조건적 승인된 PEP
+     - Format 자체의 Version이 있기 때문
+       - 사람이 작성하지 않고 자동 생성
+       - Backward Compatibility 논외
+   - [PDM](https://pdm-project.org/)의 영향 반영
+     - Auditable cf. [pip audit](https://pypi.org/project/pip-audit/)
+       - 자동 생성하더라도 보안을 위한 육안 점검 용이 cf. Python Package Index (PyPI)에 Upload한 시각
+       - JSON보다 List 또는 Table 구조 cf. Not Only SQL (NoSQL) 중 Document Stores의 Join, Relational Database Management Systems (RDBMSs)의 JSON
+         - 게다가 Parallelizable
+       - 최초 Version부터
+     - Multi-Use
+       - 단일 파일 공유 또는 상속 cf. [오픈소스 이력서 엔지니어링](https://yhkee0404.github.io/posts/database/cv-or-resume/)
+         - 중복 요소가 많으므로
+         - Cross-Platform cf. [typing-extensions](https://pypi.org/project/typing-extensions/)
+           - OS-Level은 Anaconda
+           - Python Package Index (PyPI)에 한해서는 [WheelNext](https://wheelnext.dev/) 논의 중
+       - Universal Lock Files라고도 함
+       - 어려워서 보류했다가 최종 추가
+     - Frost Ming와 논의
+   - [UV](https://docs.astral.sh/uv/)의 영향 반려
+     - Graph 구조로 재구성했다가 복잡하다는 반대 때문에 Roll Back
+     - Workspace는 특수한 개념이라 표준화 보류 또는 다음을 기약
+       - Monorepo 개념 cf. Python Polylith의 Workspace 중 [Development](https://davidvujic.github.io/python-polylith-docs/workspace/#development)
+       - Rust의 영향
+     - Charlie Marsh와 논의
+       - [Ruff](https://docs.astral.sh/ruff/)
+   - Poetry의 영향 반영
+     - String `default-group` &rarr; List `default-groups`
+     - Randy Döring와 논의
+   - 추후 출력뿐 아니라 입력 가능성
+   - Project Version은 Lock에서 제외
+     - `setuptools`나 Software Configuration Management (SCM) 등에서 동적 생성 시 혼동되므로
+   - 2025년 3월까지 약 8개월 간 1,500 건 논의
+4. 2025년 1월 [PEP 770](https://peps.python.org/pep-0770/): Software Bill-of-Materials (SBOMs)
+   - Lock Files와 달리 보안을 위해 점검 가능한 2가지 취약점
+     1. Build할 때 Backend가 사용한 컴파일러 Version 등
+     2. Vendor 또는 Embed한 Version
+         - `pip`가 Standalone한 이유
+   - Seth Michael Larson이 작성
+   - Brett Cannon이 Delegate
+
+* Brett Cannon
+  1. 전 Python Steering Council
+     - 창립 구성원
+     - 임기 5년 제안했으나 반려
+       - 기회 양보를 위해 직접 제안
+       - 동일한 취지로 자발적 휴식 중
+  2. 현 Python Core Developer
+     - Token에 비유하자면 1년 Commit을 통해 자동 Refresh
+       - 재인증 문의가 오거나 만료돼도 다시 하면 그만
+  3. 현 Python Packaging Authority (PyPA) 구성원
+     - Authority는 농담에 불과
+
+* Python Enhancement Proposals (PEP)
+  - `PEP-Delegate`의 지정과 승인 필요
+  - Packaging 관련은 `packaging.python.org`
+    - Steering Council의 Delegate는 주로 Paul Moore
+    - 기술적으로는 Donald Stufft가 많이 기여
+  - 논의는 `discuss.python.org`
