@@ -16,7 +16,236 @@
 <link>https://yhkee0404.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Fri, 30 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Jun 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>PEP 751: Python pylock.toml의 requirements.txt 대체</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/database/pylock-toml/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xVlH-8aE0HM?si=V23Qbc9ZJmXkw08s" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<ol start="0" type="1">
+<li>2019년 2월 (약 6년 전) <code>requirements.txt</code>의 Version 2 표준화에 대해 비공식적 논의
+<ul>
+<li>기존에는 표준이 아니라 <code>pip</code> 명령 매개변수에 불과했음
+<ul>
+<li>한 줄씩 매개변수 추가하는 셈</li>
+<li>그래서 여러 파일 입력 가능</li>
+<li>기존 소프트웨어들이 Reverse Engineering</li>
+</ul></li>
+<li>기존 소프트웨어들이 출력은 하지만 굳이 입력하지 않는 파일
+<ul>
+<li><code>pip</code>와 <code>setuptools</code>로부터 표준화해봤자 기존 소프트웨어 따라잡기 어려울 듯 (Bottom Up)</li>
+</ul></li>
+<li>통용하기 쉬운 표준 입력 파일 구상
+<ul>
+<li>반대로 기존 소프트웨어들의 기능을 참고해서 표준화하는 전략 선택 (Top Down)</li>
+</ul></li>
+<li>고민 자체는 이전부터</li>
+<li>Twitter에서 Tzu-ping Chung(uranusjr)과 논의</li>
+</ul></li>
+<li>2020년 6월 <a href="https://peps.python.org/pep-0621/">PEP 621</a>: <code>setup.py</code> → <code>pyproject.toml</code>
+<ul>
+<li>Project Metadata
+<ul>
+<li>기존에는 <code>distutils</code>의 <code>setup.py</code>를 <code>setuptools</code>도 따라 썼었음</li>
+</ul></li>
+<li>Format 자체의 Version은 논외
+<ul>
+<li>사람이 작성하므로</li>
+</ul></li>
+</ul></li>
+<li>2021년 7월 <a href="https://peps.python.org/pep-0665/">PEP 665</a>: <code>.whl</code> (Wheel) 파일 설치를 위한 Lock이지만 반려
+<ul>
+<li>Reproducibility는 기본</li>
+<li>보안을 위한 Hash cf.&nbsp;<a href="https://pypi.org/project/pip-tools/">pip-tools</a>의 pip-compile</li>
+<li>Painless
+<ul>
+<li><code>.whl</code> (Wheel) 파일은 Binaries라 설치는 Copy &amp; Paste 수준</li>
+<li><code>sdist</code> (Source Distributions) 지원을 위한 수요 때문에 반려
+<ul>
+<li>어차피 대부분 <code>.whl</code> (Wheel) 파일 Build하니까 미리 Build하면 되는데 Painful하다는 반대에 부딪힘</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>2024년 7월 <a href="https://peps.python.org/pep-0751/">PEP 751</a>: <code>sdist</code> (Source Distributions) 지원 Lock
+<ul>
+<li><code>sdist</code> (Source Distributions) 일부 지원
+<ul>
+<li>엄격한 지원은 기존 반대와 달리 복잡해졌다는 새로운 반대 때문에 필요없어짐</li>
+<li>논의 자체는 이전부터 Draft PEP 등에서</li>
+</ul></li>
+<li>최초로 무조건적 승인된 PEP
+<ul>
+<li>Format 자체의 Version이 있기 때문
+<ul>
+<li>사람이 작성하지 않고 자동 생성</li>
+<li>Backward Compatibility 논외</li>
+</ul></li>
+</ul></li>
+<li><a href="https://pdm-project.org/">PDM</a>의 영향 반영
+<ul>
+<li>Auditable cf.&nbsp;<a href="https://pypi.org/project/pip-audit/">pip audit</a>
+<ul>
+<li>자동 생성하더라도 보안을 위한 육안 점검 용이 cf.&nbsp;Python Package Index (PyPI)에 Upload한 시각</li>
+<li>JSON보다 List 또는 Table 구조 cf.&nbsp;Not Only SQL (NoSQL) 중 Document Stores의 Join, Relational Database Management Systems (RDBMSs)의 JSON
+<ul>
+<li>게다가 Parallelizable</li>
+</ul></li>
+<li>최초 Version부터</li>
+</ul></li>
+<li>Multi-Use
+<ul>
+<li>단일 파일 공유 또는 상속 cf.&nbsp;<a href="https://yhkee0404.github.io/posts/database/cv-or-resume/">오픈소스 이력서 엔지니어링</a>
+<ul>
+<li>중복 요소가 많으므로</li>
+<li>Cross-Platform cf.&nbsp;<a href="https://pypi.org/project/typing-extensions/">typing-extensions</a>
+<ul>
+<li>OS-Level은 Anaconda</li>
+<li>Python Package Index (PyPI)에 한해서는 <a href="https://wheelnext.dev/">WheelNext</a> 논의 중</li>
+</ul></li>
+</ul></li>
+<li>Universal Lock Files라고도 함</li>
+<li>어려워서 보류했다가 최종 추가</li>
+</ul></li>
+<li>Frost Ming와 논의</li>
+</ul></li>
+<li><a href="https://docs.astral.sh/uv/">UV</a>의 영향 반려
+<ul>
+<li>Graph 구조로 재구성했다가 복잡하다는 반대 때문에 Roll Back</li>
+<li>Workspace는 특수한 개념이라 표준화 보류 또는 다음을 기약
+<ul>
+<li>Monorepo 개념 cf.&nbsp;Python Polylith의 Workspace 중 <a href="https://davidvujic.github.io/python-polylith-docs/workspace/#development">Development</a></li>
+<li>Rust의 영향</li>
+</ul></li>
+<li>Charlie Marsh와 논의
+<ul>
+<li><a href="https://docs.astral.sh/ruff/">Ruff</a></li>
+</ul></li>
+</ul></li>
+<li>Poetry의 영향 반영
+<ul>
+<li>String <code>default-group</code> → List <code>default-groups</code></li>
+<li>Randy Döring와 논의</li>
+</ul></li>
+<li>추후 출력뿐 아니라 입력 가능성</li>
+<li>Project Version은 Lock에서 제외
+<ul>
+<li><code>setuptools</code>나 Software Configuration Management (SCM) 등에서 동적 생성 시 혼동되므로</li>
+</ul></li>
+<li>2025년 3월까지 약 8개월 간 1,500 건 논의</li>
+</ul></li>
+<li>2025년 1월 <a href="https://peps.python.org/pep-0770/">PEP 770</a>: Software Bill-of-Materials (SBOMs)
+<ul>
+<li>Lock Files와 달리 보안을 위해 점검 가능한 2가지 취약점
+<ol type="1">
+<li>Build할 때 Backend가 사용한 컴파일러 Version 등</li>
+<li>Vendor 또는 Embed한 Version
+<ul>
+<li><code>pip</code>가 Standalone한 이유</li>
+</ul></li>
+</ol></li>
+<li>Seth Michael Larson이 작성</li>
+<li>Brett Cannon이 Delegate</li>
+</ul></li>
+</ol>
+<ul>
+<li>Brett Cannon
+<ol type="1">
+<li>전 Python Steering Council
+<ul>
+<li>창립 구성원</li>
+<li>임기 5년 제안했으나 반려
+<ul>
+<li>기회 양보를 위해 직접 제안</li>
+<li>동일한 취지로 자발적 휴식 중</li>
+</ul></li>
+</ul></li>
+<li>현 Python Core Developer
+<ul>
+<li>Token에 비유하자면 1년 Commit을 통해 자동 Refresh
+<ul>
+<li>재인증 문의가 오거나 만료돼도 다시 하면 그만</li>
+</ul></li>
+</ul></li>
+<li>현 Python Packaging Authority (PyPA) 구성원
+<ul>
+<li>Authority는 농담에 불과</li>
+</ul></li>
+</ol></li>
+<li>Python Enhancement Proposals (PEP)
+<ul>
+<li><code>PEP-Delegate</code>의 지정과 승인 필요</li>
+<li>Packaging 관련은 <code>packaging.python.org</code>
+<ul>
+<li>Steering Council의 Delegate는 주로 Paul Moore</li>
+<li>기술적으로는 Donald Stufft가 많이 기여</li>
+</ul></li>
+<li>논의는 <code>discuss.python.org</code></li>
+</ul></li>
+</ul>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {PEP 751: Python pylock.toml의 requirements.txt 대체},
+  date = {2025-06-09},
+  url = {https://yhkee0404.github.io/posts/database/pylock-toml/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“PEP 751: Python pylock.toml의 requirements.txt
+대체.”</span> June 9, 2025. <a href="https://yhkee0404.github.io/posts/database/pylock-toml/">https://yhkee0404.github.io/posts/database/pylock-toml/</a>.
+</div></div></section></div> ]]></description>
+  <category>database</category>
+  <category>lock files</category>
+  <category>standard</category>
+  <category>PEP</category>
+  <category>reproducibility</category>
+  <category>hash</category>
+  <category>painless</category>
+  <category>build</category>
+  <category>sdist</category>
+  <category>version</category>
+  <category>backward compatibility</category>
+  <category>auditability</category>
+  <category>cross-platform</category>
+  <category>typing-extensions</category>
+  <category>anaconda</category>
+  <category>WheelNext</category>
+  <category>graph</category>
+  <category>json</category>
+  <category>nosql</category>
+  <category>workspace</category>
+  <category>rust</category>
+  <category>monorepo</category>
+  <category>scm</category>
+  <category>sbom</category>
+  <category>standalone</category>
+  <category>pip</category>
+  <category>distutils</category>
+  <category>setuptools</category>
+  <category>Python Steering Council</category>
+  <category>Python Core Developer</category>
+  <category>PyPA</category>
+  <category>PyPI</category>
+  <category>Brett Cannon</category>
+  <category>uranusjr</category>
+  <category>Paul Moore</category>
+  <category>Seth Michael Larson</category>
+  <category>Donald Stufft</category>
+  <category>Frost Ming</category>
+  <category>Charlie Marsh</category>
+  <category>Randy Döring</category>
+  <guid>https://yhkee0404.github.io/posts/database/pylock-toml/</guid>
+  <pubDate>Mon, 09 Jun 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/thumbnails/pylock-toml-real-python-youtube-hqdefault.avif" medium="image" type="image/avif"/>
+</item>
 <item>
   <title>Visualized: Microservices as the Upper Bound for Monolith Availability</title>
   <dc:creator>Yunho Kee</dc:creator>
@@ -1106,7 +1335,7 @@ font-style: inherit;"># docker compose down</span></span></code></pre></div>
 <p>데이터베이스 원리에서 영감을 받았습니다. 전통적인 관계형 데이터베이스(RDBMS)는 <strong>중복(redundancy)</strong>과 <strong>갱신 이상(update anomaly)</strong> 문제를 <strong>즉각적이고(static)</strong>, <strong>선처리된(eager) 업데이트</strong>(원자적 트랜잭션, 혹은 스레드 동기화 활용) 또는 변경을 무시하는 방식(예: <strong>repeatable read</strong> 격리 수준)으로 해결할 수도 있습니다.</p>
 <p>대신, 이 워크플로우는 데이터베이스의 외래키 조인처럼 <strong>온디맨드(lazy)</strong> 평가 방식을 채택하여, 업데이트를 런타임에 동적으로 반영합니다. 프로그래밍의 <strong>참조 변수(reference variable)</strong>, <strong>클래스 상속(class inheritance)</strong>, <strong>모노레포(monorepo)</strong>(코드를 중복하지 않고 공유하는 방식)와도 유사합니다.</p>
 <ol start="2" type="1">
-<li>크로스플랫폼 지원</li>
+<li>크로스플랫폼 (Cross-Platform) 지원</li>
 </ol>
 <p>플랫폼별로 고유한 내용이나 스타일이 있더라도, 단순 변환 도구(converter)만으로는 재사용이 어렵습니다. 변환된 파일을 직접 수정하면, 소스가 바뀔 때마다 수작업이 반복되고 데이터가 유실될 수 있습니다.</p>
 <p>이 워크플로우는 <strong>고립되거나 미완성된 내용이나 스타일도 참조</strong>할 수 있어, <strong>주석</strong>, <strong>CSS 파일</strong>, <strong>reference</strong> 문서 등에 미리 정의해 두고 필요할 때마다 쉽게 재사용할 수 있습니다.</p>
@@ -5773,69 +6002,6 @@ Kee, Yunho. 2023. <span>“[코드트리 챌린지] 6주차 - 2차원 배열
   <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-6/</guid>
   <pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/codetree/report_2023-10-16.png" medium="image" type="image/png" height="68" width="144"/>
-</item>
-<item>
-  <title>[코드트리 챌린지] 5주차 - Dijkstra</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/algorithms/codetree/week-5/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-layout-panel" data-layout="[526, 474]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 52.6%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/report_2023-10-09.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="실력 진단 결과"><img src="https://yhkee0404.github.io/_images/codetree/report_2023-10-09.png" class="img-fluid figure-img" alt="실력 진단 결과"></a></p>
-<figcaption>실력 진단 결과</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 47.4%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-10-09 185135.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Dijkstra / 최단 거리 9"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-10-09 185135.jpg" class="img-fluid figure-img" alt="Dijkstra / 최단 거리 9"></a></p>
-<figcaption>Dijkstra / 최단 거리 9</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p><a href="https://www.codetree.ai/missions/8/problems/shortest-distance-9/" class="uri">https://www.codetree.ai/missions/8/problems/shortest-distance-9/</a></p>
-<p>마지막 문제만 못 풀면서 점수가 조금 올랐다.</p>
-<p>문제를 잘못 읽어서 아쉽게 <code>str(ans)</code> 대신에 <code>str(len(parents))</code>를 출력하는 우를 범했다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../../../../_images/codetree/화면 캡처 2023-10-09 190801.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="진단 센터 / 문항별 통계"><img src="https://yhkee0404.github.io/_images/codetree/화면 캡처 2023-10-09 190801.jpg" class="img-fluid figure-img" alt="진단 센터 / 문항별 통계"></a></p>
-<figcaption>진단 센터 / 문항별 통계</figcaption>
-</figure>
-</div>
-<p><a href="https://www.codetree.ai/missions/reports/" class="uri">https://www.codetree.ai/missions/reports/</a></p>
-<p>유형 자체의 평균 소요 시간이 <code>dfs, bfs</code>는 21분, <code>Parametric Search</code>는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.</p>
-<p>평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 <code>구간 단위로 완전탐색</code> 유형과 3주차에 취약했던 <code>격자 안에서 한 칸씩 전진하는 DP</code> 유형이었다. 계속 연습하자.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2023,
-  author = {Kee, Yunho},
-  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},
-  date = {2023-10-09},
-  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-5/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2023" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2023. <span>“[코드트리 챌린지] 5주차 - Dijkstra.”</span>
-October 9, 2023. <a href="https://yhkee0404.github.io/posts/algorithms/codetree/week-5/">https://yhkee0404.github.io/posts/algorithms/codetree/week-5/</a>.
-</div></div></section></div> ]]></description>
-  <category>코드트리</category>
-  <category>코딩테스트</category>
-  <category>코딩테스트실력진단</category>
-  <guid>https://yhkee0404.github.io/posts/algorithms/codetree/week-5/</guid>
-  <pubDate>Mon, 09 Oct 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/codetree/report_2023-10-09.png" medium="image" type="image/png" height="68" width="144"/>
 </item>
 </channel>
 </rss>

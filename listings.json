@@ -16,15 +16,15 @@
     ]
   },
   {
-    "listing": "/drafts/index.html",
+    "listing": "/posts/troubleshoot/index.html",
     "items": [
-      "/posts/algorithms/java-comparable-comparator/draft/index.html",
-      "/posts/data-science/proj/draft/index.html"
+      "/posts/troubleshoot/chrome-remote-desktop/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/database/pylock-toml/index.html",
       "/posts/web/microservice-spof/en/index.html",
       "/posts/web/cors-csrf-xss/index.html",
       "/posts/data-science/transformer/index.html",
@@ -52,14 +52,16 @@
     ]
   },
   {
-    "listing": "/posts/troubleshoot/index.html",
+    "listing": "/drafts/index.html",
     "items": [
-      "/posts/troubleshoot/chrome-remote-desktop/index.html"
+      "/posts/algorithms/java-comparable-comparator/draft/index.html",
+      "/posts/data-science/proj/draft/index.html"
     ]
   },
   {
     "listing": "/posts/database/index.html",
     "items": [
+      "/posts/database/pylock-toml/index.html",
       "/posts/database/cv-or-resume/ko/index.html",
       "/posts/database/cv-or-resume/en/index.html",
       "/posts/database/xml/index.html"

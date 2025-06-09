@@ -569,7 +569,7 @@ Figure&nbsp;1: 이력서 PDF (2025-05-12)
 <p>데이터베이스 원리에서 영감을 받았습니다. 전통적인 관계형 데이터베이스(RDBMS)는 <strong>중복(redundancy)</strong>과 <strong>갱신 이상(update anomaly)</strong> 문제를 <strong>즉각적이고(static)</strong>, <strong>선처리된(eager) 업데이트</strong>(원자적 트랜잭션, 혹은 스레드 동기화 활용) 또는 변경을 무시하는 방식(예: <strong>repeatable read</strong> 격리 수준)으로 해결할 수도 있습니다.</p>
 <p>대신, 이 워크플로우는 데이터베이스의 외래키 조인처럼 <strong>온디맨드(lazy)</strong> 평가 방식을 채택하여, 업데이트를 런타임에 동적으로 반영합니다. 프로그래밍의 <strong>참조 변수(reference variable)</strong>, <strong>클래스 상속(class inheritance)</strong>, <strong>모노레포(monorepo)</strong>(코드를 중복하지 않고 공유하는 방식)와도 유사합니다.</p>
 <ol start="2" type="1">
-<li>크로스플랫폼 지원</li>
+<li>크로스플랫폼 (Cross-Platform) 지원</li>
 </ol>
 <p>플랫폼별로 고유한 내용이나 스타일이 있더라도, 단순 변환 도구(converter)만으로는 재사용이 어렵습니다. 변환된 파일을 직접 수정하면, 소스가 바뀔 때마다 수작업이 반복되고 데이터가 유실될 수 있습니다.</p>
 <p>이 워크플로우는 <strong>고립되거나 미완성된 내용이나 스타일도 참조</strong>할 수 있어, <strong>주석</strong>, <strong>CSS 파일</strong>, <strong>reference</strong> 문서 등에 미리 정의해 두고 필요할 때마다 쉽게 재사용할 수 있습니다.</p>

@@ -315,39 +315,25 @@
     "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
   },
   {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "objectID": "cv/en/index.html",
+    "href": "cv/en/index.html",
+    "title": "Yunho Kee",
     "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
   },
   {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+    "objectID": "cv/en/index.html#dummy",
+    "href": "cv/en/index.html#dummy",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
   },
   {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Reasonable Suspicion",
-    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Google LLC",
-    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
+    "objectID": "cv/en/index.html#dummy-1",
+    "href": "cv/en/index.html#dummy-1",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
   },
   {
     "objectID": "cv/ko/index.html",
@@ -385,25 +371,46 @@
     "text": "dummy"
   },
   {
-    "objectID": "cv/en/index.html",
-    "href": "cv/en/index.html",
-    "title": "Yunho Kee",
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
     "section": "",
-    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
   },
   {
-    "objectID": "cv/en/index.html#dummy",
-    "href": "cv/en/index.html#dummy",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "",
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
   },
   {
-    "objectID": "cv/en/index.html#dummy-1",
-    "href": "cv/en/index.html#dummy-1",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Reasonable Suspicion",
+    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Google LLC",
+    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
+  },
+  {
+    "objectID": "posts/database/pylock-toml/index.html",
+    "href": "posts/database/pylock-toml/index.html",
+    "title": "PEP 751: Python pylock.toml의 requirements.txt 대체",
+    "section": "",
+    "text": "2019년 2월 (약 6년 전) requirements.txt의 Version 2 표준화에 대해 비공식적 논의\n\n기존에는 표준이 아니라 pip 명령 매개변수에 불과했음\n\n한 줄씩 매개변수 추가하는 셈\n그래서 여러 파일 입력 가능\n기존 소프트웨어들이 Reverse Engineering\n\n기존 소프트웨어들이 출력은 하지만 굳이 입력하지 않는 파일\n\npip와 setuptools로부터 표준화해봤자 기존 소프트웨어 따라잡기 어려울 듯 (Bottom Up)\n\n통용하기 쉬운 표준 입력 파일 구상\n\n반대로 기존 소프트웨어들의 기능을 참고해서 표준화하는 전략 선택 (Top Down)\n\n고민 자체는 이전부터\nTwitter에서 Tzu-ping Chung(uranusjr)과 논의\n\n2020년 6월 PEP 621: setup.py → pyproject.toml\n\nProject Metadata\n\n기존에는 distutils의 setup.py를 setuptools도 따라 썼었음\n\nFormat 자체의 Version은 논외\n\n사람이 작성하므로\n\n\n2021년 7월 PEP 665: .whl (Wheel) 파일 설치를 위한 Lock이지만 반려\n\nReproducibility는 기본\n보안을 위한 Hash cf. pip-tools의 pip-compile\nPainless\n\n.whl (Wheel) 파일은 Binaries라 설치는 Copy & Paste 수준\nsdist (Source Distributions) 지원을 위한 수요 때문에 반려\n\n어차피 대부분 .whl (Wheel) 파일 Build하니까 미리 Build하면 되는데 Painful하다는 반대에 부딪힘\n\n\n\n2024년 7월 PEP 751: sdist (Source Distributions) 지원 Lock\n\nsdist (Source Distributions) 일부 지원\n\n엄격한 지원은 기존 반대와 달리 복잡해졌다는 새로운 반대 때문에 필요없어짐\n논의 자체는 이전부터 Draft PEP 등에서\n\n최초로 무조건적 승인된 PEP\n\nFormat 자체의 Version이 있기 때문\n\n사람이 작성하지 않고 자동 생성\nBackward Compatibility 논외\n\n\nPDM의 영향 반영\n\nAuditable cf. pip audit\n\n자동 생성하더라도 보안을 위한 육안 점검 용이 cf. Python Package Index (PyPI)에 Upload한 시각\nJSON보다 List 또는 Table 구조 cf. Not Only SQL (NoSQL) 중 Document Stores의 Join, Relational Database Management Systems (RDBMSs)의 JSON\n\n게다가 Parallelizable\n\n최초 Version부터\n\nMulti-Use\n\n단일 파일 공유 또는 상속 cf. 오픈소스 이력서 엔지니어링\n\n중복 요소가 많으므로\nCross-Platform cf. typing-extensions\n\nOS-Level은 Anaconda\nPython Package Index (PyPI)에 한해서는 WheelNext 논의 중\n\n\nUniversal Lock Files라고도 함\n어려워서 보류했다가 최종 추가\n\nFrost Ming와 논의\n\nUV의 영향 반려\n\nGraph 구조로 재구성했다가 복잡하다는 반대 때문에 Roll Back\nWorkspace는 특수한 개념이라 표준화 보류 또는 다음을 기약\n\nMonorepo 개념 cf. Python Polylith의 Workspace 중 Development\nRust의 영향\n\nCharlie Marsh와 논의\n\nRuff\n\n\nPoetry의 영향 반영\n\nString default-group → List default-groups\nRandy Döring와 논의\n\n추후 출력뿐 아니라 입력 가능성\nProject Version은 Lock에서 제외\n\nsetuptools나 Software Configuration Management (SCM) 등에서 동적 생성 시 혼동되므로\n\n2025년 3월까지 약 8개월 간 1,500 건 논의\n\n2025년 1월 PEP 770: Software Bill-of-Materials (SBOMs)\n\nLock Files와 달리 보안을 위해 점검 가능한 2가지 취약점\n\nBuild할 때 Backend가 사용한 컴파일러 Version 등\nVendor 또는 Embed한 Version\n\npip가 Standalone한 이유\n\n\nSeth Michael Larson이 작성\nBrett Cannon이 Delegate\n\n\n\nBrett Cannon\n\n전 Python Steering Council\n\n창립 구성원\n임기 5년 제안했으나 반려\n\n기회 양보를 위해 직접 제안\n동일한 취지로 자발적 휴식 중\n\n\n현 Python Core Developer\n\nToken에 비유하자면 1년 Commit을 통해 자동 Refresh\n\n재인증 문의가 오거나 만료돼도 다시 하면 그만\n\n\n현 Python Packaging Authority (PyPA) 구성원\n\nAuthority는 농담에 불과\n\n\nPython Enhancement Proposals (PEP)\n\nPEP-Delegate의 지정과 승인 필요\nPackaging 관련은 packaging.python.org\n\nSteering Council의 Delegate는 주로 Paul Moore\n기술적으로는 Donald Stufft가 많이 기여\n\n논의는 discuss.python.org\n\n\n\n\n\n Back to topCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {PEP 751: Python pylock.toml의 requirements.txt 대체},\n  date = {2025-06-09},\n  url = {https://yhkee0404.github.io/posts/database/pylock-toml/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “PEP 751: Python pylock.toml의 requirements.txt\n대체.” June 9, 2025. https://yhkee0404.github.io/posts/database/pylock-toml/."
   },
   {
     "objectID": "posts/database/cv-or-resume/ko/index.html",
