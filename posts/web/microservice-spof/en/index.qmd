@@ -120,7 +120,7 @@ Failures caused by defects in the **source code** should result in a $25\%$ avai
 For example, if you run a **source code** that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is $25\%$ whether the random generation is sequential or parallel, or whether the deployment is **monolith** or **microservice**.
 When deploying this program as **microservice** instead of a **monolith**, the **single point of failure** (**SPOF**) is not increased to two; even in a **monolith**, there are two **single points of failure** (**SPOFs**) due to dependencies between results.
 
-## Partial Benefits of Source Code of Microservices
+### Partial Benefits of Source Code of Microservices
 
 Designing a system as a **microservice** can be advantageous even if it is deployed later as a **monolith**.
 In the aforementioned **source code**, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes $50\%$ because the output is independent of the second result.
@@ -197,7 +197,7 @@ $$\text{Split}(p, m) = 1 - (1 - p)^m.$$ {#eq-microservice-spof-split}
 
 This value **increases monotonically** as $m$ increases, because $0 \leq  1 - p \leq 1$ leads to $(1- p)^m$ **decreasing monotonically**.
 
-## A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices
+### A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices
 
 When there are no external factors other than **source code**, if each of $n$ **microservices** with independent availability $0 \leq p \leq 1$ is **scaled out** **horizontally** by a factor of $m$, each group of $m$ has no **single points of failure** (**SPOFs**) and its availability is $\text{Split}(p, m) = 1 - (1 - p)^m$.
 If $n$ groups of $m$ are **fully connected** and depend on each other as $n$ **single points of failure** (**SPOFs**), the combined availability is
@@ -225,7 +225,7 @@ $$
 \end{align}
 $$
 
-## A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths
+### A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths
 
 When there are no external factors, if $n$ **microservices** with independent availability $0 \leq p \leq 1$ are **fully connected** and depend on each other as $n$ **single points of failure** (**SPOFs**), their availability when deployed as a **monolith** is  $\text{Join}(p, n) = p^n$.
 If the $n$ components are **scaled out** **horizontally** by a factor of $m$ to remove **single points of failure** (**SPOFs**), the availability is
