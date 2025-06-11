@@ -18,7 +18,7 @@ bibliography:
   - stanko2022single.bib
   - lee2025nand.bib
   - sil2016grid.bib
-alias:
+aliases:
   - /posts/web/microservice-spof
 # format-links:
 #   - text: English
