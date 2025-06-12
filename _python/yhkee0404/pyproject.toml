@@ -21,3 +21,55 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 dev-mode-dirs = ["components", "bases", "development", "."]
+
+# ruff, pyright settings are adapted from https://raw.githubusercontent.com/carderne/postmodern-python/c3000487cf16dcd9e5c0743ec89dd7e836926036/pyproject.toml
+# MIT License
+# Copyright (c) 2024 Chris Arderne
+
+[tool.ruff]
+# if this is a library, enter the _minimum_ version you
+# want to support, otherwise do py313
+target-version = "py313"
+line-length = 120  # use whatever number makes you happy
+
+[tool.ruff.lint]
+# you can see the looong list of rules here:
+# https://docs.astral.sh/ruff/rules/
+# here's a couple to start with
+select = [
+  "A",    # warn about shadowing built-ins
+  "E",    # style stuff, whitespaces
+  "F",    # important pyflakes lints
+  "I",    # import sorting
+  "N",    # naming
+  "T100", # breakpoints (probably don't want these in prod!)
+]
+# if you're feeling confident you can do:
+# select = ["ALL"]
+# and then manually ignore annoying ones:
+# ignore = [...]
+
+[tool.ruff.lint.isort]
+# so it knows to group first-party stuff last
+known-first-party = ["yhkee0404"]
+
+[tool.pyright]
+venvPath = "."          # uv installs the venv in the current dir
+venv = ".venv"          #       in a folder called `.venv`
+strict = ["**/*.py"]    # use 'strict' checking on all files
+pythonVersion = "3.13"  # if library, specify the _lowest_ you support
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+
+[tool.poe.tasks]
+# run with eg `uv run poe fmt`
+fmt = "ruff format"
+lint = "ruff check --fix"
+check = "pyright"
+test = "pytest"
+# run all the above
+all = [ {ref="fmt"}, {ref="lint"}, {ref="check"}, {ref="test"} ]
+
+"ci:fmt" = "ruff format --check"  # fail if not formatted
+"ci:lint" = "ruff check"
