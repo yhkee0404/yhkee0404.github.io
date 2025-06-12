@@ -22,6 +22,9 @@ build-backend = "hatchling.build"
 [tool.hatch.build]
 dev-mode-dirs = ["components", "bases", "development", "."]
 
+# [tool.hatch.metadata]
+# allow-direct-references = true
+
 # ruff, pyright settings are adapted from https://raw.githubusercontent.com/carderne/postmodern-python/c3000487cf16dcd9e5c0743ec89dd7e836926036/pyproject.toml
 # MIT License
 # Copyright (c) 2024 Chris Arderne
@@ -31,6 +34,9 @@ dev-mode-dirs = ["components", "bases", "development", "."]
 # want to support, otherwise do py313
 target-version = "py313"
 line-length = 120  # use whatever number makes you happy
+
+# Added by yhkee0404
+src = ["components", "bases"]
 
 [tool.ruff.lint]
 # you can see the looong list of rules here:
