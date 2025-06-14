@@ -15,6 +15,10 @@ dev = [
     "ruff>=0.11.13",
 ]
 
+# https://github.com/DavidVujic/python-polylith/discussions/271
+[tool.uv.workspace]
+members = ["projects/*"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
