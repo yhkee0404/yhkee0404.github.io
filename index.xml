@@ -15,7 +15,7 @@
 <title>Source Thoughts in a Monorepo</title>
 <link>https://yhkee0404.github.io/</link>
 </image>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.32</generator>
 <lastBuildDate>Mon, 09 Jun 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>PEP 751: Python pylock.toml의 requirements.txt 대체</title>
