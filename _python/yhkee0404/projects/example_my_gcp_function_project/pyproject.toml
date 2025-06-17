@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling", "hatch-polylith-bricks"]
+build-backend = "hatchling.build"
+
+[project]
+name = "example_my_gcp_function_project"
+version = "0.1.0"
+description = 'A Python Polylith example code repo'
+authors = [{ name = "David Vujic" }]
+
+requires-python = ">=3.8"
+
+dependencies = [
+  "functions-framework~=3.5.0",
+]
+
+[project.scripts]
+consumer = "yhkee0404.example_consumer.core:main"
+
+[tool.hatch.build.force-include]
+"main.py" = "main.py" # added by the build process
+"requirements.txt" = "requirements.txt" # added by the build process
+
+# This section is needed for the Hatchling build backend, to activate the polylith build hook.
+[tool.hatch.build.hooks.polylith-bricks]
+
+# This section is needed for building
+[tool.hatch.build.targets.wheel]
+packages = ["yhkee0404"]
+
+[tool.polylith.bricks]
+"../../bases/yhkee0404/example_greet_gcp_function" = "yhkee0404/example_greet_gcp_function"
+"../../components/yhkee0404/example_greeting" = "yhkee0404/example_greeting"
+"../../components/yhkee0404/example_log" = "yhkee0404/example_log"

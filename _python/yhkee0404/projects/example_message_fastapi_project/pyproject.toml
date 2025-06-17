@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling", "hatch-polylith-bricks"]
+build-backend = "hatchling.build"
+
+[project]
+name = "example_message_fastapi_project"
+version = "0.1.0"
+description = 'A Python Polylith example code repo'
+authors = [{ name = "David Vujic" }]
+
+requires-python = ">=3.8"
+
+dependencies = [
+  "fastapi~=0.106.0",
+  "uvicorn~=0.25.0",
+  "sqlalchemy~=2.0.23",
+  "confluent-kafka~=2.3.0",
+]
+
+# This section is needed for the Hatchling build backend, to activate the polylith build hook.
+[tool.hatch.build.hooks.polylith-bricks]
+
+# This section is needed for building
+[tool.hatch.build.targets.wheel]
+packages = ["yhkee0404"]
+
+[tool.polylith.bricks]
+"../../bases/yhkee0404/example_message_api" = "yhkee0404/example_message_api"
+"../../components/yhkee0404/example_database" = "yhkee0404/example_database"
+"../../components/yhkee0404/example_dictionaries" = "yhkee0404/example_dictionaries"
+"../../components/yhkee0404/example_log" = "yhkee0404/example_log"
+"../../components/yhkee0404/example_message" = "yhkee0404/example_message"
+"../../components/yhkee0404/example_kafka" = "yhkee0404/example_kafka"
+"../../components/yhkee0404/example_schema" = "yhkee0404/example_schema"
