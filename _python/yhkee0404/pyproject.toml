@@ -121,6 +121,7 @@ addopts = [
 
 # Added by yhkee0404
 consider_namespace_packages = true
+# pythonpath = ["bases", "components"]
 
 [tool.poe.tasks]
 # Adapted from carderne/postmodern-python/
