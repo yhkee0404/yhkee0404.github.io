@@ -1,0 +1,66 @@
+version: '2.1'
+# MIT License
+# Copyright (c) 2025 Yunho Kee
+# Copyright (c) 2024 David Vujic
+
+orbs:
+  python: circleci/python@2.1.1
+
+jobs:
+  test:
+    executor:
+      name: python/default
+      tag: "3.11"
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: poetry
+      - lint
+      - test-bricks
+      - deploy-projects
+
+workflows:
+  main:
+    jobs:
+      - test:
+          pre-steps:
+            - install-polylith
+
+commands:
+  install-polylith:
+    steps:
+      - run:
+          command: |
+            poetry self add poetry-multiproject-plugin
+            poetry self add poetry-polylith-plugin
+          name: Install Poetry plugins
+  test-bricks:
+    steps:
+      - run:
+          command: |
+            changes="$(poetry poly diff --bricks --short | tr -d '\n')"
+            query="${changes//,/ or }"
+
+            if [ -n "$query" ]; then
+                poetry run pytest -k \<<< echo "$query"
+            fi
+          name: Run pytest
+  lint:
+    steps:
+      - run:
+          command: poetry run flake8
+  type-check:
+    steps:
+      - run:
+          command: poetry run mypy .
+  deploy-projects:
+    steps:
+      - run:
+          command: |
+            diff="$(poetry poly diff --short | tr -d '\n')"
+            IFS=',' projects=($diff)
+
+            for project in "${projects[@]}"; do
+              echo "The Project $project should be deployed"
+            done
+          name: Deploy projects
