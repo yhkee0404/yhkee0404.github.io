@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": "/home/yhkee0404/yhkee0404.github.io/_python/yhkee0404/.venv/bin/python",
+    
+    // # For pyright, adapted from DavidVujic/python-polylith-docs
+    // "python.analysis.extraPaths": [
+    //     "bases",
+    //     "components"
+    // ],
+}

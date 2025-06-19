@@ -1,3 +1,8 @@
+# MIT License only for this single file
+# Copyright (c) 2025 Yunho Kee
+# Copyright (c) 2024 Chris Arderne
+# Copyright (c) 2022 David Vujic
+
 [project]
 name = "yhkee0404"
 version = "0.1.0"
@@ -21,8 +26,8 @@ dev = [
   "ruff>=0.11.13",
 ]
 
-# https://github.com/DavidVujic/python-polylith/discussions/271
 [tool.uv.workspace]
+# Adapted from DavidVujic/python-polylith#271
 members = ["projects/*"]
 
 
@@ -40,27 +45,26 @@ members = ["projects/*"]
 "components/yhkee0404/example_log" = "yhkee0404/example_log"
 "components/yhkee0404/example_dictionaries" = "yhkee0404/example_dictionaries"
 [build-system]
+# Adapted from DavidVujic/python-polylith-docs
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
+# Adapted from DavidVujic/python-polylith-docs
 dev-mode-dirs = ["components", "bases", "development", "."]
 
 # [tool.hatch.metadata]
+# Adapted from DavidVujic/python-polylith-example-uv
 # allow-direct-references = true
 
-# ruff, pyright settings are adapted from https://raw.githubusercontent.com/carderne/postmodern-python/c3000487cf16dcd9e5c0743ec89dd7e836926036/pyproject.toml
-# MIT License
-# Copyright (c) 2025 Yunho Kee
-# Copyright (c) 2024 Chris Arderne
-
 [tool.ruff]
+# Adapted from carderne/postmodern-python/
 # if this is a library, enter the _minimum_ version you
 # want to support, otherwise do py313
 target-version = "py312"
 line-length = 120  # use whatever number makes you happy
 
-# Added by yhkee0404
+# Adapted from DavidVujic/python-polylith-example-uv
 src = ["components", "bases"]
 exclude = [
   ".git",
@@ -74,6 +78,7 @@ exclude = [
 ]
 
 [tool.ruff.lint]
+# Adapted from carderne/postmodern-python/
 # you can see the looong list of rules here:
 # https://docs.astral.sh/ruff/rules/
 # here's a couple to start with
@@ -91,19 +96,34 @@ select = [
 # ignore = [...]
 
 [tool.ruff.lint.isort]
+# Adapted from carderne/postmodern-python/
 # so it knows to group first-party stuff last
 known-first-party = ["yhkee0404"]
 
 [tool.pyright]
+# Adapted from carderne/postmodern-python/
 venvPath = "."          # uv installs the venv in the current dir
 venv = ".venv"          #       in a folder called `.venv`
 strict = ["**/*.py"]    # use 'strict' checking on all files
 pythonVersion = "3.12"  # if library, specify the _lowest_ you support
 
+# Adapted from DavidVujic/python-polylith-docs
+extraPaths = ["bases", "components"]
+
 [tool.pytest.ini_options]
-addopts = "--doctest-modules"
+addopts = [
+  # Adapted from carderne/postmodern-python/
+  "--doctest-modules",
+
+  # Adapted from DavidVujic/python-polylith-example-uv
+  "-vv",
+]
+
+# Added by yhkee0404
+consider_namespace_packages = true
 
 [tool.poe.tasks]
+# Adapted from carderne/postmodern-python/
 # run with eg `uv run poe fmt`
 fmt = "ruff format"
 lint = "ruff check --fix"
@@ -112,5 +132,6 @@ test = "pytest"
 # run all the above
 all = [ {ref="fmt"}, {ref="lint"}, {ref="check"}, {ref="test"} ]
 
+# Adapted from carderne/postmodern-python/
 "ci:fmt" = "ruff format --check"  # fail if not formatted
 "ci:lint" = "ruff check"
