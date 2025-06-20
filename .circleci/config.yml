@@ -1,4 +1,5 @@
 version: '2.1'
+
 # MIT License
 # Copyright (c) 2025 Yunho Kee
 # Copyright (c) 2024 David Vujic
@@ -14,7 +15,8 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: poetry
+          pkg-manager: uv
+      - fmt
       - lint
       - test-bricks
       - deploy-projects
@@ -22,42 +24,47 @@ jobs:
 workflows:
   main:
     jobs:
-      - test:
-          pre-steps:
-            - install-polylith
+      - test
+      # - test:
+      #     pre-steps:
+      #       - install-polylith
 
 commands:
-  install-polylith:
-    steps:
-      - run:
-          command: |
-            poetry self add poetry-multiproject-plugin
-            poetry self add poetry-polylith-plugin
-          name: Install Poetry plugins
+  # install-polylith:
+  #   steps:
+  #     - run:
+  #         command: |
+  #           poetry self add poetry-multiproject-plugin
+  #           poetry self add poetry-polylith-plugin
+  #         name: Install Poetry plugins
   test-bricks:
     steps:
       - run:
           command: |
-            changes="$(poetry poly diff --bricks --short | tr -d '\n')"
+            changes="$(uv run poly diff --bricks --short | tr -d '\n')"
             query="${changes//,/ or }"
 
             if [ -n "$query" ]; then
-                poetry run pytest -k \<<< echo "$query"
+                uv run poe test -k \<<< echo "$query"
             fi
           name: Run pytest
+  fmt:
+    steps:
+      - run:
+          command: uv run poe ci:fmt
   lint:
     steps:
       - run:
-          command: poetry run flake8
+          command: uv run poe ci:lint
   type-check:
     steps:
       - run:
-          command: poetry run mypy .
+          command: uv run poe check .
   deploy-projects:
     steps:
       - run:
           command: |
-            diff="$(poetry poly diff --short | tr -d '\n')"
+            diff="$(uv run poly diff --short | tr -d '\n')"
             IFS=',' projects=($diff)
 
             for project in "${projects[@]}"; do

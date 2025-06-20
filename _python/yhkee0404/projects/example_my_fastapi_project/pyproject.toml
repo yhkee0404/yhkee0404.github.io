@@ -5,14 +5,14 @@ build-backend = "hatchling.build"
 [project]
 name = "example_my_fastapi_project"
 version = "0.0.1"
-description = 'A Python Polylith example code repo'
+description = 'an example FastAPI project'
 authors = [{ name = "David Vujic" }]
 
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 dependencies = [
-  "fastapi~=0.106.0",
-  "uvicorn~=0.25.0",
+  "fastapi~=0.115.12",
+  "uvicorn~=0.27.1",
 ]
 
 # This section is needed for the Hatchling build backend, to activate the polylith build hook.

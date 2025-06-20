@@ -5,15 +5,15 @@ build-backend = "hatchling.build"
 [project]
 name = "example_message_fastapi_project"
 version = "0.1.0"
-description = 'A Python Polylith example code repo'
+description = 'another example FastAPI project'
 authors = [{ name = "David Vujic" }]
 
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 dependencies = [
-  "fastapi~=0.106.0",
-  "uvicorn~=0.25.0",
-  "sqlalchemy~=2.0.23",
+  "fastapi~=0.115.12",
+  "uvicorn~=0.27.1",
+  "sqlalchemy~=2.0.28",
   "confluent-kafka~=2.3.0",
 ]
 

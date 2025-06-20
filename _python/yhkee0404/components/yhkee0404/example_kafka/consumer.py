@@ -2,6 +2,7 @@
 A simplistic example implementation of a Kafka Consumer,
 with the basics as described in the Confluent Python Client Getting Started guides.
 """
+
 from functools import cache
 from typing import Callable
 

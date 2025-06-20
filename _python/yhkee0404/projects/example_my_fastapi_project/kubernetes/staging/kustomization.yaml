@@ -1,9 +1,9 @@
 kind: Kustomization
 
-namePrefix: my-fastapi-project-
+namePrefix: example-my-fastapi-project-
 
 resources:
-  - ../../../../_kubernetes/services/api/staging
+  - ../../../../../../_kubernetes/example/services/api/staging
 
 patches:
   - path: deployment.yaml

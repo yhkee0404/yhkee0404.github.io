@@ -9,4 +9,4 @@ spec:
     spec:
       containers:
         - name: app
-          image: my-fastapi-project-image:latest
+          image: example-my-fastapi-project-image:latest

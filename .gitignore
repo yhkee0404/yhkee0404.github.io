@@ -1,6 +1,3 @@
 /.quarto/
 /_site/
-.pdm-python
 .envrc
-__pycache__/
-node_modules/

@@ -11,10 +11,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "confluent-kafka~=2.3.0",
-  "fastapi~=0.106.0",
+  "fastapi~=0.115.12",
   "functions-framework~=3.5.0",
-  "sqlalchemy~=2.0.23",
-  "uvicorn~=0.25.0",
+  "sqlalchemy~=2.0.28",
+  "uvicorn~=0.27.1",
 ]
 
 [dependency-groups]

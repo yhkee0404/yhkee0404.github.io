@@ -7,7 +7,7 @@ and I have borrowed the naming from the JavaScript equivalents in the Lodash.js 
 """
 
 
-def pick(data: dict, keys:set) -> dict:
+def pick(data: dict, keys: set) -> dict:
     return {k: v for k, v in data.items() if k in keys}
 
 

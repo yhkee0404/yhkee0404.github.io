@@ -1,0 +1,29 @@
+# MIT License only for this single file
+# Copyright (c) 2025 Yunho Kee
+# Copyright (c) 2022 David Vujic
+
+# python generated files
+# Adapted from DavidVujic/python-polylith-example-uv
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# tools cache
+# Adapted from DavidVujic/python-polylith-example-uv
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# venv
+# Adapted from DavidVujic/python-polylith-example-uv
+.venv/
+
+# Adapted from DavidVujic/python-polylith-example
+.serverless
+node_modules/
+
+# Adapted from DavidVujic/python-polylith-example
+sql_app.db

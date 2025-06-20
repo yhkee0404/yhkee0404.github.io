@@ -4,6 +4,7 @@ configs depending on the running environment (such as environment variables for 
 
 In this simplistic example, values returned from these functions are fixed.
 """
+
 import os
 
 
@@ -23,3 +24,9 @@ def is_enabled() -> bool:
     being able to run the CRUD code without a running Kafka server.
     """
     return os.environ.get("kafka", "") == "enabled"
+
+
+def get_topic(category: str) -> str:
+    topics = {"message": os.getenv("KAFKA_MESSAGE_TOPIC", "message")}
+
+    return topics[category]
