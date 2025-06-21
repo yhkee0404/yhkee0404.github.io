@@ -668,6 +668,15 @@ wheels = [
 ]
 
 [[package]]
+name = "types-confluent-kafka"
+version = "1.3.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5d/7c/e980a2fdcfa065ff7b7491895483bb99024322a52a12243ed3b8a80d8e67/types_confluent_kafka-1.3.3.tar.gz", hash = "sha256:3bef828b02c498f2125610a2a9546789a17e7f60678bdd4d07d408e12180503d", size = 20617, upload-time = "2025-05-29T03:25:31.07Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cd/ea/677389abcbd9dea57a56fc9b3773a07657bdd9cac8fbce51fe32fa6725f9/types_confluent_kafka-1.3.3-py3-none-any.whl", hash = "sha256:c51cd063eb893e36ed1f492d183baa52195c0cf92bcd6e664ff69ba7a5c67867", size = 35263, upload-time = "2025-05-29T03:25:30.214Z" },
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.14.0"
 source = { registry = "https://pypi.org/simple" }
@@ -756,6 +765,7 @@ dev = [
     { name = "pyright" },
     { name = "pytest" },
     { name = "ruff" },
+    { name = "types-confluent-kafka" },
 ]
 
 [package.metadata]
@@ -774,4 +784,5 @@ dev = [
     { name = "pyright", specifier = ">=1.1.402" },
     { name = "pytest", specifier = ">=8.4.0" },
     { name = "ruff", specifier = ">=0.11.13" },
+    { name = "types-confluent-kafka", specifier = ">=1.3.3" },
 ]

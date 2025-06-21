@@ -1,6 +1,7 @@
-from yhkee0404.example_database.message.model import Message
 from sqlalchemy import select
 from sqlalchemy.orm import Session
+
+from yhkee0404.example_database.message.model import Message
 
 
 def create(session: Session, content: str) -> Message:

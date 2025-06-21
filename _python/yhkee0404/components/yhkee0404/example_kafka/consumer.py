@@ -7,6 +7,7 @@ from functools import cache
 from typing import Callable
 
 from confluent_kafka import Consumer
+
 from yhkee0404 import example_log as log
 from yhkee0404.example_kafka.core import fetch_consumer_config, fetch_default_config
 from yhkee0404.example_kafka.parser import parse_message
@@ -23,7 +24,7 @@ def get_consumer() -> Consumer:
     return Consumer(config)
 
 
-def consume(topic: str, callback: Callable) -> None:
+def consume(topic: str, callback: Callable[[str, str, str], None]) -> None:
     consumer = get_consumer()
 
     consumer.subscribe([topic])

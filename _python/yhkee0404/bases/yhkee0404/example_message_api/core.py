@@ -1,7 +1,9 @@
-from yhkee0404 import example_log as log, example_message as message
+from fastapi import Body, FastAPI
+
+from yhkee0404 import example_log as log
+from yhkee0404 import example_message as message
 from yhkee0404.example_database import Base, engine
 from yhkee0404.example_schema import Message
-from fastapi import Body, FastAPI
 
 logger = log.get_logger("message-FastAPI-logger")
 app = FastAPI()

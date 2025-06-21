@@ -6,10 +6,12 @@ and I have borrowed the naming from the JavaScript equivalents in the Lodash.js 
 
 """
 
+from typing import Any
 
-def pick(data: dict, keys: set) -> dict:
+
+def pick(data: dict[Any, Any], keys: set[Any]) -> dict[Any, Any]:
     return {k: v for k, v in data.items() if k in keys}
 
 
-def omit(data: dict, keys: set) -> dict:
+def omit(data: dict[Any, Any], keys: set[Any]) -> dict[Any, Any]:
     return {k: v for k, v in data.items() if k not in keys}

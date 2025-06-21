@@ -5,7 +5,8 @@ with the basics as described in the Confluent Python Client Getting Started guid
 
 from functools import cache
 
-from confluent_kafka import Producer
+from confluent_kafka import KafkaError, Message, Producer
+
 from yhkee0404 import example_log as log
 from yhkee0404.example_kafka.core import fetch_default_config, is_enabled
 from yhkee0404.example_kafka.parser import parse_message
@@ -13,7 +14,7 @@ from yhkee0404.example_kafka.parser import parse_message
 logger = log.get_logger("Kafka-Producer-logger")
 
 
-def _acked(err, msg):
+def _acked(err: KafkaError | None, msg: Message):
     if err:
         logger.error(err)
         return
@@ -38,7 +39,7 @@ def produce(topic: str, key: str, value: str) -> None:
 
     producer = get_producer()
 
-    producer.produce(topic, value, key, callback=_acked)
+    producer.produce(topic, value, key, callback=_acked)  # type: ignore[reportCallIssue]
 
     producer.poll(10000)
     producer.flush()

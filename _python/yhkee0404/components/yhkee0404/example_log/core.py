@@ -10,7 +10,7 @@ def get_level() -> str:
     return str.upper(level)
 
 
-def get_logger(name) -> logging.Logger:
+def get_logger(name: str | None) -> logging.Logger:
     logger = logging.getLogger(name)
 
     if not logger.hasHandlers():

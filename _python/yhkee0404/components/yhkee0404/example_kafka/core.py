@@ -8,11 +8,11 @@ In this simplistic example, values returned from these functions are fixed.
 import os
 
 
-def fetch_default_config() -> dict:
+def fetch_default_config() -> dict[str, str]:
     return {"bootstrap.servers": "localhost:9092"}
 
 
-def fetch_consumer_config() -> dict:
+def fetch_consumer_config() -> dict[str, str]:
     return {"group.id": "python_example_group_1", "auto.offset.reset": "earliest"}
 
 
