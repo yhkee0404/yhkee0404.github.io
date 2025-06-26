@@ -22,6 +22,6 @@ class GreetApiControllerBootTests {
                                 .isOk())
                 .andExpect(
                         MockMvcResultMatchers.content()
-                                .string("HELLO WORLDs"));
+                                .string("HELLO WORLD"));
     }
 }

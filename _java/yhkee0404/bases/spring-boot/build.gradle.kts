@@ -34,3 +34,9 @@ tasks.jar {
 tasks.bootJar {
     enabled = false
 }
+
+/*
+springBoot {
+    mainClass = "com.yhkee0404.spring.BootApplication"
+}
+*/

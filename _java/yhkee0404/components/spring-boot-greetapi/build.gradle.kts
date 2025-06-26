@@ -29,10 +29,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-springBoot {
-    mainClass.set("com.yhkee0404.spring.BootApplication")
-}
-
 tasks.jar {
     enabled = false
 }
@@ -40,3 +36,9 @@ tasks.jar {
 tasks.bootJar {
     enabled = false
 }
+
+/*
+springBoot {
+    mainClass = "com.yhkee0404.spring.BootApplication"
+}
+*/
