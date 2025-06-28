@@ -1,5 +1,8 @@
 rootProject.name = "yhkee0404"
 
+include("development")
+project(":development").projectDir = file("development")
+
 include("spring-boot")
 project(":spring-boot").projectDir = file("bases/spring-boot")
 include("spring-boot-greetapi")
