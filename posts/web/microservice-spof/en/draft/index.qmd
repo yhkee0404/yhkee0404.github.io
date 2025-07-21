@@ -1,0 +1,281 @@
+---
+title: "Visualized: Microservices as the Upper Bound for Monolith Availability"
+author: "Yunho Kee"
+date: "2025-05-30"
+categories:
+  - web
+  - microservice
+  - monolith
+  - "single point of failure"
+  - netflix
+  - "chaos monkey"
+  - scale
+  - "nand flash"
+  - observable
+image: /_images/diagrams/microservice-spof-scale-out-monolith.gif
+bibliography:
+  - stanko2022single.bib
+  - lee2025nand.bib
+  - sil2016grid.bib
+# format-links:
+#   - text: English
+#     href: ../ko/
+#     icon: translate
+#     rel: alternate
+#     # hreflang: ko-KR
+---
+
+:::::{.quarto-about-jolla}
+
+::::{.about-entity}
+
+:::{.about-links}
+
+```{=html}
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+```
+
+:::
+
+::::
+
+:::::
+
+```{ojs}
+//| echo: false
+
+viewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: "p"});
+viewof n = Inputs.range([1, 100], {step: 1, value: 5, label: "n"});
+```
+
+```{ojs}
+//| code-fold: true
+
+function join(p, n) {
+  return Math.pow(p, n);
+}
+function split(p, m) {
+  return 1 - Math.pow(1 - p, m);
+}
+
+y1s = (() => {
+  const ys = [];
+  for (let i = 1; i <= 100; i++) {
+    ys.push({
+      m: i,
+      y: join(split(p, i), n),
+      label: "ScaleOutMicroservice",
+    });
+  }
+  return ys;
+})();
+
+y2s = (() => {
+  const ys = [];
+  for (let i = 1; i <= 100; i++) {
+    ys.push({
+      m: i,
+      y: split(join(p, n), i),
+      label: "ScaleOutMonolith",
+    });
+  }
+  return ys;
+})();
+```
+
+```{ojs}
+//| label: fig-microservice-spof-scale-out-visualization
+//| fig-cap: "The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices"
+//| echo: false
+
+Plot.plot({
+  grid: true,
+  color: {legend: true, scheme: "BuRd"},
+  x: {label: "m"},
+  y: {label: "Combined Availability", domain: [0, 1]},
+  marks: [
+    Plot.areaY(y1s.concat(y2s), {y1: "y", x: "m", fill: "label", fillOpacity: 0.5}),
+    Plot.tip(y1s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
+    Plot.tip(y2s, Plot.pointerX({x: "m", y: "y", fill: "darkgray", title: (d) => `${d.label}(${p}, ${d.m}, ${n})\n${d.y}`})),
+  ],
+  style: "background: inherit;",
+});
+```
+
+## Comparisons Through Examples of Monoliths and Microservices
+
+### Shared Source Code of Monoliths and Microservices
+
+According to web developer @stanko2022single, a single program is considered a **monolithic** architecture, while implementing the same program as multiple programs is called **microservice architecture**, or **MSA**.
+
+A **monolithic** program is composed of **classes** and **methods**, or **modules** and **functions** [@stanko2022single].
+If **classes** and **methods** are implemented as a **microservice** program, they become **services** and **APIs** [@stanko2022single].
+Netflix is well-known for its use of **microservices**, and they have also developed a testing tool called Chaos Monkey [@stanko2022single].
+
+@stanko2022single presents an engaging visualization of the differences between **monoliths** and **microservices**.
+However, the claim by @stanko2022single that the availability of the program he came up with is $50\%$ for **monolith** and $25\%$ for **microservice** is not convincing.
+Failures caused by defects in the **source code** should result in a $25\%$ availability regardless of whether the deployment is **monolith** (one program) or **microservice** (two or more programs).
+For example, if you run a **source code** that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is $25\%$ whether the random generation is sequential or parallel, or whether the deployment is **monolith** or **microservice**.
+When deploying this program as **microservice** instead of a **monolith**, the **single point of failure** (**SPOF**) is not increased to two; even in a **monolith**, there are two **single points of failure** (**SPOFs**) due to dependencies between results.
+
+### Partial Benefits of Source Code of Microservices
+
+Designing a system as a **microservice** can be advantageous even if it is deployed later as a **monolith**.
+In the aforementioned **source code**, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes $50\%$ because the output is independent of the second result.
+In this case, the **single point of failure** (**SPOF**) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the **single point of failure** (**SPOF**) to two, ending up with the reduced availability of $25\%$.
+Thus, considering **partial availability** or **resilience** in the design stage keeps the number of **single points of failure** (**SPOFs**) from being unnecessarily increased, even if deployed as a **monolith**.
+
+### An Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices
+
+Beyond the **source code**, it is probable that **microservices** have more costs compared to **monoliths** [see @stanko2022single].
+If the **hardware** on which the two units of example **source code** depend is a single unit, and the availability external to **source code** is presumably $50\%$, then if each **source code** depends on a different **hardware** unit, the availability could virtually drop to $25\%$ due to the asynchronous operations of independent **hardwares**.
+
+However, the significant costs of **monoliths** compared to **microservices** should not be overlooked, either.
+If two units of example **source code** depend on two **hardware** units in total, and the availability independent of **source code** is given $25\%$, then consolidating them to depend on a single **hardware** component may reduce availability further to $12.5\%$ due to **resource contention**.
+For example, **NAND Flash memory** faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is **single-level cell** (**SLC**), **multi-level cell** (**MLC**), **triple-level cell** (**TLC**), or **quad-level cell** (**QLC**) [see @lee2025nand].
+Generally, **single-level cell** (**SLC**) flash is more expensive and performs better than **quad-level cell** (**QLC**) flash.
+In other words, **monoliths** may suffer from disadvantages similar to those of **quad-level cell** (**QLC**) flash.
+
+In the following paragraphs, we will compare availability only from the perspective of the **source code**.
+
+### The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices
+
+**Horizontal scaling** (**scale-out**) is a strategy to remove **single points of failure** (**SPOFs**) and increase availability.
+In reviewing the analysis of @stanko2022single, it appears that two available states of **microservices** displayed in @fig-microservice-spof-missing-microservice have been omitted out of 16 possible states, leading to slight miscalculations of the availability as $\frac 7 {14} = 50\%$, and the availability of **monoliths** $75\%$ could benefit from further consideration of internal dependencies in the **source code**.
+
+:::{#fig-microservice-spof-missing-microservice layout-ncol=2}
+![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}
+
+![](/_images/diagrams/microservice-spof-missing-microservice-16.jpg){style="padding-right:20px;" group="fig-microservice-spof-missing-microservice" fig-alt="Another missing photo in stanko's gif animation of system up."}
+
+The Two Available States of **Microservices** in **Horizontal Scaling** (**Scale-Out**) @stanko2022single Omitted
+:::
+
+Just as the example **source code** can have four states based on two operations and calculates availability as $\frac 1 4 = 25\%$, since
+$$2^2 = 4,$$
+
+for four **source code** operations, there are not 14 states in total as listed by @stanko2022single but 16 states when including the two omitted ones:
+
+$$2^4 = 16.$$
+
+If each of the two units of **source code** is **scaled out** by a factor of two, the original two **single points of failure** (**SPOFs**) are removed, and availability increases from the original $\frac 1 4 = 25\%$ (for two units of **source code**) to
+
+$$\frac 9 {16} = 56.25\%.$$
+
+The $\frac 9 {16} = 56.25\%$ differs somewhat from the $\frac 7 {14} = 50\%$ calculated by @stanko2022single.
+
+On the other hand, if the **single points of failure** (**SPOFs**) of a single **monolith** program are removed by **scaling out** the original program by a factor of two, the internal dependency between the two units of **source code** in the single program is maintained, but there is no external dependency between the two programs.
+Thus, the two yellow arrows in the center of @fig-microservice-spof-missing-microservice are absent in @fig-microservice-spof-scale-out-monolith.
+Therefore, the two available states in @fig-microservice-spof-missing-microservice become failure states in @fig-microservice-spof-scale-out-monolith, and the availability increases from $\frac 1 4 = 25\%$ for a single program to
+
+![**Horizontal scaling** (**scale-out**) of **Monoliths**: 16 states]({{< meta image >}}){#fig-microservice-spof-scale-out-monolith}
+
+$$\frac 7 {16} = 43.75\%.$$
+
+The $\frac 7 {16} = 43.75\%$ differs somewhat from the $\frac 3 4 = 75\%$ calculated by @stanko2022single.
+This is because, instead of **scaling out** a single program by a factor of four (to four instances), **scaling out** by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the **source code**.
+
+To summarize, from the perspective of the **source code**, the availability of a **horizontally scaled** (**scaled-out**) **monolith** ($43.75\%$) is better than the original $25\%$, but it is still worse than that of a **horizontally scaled** (**scaled-out**) **microservice** ($56.25\%$).
+This represents a notable divergence from the interpretation offered by @stanko2022single.
+
+## Comparisons Through Formulae Between Monoliths and Microservices
+
+### Two Special Formulae Representing Shared Source Code of Monoliths and Microservices
+
+Generally, when there are no external factors except **source code**, if $n$ **microservices** with independent availability $0 \leq p \leq 1$ are **fully connected** and depend on each other, they have $n$ **single points of failure** (**SPOFs**).
+Therefore, their availability is the same whether deployed as **microservices** or **monoliths**:
+
+$$\text{Join}(p, n) = p^n.$$ {#eq-microservice-spof-join}
+
+Since $0 \leq p \leq 1$, this value **decreases monotonically** as $n$ increases.
+
+On the other hand, if $m$ components are independent, they have no **single points of failure** (**SPOFs**), and their availability is the same whether deployed as **microservices** or **monoliths**:
+
+$$\text{Split}(p, m) = 1 - (1 - p)^m.$$ {#eq-microservice-spof-split}
+
+This value **increases monotonically** as $m$ increases, because $0 \leq  1 - p \leq 1$ leads to $(1- p)^m$ **decreasing monotonically**.
+
+### A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices
+
+When there are no external factors other than **source code**, if each of $n$ **microservices** with independent availability $0 \leq p \leq 1$ is **scaled out** **horizontally** by a factor of $m$, each group of $m$ has no **single points of failure** (**SPOFs**) and its availability is $\text{Split}(p, m) = 1 - (1 - p)^m$.
+If $n$ groups of $m$ are **fully connected** and depend on each other as $n$ **single points of failure** (**SPOFs**), the combined availability is
+
+$$
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(p, n, m) & = \text{Join}(\text{Split}(p, m), n)\\
+                                               & = \text{Join}(1 - (1 - p)^m, n)\\
+                                               & = (1 - (1 - p)^m)^n.
+\end{align}
+$$ {#eq-microservice-spof-scale-out-microservice}
+
+This matches the availability in @fig-microservice-spof-missing-microservice:
+
+$$
+\begin{align}
+\text{ScaleOut}_{\text{Microservice}}(\frac 1 2, 2, 2) & = \text{Join}(\text{Split}(\frac 1 2, 2), 2)\\
+                                                       & = \text{Join}(1 - (1 - \frac 1 2)^2, 2)\\
+                                                       & = \text{Join}(1 - (\frac 1 2)^2, 2)\\
+                                                       & = \text{Join}(1 - \frac 1 4, 2)\\
+                                                       & = \text{Join}(\frac 3 4, 2)\\
+                                                       & = (\frac 3 4)^2\\
+                                                       & = \frac 9 {16}\\
+                                                       & = 56.25\%.
+\end{align}
+$$
+
+### A Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths
+
+When there are no external factors, if $n$ **microservices** with independent availability $0 \leq p \leq 1$ are **fully connected** and depend on each other as $n$ **single points of failure** (**SPOFs**), their availability when deployed as a **monolith** is  $\text{Join}(p, n) = p^n$.
+If the $n$ components are **scaled out** **horizontally** by a factor of $m$ to remove **single points of failure** (**SPOFs**), the availability is
+
+$$
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(p, n, m) & = \text{Split}(\text{Join}(p, n), m)\\
+                                           & = \text{Split}(p^n, m)\\
+                                           & = 1 - (1 - p^n)^m.
+\end{align}
+$$ {#eq-microservice-spof-scale-out-monolith}
+
+This matches the availability in @fig-microservice-spof-scale-out-monolith:
+
+$$
+\begin{align}
+\text{ScaleOut}_{\text{Monolith}}(\frac 1 2, 2, 2) & = \text{Split}(\text{Join}(\frac 1 2, 2), 2)\\
+                                                   & = \text{Split}((\frac 1 2)^2, 2)\\
+                                                   & = \text{Split}(\frac 1 4, 2)\\
+                                                   & = 1 - (1 - \frac 1 4)^2\\
+                                                   & = 1 - (\frac 3 4)^2\\
+                                                   & = 1 - \frac 9 {16}\\
+                                                   & = \frac 7 {16}\\
+                                                   & = 43.75\%.
+\end{align}
+$$
+
+### The Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices
+
+The following can be proven [@sil2016grid]:
+
+$$(1 - (1 - p)^m)^n + (1 - p^n)^m \geq 1.$$ {#eq-microservice-spof-sil-2016-grid}
+
+Therefore,
+
+$$
+\begin{align}
+(1 - (1 - p)^m)^n & \geq 1 - (1 - p^n)^m\\
+\text{Join}(\text{Split}(p, m), n) & \geq \text{Split}(\text{Join}(p, n), m)\\
+\\
+\therefore \text{ScaleOut}_{\text{Microservice}}(p, n, m) & \geq \text{ScaleOut}_{\text{Monolith}}(p, n, m).
+\end{align}
+$$ {#eq-microservice-spof-scale-out-inequality}
+
+### The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices
+
+In addition to the inequality of @eq-microservice-spof-scale-out-inequality, but the visualization in @fig-microservice-spof-scale-out-visualization also demonstrates that the gap between $\text{ScaleOut}_{\text{Microservice}}(p, n, m)$ and $\text{ScaleOut}_{\text{Monolith}}(p, n, m)$ widens rapidly as $p$ decreases or $n$ increases, even as the factor of **horizontally scaling** (**scale-out**) $m$ grows.
+
+## Conclusion
+
+In conclusion, when there are no external factors besides **source code**, uniformly applying $m$-fold **horizontal scaling (scale-out)** allows **microservices** to internally remove  **single points of failure** (**SPOFs**), resulting in higher combined availability than **monoliths**, which remove **single points of failure** (**SPOFs**) externally.
+Designing a system as a **microservice** in advance also offers the advantage of partial availability or resilience even when later deployed as a **monolith**.
+However, apart from **source code**, both **resource contention** in **monoliths** and the increased dependency of **microservices** on diverse resources must be carefully weighed and balanced.
