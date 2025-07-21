@@ -1,31 +1,38 @@
 [
   {
-    "objectID": "posts/algorithms/codetree/week-1/index.html",
-    "href": "posts/algorithms/codetree/week-1/index.html",
-    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "objectID": "cv/ko/index.html",
+    "href": "cv/ko/index.html",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-1/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-1/."
+    "text": "Switch to English\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
   },
   {
-    "objectID": "posts/algorithms/codetree/week-8/index.html",
-    "href": "posts/algorithms/codetree/week-8/index.html",
-    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-8/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-8/."
+    "objectID": "cv/ko/index.html#dummy",
+    "href": "cv/ko/index.html#dummy",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
   },
   {
-    "objectID": "posts/algorithms/codetree/week-3/index.html",
-    "href": "posts/algorithms/codetree/week-3/index.html",
-    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-3/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-3/."
+    "objectID": "cv/ko/index.html#dummy-1",
+    "href": "cv/ko/index.html#dummy-1",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
   },
   {
-    "objectID": "posts/algorithms/codetree/week-4/index.html",
-    "href": "posts/algorithms/codetree/week-4/index.html",
-    "title": "[코드트리 챌린지] 4주차 - DFS",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-4/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-4/."
+    "objectID": "cv/ko/index.html#dummy-2",
+    "href": "cv/ko/index.html#dummy-2",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/ko/index.html#dummy-3",
+    "href": "cv/ko/index.html#dummy-3",
+    "title": "기윤호 | 품질을 높이는 백엔드 개발",
+    "section": "dummy",
+    "text": "dummy"
   },
   {
     "objectID": "posts/database/pylock-toml/index.html",
@@ -63,83 +70,6 @@
     "text": "커스터마이징\n제가 참고한 이력서는 Global Coding Community (GCC)의 Kyungho (Kay) Kim 님 그리고 Google, Microsoft, Amazon에 합격한 PIRATE KING 님의 이력서예요. 더 잘 만드실 분들이 많이 계실 것 같습니다. 이 안내를 참고해 직접 reference.docx를 만들 수 있고, 제 문서에도 처음부터 어떻게 만들었는지 기록해 두었습니다. 여러분만의 버전, 피드백, 질문을 공유해 주세요!"
   },
   {
-    "objectID": "posts/database/xml/index.html",
-    "href": "posts/database/xml/index.html",
-    "title": "XML",
-    "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#semistructured-data",
-    "href": "posts/database/xml/index.html#semistructured-data",
-    "title": "XML",
-    "section": "",
-    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
-    "href": "posts/database/xml/index.html#html과-xml의-차이",
-    "title": "XML",
-    "section": "HTML과 XML의 차이",
-    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#semantic-tags",
-    "href": "posts/database/xml/index.html#semantic-tags",
-    "title": "XML",
-    "section": "Semantic Tags",
-    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#xml-schema",
-    "href": "posts/database/xml/index.html#xml-schema",
-    "title": "XML",
-    "section": "XML Schema",
-    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
-  },
-  {
-    "objectID": "posts/database/xml/index.html#dtd의-유연성",
-    "href": "posts/database/xml/index.html#dtd의-유연성",
-    "title": "XML",
-    "section": "DTD의 유연성",
-    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "",
-    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Reasonable Suspicion",
-    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Google LLC",
-    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
-  },
-  {
-    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
-    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
-  },
-  {
     "objectID": "posts/data-science/transformer/index.html",
     "href": "posts/data-science/transformer/index.html",
     "title": "Transformer에서 배울 점",
@@ -152,349 +82,6 @@
     "title": "Transformer에서 배울 점",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nVaswani et al. (2017)↩︎\nsee Vaswani et al. (2017), Section 3.2.3, p. 5↩︎"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html",
-    "href": "posts/web/leetcode-daily-crawling/index.html",
-    "title": "LeetCode Daily Crawling",
-    "section": "",
-    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#intro",
-    "href": "posts/web/leetcode-daily-crawling/index.html#intro",
-    "title": "LeetCode Daily Crawling",
-    "section": "",
-    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "href": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
-    "title": "LeetCode Daily Crawling",
-    "section": "Goodbye LeetCode Click",
-    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\nLeetCode Click의 운영 중단\n\n\n\n\n\n\n연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 LeetCode Click에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.\n\n\n\n\n\n\n\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
-    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode Daily Coding Challenge Question",
-    "text": "LeetCode Daily Coding Challenge Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 Status에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 daily-question 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다."
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
-    "title": "LeetCode Daily Crawling",
-    "section": "LeetCode GraphQL API",
-    "text": "LeetCode GraphQL API\n오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n\n\n\nListing 1: GraphQL Response\n\n\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!\n\n\n실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 dailyCodingChallengeV2라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\ncURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과8, operationName, variables 등 불필요한 항목을 지울 수 있었다.\n8 REPL-driven development"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
-    "href": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
-    "title": "LeetCode Daily Crawling",
-    "section": "GraphQL Query String",
-    "text": "GraphQL Query String\n어떤 Client는 POST Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 GET Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\nGET 성공이다. 연속된 +는 하나로 줄였다."
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "href": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
-    "title": "LeetCode Daily Crawling",
-    "section": "Google Sheets As a Crawling App",
-    "text": "Google Sheets As a Crawling App\nListing 1 의 /problems/contiguous-array/가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. https://leetcode.com과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?\n다행히 스터디에서 사용하던 Google Sheets가 GET 요청, 문자열 연산, Hyperlink를 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID와 LEN 함수를 둘다 호출하는 데 IMPORTDATA의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#product",
-    "href": "posts/web/leetcode-daily-crawling/index.html#product",
-    "title": "LeetCode Daily Crawling",
-    "section": "Product",
-    "text": "Product\n\n\nhttps://shorturl.at/cdmsZ"
-  },
-  {
-    "objectID": "posts/web/leetcode-daily-crawling/index.html#limitations",
-    "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
-    "title": "LeetCode Daily Crawling",
-    "section": "Limitations",
-    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/en/index.html",
-    "href": "posts/web/microservice-spof/en/index.html",
-    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
-    "section": "",
-    "text": "Switch to Korean\nviewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: \"p\"});\nviewof n = Inputs.range([1, 100], {step: 1, value: 5, label: \"n\"});\nCode\nfunction join(p, n) {\n  return Math.pow(p, n);\n}\nfunction split(p, m) {\n  return 1 - Math.pow(1 - p, m);\n}\n\ny1s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: join(split(p, i), n),\n      label: \"ScaleOutMicroservice\",\n    });\n  }\n  return ys;\n})();\n\ny2s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: split(join(p, n), i),\n      label: \"ScaleOutMonolith\",\n    });\n  }\n  return ys;\n})();\nPlot.plot({\n  grid: true,\n  color: {legend: true, scheme: \"BuRd\"},\n  x: {label: \"m\"},\n  y: {label: \"Combined Availability\", domain: [0, 1]},\n  marks: [\n    Plot.areaY(y1s.concat(y2s), {y1: \"y\", x: \"m\", fill: \"label\", fillOpacity: 0.5}),\n    Plot.tip(y1s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n    Plot.tip(y2s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n  ],\n  style: \"background: inherit;\",\n});\n\n\n\n\n\n\n\n\nFigure 1: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices"
-  },
-  {
-    "objectID": "posts/web/microservice-spof/en/index.html#comparisons-through-examples-of-monoliths-and-microservices",
-    "href": "posts/web/microservice-spof/en/index.html#comparisons-through-examples-of-monoliths-and-microservices",
-    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
-    "section": "Comparisons Through Examples of Monoliths and Microservices",
-    "text": "Comparisons Through Examples of Monoliths and Microservices\n\nShared Source Code of Monoliths and Microservices\nAccording to web developer Krtalić Rusendić (2022), a single program is considered a monolithic architecture, while implementing the same program as multiple programs is called microservice architecture, or MSA.\nA monolithic program is composed of classes and methods, or modules and functions (Krtalić Rusendić 2022). If classes and methods are implemented as a microservice program, they become services and APIs (Krtalić Rusendić 2022). Netflix is well-known for its use of microservices, and they have also developed a testing tool called Chaos Monkey (Krtalić Rusendić 2022).\nKrtalić Rusendić (2022) presents an engaging visualization of the differences between monoliths and microservices. However, the claim by Krtalić Rusendić (2022) that the availability of the program he came up with is \\(50\\%\\) for monolith and \\(25\\%\\) for microservice is not convincing. Failures caused by defects in the source code should result in a \\(25\\%\\) availability regardless of whether the deployment is monolith (one program) or microservice (two or more programs). For example, if you run a source code that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is \\(25\\%\\) whether the random generation is sequential or parallel, or whether the deployment is monolith or microservice. When deploying this program as microservice instead of a monolith, the single point of failure (SPOF) is not increased to two; even in a monolith, there are two single points of failure (SPOFs) due to dependencies between results.\n\n\nPartial Benefits of Source Code of Microservices\nDesigning a system as a microservice can be advantageous even if it is deployed later as a monolith. In the aforementioned source code, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes \\(50\\%\\) because the output is independent of the second result. In this case, the single point of failure (SPOF) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the single point of failure (SPOF) to two, ending up with the reduced availability of \\(25\\%\\). Thus, considering partial availability or resilience in the design stage keeps the number of single points of failure (SPOFs) from being unnecessarily increased, even if deployed as a monolith.\n\n\nAn Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices\nBeyond the source code, it is probable that microservices have more costs compared to monoliths (see Krtalić Rusendić 2022). If the hardware on which the two units of example source code depend is a single unit, and the availability external to source code is presumably \\(50\\%\\), then if each source code depends on a different hardware unit, the availability could virtually drop to \\(25\\%\\) due to the asynchronous operations of independent hardwares.\nHowever, the significant costs of monoliths compared to microservices should not be overlooked, either. If two units of example source code depend on two hardware units in total, and the availability independent of source code is given \\(25\\%\\), then consolidating them to depend on a single hardware component may reduce availability further to \\(12.5\\%\\) due to resource contention. For example, NAND Flash memory faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is single-level cell (SLC), multi-level cell (MLC), triple-level cell (TLC), or quad-level cell (QLC) (see Lee 2018). Generally, single-level cell (SLC) flash is more expensive and performs better than quad-level cell (QLC) flash. In other words, monoliths may suffer from disadvantages similar to those of quad-level cell (QLC) flash.\nIn the following paragraphs, we will compare availability only from the perspective of the source code.\n\n\nThe Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices\nHorizontal scaling (scale-out) is a strategy to remove single points of failure (SPOFs) and increase availability. In reviewing the analysis of Krtalić Rusendić (2022), it appears that two available states of microservices displayed in Figure 2 have been omitted out of 16 possible states, leading to slight miscalculations of the availability as \\(\\frac 7 {14} = 50\\%\\), and the availability of monoliths \\(75\\%\\) could benefit from further consideration of internal dependencies in the source code.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) Krtalić Rusendić (2022) Omitted\n\n\n\nJust as the example source code can have four states based on two operations and calculates availability as \\(\\frac 1 4 = 25\\%\\), since \\[2^2 = 4,\\]\nfor four source code operations, there are not 14 states in total as listed by Krtalić Rusendić (2022) but 16 states when including the two omitted ones:\n\\[2^4 = 16.\\]\nIf each of the two units of source code is scaled out by a factor of two, the original two single points of failure (SPOFs) are removed, and availability increases from the original \\(\\frac 1 4 = 25\\%\\) (for two units of source code) to\n\\[\\frac 9 {16} = 56.25\\%.\\]\nThe \\(\\frac 9 {16} = 56.25\\%\\) differs somewhat from the \\(\\frac 7 {14} = 50\\%\\) calculated by Krtalić Rusendić (2022).\nOn the other hand, if the single points of failure (SPOFs) of a single monolith program are removed by scaling out the original program by a factor of two, the internal dependency between the two units of source code in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of Figure 2 are absent in Figure 3. Therefore, the two available states in Figure 2 become failure states in Figure 3, and the availability increases from \\(\\frac 1 4 = 25\\%\\) for a single program to\n\n\n\n\n\n\nFigure 3: Horizontal scaling (scale-out) of Monoliths: 16 states\n\n\n\n\\[\\frac 7 {16} = 43.75\\%.\\]\nThe \\(\\frac 7 {16} = 43.75\\%\\) differs somewhat from the \\(\\frac 3 4 = 75\\%\\) calculated by Krtalić Rusendić (2022). This is because, instead of scaling out a single program by a factor of four (to four instances), scaling out by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the source code.\nTo summarize, from the perspective of the source code, the availability of a horizontally scaled (scaled-out) monolith (\\(43.75\\%\\)) is better than the original \\(25\\%\\), but it is still worse than that of a horizontally scaled (scaled-out) microservice (\\(56.25\\%\\)). This represents a notable divergence from the interpretation offered by Krtalić Rusendić (2022)."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/en/index.html#comparisons-through-formulae-between-monoliths-and-microservices",
-    "href": "posts/web/microservice-spof/en/index.html#comparisons-through-formulae-between-monoliths-and-microservices",
-    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
-    "section": "Comparisons Through Formulae Between Monoliths and Microservices",
-    "text": "Comparisons Through Formulae Between Monoliths and Microservices\n\nTwo Special Formulae Representing Shared Source Code of Monoliths and Microservices\nGenerally, when there are no external factors except source code, if \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) are fully connected and depend on each other, they have \\(n\\) single points of failure (SPOFs). Therefore, their availability is the same whether deployed as microservices or monoliths:\n\\[\\text{Join}(p, n) = p^n. \\tag{1}\\]\nSince \\(0 \\leq p \\leq 1\\), this value decreases monotonically as \\(n\\) increases.\nOn the other hand, if \\(m\\) components are independent, they have no single points of failure (SPOFs), and their availability is the same whether deployed as microservices or monoliths:\n\\[\\text{Split}(p, m) = 1 - (1 - p)^m. \\tag{2}\\]\nThis value increases monotonically as \\(m\\) increases, because \\(0 \\leq  1 - p \\leq 1\\) leads to \\((1- p)^m\\) decreasing monotonically.\n\n\nA Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices\nWhen there are no external factors other than source code, if each of \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) is scaled out horizontally by a factor of \\(m\\), each group of \\(m\\) has no single points of failure (SPOFs) and its availability is \\(\\text{Split}(p, m) = 1 - (1 - p)^m\\). If \\(n\\) groups of \\(m\\) are fully connected and depend on each other as \\(n\\) single points of failure (SPOFs), the combined availability is\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & = \\text{Join}(\\text{Split}(p, m), n)\\\\\n                                               & = \\text{Join}(1 - (1 - p)^m, n)\\\\\n                                               & = (1 - (1 - p)^m)^n.\n\\end{align}\n\\tag{3}\\]\nThis matches the availability in Figure 2:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(\\frac 1 2, 2, 2) & = \\text{Join}(\\text{Split}(\\frac 1 2, 2), 2)\\\\\n                                                       & = \\text{Join}(1 - (1 - \\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - (\\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - \\frac 1 4, 2)\\\\\n                                                       & = \\text{Join}(\\frac 3 4, 2)\\\\\n                                                       & = (\\frac 3 4)^2\\\\\n                                                       & = \\frac 9 {16}\\\\\n                                                       & = 56.25\\%.\n\\end{align}\n\\]\n\n\nA Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths\nWhen there are no external factors, if \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) are fully connected and depend on each other as \\(n\\) single points of failure (SPOFs), their availability when deployed as a monolith is \\(\\text{Join}(p, n) = p^n\\). If the \\(n\\) components are scaled out horizontally by a factor of \\(m\\) to remove single points of failure (SPOFs), the availability is\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(p, n, m) & = \\text{Split}(\\text{Join}(p, n), m)\\\\\n                                           & = \\text{Split}(p^n, m)\\\\\n                                           & = 1 - (1 - p^n)^m.\n\\end{align}\n\\tag{4}\\]\nThis matches the availability in Figure 3:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(\\frac 1 2, 2, 2) & = \\text{Split}(\\text{Join}(\\frac 1 2, 2), 2)\\\\\n                                                   & = \\text{Split}((\\frac 1 2)^2, 2)\\\\\n                                                   & = \\text{Split}(\\frac 1 4, 2)\\\\\n                                                   & = 1 - (1 - \\frac 1 4)^2\\\\\n                                                   & = 1 - (\\frac 3 4)^2\\\\\n                                                   & = 1 - \\frac 9 {16}\\\\\n                                                   & = \\frac 7 {16}\\\\\n                                                   & = 43.75\\%.\n\\end{align}\n\\]\n\n\nThe Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices\nThe following can be proven (Sil 2016):\n\\[(1 - (1 - p)^m)^n + (1 - p^n)^m \\geq 1. \\tag{5}\\]\nTherefore,\n\\[\n\\begin{align}\n(1 - (1 - p)^m)^n & \\geq 1 - (1 - p^n)^m\\\\\n\\text{Join}(\\text{Split}(p, m), n) & \\geq \\text{Split}(\\text{Join}(p, n), m)\\\\\n\\\\\n\\therefore \\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & \\geq \\text{ScaleOut}_{\\text{Monolith}}(p, n, m).\n\\end{align}\n\\tag{6}\\]\n\n\nThe Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices\nIn addition to the inequality of Equation 6, but the visualization in Figure 1 also demonstrates that the gap between \\(\\text{ScaleOut}_{\\text{Microservice}}(p, n, m)\\) and \\(\\text{ScaleOut}_{\\text{Monolith}}(p, n, m)\\) widens rapidly as \\(p\\) decreases or \\(n\\) increases, even as the factor of horizontally scaling (scale-out) \\(m\\) grows."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/en/index.html#conclusion",
-    "href": "posts/web/microservice-spof/en/index.html#conclusion",
-    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn conclusion, when there are no external factors besides source code, uniformly applying \\(m\\)-fold horizontal scaling (scale-out) allows microservices to internally remove single points of failure (SPOFs), resulting in higher combined availability than monoliths, which remove single points of failure (SPOFs) externally. Designing a system as a microservice in advance also offers the advantage of partial availability or resilience even when later deployed as a monolith. However, apart from source code, both resource contention in monoliths and the increased dependency of microservices on diverse resources must be carefully weighed and balanced."
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#기능적-시스템-요구사항-분석",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#기능적-시스템-요구사항-분석",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "기능적 시스템 요구사항 분석",
-    "text": "기능적 시스템 요구사항 분석\n\n\n필수 기능\n사용자가 직접 사용할 기능\n\n\n자원 현황 검색\n자원 현황 조회\n실시간 자원 선점\n\n\n\n부가 기능\n우선 순위 질문 후 폐기\n\n\n자원 생성/변경/삭제\n이전 현황 검색/조회\n사용자별 자원 조회\n시세 변동"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#비기능적-시스템-요구사항-분석",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#비기능적-시스템-요구사항-분석",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "비기능적 시스템 요구사항 분석",
-    "text": "비기능적 시스템 요구사항 분석\n\n\n특수 제약\n어떤 성능이 관건일까?\n\n\nCAP Theorem\n\nConsistency:\nConcurrent Booking\nAvailability:\nLive View\n\nRead/Write Ratio: Anonymous Guests\nBursts: Popular Events\n\n\n\n선택 목표\n다다익선\n\n\nSecurity, i.e. Authentication\nCI/CD Pipelines\nBackups\nGeneral Data Protection Regulation\nFault Tolerance"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-core-entities",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-core-entities",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "Functional Core Entities",
-    "text": "Functional Core Entities\n\nUser: Dummy\nVenue: 장소 ↔︎ Seat Map\nEvent: 시간, 장소\n\nTicket[]\n\nTicket: 시간별, 장소별 Seat Map 자원\nPerformer: Dummy\nBooking: Dummy\n\nTicket[]"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-api",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-api",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "Functional API",
-    "text": "Functional API\n\n\n\nGET /events/search\n→ Event[]\n\n  ?keyword=Tailor  \n  &start=2025-03-01&end=2025-04-01  \n  &pageSize=10&page=1\n\nGET /events/:eventId\n→ Event, Venue, Performer, Ticket[]\n\n\n\nPOST /bookings/:eventId\n→ bookingId\n\n  {\n    \"ticketIds\": string[], \n    \"paymentDetails\": ...\n  }"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-high-level-design-1",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-high-level-design-1",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "Functional High-Level Design",
-    "text": "Functional High-Level Design\n\n\n\nSingle Scalable API Gateway\n\nRouting/Forwarding\nRate Limit\nAuthentication\nLogging\n\nMicroservices\n\nOne Application Service per One API\n\n\n\n\n(Sidecars of Load Balancers)\n\nHorizontal Scale Out\nLeast Connections\nRound Robin\n\n\n\n\nFamiliar DBMS for Persistence and Consistency\n\nRDBMS, e.g. PostgreSQL\nNoSQL, e.g. DynamoDB\n\nExternal API for Payment\n\nAsynchronous Webhooks"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "Lost Updates Prevention",
-    "text": "Lost Updates Prevention\n\n\nTransaction A\nRead AVAILABLE\n   Write BOOKED\nCommit\n\nTransaction B\n Read AVAILABLE Write BOOKED\nCommit\n\n\nSELECT ... FOR UPDATE\n\n\nIsolation Level\n\nSERIALIZABLE, REPEATABLE READ 1\nREAD UNCOMMITTED 2\n\nUPDATE ... WHERE BOOKED=FALSE\n\n\n\n\ncompare Mihalcea (2023) with Kang (2024)Ullman and Widom (2014), pp. 296-297"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "1. Payment Availability: Move Lock Up and Hold Longer",
-    "text": "1. Payment Availability: Move Lock Up and Hold Longer\n\nBrute Force without Database Column Addition\n\nNo Native Timeout for PostgreSQL? 1\n\n\n\nDatabase Column Addition: Expiration Time\n\nCron: Periodic Expiration\n\nAdditional Dependency aside from Database\n\nLazy Expiration\n\n\n\n(Atomic) Cache: Natural Expiration of Time To Live\n\nAdditional Dependency aside from Database\nRedLock: Scalable Distributed Locks\n\n\nbut see Ringer (2014)"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "2. Live View Availability",
-    "text": "2. Live View Availability\n\nLong Polling\nServer-Sent Events\n\nUnidirectional\n\nWebSockets\n\nBidirectional, Full-Duplex\n\n\n(Virtual) Waiting Queue\n\nDequeue Timing\n\nMetadata"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#common-read-performance",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#common-read-performance",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "3. Common Read Performance",
-    "text": "3. Common Read Performance\n\n\n\nCache: Redis, MemCached\n\nRead-Through Cache Strategy\n\nSync Triggers\n\nIndividual TTLs\nContent Distribution Networks\n\nAWS CloudFront\n\n\n\n\n\nIndex\n\nCompound Index\n\nColumns to Rows\n\nPartial Index\nCovering Index\n\nMaterialized View\n\n\n\nSQL\n\nEXPLAIN: Query Execution Plan Analysis\nAvoidance of SELECT *\nLIMIT, Pagination\nUNION instead of OR"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#search-performance",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#search-performance",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "4. Search Performance",
-    "text": "4. Search Performance\n\n\n1. Full-Table Scan Latency\n%LIKE%\n\nFull-Text Search\n\nInverted Indexes\n\nKeywords to Rows\nFuzzy Search\n\nDatabase Indexes\nElasticSearch\n\nChange Data Capture\n\n\n\n\n2. Frequent Queries\n\nElasticSearch/OpenSearch\n\nNode Level Filter\n\nLeast Recently Used Cache\n\nShard Level Aggregation\n\nAdaptive Caching Strategies"
-  },
-  {
-    "objectID": "posts/web/hello-interview/ticketmaster/index.html#references",
-    "href": "posts/web/hello-interview/ticketmaster/index.html#references",
-    "title": "DB 병목을 나누는 시스템 설계",
-    "section": "References",
-    "text": "References\n\n\n\n\nKang, Sihoo. 2024. “(데이터베이스) Lost update와 serializable.” July 14, 2024. https://mirrorofcode.tistory.com/416.\n\n\nKing, Evan. n.d. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\n\nMihalcea, Vlad. 2023. “Minimum Transaction Isolation Level to Avoid \"Lost Updates\".” October 7, 2023. https://stackoverflow.com/a/77249495.\n\n\nRinger, Craig. 2014. “Controlling Duration of PostgreSQL Lock Waits.” January 7, 2014. https://stackoverflow.com/a/20963803.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
-  },
-  {
-    "objectID": "cv/en/index.html",
-    "href": "cv/en/index.html",
-    "title": "Yunho Kee",
-    "section": "",
-    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
-  },
-  {
-    "objectID": "cv/en/index.html#dummy",
-    "href": "cv/en/index.html#dummy",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/en/index.html#dummy-1",
-    "href": "cv/en/index.html#dummy-1",
-    "title": "Yunho Kee",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html",
-    "href": "cv/ko/index.html",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "",
-    "text": "Switch to English\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy",
-    "href": "cv/ko/index.html#dummy",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-1",
-    "href": "cv/ko/index.html#dummy-1",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-2",
-    "href": "cv/ko/index.html#dummy-2",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "cv/ko/index.html#dummy-3",
-    "href": "cv/ko/index.html#dummy-3",
-    "title": "기윤호 | 품질을 높이는 백엔드 개발",
-    "section": "dummy",
-    "text": "dummy"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#transactions",
-    "href": "posts/web/hello-interview/dropbox/index.html#transactions",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Transactions",
-    "text": "Transactions\n\n\n\nAtomicity\n\nAll or Nothing\nSubjective Term: Internal Atomicity\nRollback 1\n\n(Consistency)\n\nDatabase Constraints 2\n\n\n\n\nIsolation\n\nSerializability\n\nNo Overlap 3\nSubjective Term: External Atomicity\n\nRepeatability ↔︎ Resumability or Parallellism\n\n\n\nUllman and Widom (2014), p. 293Ullman and Widom (2014), p. 9Ullman and Widom (2014), p. 291"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
-    "href": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Subjective Term:  Internal Atomicity",
-    "text": "Subjective Term:  Internal Atomicity\n\n\n\nTimeout\nScope\n\nNetwork-Level Status\n\nIntegrity: Pre-Signed URLs\n\nApplication-Level Status\n\n\n\n\nConsistency\n\nDirections\n\n\n(Persistent Connections)\n\nLong Polling\nServer-Sent Events\nWebSockets\n\nPush from Source\n\nNotification\n\nIntranet ↔︎ Internet\n\n(Adaptive) Cron\n\n\n\n\n\nPull from Destination or (Lazy) Resilience\n\nOn-Demand Refresh\n(Adaptive) Polling\n(Periodic) Reconciliation"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
-    "href": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "(Repeatability or Recovery)",
-    "text": "(Repeatability or Recovery)\nSubjective Term: Internal Serializability\nor Internal External Atomicity\n\n\n\nEvent Stream or Event Bus, e.g. Kafka\nChange Data Capture\nCursors\nTypes\n\nChanges\nSnapshots\n\n\n\n\nActions\n\nRollback\nRoll Forward, c.f. Replay\n\nAudit Trails\nPartitioning"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#chunks",
-    "href": "posts/web/hello-interview/dropbox/index.html#chunks",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Chunks",
-    "text": "Chunks\n\n\n\nOptions\n\nSize Upper Bound, e.g. 10 MB\n\nDirectory: Segmentation\n\nCompression Algorithms\nVersions\nLogs\n\n\n\n\nScope\n\nDatabase Entity\n\nDurability\nTime-Saving Preprocess\n\nNetwork Protocol Data Unit\n\nAdaptive Size\nReal-Time Intelligence\n\nEncapsulation\n\nExternal Blob Storage"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
-    "href": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Content Distribution Networks",
-    "text": "Content Distribution Networks\n\nCache: Benefit of Reusability\n\nStatic Data\n\nDatabase\nNetwork\n\nShared Data ↔︎ Private\n\nBenefit of Distance\n\nFar Data Centers\nNear Users"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "Optional  Functional Requirements",
-    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
-  },
-  {
-    "objectID": "posts/web/hello-interview/dropbox/index.html#references",
-    "href": "posts/web/hello-interview/dropbox/index.html#references",
-    "title": "느리게 동기화하는 시스템 설계",
-    "section": "References",
-    "text": "References\n\n\n\n\nKing, Evan. n.d. “System Design Interview: Design Dropbox or Google Drive w/ a Ex-Meta Staff Engineer.” Accessed April 12, 2025. https://youtu.be/_UZ1ngy-kOI?si=zeVM5kvX7o8lnk_7.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/ko/index.html",
-    "href": "posts/web/microservice-spof/ko/index.html",
-    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
-    "section": "",
-    "text": "Switch to English\nviewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: \"p\"});\nviewof n = Inputs.range([1, 100], {step: 1, value: 5, label: \"n\"});\nCode\nfunction join(p, n) {\n  return Math.pow(p, n);\n}\nfunction split(p, m) {\n  return 1 - Math.pow(1 - p, m);\n}\n\ny1s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: join(split(p, i), n),\n      label: \"ScaleOutMicroservice\",\n    });\n  }\n  return ys;\n})();\n\ny2s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: split(join(p, n), i),\n      label: \"ScaleOutMonolith\",\n    });\n  }\n  return ys;\n})();\nPlot.plot({\n  grid: true,\n  color: {legend: true, scheme: \"BuRd\"},\n  x: {label: \"m\"},\n  y: {label: \"Combined Availability\", domain: [0, 1]},\n  marks: [\n    Plot.areaY(y1s.concat(y2s), {y1: \"y\", x: \"m\", fill: \"label\", fillOpacity: 0.5}),\n    Plot.tip(y1s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n    Plot.tip(y2s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n  ],\n  style: \"background: inherit;\",\n});\n\n\n\n\n\n\n\n\nFigure 1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점"
-  },
-  {
-    "objectID": "posts/web/microservice-spof/ko/index.html#예시를-통한-monolith와-microservice의-비교",
-    "href": "posts/web/microservice-spof/ko/index.html#예시를-통한-monolith와-microservice의-비교",
-    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
-    "section": "예시를 통한 Monolith와 Microservice의 비교",
-    "text": "예시를 통한 Monolith와 Microservice의 비교\n\n소스코드 예시로 이해하는 Monolith와 Microservice의 유사성\n웹 개발자 Krtalić Rusendić (2022) 에 따르면, 프로그램 하나를 개발하면 Monolith(Monolithic Architecture), 여러 프로그램으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith 프로그램을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Krtalić Rusendić 2022). Class와 Method를 Microservice 프로그램으로 구현하면 Service와 API이다 (Krtalić Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Krtalić Rusendić 2022).\nKrtalić Rusendić (2022) 는 Monolith와 Microservice의 차이를 알기 쉽게 시각화한다. 그러나 Krtalić Rusendić (2022) 가 제시한 예시 프로그램의 가용성이 Monolith로 구현하면 \\(50\\%\\), Microservice는 \\(25\\%\\)라는 그의 주장은 설득력이 떨어진다. 소스코드 내 결함으로 인한 장애는, Monolith 프로그램 1개로 배포하든 Microservice 프로그램 2개로 배포하든 배포 방식과는 무관하게 \\(25\\%\\)가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 소스코드를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 Monolith이든 Microservice이든 출력의 가용성은 \\(25\\%\\)로 같다. 이 프로그램에서 출력의 SPOF(Single Point of Failure)는 Microservice로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 Monolith로 배포해도 소스코드 내에서 2개이다.\n\n\n소스코드 예시로 이해하는 Microservice의 부분적 이점\nMicroservice로 설계하고 나면 배포 방식이 Microservice가 아니라 Monolith로 배포하더라도 유리할 수 있다. 앞서 언급한 소스코드에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 \\(50\\%\\)이다. 이 출력의 SPOF(Single Point of Failure)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 \\(25\\%\\)로 줄일 필요가 없다. 이처럼 부분 가용성(Resilience)은 Microservice를 감안해서 설계해야, Monolith로 배포하더라도 SPOF(Single Point of Failure)를 불필요하게 늘리지 않을 수 있다.\n\n\n낸드플래시(NAND Flash) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용\n소스코드 외적으로, Monolith 대비 Microservice의 비용이 있는 것은 사실이다 (see Krtalić Rusendić 2022). 예시 소스코드 2개가 의존하는 하드웨어가 1개일 때 소스코드 외적인 가용성이 \\(50\\%\\)라면, 소스코드 1개에 하드웨어 1개씩 총 2개의 하드웨어에 의존할 때 가용성은 하드웨어의 개별적인 동작 때문에 \\(25\\%\\)로 줄어든다고 볼 수도 있다.\n그러나 Microservice 대비 Monolith의 비용도 간과해서는 안 된다. 2개의 소스코드가 하드웨어 1개씩 총 2개에 의존할 때 소스코드 외적인 가용성이 \\(25\\%\\)였다면, 이번에는 역으로 다시 총 1개의 하드웨어에 의존할 때 가용성은 한정된 자원에 대한 경합(Contention) 때문에 \\(12.5\\%\\)로 더 줄어들 위험도 있다. 예를 들어 낸드플래시(NAND Flash) 반도체 메모리도 마찬가지로 SLC(Single Level Cell), MLC(Multi Level Cell), TLC(Triple Level Cell), QLC(Quadruple Level Cell)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 (see Lee 2018). 일반적으로 SLC(Single Level Cell)가 QLC(Quadruple Level Cell)보다 비싸고 좋다. 즉 Monolith가 오히려 QLC(Quadruple Level Cell) 같은 단점이 있다.\n이하 내용에서는 소스코드 내적인 관점에서만 가용성을 비교한다.\n\n\n그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\n수평 확장(Horizontal Scaling, Scale-Out)은 SPOF(Single Point of Failure)를 제거해 가용성을 확대할 수 있는 전략이다. Krtalić Rusendić (2022) 의 설명을 보면, Figure 2 과 같은 Microservice의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 \\(\\frac 7 {14} = 50\\%\\)로 계산하는 사소한 실수가 있었고, Monolith의 가용성 \\(75\\%\\)도 소스코드 내 의존성을 고려하면 더 정확하게 이해할 수 있다.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 Krtalić Rusendić (2022) 가 누락한 2가지 정상 동작 상태\n\n\n\n예시 소스코드의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 \\(\\frac 1 4 = 25\\%\\)를 계산한 것처럼\n\\[2^2 = 4\\]\n이므로, 4개의 소스코드 동작 여부에 따라서는, Krtalić Rusendić (2022) 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:\n\\[2^4 = 16.\\]\n2개의 소스코드를 각각 2배로 늘리면 기존에 2개였던 SPOF(Single Point of Failure)가 제거되어, 가용성은 기존 소스코드 2개의 \\(\\frac 1 4 = 25\\%\\)에서\n\\[\\frac 9 {16} = 56.25\\%\\]\n으로 증가한다. \\(\\frac 9 {16} = 56.25\\%\\)는 Krtalić Rusendić (2022) 가 계산한 \\(\\frac 7 {14} = 50\\%\\)와는 다소 차이가 있다.\n반면 Monolith 프로그램 1개의 SPOF(Single Point of Failure)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 소스코드 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 Figure 2 의 중앙에 보이던 노란 화살표 2개가 Figure 3 에는 없다. 그러면 Figure 2 의 2가지 정상 동작 상태가 Figure 3 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 \\(\\frac 1 4 = 25\\%\\)에서\n\n\n\n\n\n\nFigure 3: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태\n\n\n\n\\[\\frac 7 {16} = 43.75\\%\\]\n으로 증가한다. \\(\\frac 7 {16} = 43.75\\%\\)는 Krtalić Rusendić (2022) 가 계산한 \\(\\frac 3 4 = 75\\%\\)와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 소스코드 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.\n정리하면 소스코드 내적인 관점에서는 수평 확장(Horizontal Scaling, Scale-Out)한 Monolith의 가용성 \\(43.75\\%\\)가 기존의 \\(25\\%\\)보다 나아지기는 해도 수평 확장(Horizontal Scaling, Scale-Out)한 Microservice의 가용성 \\(56.25\\%\\)보다 오히려 더 못하다는 사실이 Krtalić Rusendić (2022) 의 해석과 다른 점이다."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/ko/index.html#수식을-통한-monolith와-microservice의-비교",
-    "href": "posts/web/microservice-spof/ko/index.html#수식을-통한-monolith와-microservice의-비교",
-    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
-    "section": "수식을 통한 Monolith와 Microservice의 비교",
-    "text": "수식을 통한 Monolith와 Microservice의 비교\n\n소스코드의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성\n일반적으로 소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖는 Microservice \\(n\\)개가 서로 Fully Connected되어 의존하는 결과는 \\(n\\)개의 SPOF(Single Point of Failure)를 갖기 때문에 그 가용성은 Microservice로 배포하거나 Monolith로 배포하거나\n\\[\\text{Join}(p, n) = p^n \\tag{1}\\]\n으로 동일하다. \\(0 \\leq p \\leq 1\\)이므로 \\(n\\)이 커질수록 단조적으로 감소(Monotonically Decreasing)한다.\n반면에 서로 의존하지 않는 \\(m\\)개는 SPOF(Single Point of Failure)가 없고 그 가용성은 Microservice로 배포하거나 Monolith로 배포하거나\n\\[\\text{Split}(p, m) = 1 - (1 - p)^m \\tag{2}\\]\n으로 동일하다. 반대로 \\(m\\)이 커지면 단조적으로 증가(Monotonically Increasing)한다. 왜냐하면 \\(0 \\leq  1 - p \\leq 1\\)에서 \\((1- p)^m\\)이 단조적으로 감소(Monotonically Decreasing)하기 때문이다.\n\n\n수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성\n소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖는 Microservice \\(n\\)개 각각을 \\(m\\)배 수평 확장(Horizontal Scaling, Scale-Out)하면 각 \\(m\\)개는 서로 의존하지 않아 SPOF(Single Point of Failure)를 제거하므로 그 가용성은 \\(\\text{Split}(p, m) = 1 - (1 - p)^m\\)이다. \\(m\\)개씩의 \\(n\\)개가 서로 Fully Connected되어 \\(n\\)개의 SPOF(Single Point of Failure)로서 의존하는 결과의 가용성은\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & = \\text{Join}(\\text{Split}(p, m), n)\\\\\n                                               & = \\text{Join}(1 - (1 - p)^m, n)\\\\\n                                               & = (1 - (1 - p)^m)^n\n\\end{align}\n\\tag{3}\\]\n이다.\nFigure 2 의 가용성과 일치함을 알 수 있다:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(\\frac 1 2, 2, 2) & = \\text{Join}(\\text{Split}(\\frac 1 2, 2), 2)\\\\\n                                                       & = \\text{Join}(1 - (1 - \\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - (\\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - \\frac 1 4, 2)\\\\\n                                                       & = \\text{Join}(\\frac 3 4, 2)\\\\\n                                                       & = (\\frac 3 4)^2\\\\\n                                                       & = \\frac 9 {16}\\\\\n                                                       & = 56.25\\%.\n\\end{align}\n\\]\n\n\n수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성\n소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖고 서로 Fully Connected되어 \\(n\\)개의 SPOF(Single Point of Failure)로서 의존하는 Microservice \\(n\\)개를 Monolith로 배포하면 그 결과의 가용성은 \\(\\text{Join}(p, n) = p^n\\)이다. \\(n\\)개를 서로 의존하지 않게 \\(m\\)배 수평 확장(Horizontal Scaling, Scale-Out)하면 SPOF(Single Point of Failure)를 제거하므로 그 가용성은\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(p, n, m) & = \\text{Split}(\\text{Join}(p, n), m)\\\\\n                                           & = \\text{Split}(p^n, m)\\\\\n                                           & = 1 - (1 - p^n)^m\n\\end{align}\n\\tag{4}\\]\n이다.\nFigure 3 의 가용성과 일치함을 알 수 있다:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(\\frac 1 2, 2, 2) & = \\text{Split}(\\text{Join}(\\frac 1 2, 2), 2)\\\\\n                                                   & = \\text{Split}((\\frac 1 2)^2, 2)\\\\\n                                                   & = \\text{Split}(\\frac 1 4, 2)\\\\\n                                                   & = 1 - (1 - \\frac 1 4)^2\\\\\n                                                   & = 1 - (\\frac 3 4)^2\\\\\n                                                   & = 1 - \\frac 9 {16}\\\\\n                                                   & = \\frac 7 {16}\\\\\n                                                   & = 43.75\\%.\n\\end{align}\n\\]\n\n\n수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\n다음을 증명할 수 있다 (Sil 2016):\n\\[(1 - (1 - p)^m)^n + (1 - p^n)^m \\geq 1. \\tag{5}\\]\n따라서,\n\\[\n\\begin{align}\n(1 - (1 - p)^m)^n & \\geq 1 - (1 - p^n)^m\\\\\n\\text{Join}(\\text{Split}(p, m), n) & \\geq \\text{Split}(\\text{Join}(p, n), m)\\\\\n\\\\\n\\therefore \\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & \\geq \\text{ScaleOut}_{\\text{Monolith}}(p, n, m).\n\\end{align}\n\\tag{6}\\]\n\n\n그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\nEquation 6 의 성질뿐 아니라 Figure 1 의 시각화를 통해 \\(\\text{ScaleOut}_{\\text{Microservice}}(p, n, m)\\)과 \\(\\text{ScaleOut}_{\\text{Monolith}}(p, n, m)\\)의 격차가 수평 확장(Horizontal Scaling, Scale-Out)의 배수 \\(m\\)의 확대에도 불구하고 \\(p\\)의 감소 또는 \\(n\\)의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다."
-  },
-  {
-    "objectID": "posts/web/microservice-spof/ko/index.html#결론",
-    "href": "posts/web/microservice-spof/ko/index.html#결론",
-    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
-    "section": "결론",
-    "text": "결론\n결론적으로 소스코드 외적인 요인이 없을 때 \\(m\\)배의 일괄적인 수평 확장(Horizontal Scaling, Scale-Out)을 시도하면 Microservice를 통해 SPOF(Single Point of Failure)를 내부적으로 제거하는 것이 Monolith를 통해 외부적으로 제거하는 것보다 결합적인 가용성이 더 좋다. 이때 미리 Microservice로 설계하는 경우 나중에 Monolith로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다. 다만 소스코드 외적으로는 Monolith 배포에서 한정된 자원에 대한 경합(Contention) 문제와 Microservice 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다."
-  },
-  {
-    "objectID": "posts/web/cors-csrf-xss/index.html",
-    "href": "posts/web/cors-csrf-xss/index.html",
-    "title": "CORS, CSRF, XSS는 서버에서 막으면 그만일까?",
-    "section": "",
-    "text": "Photo by Kelly Sikkema on Unsplash\n다시 말해 서버의 기대와 달리 안전하지 않은(Integrity) 브라우저가 보낸 또는 안전하지 않은(Integrity) 경로로부터 받은 요청에 서버는 여전히 취약하다."
-  },
-  {
-    "objectID": "posts/web/cors-csrf-xss/index.html#footnotes",
-    "href": "posts/web/cors-csrf-xss/index.html#footnotes",
-    "title": "CORS, CSRF, XSS는 서버에서 막으면 그만일까?",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS↩︎\nhttps://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF↩︎\nhttps://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS↩︎"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html",
-    "href": "posts/web/escape-xml10/index.html",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#intro",
-    "href": "posts/web/escape-xml10/index.html#intro",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "",
-    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
-    "href": "posts/web/escape-xml10/index.html#problem-analysis",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Problem Analysis",
-    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
-  },
-  {
-    "objectID": "posts/web/escape-xml10/index.html#solution",
-    "href": "posts/web/escape-xml10/index.html#solution",
-    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
-    "section": "Solution",
-    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다."
   },
   {
     "objectID": "posts/data-science/pvlib-timezone/index.html",
@@ -560,25 +147,67 @@
     "text": "Footnotes\n\n\n다운로드를 요구하지 않는 Wikipedia가 더 편해 보인다.↩︎"
   },
   {
-    "objectID": "posts/database/cv-or-resume/en/index.html",
-    "href": "posts/database/cv-or-resume/en/index.html",
-    "title": "Open-Source CV or Resume Engineering",
+    "objectID": "posts/web/cors-csrf-xss/index.html",
+    "href": "posts/web/cors-csrf-xss/index.html",
+    "title": "CORS, CSRF, XSS는 서버에서 막으면 그만일까?",
     "section": "",
-    "text": "Switch to Korean\n\n\n\n\n\n\nIntroduction\nAre you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.\nYou can see the live web version and explore the source code here to try it out right away.\nTo get started, simply fork the repository and deploy your CV or resume online using GitHub Pages. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including .pdf and .docx.\nAlternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install Docker Compose, run the commands below, and view your CV at https://localhost:8888/ or in the _site/cv/ directory:\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down\nThis project draws inspiration from Kyungho (Kay) Kim, founder of the Global Coding Community (GCC), and PIRATE KING, whose resume led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own reference.docx using these instructions, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!\n\n\nObjectives\nThis project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from Bay Area K Group and Hello Interview:\n\nConsistency\n\nMaintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses references instead of copy-paste, enabling automatic propagation of changes from a single source document to all formats via Quarto and Pandoc.\nInspired by database principles: traditional relational database management systems (RDBMSs) address redundancy and update anomalies via eager, static updates (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., “repeatable read” isolation).\nInstead, this workflow like foreign key joins in databases adopts on-demand, lazy evaluation, dynamically resolving updates. Similar concepts include reference variables, class inheritance, and monorepos, where code is shared, not duplicated.\n\nCross-Platform Support\n\nMaintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.\nThis workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within comments, CSS files, or reference documents, making them available for future use without permanent deletion.\nSupport for conditional contents enables precise control over what appears in each output, similar to managing file visibility (see King n.d.a). Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like full-text indexes in databases or inverted indexes in search engines (see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?) — though without any rendering performance gain. Tools like Python Polylith also visualize such dependencies dynamically.\nTraditional relational database management systems (RDBMSs) call related issues insertion and deletion anomalies. While some solutions (like Notion, Confluence, or basic web converters) offer platform independence, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the serializable isolation level. Instead, this workflow leverages nested data structures — including relations, linked lists, trees, graphs, class hierarchies, submodules, polymorphism, dynamic loading, and portable executables — to flexibly manage platform-specific elements. Quarto’s includes feature streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.\n\nEasy Comparison\n\nThe workflow is compatible with Git and GitHub, as it uses plain text files (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.\n\nUser-Friendly Authoring\n\nWriting and maintaining your CV is easier than with LaTeX or typical web development tools, since you primarily use Markdown for content creation and editing.\n\n\nFuture Work\nI hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.\n#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career\nFeel free to contribute, ask questions, or share your feedback!\n\n\n\n\n\n Back to topReferences\n\nKing, Evan. n.d.a. “Design a File Storage Service Like Dropbox.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users.\n\n\n———. n.d.b. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\nCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {Open-Source CV or Resume Engineering},\n  date = {2025-05-15},\n  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “Open-Source CV or Resume Engineering.”\nMay 15, 2025. https://yhkee0404.github.io/posts/database/cv-or-resume/en/."
+    "text": "Photo by Kelly Sikkema on Unsplash\n다시 말해 서버의 기대와 달리 안전하지 않은(Integrity) 브라우저가 보낸 또는 안전하지 않은(Integrity) 경로로부터 받은 요청에 서버는 여전히 취약하다."
   },
   {
-    "objectID": "posts/algorithms/codetree/week-2/index.html",
-    "href": "posts/algorithms/codetree/week-2/index.html",
-    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-2/."
+    "objectID": "posts/web/cors-csrf-xss/index.html#footnotes",
+    "href": "posts/web/cors-csrf-xss/index.html#footnotes",
+    "title": "CORS, CSRF, XSS는 서버에서 막으면 그만일까?",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS↩︎\nhttps://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF↩︎\nhttps://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS↩︎"
   },
   {
-    "objectID": "posts/algorithms/codetree/week-7/index.html",
-    "href": "posts/algorithms/codetree/week-7/index.html",
-    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
-    "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-7/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-7/."
+    "objectID": "posts/web/hello-interview/dropbox/index.html#transactions",
+    "href": "posts/web/hello-interview/dropbox/index.html#transactions",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Transactions",
+    "text": "Transactions\n\n\n\nAtomicity\n\nAll or Nothing\nSubjective Term: Internal Atomicity\nRollback 1\n\n(Consistency)\n\nDatabase Constraints 2\n\n\n\n\nIsolation\n\nSerializability\n\nNo Overlap 3\nSubjective Term: External Atomicity\n\nRepeatability ↔︎ Resumability or Parallellism\n\n\n\nUllman and Widom (2014), p. 293Ullman and Widom (2014), p. 9Ullman and Widom (2014), p. 291"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
+    "href": "posts/web/hello-interview/dropbox/index.html#subjective-term-internal-atomicity",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Subjective Term:  Internal Atomicity",
+    "text": "Subjective Term:  Internal Atomicity\n\n\n\nTimeout\nScope\n\nNetwork-Level Status\n\nIntegrity: Pre-Signed URLs\n\nApplication-Level Status\n\n\n\n\nConsistency\n\nDirections\n\n\n(Persistent Connections)\n\nLong Polling\nServer-Sent Events\nWebSockets\n\nPush from Source\n\nNotification\n\nIntranet ↔︎ Internet\n\n(Adaptive) Cron\n\n\n\n\n\nPull from Destination or (Lazy) Resilience\n\nOn-Demand Refresh\n(Adaptive) Polling\n(Periodic) Reconciliation"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
+    "href": "posts/web/hello-interview/dropbox/index.html#repeatability-or-recovery",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "(Repeatability or Recovery)",
+    "text": "(Repeatability or Recovery)\nSubjective Term: Internal Serializability\nor Internal External Atomicity\n\n\n\nEvent Stream or Event Bus, e.g. Kafka\nChange Data Capture\nCursors\nTypes\n\nChanges\nSnapshots\n\n\n\n\nActions\n\nRollback\nRoll Forward, c.f. Replay\n\nAudit Trails\nPartitioning"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#chunks",
+    "href": "posts/web/hello-interview/dropbox/index.html#chunks",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Chunks",
+    "text": "Chunks\n\n\n\nOptions\n\nSize Upper Bound, e.g. 10 MB\n\nDirectory: Segmentation\n\nCompression Algorithms\nVersions\nLogs\n\n\n\n\nScope\n\nDatabase Entity\n\nDurability\nTime-Saving Preprocess\n\nNetwork Protocol Data Unit\n\nAdaptive Size\nReal-Time Intelligence\n\nEncapsulation\n\nExternal Blob Storage"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
+    "href": "posts/web/hello-interview/dropbox/index.html#content-distribution-networks",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Content Distribution Networks",
+    "text": "Content Distribution Networks\n\nCache: Benefit of Reusability\n\nStatic Data\n\nDatabase\nNetwork\n\nShared Data ↔︎ Private\n\nBenefit of Distance\n\nFar Data Centers\nNear Users"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "href": "posts/web/hello-interview/dropbox/index.html#optional-functional-requirements",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "Optional  Functional Requirements",
+    "text": "Optional  Functional Requirements\n\n\n\nRDBMS Analogy\n\nDirections\n\nInner/Left/Right/Outer Joins\n\nScope\n\nModifications\nInsertions\nDeletions\n\n\n\n\n\nGit Analogy\n\nExclusions,  c.f. .gitignore"
+  },
+  {
+    "objectID": "posts/web/hello-interview/dropbox/index.html#references",
+    "href": "posts/web/hello-interview/dropbox/index.html#references",
+    "title": "느리게 동기화하는 시스템 설계",
+    "section": "References",
+    "text": "References\n\n\n\n\nKing, Evan. n.d. “System Design Interview: Design Dropbox or Google Drive w/ a Ex-Meta Staff Engineer.” Accessed April 12, 2025. https://youtu.be/_UZ1ngy-kOI?si=zeVM5kvX7o8lnk_7.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
   },
   {
     "objectID": "posts/algorithms/codetree/week-5/index.html",
@@ -588,11 +217,25 @@
     "text": "실력 진단 결과\n\n\n\n\n\n\n\nDijkstra / 최단 거리 9\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/shortest-distance-9/\n마지막 문제만 못 풀면서 점수가 조금 올랐다.\n문제를 잘못 읽어서 아쉽게 str(ans) 대신에 str(len(parents))를 출력하는 우를 범했다.\n\n\n\n진단 센터 / 문항별 통계\n\n\nhttps://www.codetree.ai/missions/reports/\n유형 자체의 평균 소요 시간이 dfs, bfs는 21분, Parametric Search는 25분이다. 실력 진단 제한 시간은 유형 무관 20분이라 뭔가 잘못된 것 같다.\n평균보다 시간을 많이 쓴 유형은 1주차에 취약했던 구간 단위로 완전탐색 유형과 3주차에 취약했던 격자 안에서 한 칸씩 전진하는 DP 유형이었다. 계속 연습하자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 5주차 - Dijkstra},\n  date = {2023-10-09},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-5/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 5주차 - Dijkstra.”\nOctober 9, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-5/."
   },
   {
-    "objectID": "posts/algorithms/codetree/week-6/index.html",
-    "href": "posts/algorithms/codetree/week-6/index.html",
-    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "objectID": "posts/algorithms/codetree/week-4/index.html",
+    "href": "posts/algorithms/codetree/week-4/index.html",
+    "title": "[코드트리 챌린지] 4주차 - DFS",
     "section": "",
-    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-6/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-6/."
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nDFS / 두 방향 탈출 가능 여부 판별하기\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/determine-escapableness-with-2-ways/\n놀랍게도 처음 점수 그대로 돌아왔다. 4개만 풀어서인 것 같다.\n제한 시간 20분 안에 1문제씩 풀어야 하는데, 그래프를 구현하는 문제에서 실수하고 디버그가 미숙했다.\n이번에는 재방문 여부만 확인하고 벽인지 아닌지 검사하는 것을 빠트려서 틀린 것 같다.\n복습용으로 추가 제공된 문제는 DP로 풀 수 있었다.\n하지만 값을 갱신하는 시점을 출발 지점과 도착 지점 중에서 선택하는 데 시간을 낭비했다.\n후자를 선택해서 시작 지점은 초기화하고 갱신 시 무시하는 것도 어려웠고, 입력 배열 값과 DP 배열 값 중 어느 것을 확인할지도 헷갈렸다.\n약점을 발견해서 다행이다. 연습량을 늘리고 헷갈리지 말자.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 4주차 - DFS},\n  date = {2023-10-02},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-4/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 4주차 - DFS.” October\n2, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-4/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-2/index.html",
+    "href": "posts/algorithms/codetree/week-2/index.html",
+    "title": "[코드트리 챌린지] 2주차 - Parametric Search",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\nParametric Search / 삼 오 무\n\n\n\n\n\nhttps://www.codetree.ai/missions/8/problems/three-five-moo/\n감사하게도 보충 기회를 얻어 3주차에 작성한다.\n실력 진단 마지막 Parametric Search 문제를 시간이 부족해 못 풀었다.\nSearch 문제도 Bound 문제로 해석하기를 좋아하는데, 인덱스 처리가 아직 미숙했다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 2주차 - Parametric Search},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-2/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 2주차 - Parametric\nSearch.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-2/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-3/index.html",
+    "href": "posts/algorithms/codetree/week-3/index.html",
+    "title": "[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩 전진하는 DP",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n격자 안에서 한 칸씩 전진하는 DP / 정수 사각형 최장 증가 수열\n\n\n\n\n\nhttps://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid/\nDP라는 취약점을 재발견했다.\n격자를 회전하는 등 변형하는 것도 미숙한 것 같다.\nDP 개념 설명과 해설이 역시 매우 좋았다.\n그리고 Tabulation을 위해 정렬이 필요했던 해설에 비해, Memoization으로 접근함으로써 시간을 절약할 수 있었다.\n문제 특성상 격자의 정점들이 Topology를 갖는 덕분에 Backtracking 없는 DFS만으로 해결할 수 있었다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 3주차 - 격자 안에서 한 칸씩 전진하는\n    DP},\n  date = {2023-09-25},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-3/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 3주차 - 격자 안에서 한 칸씩\n전진하는 DP.” September 25, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-3/."
   },
   {
     "objectID": "posts/algorithms/leetcode/linked-list-cycle/index.html",
@@ -726,5 +369,362 @@
     "title": "이진수 대신 십진수를 쓰면 오차가 없어질까?",
     "section": "언어 초월",
     "text": "언어 초월\nJava의 BigDecimal은 오차를 지역적으로 관리한다. 오차 관리가 필요할 때 Runtime에 ArithmeticException을 발생시킨다. 이처럼 반강제적인 예외 처리는 Python에서 발생할 오차를 일부 예방한다. 가령 연산 과정마다 주의하며 RoundingMode 그리고 scale이나 precision 등을 일일이 명시해야 지역적 오차로 인한 비정상 종료가 방지된다.\n하지만 일부 오차는 지역적 결과에 Greedy하게 의존하는 관리가 불가능하다. 가령 다음 예시의 printNaiveBigDecimals에서 5와 4를 동시에 얻을 수 없고 4와 4 또는 5와 3밖에 얻지 못한다는 한계가 있다.\n그래서 상기한 Epsilon 사용을 여전히 권장한다. 그러면 지역적 오차 관리 결과를 무시하고 원하는 다음 결과를 만들 수 있다. 즉 다음 예시의 printEpsilonBigDecimals에서 divideRoundingMode가 RoundingMode.DOWN, RoundingMode.UP 등 어느 것이었는지와 무관하게 5와 4를 동시에 만들 수 있다.\nimport java.math.BigDecimal;\nimport java.math.MathContext;\nimport java.math.RoundingMode;\n\nclass DecimalRoundDown {\n\n    public static void main(final String[] args) {\n\n        printNaivePrimitiveDoubles();\n        \n        System.out.println();\n        printNaiveBigDecimals(RoundingMode.DOWN);\n        printNaiveBigDecimals(RoundingMode.UP);\n        \n        System.out.println();\n        printEpsilonPrimitiveDoubles();\n        \n        System.out.println();\n        printEpsilonBigDecimals(RoundingMode.DOWN);\n        printEpsilonBigDecimals(RoundingMode.UP);\n\n    }\n\n    private static void printNaivePrimitiveDoubles() {\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2;\n\n        System.out.println(five + \" \" + (int) five);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printNaiveBigDecimals(final RoundingMode divideRoundingMode) {\n\n        BigDecimal five;\n        try {\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"))\n                    .multiply(new BigDecimal(\"3\"));\n        } catch (Exception e) {\n            e.printStackTrace();\n            five = new BigDecimal(\"10\")\n                    .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                    .multiply(new BigDecimal(\"3\"));\n        }\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"));\n\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(five + \" \" + five.intValue() + \" \" + five.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n    private static void printEpsilonPrimitiveDoubles() {\n\n        final double EPSILON = 1e-2;\n\n        final double five = 10. / 6 * 3;\n        final double four = (7 - five) * 2 + EPSILON;\n\n        final double fiveEpsilon = five + EPSILON;\n        System.out.println(fiveEpsilon + \" \" + (int) fiveEpsilon);\n        System.out.println(four + \" \" + (int) four);\n\n    }\n\n    private static void printEpsilonBigDecimals(final RoundingMode divideRoundingMode) {\n\n        final BigDecimal EPSILON = new BigDecimal(\"1e-2\");\n\n        final BigDecimal five = new BigDecimal(\"10\")\n                .divide(new BigDecimal(\"6\"), 3, divideRoundingMode)\n                .multiply(new BigDecimal(\"3\"));\n        final BigDecimal four = new BigDecimal(\"7\")\n                .subtract(five)\n                .multiply(new BigDecimal(\"2\"))\n                .add(EPSILON);\n\n        final BigDecimal fiveEpsilon = five.add(EPSILON);\n        final MathContext mc = new MathContext(2, RoundingMode.DOWN);\n        System.out.println(fiveEpsilon + \" \" + fiveEpsilon.intValue() + \" \" + fiveEpsilon.round(mc));\n        System.out.println(four + \" \" + four.intValue() + \" \" + four.round(mc));\n\n    }\n\n}\n5.0 5\n4.0 4\n\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:12)\n4.998 4 4.9\n4.004 4 4.0\njava.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.\n        at java.base/java.math.BigDecimal.divide(BigDecimal.java:1780)\n        at DecimalRoundDown.printNaiveBigDecimals(DecimalRoundDown.java:39)\n        at DecimalRoundDown.main(DecimalRoundDown.java:13)\n5.001 5 5.0\n3.998 3 3.9\n\n5.01 5\n4.01 4\n\n5.008 5 5.0\n4.014 4 4.0\n5.011 5 5.0\n4.008 4 4.0"
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-6/index.html",
+    "href": "posts/algorithms/codetree/week-6/index.html",
+    "title": "[코드트리 챌린지] 6주차 - 2차원 배열 입력",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n2차원 배열 입력 / 대문자로 바꾸기\n\n\n\n\n\nhttps://www.codetree.ai/missions/4/problems/change-to-capital/\n숫자 변환을 생략하려다 그만 수 비교를 문자열 비교로 잘못 구현해 틀려 버렸다.\n최하점 기록은 너무 아쉽지만 약점을 발견해 다행이다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 6주차 - 2차원 배열 입력},\n  date = {2023-10-16},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-6/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 6주차 - 2차원 배열\n입력.” October 16, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-6/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-7/index.html",
+    "href": "posts/algorithms/codetree/week-7/index.html",
+    "title": "[코드트리 챌린지] 7주차 - 최장 연속 부분 수열",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n최장 연속 부분 수열 / T를 초과하는 연속 부분 수열\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/subsequence-above-t/\n지난주에 틀린 2차원 배열 입력 유형은 통과했다.\n하지만 의문의 이유로 시간이 여전히 촉박했다.\n게다가 3주차에 틀린 DP 유형을 또 틀려 버렸다..\n이 문제가 어려운 이유는 DP가 아니라 2차원 배열 입력의 인덱스가 특이하기 때문이라고 생각한다.\n즉 인덱스가 약점이다.\n모르는 게 아니라 시간이 오래 걸리고 있기 때문에 다시 연습하는 수밖에 없다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 7주차 - 최장 연속 부분 수열},\n  date = {2023-10-23},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-7/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 7주차 - 최장 연속 부분\n수열.” October 23, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-7/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-1/index.html",
+    "href": "posts/algorithms/codetree/week-1/index.html",
+    "title": "[코드트리 챌린지] 1주차 - 구간 단위로 완전탐색",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n구간 단위로 완전탐색 / 아름다운 수열 2\n\n\n\n\n\nhttps://www.codetree.ai/cote/14/problems/beautiful-sequence-2/\n36줄의 코드로 복잡하게 풀었지만 해설 코드는 12줄이었다.\n시간 복잡도를 아끼느라 정렬은 생각도 못했는데, 입력 크기가 충분하다면 대담하게 사용할 줄 알아야겠다.\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 1주차 - 구간 단위로 완전탐색},\n  date = {2023-09-11},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-1/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 1주차 - 구간 단위로\n완전탐색.” September 11, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-1/."
+  },
+  {
+    "objectID": "posts/algorithms/codetree/week-8/index.html",
+    "href": "posts/algorithms/codetree/week-8/index.html",
+    "title": "[코드트리 챌린지] 8주차 - 배열 기록",
+    "section": "",
+    "text": "실력 진단 결과\n\n\n\n\n\n\n\n배열 기록 / 선두를 지켜라 3\n\n\n\n\n\nhttps://www.codetree.ai/cote/17/problems/keep-the-lead-3/\n5주차처럼 마지막 Dijkstra에서 틀렸다.\n도착지를 발견하자마자 종료한 것이 문제였다.\n도착지를 우선순위 큐에서 뽑은 후에야 최단 거리가 보장된다는 사실을 명심하자..\n\n\n\n Back to topCitationBibTeX citation:@online{kee2023,\n  author = {Kee, Yunho},\n  title = {{[}코드트리 챌린지{]} 8주차 - 배열 기록},\n  date = {2023-10-30},\n  url = {https://yhkee0404.github.io/posts/algorithms/codetree/week-8/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2023. “[코드트리 챌린지] 8주차 - 배열 기록.”\nOctober 30, 2023. https://yhkee0404.github.io/posts/algorithms/codetree/week-8/."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/en/index.html",
+    "href": "posts/web/microservice-spof/en/index.html",
+    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
+    "section": "",
+    "text": "Switch to Korean\nviewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: \"p\"});\nviewof n = Inputs.range([1, 100], {step: 1, value: 5, label: \"n\"});\nCode\nfunction join(p, n) {\n  return Math.pow(p, n);\n}\nfunction split(p, m) {\n  return 1 - Math.pow(1 - p, m);\n}\n\ny1s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: join(split(p, i), n),\n      label: \"ScaleOutMicroservice\",\n    });\n  }\n  return ys;\n})();\n\ny2s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: split(join(p, n), i),\n      label: \"ScaleOutMonolith\",\n    });\n  }\n  return ys;\n})();\nPlot.plot({\n  grid: true,\n  color: {legend: true, scheme: \"BuRd\"},\n  x: {label: \"m\"},\n  y: {label: \"Combined Availability\", domain: [0, 1]},\n  marks: [\n    Plot.areaY(y1s.concat(y2s), {y1: \"y\", x: \"m\", fill: \"label\", fillOpacity: 0.5}),\n    Plot.tip(y1s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n    Plot.tip(y2s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n  ],\n  style: \"background: inherit;\",\n});\n\n\n\n\n\n\n\n\nFigure 1: The Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices"
+  },
+  {
+    "objectID": "posts/web/microservice-spof/en/index.html#comparisons-through-examples-of-monoliths-and-microservices",
+    "href": "posts/web/microservice-spof/en/index.html#comparisons-through-examples-of-monoliths-and-microservices",
+    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
+    "section": "Comparisons Through Examples of Monoliths and Microservices",
+    "text": "Comparisons Through Examples of Monoliths and Microservices\n\nShared Source Code of Monoliths and Microservices\nAccording to web developer Krtalić Rusendić (2022), a single program is considered a monolithic architecture, while implementing the same program as multiple programs is called microservice architecture, or MSA.\nA monolithic program is composed of classes and methods, or modules and functions (Krtalić Rusendić 2022). If classes and methods are implemented as a microservice program, they become services and APIs (Krtalić Rusendić 2022). Netflix is well-known for its use of microservices, and they have also developed a testing tool called Chaos Monkey (Krtalić Rusendić 2022).\nKrtalić Rusendić (2022) presents an engaging visualization of the differences between monoliths and microservices. However, the claim by Krtalić Rusendić (2022) that the availability of the program he came up with is \\(50\\%\\) for monolith and \\(25\\%\\) for microservice is not convincing. Failures caused by defects in the source code should result in a \\(25\\%\\) availability regardless of whether the deployment is monolith (one program) or microservice (two or more programs). For example, if you run a source code that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is \\(25\\%\\) whether the random generation is sequential or parallel, or whether the deployment is monolith or microservice. When deploying this program as microservice instead of a monolith, the single point of failure (SPOF) is not increased to two; even in a monolith, there are two single points of failure (SPOFs) due to dependencies between results.\n\n\nPartial Benefits of Source Code of Microservices\nDesigning a system as a microservice can be advantageous even if it is deployed later as a monolith. In the aforementioned source code, if one decides to produce not just the sum of two results but also an intermediate output of the first result only when it is 0, the availability becomes \\(50\\%\\) because the output is independent of the second result. In this case, the single point of failure (SPOF) is only the first result, and there is no need to unnecessarily depend on the second result, either, and increase the single point of failure (SPOF) to two, ending up with the reduced availability of \\(25\\%\\). Thus, considering partial availability or resilience in the design stage keeps the number of single points of failure (SPOFs) from being unnecessarily increased, even if deployed as a monolith.\n\n\nAn Analogy of NAND Flash Memory To Understand Trade-Offs Between Monoliths and Microservices\nBeyond the source code, it is probable that microservices have more costs compared to monoliths (see Krtalić Rusendić 2022). If the hardware on which the two units of example source code depend is a single unit, and the availability external to source code is presumably \\(50\\%\\), then if each source code depends on a different hardware unit, the availability could virtually drop to \\(25\\%\\) due to the asynchronous operations of independent hardwares.\nHowever, the significant costs of monoliths compared to microservices should not be overlooked, either. If two units of example source code depend on two hardware units in total, and the availability independent of source code is given \\(25\\%\\), then consolidating them to depend on a single hardware component may reduce availability further to \\(12.5\\%\\) due to resource contention. For example, NAND Flash memory faces similar opportunity costs in terms of quality (performance, durability, reliability, or etc.) depending on whether its type is single-level cell (SLC), multi-level cell (MLC), triple-level cell (TLC), or quad-level cell (QLC) (see Lee 2018). Generally, single-level cell (SLC) flash is more expensive and performs better than quad-level cell (QLC) flash. In other words, monoliths may suffer from disadvantages similar to those of quad-level cell (QLC) flash.\nIn the following paragraphs, we will compare availability only from the perspective of the source code.\n\n\nThe Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices\nHorizontal scaling (scale-out) is a strategy to remove single points of failure (SPOFs) and increase availability. In reviewing the analysis of Krtalić Rusendić (2022), it appears that two available states of microservices displayed in Figure 2 have been omitted out of 16 possible states, leading to slight miscalculations of the availability as \\(\\frac 7 {14} = 50\\%\\), and the availability of monoliths \\(75\\%\\) could benefit from further consideration of internal dependencies in the source code.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: The Two Available States of Microservices in Horizontal Scaling (Scale-Out) Krtalić Rusendić (2022) Omitted\n\n\n\nJust as the example source code can have four states based on two operations and calculates availability as \\(\\frac 1 4 = 25\\%\\), since \\[2^2 = 4,\\]\nfor four source code operations, there are not 14 states in total as listed by Krtalić Rusendić (2022) but 16 states when including the two omitted ones:\n\\[2^4 = 16.\\]\nIf each of the two units of source code is scaled out by a factor of two, the original two single points of failure (SPOFs) are removed, and availability increases from the original \\(\\frac 1 4 = 25\\%\\) (for two units of source code) to\n\\[\\frac 9 {16} = 56.25\\%.\\]\nThe \\(\\frac 9 {16} = 56.25\\%\\) differs somewhat from the \\(\\frac 7 {14} = 50\\%\\) calculated by Krtalić Rusendić (2022).\nOn the other hand, if the single points of failure (SPOFs) of a single monolith program are removed by scaling out the original program by a factor of two, the internal dependency between the two units of source code in the single program is maintained, but there is no external dependency between the two programs. Thus, the two yellow arrows in the center of Figure 2 are absent in Figure 3. Therefore, the two available states in Figure 2 become failure states in Figure 3, and the availability increases from \\(\\frac 1 4 = 25\\%\\) for a single program to\n\n\n\n\n\n\nFigure 3: Horizontal scaling (scale-out) of Monoliths: 16 states\n\n\n\n\\[\\frac 7 {16} = 43.75\\%.\\]\nThe \\(\\frac 7 {16} = 43.75\\%\\) differs somewhat from the \\(\\frac 3 4 = 75\\%\\) calculated by Krtalić Rusendić (2022). This is because, instead of scaling out a single program by a factor of four (to four instances), scaling out by a factor of two makes more sense for a rigorous comparison considering internal dependencies in the source code.\nTo summarize, from the perspective of the source code, the availability of a horizontally scaled (scaled-out) monolith (\\(43.75\\%\\)) is better than the original \\(25\\%\\), but it is still worse than that of a horizontally scaled (scaled-out) microservice (\\(56.25\\%\\)). This represents a notable divergence from the interpretation offered by Krtalić Rusendić (2022)."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/en/index.html#comparisons-through-formulae-between-monoliths-and-microservices",
+    "href": "posts/web/microservice-spof/en/index.html#comparisons-through-formulae-between-monoliths-and-microservices",
+    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
+    "section": "Comparisons Through Formulae Between Monoliths and Microservices",
+    "text": "Comparisons Through Formulae Between Monoliths and Microservices\n\nTwo Special Formulae Representing Shared Source Code of Monoliths and Microservices\nGenerally, when there are no external factors except source code, if \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) are fully connected and depend on each other, they have \\(n\\) single points of failure (SPOFs). Therefore, their availability is the same whether deployed as microservices or monoliths:\n\\[\\text{Join}(p, n) = p^n. \\tag{1}\\]\nSince \\(0 \\leq p \\leq 1\\), this value decreases monotonically as \\(n\\) increases.\nOn the other hand, if \\(m\\) components are independent, they have no single points of failure (SPOFs), and their availability is the same whether deployed as microservices or monoliths:\n\\[\\text{Split}(p, m) = 1 - (1 - p)^m. \\tag{2}\\]\nThis value increases monotonically as \\(m\\) increases, because \\(0 \\leq  1 - p \\leq 1\\) leads to \\((1- p)^m\\) decreasing monotonically.\n\n\nA Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Microservices\nWhen there are no external factors other than source code, if each of \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) is scaled out horizontally by a factor of \\(m\\), each group of \\(m\\) has no single points of failure (SPOFs) and its availability is \\(\\text{Split}(p, m) = 1 - (1 - p)^m\\). If \\(n\\) groups of \\(m\\) are fully connected and depend on each other as \\(n\\) single points of failure (SPOFs), the combined availability is\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & = \\text{Join}(\\text{Split}(p, m), n)\\\\\n                                               & = \\text{Join}(1 - (1 - p)^m, n)\\\\\n                                               & = (1 - (1 - p)^m)^n.\n\\end{align}\n\\tag{3}\\]\nThis matches the availability in Figure 2:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(\\frac 1 2, 2, 2) & = \\text{Join}(\\text{Split}(\\frac 1 2, 2), 2)\\\\\n                                                       & = \\text{Join}(1 - (1 - \\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - (\\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - \\frac 1 4, 2)\\\\\n                                                       & = \\text{Join}(\\frac 3 4, 2)\\\\\n                                                       & = (\\frac 3 4)^2\\\\\n                                                       & = \\frac 9 {16}\\\\\n                                                       & = 56.25\\%.\n\\end{align}\n\\]\n\n\nA Formula Representing Combined Availability of Horizontal Scaling (Scale-Out) of Monoliths\nWhen there are no external factors, if \\(n\\) microservices with independent availability \\(0 \\leq p \\leq 1\\) are fully connected and depend on each other as \\(n\\) single points of failure (SPOFs), their availability when deployed as a monolith is \\(\\text{Join}(p, n) = p^n\\). If the \\(n\\) components are scaled out horizontally by a factor of \\(m\\) to remove single points of failure (SPOFs), the availability is\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(p, n, m) & = \\text{Split}(\\text{Join}(p, n), m)\\\\\n                                           & = \\text{Split}(p^n, m)\\\\\n                                           & = 1 - (1 - p^n)^m.\n\\end{align}\n\\tag{4}\\]\nThis matches the availability in Figure 3:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(\\frac 1 2, 2, 2) & = \\text{Split}(\\text{Join}(\\frac 1 2, 2), 2)\\\\\n                                                   & = \\text{Split}((\\frac 1 2)^2, 2)\\\\\n                                                   & = \\text{Split}(\\frac 1 4, 2)\\\\\n                                                   & = 1 - (1 - \\frac 1 4)^2\\\\\n                                                   & = 1 - (\\frac 3 4)^2\\\\\n                                                   & = 1 - \\frac 9 {16}\\\\\n                                                   & = \\frac 7 {16}\\\\\n                                                   & = 43.75\\%.\n\\end{align}\n\\]\n\n\nThe Inequality Representing the Benefits of Horizontal Scaling (Scale-Out) of Microservices\nThe following can be proven (Sil 2016):\n\\[(1 - (1 - p)^m)^n + (1 - p^n)^m \\geq 1. \\tag{5}\\]\nTherefore,\n\\[\n\\begin{align}\n(1 - (1 - p)^m)^n & \\geq 1 - (1 - p^n)^m\\\\\n\\text{Join}(\\text{Split}(p, m), n) & \\geq \\text{Split}(\\text{Join}(p, n), m)\\\\\n\\\\\n\\therefore \\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & \\geq \\text{ScaleOut}_{\\text{Monolith}}(p, n, m).\n\\end{align}\n\\tag{6}\\]\n\n\nThe Observable Benefits of Horizontal Scaling (Scale-Out) of Microservices\nIn addition to the inequality of Equation 6, but the visualization in Figure 1 also demonstrates that the gap between \\(\\text{ScaleOut}_{\\text{Microservice}}(p, n, m)\\) and \\(\\text{ScaleOut}_{\\text{Monolith}}(p, n, m)\\) widens rapidly as \\(p\\) decreases or \\(n\\) increases, even as the factor of horizontally scaling (scale-out) \\(m\\) grows."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/en/index.html#conclusion",
+    "href": "posts/web/microservice-spof/en/index.html#conclusion",
+    "title": "Visualized: Microservices as the Upper Bound for Monolith Availability",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn conclusion, when there are no external factors besides source code, uniformly applying \\(m\\)-fold horizontal scaling (scale-out) allows microservices to internally remove single points of failure (SPOFs), resulting in higher combined availability than monoliths, which remove single points of failure (SPOFs) externally. Designing a system as a microservice in advance also offers the advantage of partial availability or resilience even when later deployed as a monolith. However, apart from source code, both resource contention in monoliths and the increased dependency of microservices on diverse resources must be carefully weighed and balanced."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/ko/index.html",
+    "href": "posts/web/microservice-spof/ko/index.html",
+    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
+    "section": "",
+    "text": "Switch to English\nviewof p = Inputs.range([0.01, 0.99], {step: 0.01, value: 0.5, label: \"p\"});\nviewof n = Inputs.range([1, 100], {step: 1, value: 5, label: \"n\"});\nCode\nfunction join(p, n) {\n  return Math.pow(p, n);\n}\nfunction split(p, m) {\n  return 1 - Math.pow(1 - p, m);\n}\n\ny1s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: join(split(p, i), n),\n      label: \"ScaleOutMicroservice\",\n    });\n  }\n  return ys;\n})();\n\ny2s = (() =&gt; {\n  const ys = [];\n  for (let i = 1; i &lt;= 100; i++) {\n    ys.push({\n      m: i,\n      y: split(join(p, n), i),\n      label: \"ScaleOutMonolith\",\n    });\n  }\n  return ys;\n})();\nPlot.plot({\n  grid: true,\n  color: {legend: true, scheme: \"BuRd\"},\n  x: {label: \"m\"},\n  y: {label: \"Combined Availability\", domain: [0, 1]},\n  marks: [\n    Plot.areaY(y1s.concat(y2s), {y1: \"y\", x: \"m\", fill: \"label\", fillOpacity: 0.5}),\n    Plot.tip(y1s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n    Plot.tip(y2s, Plot.pointerX({x: \"m\", y: \"y\", fill: \"darkgray\", title: (d) =&gt; `${d.label}(${p}, ${d.m}, ${n})\\n${d.y}`})),\n  ],\n  style: \"background: inherit;\",\n});\n\n\n\n\n\n\n\n\nFigure 1: 그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점"
+  },
+  {
+    "objectID": "posts/web/microservice-spof/ko/index.html#예시를-통한-monolith와-microservice의-비교",
+    "href": "posts/web/microservice-spof/ko/index.html#예시를-통한-monolith와-microservice의-비교",
+    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
+    "section": "예시를 통한 Monolith와 Microservice의 비교",
+    "text": "예시를 통한 Monolith와 Microservice의 비교\n\n소스코드 예시로 이해하는 Monolith와 Microservice의 유사성\n웹 개발자 Krtalić Rusendić (2022) 에 따르면, 프로그램 하나를 개발하면 Monolith(Monolithic Architecture), 여러 프로그램으로 구현하면 MSA(Microservice Architecture)이다.\nMonolith 프로그램을 구성하는 것은 Class와 Method, 또는 Module과 Function이다 (Krtalić Rusendić 2022). Class와 Method를 Microservice 프로그램으로 구현하면 Service와 API이다 (Krtalić Rusendić 2022). Netflix가 Microservice로 유명하며, Chaos Monkey라는 Test 도구도 개발했다 (Krtalić Rusendić 2022).\nKrtalić Rusendić (2022) 는 Monolith와 Microservice의 차이를 알기 쉽게 시각화한다. 그러나 Krtalić Rusendić (2022) 가 제시한 예시 프로그램의 가용성이 Monolith로 구현하면 \\(50\\%\\), Microservice는 \\(25\\%\\)라는 그의 주장은 설득력이 떨어진다. 소스코드 내 결함으로 인한 장애는, Monolith 프로그램 1개로 배포하든 Microservice 프로그램 2개로 배포하든 배포 방식과는 무관하게 \\(25\\%\\)가 되어야 한다. 예를 들어 0과 1을 랜덤하게 2번 뽑아 합이 0일 때만 출력하는 소스코드를 실행할 때, 장애가 발생하지 않는다면 랜덤 생성 과정이 순차적이든 병렬적이든 배포 형태가 Monolith이든 Microservice이든 출력의 가용성은 \\(25\\%\\)로 같다. 이 프로그램에서 출력의 SPOF(Single Point of Failure)는 Microservice로 배포할 때 2개로 늘어나는 것이 아니고, 결과 간의 의존성 때문에 Monolith로 배포해도 소스코드 내에서 2개이다.\n\n\n소스코드 예시로 이해하는 Microservice의 부분적 이점\nMicroservice로 설계하고 나면 배포 방식이 Microservice가 아니라 Monolith로 배포하더라도 유리할 수 있다. 앞서 언급한 소스코드에서 두 결과의 합만을 출력할 것이 아니라, 첫 번째 결과가 0인 경우 두 번째 결과에 의존하지 않고 부분적으로라도 결과를 출력하는 기능을 추가한다면 그 가용성은 \\(50\\%\\)이다. 이 출력의 SPOF(Single Point of Failure)는 첫 번째 결과 1개이면 되는데 괜히 두 번째 결과까지 포함해서 2개로 늘리고 가용성을 \\(25\\%\\)로 줄일 필요가 없다. 이처럼 부분 가용성(Resilience)은 Microservice를 감안해서 설계해야, Monolith로 배포하더라도 SPOF(Single Point of Failure)를 불필요하게 늘리지 않을 수 있다.\n\n\n낸드플래시(NAND Flash) 반도체 메모리로 이해하는 Monolith와 Microservice 간 기회비용\n소스코드 외적으로, Monolith 대비 Microservice의 비용이 있는 것은 사실이다 (see Krtalić Rusendić 2022). 예시 소스코드 2개가 의존하는 하드웨어가 1개일 때 소스코드 외적인 가용성이 \\(50\\%\\)라면, 소스코드 1개에 하드웨어 1개씩 총 2개의 하드웨어에 의존할 때 가용성은 하드웨어의 개별적인 동작 때문에 \\(25\\%\\)로 줄어든다고 볼 수도 있다.\n그러나 Microservice 대비 Monolith의 비용도 간과해서는 안 된다. 2개의 소스코드가 하드웨어 1개씩 총 2개에 의존할 때 소스코드 외적인 가용성이 \\(25\\%\\)였다면, 이번에는 역으로 다시 총 1개의 하드웨어에 의존할 때 가용성은 한정된 자원에 대한 경합(Contention) 때문에 \\(12.5\\%\\)로 더 줄어들 위험도 있다. 예를 들어 낸드플래시(NAND Flash) 반도체 메모리도 마찬가지로 SLC(Single Level Cell), MLC(Multi Level Cell), TLC(Triple Level Cell), QLC(Quadruple Level Cell)의 품질, 즉 성능, 내구성, 신뢰성 등에 마찬가지의 기회비용이 있다고 볼 수 있다 (see Lee 2018). 일반적으로 SLC(Single Level Cell)가 QLC(Quadruple Level Cell)보다 비싸고 좋다. 즉 Monolith가 오히려 QLC(Quadruple Level Cell) 같은 단점이 있다.\n이하 내용에서는 소스코드 내적인 관점에서만 가용성을 비교한다.\n\n\n그림과 함께 이해하는 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\n수평 확장(Horizontal Scaling, Scale-Out)은 SPOF(Single Point of Failure)를 제거해 가용성을 확대할 수 있는 전략이다. Krtalić Rusendić (2022) 의 설명을 보면, Figure 2 과 같은 Microservice의 2가지 정상 동작 상태를 16가지 중에서 누락해 가용성을 \\(\\frac 7 {14} = 50\\%\\)로 계산하는 사소한 실수가 있었고, Monolith의 가용성 \\(75\\%\\)도 소스코드 내 의존성을 고려하면 더 정확하게 이해할 수 있다.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 16가지 상태 중 Krtalić Rusendić (2022) 가 누락한 2가지 정상 동작 상태\n\n\n\n예시 소스코드의 2가지 동작 여부에 따라 총 4가지 상태를 탐색하고 가용성 \\(\\frac 1 4 = 25\\%\\)를 계산한 것처럼\n\\[2^2 = 4\\]\n이므로, 4개의 소스코드 동작 여부에 따라서는, Krtalić Rusendić (2022) 가 정리한 14가지가 아니라 누락된 다음 2가지 상태를 더해 총 16가지 상태를 탐색해야 한다:\n\\[2^4 = 16.\\]\n2개의 소스코드를 각각 2배로 늘리면 기존에 2개였던 SPOF(Single Point of Failure)가 제거되어, 가용성은 기존 소스코드 2개의 \\(\\frac 1 4 = 25\\%\\)에서\n\\[\\frac 9 {16} = 56.25\\%\\]\n으로 증가한다. \\(\\frac 9 {16} = 56.25\\%\\)는 Krtalić Rusendić (2022) 가 계산한 \\(\\frac 7 {14} = 50\\%\\)와는 다소 차이가 있다.\n반면 Monolith 프로그램 1개의 SPOF(Single Point of Failure)를 제거하기 위해 기존 프로그램 1개를 2배로 늘리면 프로그램 1개 내부의 소스코드 2개 사이의 의존성은 유지되지만 프로그램 2개 사이의 외부 의존성은 없다. 그래서 Figure 2 의 중앙에 보이던 노란 화살표 2개가 Figure 3 에는 없다. 그러면 Figure 2 의 2가지 정상 동작 상태가 Figure 3 에서 반대로 장애 상태가 되어, 가용성은 프로그램 1개의 \\(\\frac 1 4 = 25\\%\\)에서\n\n\n\n\n\n\nFigure 3: 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 16가지 상태\n\n\n\n\\[\\frac 7 {16} = 43.75\\%\\]\n으로 증가한다. \\(\\frac 7 {16} = 43.75\\%\\)는 Krtalić Rusendić (2022) 가 계산한 \\(\\frac 3 4 = 75\\%\\)와는 다소 차이가 있다. 왜냐하면 프로그램 1개에서 4배인 4개로 늘리지 말고 2배로 늘려야 그림처럼 소스코드 내 의존성을 고려한 엄밀한 비교가 가능하기 때문이다.\n정리하면 소스코드 내적인 관점에서는 수평 확장(Horizontal Scaling, Scale-Out)한 Monolith의 가용성 \\(43.75\\%\\)가 기존의 \\(25\\%\\)보다 나아지기는 해도 수평 확장(Horizontal Scaling, Scale-Out)한 Microservice의 가용성 \\(56.25\\%\\)보다 오히려 더 못하다는 사실이 Krtalić Rusendić (2022) 의 해석과 다른 점이다."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/ko/index.html#수식을-통한-monolith와-microservice의-비교",
+    "href": "posts/web/microservice-spof/ko/index.html#수식을-통한-monolith와-microservice의-비교",
+    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
+    "section": "수식을 통한 Monolith와 Microservice의 비교",
+    "text": "수식을 통한 Monolith와 Microservice의 비교\n\n소스코드의 관점에서 수식으로 표현한 Monolith와 Microservice의 유사성\n일반적으로 소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖는 Microservice \\(n\\)개가 서로 Fully Connected되어 의존하는 결과는 \\(n\\)개의 SPOF(Single Point of Failure)를 갖기 때문에 그 가용성은 Microservice로 배포하거나 Monolith로 배포하거나\n\\[\\text{Join}(p, n) = p^n \\tag{1}\\]\n으로 동일하다. \\(0 \\leq p \\leq 1\\)이므로 \\(n\\)이 커질수록 단조적으로 감소(Monotonically Decreasing)한다.\n반면에 서로 의존하지 않는 \\(m\\)개는 SPOF(Single Point of Failure)가 없고 그 가용성은 Microservice로 배포하거나 Monolith로 배포하거나\n\\[\\text{Split}(p, m) = 1 - (1 - p)^m \\tag{2}\\]\n으로 동일하다. 반대로 \\(m\\)이 커지면 단조적으로 증가(Monotonically Increasing)한다. 왜냐하면 \\(0 \\leq  1 - p \\leq 1\\)에서 \\((1- p)^m\\)이 단조적으로 감소(Monotonically Decreasing)하기 때문이다.\n\n\n수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 결합 가용성\n소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖는 Microservice \\(n\\)개 각각을 \\(m\\)배 수평 확장(Horizontal Scaling, Scale-Out)하면 각 \\(m\\)개는 서로 의존하지 않아 SPOF(Single Point of Failure)를 제거하므로 그 가용성은 \\(\\text{Split}(p, m) = 1 - (1 - p)^m\\)이다. \\(m\\)개씩의 \\(n\\)개가 서로 Fully Connected되어 \\(n\\)개의 SPOF(Single Point of Failure)로서 의존하는 결과의 가용성은\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & = \\text{Join}(\\text{Split}(p, m), n)\\\\\n                                               & = \\text{Join}(1 - (1 - p)^m, n)\\\\\n                                               & = (1 - (1 - p)^m)^n\n\\end{align}\n\\tag{3}\\]\n이다.\nFigure 2 의 가용성과 일치함을 알 수 있다:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Microservice}}(\\frac 1 2, 2, 2) & = \\text{Join}(\\text{Split}(\\frac 1 2, 2), 2)\\\\\n                                                       & = \\text{Join}(1 - (1 - \\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - (\\frac 1 2)^2, 2)\\\\\n                                                       & = \\text{Join}(1 - \\frac 1 4, 2)\\\\\n                                                       & = \\text{Join}(\\frac 3 4, 2)\\\\\n                                                       & = (\\frac 3 4)^2\\\\\n                                                       & = \\frac 9 {16}\\\\\n                                                       & = 56.25\\%.\n\\end{align}\n\\]\n\n\n수식으로 표현한 수평 확장(Horizontal Scaling, Scale-Out) 시 Monolith의 결합 가용성\n소스코드 외적인 요인이 없을 때 \\(0 \\leq p \\leq 1\\)의 가용성을 독립적으로 갖고 서로 Fully Connected되어 \\(n\\)개의 SPOF(Single Point of Failure)로서 의존하는 Microservice \\(n\\)개를 Monolith로 배포하면 그 결과의 가용성은 \\(\\text{Join}(p, n) = p^n\\)이다. \\(n\\)개를 서로 의존하지 않게 \\(m\\)배 수평 확장(Horizontal Scaling, Scale-Out)하면 SPOF(Single Point of Failure)를 제거하므로 그 가용성은\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(p, n, m) & = \\text{Split}(\\text{Join}(p, n), m)\\\\\n                                           & = \\text{Split}(p^n, m)\\\\\n                                           & = 1 - (1 - p^n)^m\n\\end{align}\n\\tag{4}\\]\n이다.\nFigure 3 의 가용성과 일치함을 알 수 있다:\n\\[\n\\begin{align}\n\\text{ScaleOut}_{\\text{Monolith}}(\\frac 1 2, 2, 2) & = \\text{Split}(\\text{Join}(\\frac 1 2, 2), 2)\\\\\n                                                   & = \\text{Split}((\\frac 1 2)^2, 2)\\\\\n                                                   & = \\text{Split}(\\frac 1 4, 2)\\\\\n                                                   & = 1 - (1 - \\frac 1 4)^2\\\\\n                                                   & = 1 - (\\frac 3 4)^2\\\\\n                                                   & = 1 - \\frac 9 {16}\\\\\n                                                   & = \\frac 7 {16}\\\\\n                                                   & = 43.75\\%.\n\\end{align}\n\\]\n\n\n수식으로 정리한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\n다음을 증명할 수 있다 (Sil 2016):\n\\[(1 - (1 - p)^m)^n + (1 - p^n)^m \\geq 1. \\tag{5}\\]\n따라서,\n\\[\n\\begin{align}\n(1 - (1 - p)^m)^n & \\geq 1 - (1 - p^n)^m\\\\\n\\text{Join}(\\text{Split}(p, m), n) & \\geq \\text{Split}(\\text{Join}(p, n), m)\\\\\n\\\\\n\\therefore \\text{ScaleOut}_{\\text{Microservice}}(p, n, m) & \\geq \\text{ScaleOut}_{\\text{Monolith}}(p, n, m).\n\\end{align}\n\\tag{6}\\]\n\n\n그래프로 시각화한 수평 확장(Horizontal Scaling, Scale-Out) 시 Microservice의 이점\nEquation 6 의 성질뿐 아니라 Figure 1 의 시각화를 통해 \\(\\text{ScaleOut}_{\\text{Microservice}}(p, n, m)\\)과 \\(\\text{ScaleOut}_{\\text{Monolith}}(p, n, m)\\)의 격차가 수평 확장(Horizontal Scaling, Scale-Out)의 배수 \\(m\\)의 확대에도 불구하고 \\(p\\)의 감소 또는 \\(n\\)의 증가에 따라 급격히 커진다는 성질도 확인할 수 있다."
+  },
+  {
+    "objectID": "posts/web/microservice-spof/ko/index.html#결론",
+    "href": "posts/web/microservice-spof/ko/index.html#결론",
+    "title": "그래프로 보는 Microservice의 SPOF(Single Point of Failure) 문제 해결과 그 비용",
+    "section": "결론",
+    "text": "결론\n결론적으로 소스코드 외적인 요인이 없을 때 \\(m\\)배의 일괄적인 수평 확장(Horizontal Scaling, Scale-Out)을 시도하면 Microservice를 통해 SPOF(Single Point of Failure)를 내부적으로 제거하는 것이 Monolith를 통해 외부적으로 제거하는 것보다 결합적인 가용성이 더 좋다. 이때 미리 Microservice로 설계하는 경우 나중에 Monolith로 배포하더라도 부분적인 가용성을 제공할 수 있다는 이점도 있다. 다만 소스코드 외적으로는 Monolith 배포에서 한정된 자원에 대한 경합(Contention) 문제와 Microservice 배포에서 다양한 자원에 대한 의존성이 늘어나는 문제를 둘다 감안해야 한다."
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#기능적-시스템-요구사항-분석",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#기능적-시스템-요구사항-분석",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "기능적 시스템 요구사항 분석",
+    "text": "기능적 시스템 요구사항 분석\n\n\n필수 기능\n사용자가 직접 사용할 기능\n\n\n자원 현황 검색\n자원 현황 조회\n실시간 자원 선점\n\n\n\n부가 기능\n우선 순위 질문 후 폐기\n\n\n자원 생성/변경/삭제\n이전 현황 검색/조회\n사용자별 자원 조회\n시세 변동"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#비기능적-시스템-요구사항-분석",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#비기능적-시스템-요구사항-분석",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "비기능적 시스템 요구사항 분석",
+    "text": "비기능적 시스템 요구사항 분석\n\n\n특수 제약\n어떤 성능이 관건일까?\n\n\nCAP Theorem\n\nConsistency:\nConcurrent Booking\nAvailability:\nLive View\n\nRead/Write Ratio: Anonymous Guests\nBursts: Popular Events\n\n\n\n선택 목표\n다다익선\n\n\nSecurity, i.e. Authentication\nCI/CD Pipelines\nBackups\nGeneral Data Protection Regulation\nFault Tolerance"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-core-entities",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-core-entities",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "Functional Core Entities",
+    "text": "Functional Core Entities\n\nUser: Dummy\nVenue: 장소 ↔︎ Seat Map\nEvent: 시간, 장소\n\nTicket[]\n\nTicket: 시간별, 장소별 Seat Map 자원\nPerformer: Dummy\nBooking: Dummy\n\nTicket[]"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-api",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-api",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "Functional API",
+    "text": "Functional API\n\n\n\nGET /events/search\n→ Event[]\n\n  ?keyword=Tailor  \n  &start=2025-03-01&end=2025-04-01  \n  &pageSize=10&page=1\n\nGET /events/:eventId\n→ Event, Venue, Performer, Ticket[]\n\n\n\nPOST /bookings/:eventId\n→ bookingId\n\n  {\n    \"ticketIds\": string[], \n    \"paymentDetails\": ...\n  }"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#functional-high-level-design-1",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#functional-high-level-design-1",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "Functional High-Level Design",
+    "text": "Functional High-Level Design\n\n\n\nSingle Scalable API Gateway\n\nRouting/Forwarding\nRate Limit\nAuthentication\nLogging\n\nMicroservices\n\nOne Application Service per One API\n\n\n\n\n(Sidecars of Load Balancers)\n\nHorizontal Scale Out\nLeast Connections\nRound Robin\n\n\n\n\nFamiliar DBMS for Persistence and Consistency\n\nRDBMS, e.g. PostgreSQL\nNoSQL, e.g. DynamoDB\n\nExternal API for Payment\n\nAsynchronous Webhooks"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#lost-updates-prevention",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "Lost Updates Prevention",
+    "text": "Lost Updates Prevention\n\n\nTransaction A\nRead AVAILABLE\n   Write BOOKED\nCommit\n\nTransaction B\n Read AVAILABLE Write BOOKED\nCommit\n\n\nSELECT ... FOR UPDATE\n\n\nIsolation Level\n\nSERIALIZABLE, REPEATABLE READ 1\nREAD UNCOMMITTED 2\n\nUPDATE ... WHERE BOOKED=FALSE\n\n\n\n\ncompare Mihalcea (2023) with Kang (2024)Ullman and Widom (2014), pp. 296-297"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#payment-availability-move-lock-up-and-hold-longer",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "1. Payment Availability: Move Lock Up and Hold Longer",
+    "text": "1. Payment Availability: Move Lock Up and Hold Longer\n\nBrute Force without Database Column Addition\n\nNo Native Timeout for PostgreSQL? 1\n\n\n\nDatabase Column Addition: Expiration Time\n\nCron: Periodic Expiration\n\nAdditional Dependency aside from Database\n\nLazy Expiration\n\n\n\n(Atomic) Cache: Natural Expiration of Time To Live\n\nAdditional Dependency aside from Database\nRedLock: Scalable Distributed Locks\n\n\nbut see Ringer (2014)"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#live-view-availability",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "2. Live View Availability",
+    "text": "2. Live View Availability\n\nLong Polling\nServer-Sent Events\n\nUnidirectional\n\nWebSockets\n\nBidirectional, Full-Duplex\n\n\n(Virtual) Waiting Queue\n\nDequeue Timing\n\nMetadata"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#common-read-performance",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#common-read-performance",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "3. Common Read Performance",
+    "text": "3. Common Read Performance\n\n\n\nCache: Redis, MemCached\n\nRead-Through Cache Strategy\n\nSync Triggers\n\nIndividual TTLs\nContent Distribution Networks\n\nAWS CloudFront\n\n\n\n\n\nIndex\n\nCompound Index\n\nColumns to Rows\n\nPartial Index\nCovering Index\n\nMaterialized View\n\n\n\nSQL\n\nEXPLAIN: Query Execution Plan Analysis\nAvoidance of SELECT *\nLIMIT, Pagination\nUNION instead of OR"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#search-performance",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#search-performance",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "4. Search Performance",
+    "text": "4. Search Performance\n\n\n1. Full-Table Scan Latency\n%LIKE%\n\nFull-Text Search\n\nInverted Indexes\n\nKeywords to Rows\nFuzzy Search\n\nDatabase Indexes\nElasticSearch\n\nChange Data Capture\n\n\n\n\n2. Frequent Queries\n\nElasticSearch/OpenSearch\n\nNode Level Filter\n\nLeast Recently Used Cache\n\nShard Level Aggregation\n\nAdaptive Caching Strategies"
+  },
+  {
+    "objectID": "posts/web/hello-interview/ticketmaster/index.html#references",
+    "href": "posts/web/hello-interview/ticketmaster/index.html#references",
+    "title": "DB 병목을 나누는 시스템 설계",
+    "section": "References",
+    "text": "References\n\n\n\n\nKang, Sihoo. 2024. “(데이터베이스) Lost update와 serializable.” July 14, 2024. https://mirrorofcode.tistory.com/416.\n\n\nKing, Evan. n.d. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\n\nMihalcea, Vlad. 2023. “Minimum Transaction Isolation Level to Avoid \"Lost Updates\".” October 7, 2023. https://stackoverflow.com/a/77249495.\n\n\nRinger, Craig. 2014. “Controlling Duration of PostgreSQL Lock Waits.” January 7, 2014. https://stackoverflow.com/a/20963803.\n\n\nUllman, J. D., and J. Widom. 2014. A First Course in Database Systems. Always Learning. Pearson. https://books.google.co.kr/books?id=9vNgngEACAAJ."
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html",
+    "href": "posts/web/escape-xml10/index.html",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#intro",
+    "href": "posts/web/escape-xml10/index.html#intro",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "",
+    "text": "2021년 해군 소프트웨어개발병 시절 후임을 돕다 발견한 문제이다.\nDB에서 조회되는 일부 항목이 왜 XML 응답에는 안 보일까?"
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#problem-analysis",
+    "href": "posts/web/escape-xml10/index.html#problem-analysis",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Problem Analysis",
+    "text": "Problem Analysis\n\n\n\n\n\n\n\n\n예상 XML API 응답\n\n\n\n\n\n\n\n실제 XML API 응답\n\n\n\n\n\n\nFigure 1: Browser의 XML Parse 실패\n\n\n\n사실 응답은 도착했다. 다만 Browser에서 XML Parse에 실패해 누락됐다."
+  },
+  {
+    "objectID": "posts/web/escape-xml10/index.html#solution",
+    "href": "posts/web/escape-xml10/index.html#solution",
+    "title": "XML API 응답 개수가 DB 조회 개수와 달라요",
+    "section": "Solution",
+    "text": "Solution\n다음과 같이 StringEscapeUtils.escapeXml10을 거치면 문제가 되는 유니코드 문자가 제거 또는 Escape된다. 그리고 StringEscapeUtils.unescapeXml로 일부 복원한다.\npackage yhkee0404.escapexml10.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport lombok.RequiredArgsConstructor;\nimport org.springframework.http.MediaType;\nimport org.apache.commons.text.StringEscapeUtils;\n\n@RestController\n@RequiredArgsConstructor\npublic class XMLController {\n\n    private static final String unicodeXML = \n            \"&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?&gt;\"\n            + \"&lt;post&gt;\"\n            + \"&lt;title&gt;BACK\\u0008SPACE&lt;/title&gt;\"\n            + \"&lt;text&gt;EXCLAMATION\\u0021MARK&lt;/text&gt;\"\n            + \"&lt;/post&gt;\";\n\n    @GetMapping(value = \"/xml\", produces = MediaType.APPLICATION_XML_VALUE)\n    public String xml() {\n        // return unicodeXML;\n        return StringEscapeUtils.unescapeXml(StringEscapeUtils.escapeXml10(unicodeXML));\n    }\n}\nDeprecate된 org.apache.commons.lang3.StringEscapeUtils에서 escapeXML도 확인할 수 있다. 이제는 org.apache.commons.text.StringEscapeUtils로 이동했다.\n한편 EscapeXml11도 있다. 그러나 DevSecOps Engineer Lee (2012) 에 따르면 XML 1.1은 권장되지 않는다. 그리고 MDN Web Docs (2023) 에 따르면 Browser 지원도 없다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html",
+    "href": "posts/web/leetcode-daily-crawling/index.html",
+    "title": "LeetCode Daily Crawling",
+    "section": "",
+    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "href": "posts/web/leetcode-daily-crawling/index.html#intro",
+    "title": "LeetCode Daily Crawling",
+    "section": "",
+    "text": "Crawling Server는 ChatGPT처럼 동적 자원을 응답할 수 있다. 어느 날부터 연결이 안 되어 직접 개발해 보려는데 Cloud 배포가 편할 것 같다. 방법은 정말 많다: AWS EC2,1 AWS EKS,2 Heroku,3 Google Firebase,4 AWS Lambda,5 Google Sheets.6\n1 IaaS (Infrastructure as a Service)2 CaaS (Container as a Service)3 PaaS (Platform as a Service)4 BaaS (Backend as a Service)5 FaaS (Function as a Service)6 SaaS (Software as a Service)7 Spreadsheets are all you need Google Sheets는 무료이다. Excel로 GPT도 만든다던데,7 Crawling Server도 무료 대체 가능할까?"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "href": "posts/web/leetcode-daily-crawling/index.html#goodbye-leetcode-click",
+    "title": "LeetCode Daily Crawling",
+    "section": "Goodbye LeetCode Click",
+    "text": "Goodbye LeetCode Click\n\n\n\n\n\n\nLeetCode Click의 운영 중단\n\n\n\n\n\n\n연말부터 스터디에 들어가 매일 LeetCode 1문제를 풀고 있다. 풀 문제는 LeetCode Click에 접속하면 알아서 Redirect하니까 어떻게 선정되는지 몰라도 됐다. 그 정도로 편했다. 그런데 열흘 전부터 운영이 중단돼 대안이 필요해졌다.\n\n\n\n\n\n\n\nLeetCode 매일 푸는 스터디의 카카오톡 오픈채팅방 반응"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-daily-coding-challenge-question",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode Daily Coding Challenge Question",
+    "text": "LeetCode Daily Coding Challenge Question\n\n\n\nLeetCode Daily Question 확인 방법\n\n\n그동안 풀던 문제들은 알고 보니 LeetCode에서 공식적으로 선정해 준 것들이었다. 문제 목록은 LeetCode의 Problems Page 하단에 있다. 그날의 문제는 목록의 첫번째 Page 맨 위에 있고 Status에 달력 Icon이 보인다. 그리고 Browser의 좌측 최하단을 보면 Link에 daily-question 같은 Parameter가 붙어 있다. 한편 우측의 달력에 마우스 커서를 Hover하면 날짜마다 Popup되는 문제들을 볼 수 있다. 수동으로 확인하는 방법을 알았다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "href": "posts/web/leetcode-daily-crawling/index.html#leetcode-graphql-api",
+    "title": "LeetCode Daily Crawling",
+    "section": "LeetCode GraphQL API",
+    "text": "LeetCode GraphQL API\n오늘의 문제가 특정되는 원리를 파악하면 육안으로 확인하는 과정을 자동화할 수 있을 것이다. 그래서 개발자 도구를 열었다. 웬일인지 검색이 안 된다. 그래도 요청 목록에서 의심되는 graphql/ 중 하나를 Click하니 Preview 또는 Response Tab에 다음처럼 쓸 만한 응답이 보인다.\n\n\n\nListing 1: GraphQL Response\n\n\n{\n    \"data\": {\n        \"activeDailyCodingChallengeQuestion\": {\n            \"date\": \"2024-03-16\",\n            \"userStatus\": \"NotStart\",\n            \"link\": \"/problems/contiguous-array/\",\n            \"question\": {\n                \"acRate\": 47.945016299587756,\n                \"difficulty\": \"Medium\",\n                \"freqBar\": null,\n                \"frontendQuestionId\": \"525\",\n                \"isFavor\": false,\n                \"paidOnly\": false,\n                \"status\": null,\n                \"title\": \"Contiguous Array\",\n                \"titleSlug\": \"contiguous-array\",\n                \"hasVideoSolution\": false,\n                \"hasSolution\": true,\n                \"topicTags\": [\n                    {\n                        \"name\": \"Array\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjU=\",\n                        \"slug\": \"array\"\n                    },\n                    {\n                        \"name\": \"Hash Table\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjY=\",\n                        \"slug\": \"hash-table\"\n                    },\n                    {\n                        \"name\": \"Prefix Sum\",\n                        \"id\": \"VG9waWNUYWdOb2RlOjYxMDY4\",\n                        \"slug\": \"prefix-sum\"\n                    }\n                ]\n            }\n        }\n    }\n}\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nGraphQL 응답은 Chrome 개발자 도구의 Network Tab에서 검색되지 않는 게 기본이다. 그래서 일일이 클릭해 확인해야 한다 — 다른 방법 아시면 댓글 부탁 드립니다!\n\n\n실제로는 이렇게 발견하지 않았다. 다른 GraphQL 요청에서 먼저 찾은 dailyCodingChallengeV2라는 단어가 특이하다고 생각해 GitHub에 검색해서 알아냈다. 즉 다른 데서 겨우 찾은 건데 나중에 알고 보니 여기에도 원래 있었다 — 저는 카카오톡으로 스터디하지만 Discord 쓰시는 분 계시면 elprimobot 유용해 보이네요!\n\n\n\nChrome 개발자 도구로 확인한 GraphQL 요청의 Payload\n\n\ncURL로 확인해 보니 특별한 Request Header 없이도 같은 응답이 온다. 이어서 실험한 결과8, operationName, variables 등 불필요한 항목을 지울 수 있었다.\n8 REPL-driven development"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "href": "posts/web/leetcode-daily-crawling/index.html#graphql-query-string",
+    "title": "LeetCode Daily Crawling",
+    "section": "GraphQL Query String",
+    "text": "GraphQL Query String\n어떤 Client는 POST Method나 Request Body를 지원하지 않는다; Browser의 주소 창처럼 GET Method와 주소만으로도 응답이 오면 좋겠다. 그러면 Payload Body를 Query String으로 바꿔야겠다. 띄어쓰기나 특수문자는 어떻게 바꾸지?\nnew URLSearchParams({\"query\": \"query questionOfToday {\\n  activeDailyCodingChallengeQuestion {\\n    date\\n    link\\n    question {\\n      acRate\\n      difficulty\\n      frontendQuestionId: questionFrontendId\\n      title\\n      titleSlug\\n    }\\n  }\\n}\"}).toString()\n// 'query=query+questionOfToday+%7B%0A++activeDailyCodingChallengeQuestion+%7B%0A++++date%0A++++link%0A++++question+%7B%0A++++++acRate%0A++++++difficulty%0A++++++frontendQuestionId%3A+questionFrontendId%0A++++++title%0A++++++titleSlug%0A++++%7D%0A++%7D%0A%7D'\nGET 성공이다. 연속된 +는 하나로 줄였다."
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "href": "posts/web/leetcode-daily-crawling/index.html#google-sheets-as-a-crawling-app",
+    "title": "LeetCode Daily Crawling",
+    "section": "Google Sheets As a Crawling App",
+    "text": "Google Sheets As a Crawling App\nListing 1 의 /problems/contiguous-array/가 완전한 주소였다면 Browser나 카카오톡 채팅방에서 Hyperlink가 지원되어 Click하기 편했을 것이다. https://leetcode.com과 함께 주소 창에 붙여넣으면 되겠지만 불편하다. 겨우 문자열 연산 때문에 Application Server 비용을 부담해야 할까?\n다행히 스터디에서 사용하던 Google Sheets가 GET 요청, 문자열 연산, Hyperlink를 지원한다: IMPORTDATA, CONCATENATE, MID, LEN.\n=IMPORTDATA(\"https://leetcode.com/graphql?query=query+questionOfToday+%7B+activeDailyCodingChallengeQuestion+%7B+link+%7D+%7D\")\n=CONCATENATE(\"https://leetcode.com\", MID(D1, 56, LEN(D1) - 59))\n\n\n\nGoogle Sheets에서 Parsing한 GraphQL JSON 응답\n\n\n한 칸으로 줄이지 못한 이유는 MID와 LEN 함수를 둘다 호출하는 데 IMPORTDATA의 중복 요청을 막기 위해서이다 — 중복 없는 한 칸 방법을 아신다면 댓글로 남겨 주세요!"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#product",
+    "href": "posts/web/leetcode-daily-crawling/index.html#product",
+    "title": "LeetCode Daily Crawling",
+    "section": "Product",
+    "text": "Product\n\n\nhttps://shorturl.at/cdmsZ"
+  },
+  {
+    "objectID": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "href": "posts/web/leetcode-daily-crawling/index.html#limitations",
+    "title": "LeetCode Daily Crawling",
+    "section": "Limitations",
+    "text": "Limitations\n기존 Server처럼 One-click Redirect하지는 못해서 두 번 Click해야 하는 점은 불편하다. 그리고 API에서 Query String을 지원하지 않거나 GET 이외의 Method 또는 Request Header를 요구하면 IMPORTDATA는 쓸 수 없다. 이때는 Google Sheets의 Python 기능이나 아예 다른 방법을 알아봐야겠다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "",
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#problem",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "",
+    "text": "The infinite reinstallation of Chrome Remote Desktop\n\n\n\n\n\n\n\n\n\nFigure 1: Chrome 원격 데스크톱 무한 재설치\n\n\n\n회사에서 쓰던 MacBook Pro가 최신형으로 교체됐다. 그런데 Chrome Remote Desktop이 안 된다!"
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#reasonable-suspicion",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Reasonable Suspicion",
+    "text": "Reasonable Suspicion\n\n\n\n\n\n\n\n\n\n\n\n(a) macOS Sonoma\n\n\n\n\n\n\n\n\n\n\n\n(b) Migration Assistant\n\n\n\n\n\n\n\nFigure 2: Reasonable Suspicion\n\n\n\n결론부터 말하면 문제는 관련 작업 권한이 일부 해제됐다는 것이다. 원인은 다음 3가지를 의심해 볼 수 있었다.\n첫째, macOS Upgrade 때문이다.1 가장 유력하다. 왜냐하면 같은 문제를 겪던 다른 동료도 Upgrade 이력이 있었기 때문이다. 반면에 처음부터 Sonoma로 시작한 동료는 문제가 없었다.\n둘째, 기존 작업들을 Migration Assistant로 옮겼기 때문이다. 문제를 겪던 동료가 사용하지 않았기 때문에 가능성은 낮다. 한편 열어 놨던 창들이 그대로 복원돼 편했다. 재설치를 요구하는 Application도 있었지만 삭제 없이 Drag and drop이면 됐다: Brave (Chrome) Browser, Visual Studio Code, Docker Desktop.\n셋째, Intel Processor에서 Apple Silicon으로 Architecture를 바꿨기 때문이다. 역시 가능성이 없어 보인다. 가령 Steam처럼 Rosetta 설치를 요구하지도 않았기 때문이다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#google-llc",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Google LLC",
+    "text": "Google LLC\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: System Settings &gt; General &gt; Login Items &gt; Allow in the Background &gt; Google LLC\n\n\n\n시스템 설정 &gt; 일반 &gt; 로그인 항목 &gt; 백그라운드에서 허용 &gt; Google LLC를 켜면 된다 (kakadais 2024). 끄면 재발한다."
+  },
+  {
+    "objectID": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "href": "posts/troubleshoot/chrome-remote-desktop/index.html#footnotes",
+    "title": "이 컴퓨터의 Chrome 원격 데스크톱 설치에서 문제가 감지되었습니다.",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nUpgrade는 Update와 다르다 (Apple Support 2024).↩︎"
+  },
+  {
+    "objectID": "posts/database/cv-or-resume/en/index.html",
+    "href": "posts/database/cv-or-resume/en/index.html",
+    "title": "Open-Source CV or Resume Engineering",
+    "section": "",
+    "text": "Switch to Korean\n\n\n\n\n\n\nIntroduction\nAre you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.\nYou can see the live web version and explore the source code here to try it out right away.\nTo get started, simply fork the repository and deploy your CV or resume online using GitHub Pages. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including .pdf and .docx.\nAlternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install Docker Compose, run the commands below, and view your CV at https://localhost:8888/ or in the _site/cv/ directory:\ngit clone https://github.com/yhkee0404/yhkee0404.github.io\ncd yhkee0404.github.io\ndocker compose up -d --force-recreate quarto-preview\n# docker compose down\nThis project draws inspiration from Kyungho (Kay) Kim, founder of the Global Coding Community (GCC), and PIRATE KING, whose resume led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own reference.docx using these instructions, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!\n\n\nObjectives\nThis project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from Bay Area K Group and Hello Interview:\n\nConsistency\n\nMaintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses references instead of copy-paste, enabling automatic propagation of changes from a single source document to all formats via Quarto and Pandoc.\nInspired by database principles: traditional relational database management systems (RDBMSs) address redundancy and update anomalies via eager, static updates (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., “repeatable read” isolation).\nInstead, this workflow like foreign key joins in databases adopts on-demand, lazy evaluation, dynamically resolving updates. Similar concepts include reference variables, class inheritance, and monorepos, where code is shared, not duplicated.\n\nCross-Platform Support\n\nMaintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.\nThis workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within comments, CSS files, or reference documents, making them available for future use without permanent deletion.\nSupport for conditional contents enables precise control over what appears in each output, similar to managing file visibility (see King n.d.a). Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like full-text indexes in databases or inverted indexes in search engines (see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?) — though without any rendering performance gain. Tools like Python Polylith also visualize such dependencies dynamically.\nTraditional relational database management systems (RDBMSs) call related issues insertion and deletion anomalies. While some solutions (like Notion, Confluence, or basic web converters) offer platform independence, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the serializable isolation level. Instead, this workflow leverages nested data structures — including relations, linked lists, trees, graphs, class hierarchies, submodules, polymorphism, dynamic loading, and portable executables — to flexibly manage platform-specific elements. Quarto’s includes feature streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.\n\nEasy Comparison\n\nThe workflow is compatible with Git and GitHub, as it uses plain text files (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.\n\nUser-Friendly Authoring\n\nWriting and maintaining your CV is easier than with LaTeX or typical web development tools, since you primarily use Markdown for content creation and editing.\n\n\nFuture Work\nI hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.\n#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career\nFeel free to contribute, ask questions, or share your feedback!\n\n\n\n\n\n Back to topReferences\n\nKing, Evan. n.d.a. “Design a File Storage Service Like Dropbox.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users.\n\n\n———. n.d.b. “Design a Ticket Booking Site Like Ticketmaster.” Accessed May 10, 2025. https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster.\n\nCitationBibTeX citation:@online{kee2025,\n  author = {Kee, Yunho},\n  title = {Open-Source CV or Resume Engineering},\n  date = {2025-05-15},\n  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},\n  langid = {ko}\n}\nFor attribution, please cite this work as:\nKee, Yunho. 2025. “Open-Source CV or Resume Engineering.”\nMay 15, 2025. https://yhkee0404.github.io/posts/database/cv-or-resume/en/."
+  },
+  {
+    "objectID": "posts/database/xml/index.html",
+    "href": "posts/database/xml/index.html",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semistructured-data",
+    "href": "posts/database/xml/index.html#semistructured-data",
+    "title": "XML",
+    "section": "",
+    "text": "Tag는 Graph의 간선(Arc)에 해당한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#html과-xml의-차이",
+    "href": "posts/database/xml/index.html#html과-xml의-차이",
+    "title": "XML",
+    "section": "HTML과 XML의 차이",
+    "text": "HTML과 XML의 차이\nHTML(Hypertext Markup Language)은 presentation, XML(Extensible Markup Language)은 meanings를 표현한다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#semantic-tags",
+    "href": "posts/database/xml/index.html#semantic-tags",
+    "title": "XML",
+    "section": "Semantic Tags",
+    "text": "Semantic Tags\n\nElement\n\nText | OpeningTag Element ClosingTag | SingleTag\n\n\nTag는 Attribute가 있다."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#xml-schema",
+    "href": "posts/database/xml/index.html#xml-schema",
+    "title": "XML",
+    "section": "XML Schema",
+    "text": "XML Schema\nDTD(Document Type Definition)가 없으면 Well-formed Mode, 있으면 Valid XML."
+  },
+  {
+    "objectID": "posts/database/xml/index.html#dtd의-유연성",
+    "href": "posts/database/xml/index.html#dtd의-유연성",
+    "title": "XML",
+    "section": "DTD의 유연성",
+    "text": "DTD의 유연성\nOptional Field나 Missing Field를 허용한다."
+  },
+  {
+    "objectID": "cv/en/index.html",
+    "href": "cv/en/index.html",
+    "title": "Yunho Kee",
+    "section": "",
+    "text": "Switch to Korean\n\n\n\n  View PDF\n\n\n\n  Download PDF\n\n\n\n  Download MS Word\n\n\n\n  View Source"
+  },
+  {
+    "objectID": "cv/en/index.html#dummy",
+    "href": "cv/en/index.html#dummy",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
+  },
+  {
+    "objectID": "cv/en/index.html#dummy-1",
+    "href": "cv/en/index.html#dummy-1",
+    "title": "Yunho Kee",
+    "section": "dummy",
+    "text": "dummy"
   }
 ]
