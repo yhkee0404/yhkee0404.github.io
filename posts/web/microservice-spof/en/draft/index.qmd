@@ -23,6 +23,15 @@ bibliography:
 #     icon: translate
 #     rel: alternate
 #     # hreflang: ko-KR
+format:
+  html:
+    css:
+      - styles.css
+draft: true
+search: false
+comments: false
+adsense:
+  enable-ads: false
 ---
 
 :::::{.quarto-about-jolla}
@@ -115,7 +124,7 @@ If **classes** and **methods** are implemented as a **microservice** program, th
 Netflix is well-known for its use of **microservices**, and they have also developed a testing tool called Chaos Monkey [@stanko2022single].
 
 @stanko2022single presents an engaging visualization of the differences between **monoliths** and **microservices**.
-However, the claim by @stanko2022single that the availability of the program he came up with is $50\%$ for **monolith** and $25\%$ for **microservice** is not convincing.
+However, the claim by @stanko2022single that the availability of the program he came up with is $50\%$ for **monolith** and $25\%$ for **microservice** was not about the **source code**.
 Failures caused by defects in the **source code** should result in a $25\%$ availability regardless of whether the deployment is **monolith** (one program) or **microservice** (two or more programs).
 For example, if you run a **source code** that outputs only when the sum of two random numbers (0 or 1) is 0, the availability is $25\%$ whether the random generation is sequential or parallel, or whether the deployment is **monolith** or **microservice**.
 When deploying this program as **microservice** instead of a **monolith**, the **single point of failure** (**SPOF**) is not increased to two; even in a **monolith**, there are two **single points of failure** (**SPOFs**) due to dependencies between results.
@@ -138,12 +147,33 @@ For example, **NAND Flash memory** faces similar opportunity costs in terms of q
 Generally, **single-level cell** (**SLC**) flash is more expensive and performs better than **quad-level cell** (**QLC**) flash.
 In other words, **monoliths** may suffer from disadvantages similar to those of **quad-level cell** (**QLC**) flash.
 
-In the following paragraphs, we will compare availability only from the perspective of the **source code**.
+### The Visualized Trade-Offs Between Monoliths and Microservices
+
+@fig-microservice-spof-missing-microservice explains this difficulty of comparison regarding **hardware**.
+The availability of the same **source code** is shared as equal in between both of the deployment methods, **microservices** and **monoliths**, as described earlier.
+
+```{mermaid}
+%%| label: fig-microservice-spof-hardware
+%%| fig-cap: "A diagram of comparison between **microservices** and **monoliths** concerning **hardware**."
+%%| file: /_js/microservice-spof-hardware.mmd
+```
+
+It might seem that $\frac 2 4 = 50\%$ in the **monolith** gets lower to $\frac 2 4 \times \frac 2 4 = 25\%$ in the **microservice** because of asynchronous **hardwares**.
+However, the joint probability of availability is dependent on the more granular availabilities of the resource units inside the hardware units.
+It follows that $\frac 2 4 \times \frac 2 4 = 25\%$ in the **microservice** may even lower to $\frac 2 4 \times \frac 1 3 = \frac 1 6 \approx 17.67\%$ in the **monolith** since the available resource units in the **monolith** **hardware** get contended as more as each one of them is consumed; from $\frac 2 4$, to $\frac 1 3$, and to $\frac 0 2$.
+
+Nevertheless, the availability in the **microservice** could still decrease relying on the availability of the optional **api gateway** and that of the yellow routing arrows.
+It can be simper when we consider the probabillities the yellow edges denote as included in the following affected resource units.
+If only the availability of the following unit shrinks from $\frac 2 4$ further to less than $\frac 1 3$, **monolith** might beat the **microservice**.
+
+The problem is that the internal availabilities of **hardware** units are not fixed as independent constants but conditional and interdependent on the amount of consumption.
+Therefore, in the following paragraphs, we will compare availability only from the perspective of the **source code**.
 
 ### The Visualized Benefits of Horizontal Scaling (Scale-Out) of Microservices
 
 **Horizontal scaling** (**scale-out**) is a strategy to remove **single points of failure** (**SPOFs**) and increase availability.
-In reviewing the analysis of @stanko2022single, it appears that two available states of **microservices** displayed in @fig-microservice-spof-missing-microservice have been omitted out of 16 possible states, leading to slight miscalculations of the availability as $\frac 7 {14} = 50\%$, and the availability of **monoliths** $75\%$ could benefit from further consideration of internal dependencies in the **source code**.
+In reviewing the analysis of @stanko2022single, it appears that two available states of **microservices** displayed in @fig-microservice-spof-missing-microservice have been omitted out of 16 possible states, leading to slight miscalculations of the availability as $\frac 7 {14} = 50\%$.
+Although the original calculation was conducted regardless of **source code** and the other availability of $75\%$ for the **horizontally scaled** (**scaled-out**) **monolith** turns out as uncertain according to the previous explanation about **hardware**, we could still gain insights from the beautifully animated diagrams and discuss further about **source code** as well.
 
 :::{#fig-microservice-spof-missing-microservice layout-ncol=2}
 ![](/_images/diagrams/microservice-spof-missing-microservice-15.jpg){group="fig-microservice-spof-missing-microservice" fig-alt="A missing photo in stanko's gif animation of system up."}

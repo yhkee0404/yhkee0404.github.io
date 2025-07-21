@@ -1,0 +1,6 @@
+/* css styles */
+:root {
+  --mermaid-fg-color--lighter: #000000;
+  --mermaid-fg-color--lightest: #ffffff;
+  --mermaid-node-fg-color: #000000;
+}
