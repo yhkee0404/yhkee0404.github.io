@@ -38,11 +38,14 @@
 [bird clear sky model]: https://github.com/NREL/SolarResourceModelsandTools/issues/4
 [github learning lab]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Your+GitHub+Learning+Lab+Repository+for+GitHub+Pages.%22&type=repositories&s=&o=desc
 [github skills]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Create+a+site+or+blog+from+your+GitHub+repositories+with+GitHub+Pages.%22&type=repositories&s=&o=desc
+[github learning lab and skills]: https://github.com/search?q=in%3Areadme+-user%3A%40me+%22Create+a+site+or+blog+from+your+GitHub+repositories+with+GitHub+Pages.%22+OR+%22Your+GitHub+Learning+Lab+Repository+for+GitHub+Pages.%22&type=repositories&s=&o=desc
 [github-pages-template]: https://github.com/githubtraining/github-pages/issues/36
-[python-polylith-example]: https://github.com/DavidVujic/python-polylith-example/pull/13
+[python-polylith-example 1]: https://github.com/DavidVujic/python-polylith-example/pull/13
+[python-polylith-example 2]: https://github.com/DavidVujic/python-polylith-example-hatch/pull/2
 [jira-export]: https://github.com/netresearch/jira-export/pull/7
 [netresearch]: https://netresearch.github.io/
 [url-is-strange]: https://github.com/kakaopay/techlog-comments/discussions/99#discussioncomment-10793505
+[types-confluent-kafka callback]: https://github.com/benbenbang/types-confluent-kafka/pull/240
 
 [backtracking pruning]: https://www.acmicpc.net/board/view/159200
 [nonlinear regression]: https://www.acmicpc.net/board/view/158310

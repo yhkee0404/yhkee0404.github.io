@@ -204,7 +204,7 @@ Released the **first** [open-source][open-source] deep learning framework among 
 
 :::{custom-style="Custom Justified" .column-page-inset}
 
-[Quarto][quarto 2] (PowerShell), [Posit][posit] ([RStudio Inc][rstudio]) | [pvlib python][pvlib linkedin], [Sandia (SNL)][sandia] | [Static JIRA issue export][jira-export] (PHP), [Netresearch][netresearch] | [Python Polylith Example][python-polylith-example] (Serverless Framework) | [Course: GitHub Pages][github-pages-template], 61.8k ([42k][github skills]+[19.8k][github learning lab]) repositories (Jekyll)
+[types-confluent-kafka][types-confluent-kafka callback] (Python) | Posit (RStudio Inc) [Quarto][quarto 2] (PowerShell) | Sandia (SNL) [pvlib python][pvlib linkedin] | [Static JIRA issue export][jira-export] (PHP) | Python Polylith Example ([Serverless Framework][python-polylith-example 1], [Shell][python-polylith-example 2]) | [Course: GitHub Pages][github-pages-template] ([65.2k][github learning lab and skills] repos, Jekyll)
 
 :::
 
