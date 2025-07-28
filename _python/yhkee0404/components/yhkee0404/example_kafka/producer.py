@@ -39,7 +39,7 @@ def produce(topic: str, key: str, value: str) -> None:
 
     producer = get_producer()
 
-    producer.produce(topic, value, key, callback=_acked)  # type: ignore[reportCallIssue]
+    producer.produce(topic, value, key, callback=_acked)
 
     producer.poll(10000)
     producer.flush()

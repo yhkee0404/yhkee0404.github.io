@@ -24,7 +24,7 @@ dev = [
   "pyright>=1.1.402",
   "pytest>=8.4.0",
   "ruff>=0.11.13",
-  "types-confluent-kafka>=1.3.3",
+  "types-confluent-kafka>=1.3.6",
 ]
 
 [tool.uv.workspace]
