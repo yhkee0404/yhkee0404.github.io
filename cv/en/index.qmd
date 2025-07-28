@@ -1,7 +1,7 @@
 ---
 title: "Yunho Kee"
 # Keep date from being printed in MS Word
-date-modified: 2025-05-08
+date-modified: 2025-07-28
 blog: "https://yhkee0404.github.io/cv/en/"
 format-links:
   - text: Korean

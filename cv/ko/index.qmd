@@ -1,7 +1,7 @@
 ---
 title: "기윤호 | 품질을 높이는 백엔드 개발"
 # date가 MS Word에 기본 출력되는 것을 우회합니다.
-date-modified: 2025-05-12
+date-modified: 2025-07-28
 blog: "https://yhkee0404.github.io/cv/ko/"
 lang: ko-KR
 format:
