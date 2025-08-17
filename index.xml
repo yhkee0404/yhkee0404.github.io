@@ -15,7 +15,7 @@
 <title>Source Thoughts in a Monorepo</title>
 <link>https://yhkee0404.github.io/</link>
 </image>
-<generator>quarto-1.7.32</generator>
+<generator>quarto-1.7.33</generator>
 <lastBuildDate>Mon, 09 Jun 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>PEP 751: Python pylock.toml의 requirements.txt 대체</title>
@@ -1229,127 +1229,6 @@ Kee, Yunho. 2025. <span>“Transformer에서 배울 점.”</span> May 25, 2025.
   <media:content url="https://yhkee0404.github.io/_images/thumbnails/mohit-kumar-6M9xiVgkoN0-unsplash.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Open-Source CV or Resume Engineering</title>
-  <dc:creator>Yunho Kee</dc:creator>
-  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div class="quarto-about-jolla">
-<div class="about-entity">
-<div class="about-links">
-<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
-  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
-</a>
-</div>
-</div>
-</div>
-<p><a href="../../../../_images/pdf/yhkee0404-cv-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" class="img-fluid" alt="A photo of a CV."></a></p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.</p>
-<p>You can <a href="https://yhkee0404.github.io/cv/en/">see the live web version</a> and <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd">explore the source code here</a> to try it out right away.</p>
-<p>To get started, simply <a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">fork the repository</a> and deploy your CV or resume online using <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including <code>.pdf</code> and <code>.docx</code>.</p>
-<p>Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>, run the commands below, and view your CV at <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a> or in the <code>_site/cv/</code> directory:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
-<span id="cb1-2"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">cd</span> yhkee0404.github.io</span>
-<span id="cb1-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-d</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--force-recreate</span> quarto-preview</span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># docker compose down</span></span></code></pre></div>
-<p>This project draws inspiration from <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a>, founder of the <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>, and <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a>, whose <a href="https://www.piratekingdom.com/resume">resume</a> led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own <code>reference.docx</code> using <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">these instructions</a>, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!</p>
-</section>
-<section id="objectives" class="level1">
-<h1>Objectives</h1>
-<p>This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from <a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a> and <a href="https://www.youtube.com/@hello_interview">Hello Interview</a>:</p>
-<ol type="1">
-<li>Consistency</li>
-</ol>
-<p>Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses <strong>references instead of copy-paste</strong>, enabling automatic propagation of changes from a single source document to all formats via <strong>Quarto</strong> and <strong>Pandoc</strong>.</p>
-<p>Inspired by database principles: traditional relational database management systems (RDBMSs) address <strong>redundancy</strong> and <strong>update anomalies</strong> via <strong>eager, static updates</strong> (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., <strong>“repeatable read” isolation</strong>).</p>
-<p>Instead, this workflow like foreign key joins in databases adopts <strong>on-demand, lazy evaluation</strong>, dynamically resolving updates. Similar concepts include <strong>reference variables</strong>, <strong>class inheritance</strong>, and <strong>monorepos</strong>, where code is shared, not duplicated.</p>
-<ol start="2" type="1">
-<li>Cross-Platform Support</li>
-</ol>
-<p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
-<p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
-<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
-<p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
-<ol start="3" type="1">
-<li>Easy Comparison</li>
-</ol>
-<p>The workflow is compatible with Git and GitHub, as it uses <strong>plain text files</strong> (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.</p>
-<ol start="4" type="1">
-<li>User-Friendly Authoring</li>
-</ol>
-<p>Writing and maintaining your CV is easier than with <a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a> or typical web development tools, since you primarily use Markdown for content creation and editing.</p>
-</section>
-<section id="future-work" class="level1">
-<h1>Future Work</h1>
-<p>I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.</p>
-<p>#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career</p>
-<p><strong>Feel free to contribute, ask questions, or share your feedback!</strong></p>
-
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-king_dropbox_sharelist" class="csl-entry">
-King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
-</div>
-<div id="ref-king_ticketmaster" class="csl-entry">
-———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
-  author = {Kee, Yunho},
-  title = {Open-Source CV or Resume Engineering},
-  date = {2025-05-15},
-  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},
-  langid = {ko}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
-Kee, Yunho. 2025. <span>“Open-Source CV or Resume Engineering.”</span>
-May 15, 2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/en/">https://yhkee0404.github.io/posts/database/cv-or-resume/en/</a>.
-</div></div></section></div> ]]></description>
-  <category>database</category>
-  <category>cv</category>
-  <category>resume</category>
-  <category>consistency</category>
-  <category>cross-platform</category>
-  <category>platform independence</category>
-  <category>references</category>
-  <category>anomalies</category>
-  <category>eager</category>
-  <category>lazy</category>
-  <category>isolation</category>
-  <category>on-demand</category>
-  <category>inheritance</category>
-  <category>monorepo</category>
-  <category>full-text index</category>
-  <category>inverted index</category>
-  <category>LaTeX</category>
-  <category>large language models</category>
-  <category>open-source</category>
-  <category>Bay Area K Group</category>
-  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</guid>
-  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" medium="image" type="image/png" height="186" width="144"/>
-</item>
-<item>
   <title>오픈소스 이력서 엔지니어링</title>
   <dc:creator>Yunho Kee</dc:creator>
   <link>https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</link>
@@ -1522,6 +1401,127 @@ Kee, Yunho. 2025. <span>“오픈소스 이력서 엔지니어링.”</span> May
   <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/ko/</guid>
   <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
   <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-ko-2025-05-12-1-3.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>Open-Source CV or Resume Engineering</title>
+  <dc:creator>Yunho Kee</dc:creator>
+  <link>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-about-jolla">
+<div class="about-entity">
+<div class="about-links">
+<a href="../ko/" class="about-link" rel="alternate" hreflang="ko-KR">
+  <i class="bi bi-translate"></i><span class="about-link-text">Switch to Korean</span>
+</a>
+</div>
+</div>
+</div>
+<p><a href="../../../../_images/pdf/yhkee0404-cv-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" class="img-fluid" alt="A photo of a CV."></a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Are you looking for a better way to manage and maintain documents with similar content, such as your CV or resume? This open-source project offers an automated, cross-platform workflow that makes it easy to create, update, and compare consistent CVs and resumes.</p>
+<p>You can <a href="https://yhkee0404.github.io/cv/en/">see the live web version</a> and <a href="https://github.com/yhkee0404/yhkee0404.github.io/blob/main/cv/en/index.qmd">explore the source code here</a> to try it out right away.</p>
+<p>To get started, simply <a href="https://github.com/yhkee0404/yhkee0404.github.io/fork">fork the repository</a> and deploy your CV or resume online using <a href="https://quarto.org/docs/publishing/github-pages.html#source-branch">GitHub Pages</a>. This setup allows you to serve your CV or resume as a web page and enables easy downloads in multiple formats, including <code>.pdf</code> and <code>.docx</code>.</p>
+<p>Alternatively, you can clone the repository and preview your CV locally without installing Quarto or LibreOffice. Just install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>, run the commands below, and view your CV at <a href="https://localhost:8888/" class="uri">https://localhost:8888/</a> or in the <code>_site/cv/</code> directory:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/yhkee0404/yhkee0404.github.io</span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> yhkee0404.github.io</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force-recreate</span> quarto-preview</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># docker compose down</span></span></code></pre></div>
+<p>This project draws inspiration from <a href="https://www.linkedin.com/in/kaykim30/">Kyungho (Kay) Kim</a>, founder of the <a href="https://lnkd.in/gf5b-e26">Global Coding Community (GCC)</a>, and <a href="https://www.linkedin.com/in/pirateking/">PIRATE KING</a>, whose <a href="https://www.piratekingdom.com/resume">resume</a> led to offers from Google, Microsoft, and Amazon. I believe we can make it even better together. You can create your own <code>reference.docx</code> using <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">these instructions</a>, and I’ve included information in my version on how I built it from scratch. Feel free to share your own versions, feedback, or questions!</p>
+</section>
+<section id="objectives" class="level1">
+<h1>Objectives</h1>
+<p>This project aims to streamline the process of creating consistent, cross-platform, and easily comparable and writable CVs and resumes. Here are some key benefits and features informed by insights I gained from <a href="https://www.linkedin.com/company/bay-area-k-group/">Bay Area K Group</a> and <a href="https://www.youtube.com/@hello_interview">Hello Interview</a>:</p>
+<ol type="1">
+<li>Consistency</li>
+</ol>
+<p>Maintaining consistency across CV or resume formats (PDF, DOCX, web) is challenging, as updating each version manually is error-prone. This workflow uses <strong>references instead of copy-paste</strong>, enabling automatic propagation of changes from a single source document to all formats via <strong>Quarto</strong> and <strong>Pandoc</strong>.</p>
+<p>Inspired by database principles: traditional relational database management systems (RDBMSs) address <strong>redundancy</strong> and <strong>update anomalies</strong> via <strong>eager, static updates</strong> (atomic transactions, or possibly thread synchronization) or by ignoring changes (e.g., <strong>“repeatable read” isolation</strong>).</p>
+<p>Instead, this workflow like foreign key joins in databases adopts <strong>on-demand, lazy evaluation</strong>, dynamically resolving updates. Similar concepts include <strong>reference variables</strong>, <strong>class inheritance</strong>, and <strong>monorepos</strong>, where code is shared, not duplicated.</p>
+<ol start="2" type="1">
+<li>Cross-Platform Support</li>
+</ol>
+<p>Maintaining reusable content and styles can be difficult with simple converters, especially when elements are unique to a specific platform. Manual edits to converted files are easily lost when the source content changes, leading to repeated work and potential data loss.</p>
+<p>This workflow solves the problem by allowing you to reference even isolated or incomplete content and styles. You can preprocess elements within <strong>comments</strong>, <strong>CSS files</strong>, or <strong>reference documents</strong>, making them available for future use without permanent deletion.</p>
+<p>Support for <a href="https://quarto.org/docs/authoring/conditional.html">conditional contents</a> enables precise control over what appears in each output, similar to managing file visibility <span class="citation" data-cites="king_dropbox_sharelist">(see King n.d.a)</span>. Unlike typical build tools (e.g., Maven, Gradle, npm) that define dependencies per build, this workflow can declare builds per dependency or section. It helps you quickly locate relevant formats — much like <strong>full-text indexes</strong> in databases or <strong>inverted indexes</strong> in search engines <span class="citation" data-cites="king_ticketmaster">(see King n.d.b, Section Potential Deep Dives 4) How can you improve search to ensure we meet our low latency requirements?)</span> — though without any rendering performance gain. Tools like Python Polylith also <a href="https://davidvujic.blogspot.com/2024/02/python-monorepo-visualization.html">visualize</a> such dependencies dynamically.</p>
+<p>Traditional relational database management systems (RDBMSs) call related issues <strong>insertion and deletion anomalies</strong>. While some solutions (like Notion, Confluence, or basic web converters) offer <strong>platform independence</strong>, they often oversimplify and risk losing custom content or style, much like the brute-force approach of the <strong>serializable</strong> isolation level. Instead, this workflow leverages <strong>nested data structures</strong> — including <strong>relations</strong>, <strong>linked lists</strong>, <strong>trees</strong>, <strong>graphs</strong>, <strong>class hierarchies</strong>, <strong>submodules</strong>, <strong>polymorphism</strong>, <strong>dynamic loading</strong>, and <strong>portable executables</strong> — to flexibly manage platform-specific elements. Quarto’s <a href="https://quarto.org/docs/authoring/includes.html">includes feature</a> streamlines reuse, though it should be used thoughtfully to avoid a mental stack overflow.</p>
+<ol start="3" type="1">
+<li>Easy Comparison</li>
+</ol>
+<p>The workflow is compatible with Git and GitHub, as it uses <strong>plain text files</strong> (such as Markdown), enabling you to efficiently track changes, review history, and compare versions using standard version control tools.</p>
+<ol start="4" type="1">
+<li>User-Friendly Authoring</li>
+</ol>
+<p>Writing and maintaining your CV is easier than with <a href="https://github.com/schochastics/modern2-cv/blob/main/_extensions/modern2-cv/template.tex">LaTeX</a> or typical web development tools, since you primarily use Markdown for content creation and editing.</p>
+</section>
+<section id="future-work" class="level1">
+<h1>Future Work</h1>
+<p>I hope this workflow inspires you to find new ways to leverage large language models (LLMs) to advance your career even more effectively and efficiently.</p>
+<p>#OpenSource hashtag#CV hashtag#Resume hashtag#Quarto hashtag#Markdown hashtag#GitHub hashtag#Automation hashtag#SWE hashtag#SoftwareEngineer hashtag#Developer hashtag#Career</p>
+<p><strong>Feel free to contribute, ask questions, or share your feedback!</strong></p>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-king_dropbox_sharelist" class="csl-entry">
+King, Evan. n.d.a. <span>“Design a File Storage Service Like Dropbox.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users">https://www.hellointerview.com/learn/system-design/problem-breakdowns/dropbox#3-users-should-be-able-to-share-a-file-with-other-users</a>.
+</div>
+<div id="ref-king_ticketmaster" class="csl-entry">
+———. n.d.b. <span>“Design a Ticket Booking Site Like Ticketmaster.”</span> Accessed May 10, 2025. <a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster">https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{kee2025,
+  author = {Kee, Yunho},
+  title = {Open-Source CV or Resume Engineering},
+  date = {2025-05-15},
+  url = {https://yhkee0404.github.io/posts/database/cv-or-resume/en/},
+  langid = {ko}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-kee2025" class="csl-entry quarto-appendix-citeas">
+Kee, Yunho. 2025. <span>“Open-Source CV or Resume Engineering.”</span>
+May 15, 2025. <a href="https://yhkee0404.github.io/posts/database/cv-or-resume/en/">https://yhkee0404.github.io/posts/database/cv-or-resume/en/</a>.
+</div></div></section></div> ]]></description>
+  <category>database</category>
+  <category>cv</category>
+  <category>resume</category>
+  <category>consistency</category>
+  <category>cross-platform</category>
+  <category>platform independence</category>
+  <category>references</category>
+  <category>anomalies</category>
+  <category>eager</category>
+  <category>lazy</category>
+  <category>isolation</category>
+  <category>on-demand</category>
+  <category>inheritance</category>
+  <category>monorepo</category>
+  <category>full-text index</category>
+  <category>inverted index</category>
+  <category>LaTeX</category>
+  <category>large language models</category>
+  <category>open-source</category>
+  <category>Bay Area K Group</category>
+  <guid>https://yhkee0404.github.io/posts/database/cv-or-resume/en/</guid>
+  <pubDate>Thu, 15 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://yhkee0404.github.io/_images/pdf/yhkee0404-cv-en.png" medium="image" type="image/png" height="186" width="144"/>
 </item>
 <item>
   <title></title>
